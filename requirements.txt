@@ -1,0 +1,9 @@
+pygame
+gtts
+edge-tts
+faster-whisper
+ctranslate2
+sounddevice
+numpy
+ollama
+
