@@ -15,3 +15,9 @@ Thumbs.db
 # IDE/editor files
 .vscode/
 .idea/
+
+# Passwords
+.env
+
+# Dev notes/ideas
+notes
