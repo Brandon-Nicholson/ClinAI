@@ -1,0 +1,601 @@
+text,label
+Schedule me with Dr. Hernandez,APPT_NEW
+Schedule me for primary care,APPT_NEW
+Please schedule obstetrics,APPT_NEW
+I want to see Dr. Clark,APPT_NEW
+need psychiatry,APPT_NEW
+New appointment for family medicine,APPT_NEW
+Please schedule pediatrics,APPT_NEW
+New appointment for primary care,APPT_NEW
+looking for internal medicine,APPT_NEW
+Please schedule gastroenterology,APPT_NEW
+I’d like to see a family medicine specialist,APPT_NEW
+New appointment for endocrinology,APPT_NEW
+Book me for primary care,APPT_NEW
+Set up an appointment with Dr. Brown,APPT_NEW
+New appointment for nephrology,APPT_NEW
+I’d like an appointment with Dr. Rivera,APPT_NEW
+I want a internal medicine visit,APPT_NEW
+urology,APPT_NEW
+Schedule me with Dr. Lee,APPT_NEW
+I need to see a orthopedics,APPT_NEW
+need psychiatry,APPT_NEW
+Set up an appointment with Dr. Clark,APPT_NEW
+Schedule me with Dr. Johnson,APPT_NEW
+Schedule me with Dr. Kim,APPT_NEW
+looking for gynecology,APPT_NEW
+family medicine visit,APPT_NEW
+Book me for physical therapy,APPT_NEW
+I want to see Dr. Rivera,APPT_NEW
+endocrinology appointment,APPT_NEW
+I’d like to see a family medicine specialist,APPT_NEW
+Schedule me with Dr. Patel,APPT_NEW
+Set up an appointment with Dr. Patel,APPT_NEW
+Book me with Dr. Nguyen,APPT_NEW
+looking for gastroenterology,APPT_NEW
+I want a ophthalmology visit,APPT_NEW
+I need to see a obstetrics,APPT_NEW
+Can I get cardiology next week,APPT_NEW
+Schedule me with Dr. Brown,APPT_NEW
+I’d like to see a obstetrics specialist,APPT_NEW
+set up gynecology,APPT_NEW
+gynecology appointment,APPT_NEW
+I’d like an appointment with Dr. Lopez,APPT_NEW
+I want a ophthalmology visit,APPT_NEW
+Schedule me with Dr. Garcia,APPT_NEW
+Book me for immunology,APPT_NEW
+Book me for oncology,APPT_NEW
+Please schedule with Dr. Lopez,APPT_NEW
+allergy appointment,APPT_NEW
+Can I get in with Dr. Clark,APPT_NEW
+I want to see Dr. Johnson,APPT_NEW
+immunology,APPT_NEW
+I want to see a gynecology,APPT_NEW
+Please schedule with Dr. Lopez,APPT_NEW
+I’d like an appointment with Dr. Hernandez,APPT_NEW
+Please schedule gynecology,APPT_NEW
+I want to see Dr. Lopez,APPT_NEW
+I need a otolaryngology appointment,APPT_NEW
+primary care visit,APPT_NEW
+schedule dermatology,APPT_NEW
+need psychiatry,APPT_NEW
+ophthalmology visit,APPT_NEW
+I need to see a gynecology,APPT_NEW
+I need a dermatology appointment,APPT_NEW
+Schedule me for neurology,APPT_NEW
+I’d like to see a urology specialist,APPT_NEW
+Schedule me with Dr. Clark,APPT_NEW
+rheumatology appointment,APPT_NEW
+I want a neurology visit,APPT_NEW
+family medicine appointment,APPT_NEW
+I need to see a urology,APPT_NEW
+New appointment for endocrinology,APPT_NEW
+looking for urology,APPT_NEW
+Set up an appointment with Dr. Lopez,APPT_NEW
+Book me with Dr. Martinez,APPT_NEW
+I need a primary care appointment,APPT_NEW
+looking for ophthalmology,APPT_NEW
+schedule allergy,APPT_NEW
+New appointment for physical therapy,APPT_NEW
+I’d like to see a gynecology specialist,APPT_NEW
+I need a oncology appointment,APPT_NEW
+set up primary care,APPT_NEW
+Can I get nephrology next week,APPT_NEW
+Schedule me with Dr. Nguyen,APPT_NEW
+Please schedule with Dr. Martinez,APPT_NEW
+I’d like to see a oncology specialist,APPT_NEW
+Can I get in with Dr. Johnson,APPT_NEW
+Schedule me with Dr. Clark,APPT_NEW
+Book me with Dr. Brown,APPT_NEW
+cardiology appointment,APPT_NEW
+Schedule me for physical therapy,APPT_NEW
+looking for family medicine,APPT_NEW
+I’d like to see a pediatrics specialist,APPT_NEW
+Please schedule with Dr. Smith,APPT_NEW
+Can I get nephrology next week,APPT_NEW
+Please schedule orthopedics,APPT_NEW
+I want a pulmonology visit,APPT_NEW
+I want to see Dr. Davis,APPT_NEW
+Book me with Dr. Davis,APPT_NEW
+schedule physical therapy,APPT_NEW
+I need a orthopedics appointment,APPT_NEW
+New appointment for primary care,APPT_NEW
+pulmonology visit,APPT_NEW
+Can I get in with Dr. Patel,APPT_NEW
+Can I get endocrinology next week,APPT_NEW
+I need a allergy appointment,APPT_NEW
+Book me for physical therapy,APPT_NEW
+New appointment for neurology,APPT_NEW
+immunology appointment,APPT_NEW
+I want to see Dr. Davis,APPT_NEW
+looking for family medicine,APPT_NEW
+I need to see a gastroenterology,APPT_NEW
+Set up an appointment with Dr. Nguyen,APPT_NEW
+I want a dermatology visit,APPT_NEW
+I want to see a primary care,APPT_NEW
+looking for urology,APPT_NEW
+Schedule me for psychiatry,APPT_NEW
+I need a obstetrics appointment,APPT_NEW
+book internal medicine,APPT_NEW
+Set up an appointment with Dr. Garcia,APPT_NEW
+Book me for obstetrics,APPT_NEW
+Set up an appointment with Dr. Lopez,APPT_NEW
+family medicine appointment,APPT_NEW
+Schedule me for allergy,APPT_NEW
+I want a cardiology visit,APPT_NEW
+schedule neurology,APPT_NEW
+I need to see a endocrinology,APPT_NEW
+Book me with Dr. Clark,APPT_NEW
+Schedule me with Dr. Johnson,APPT_NEW
+I need to see a cardiology,APPT_NEW
+need ophthalmology,APPT_NEW
+need orthopedics,APPT_NEW
+Please schedule with Dr. Nguyen,APPT_NEW
+Book me with Dr. Patel,APPT_NEW
+Can I get in with Dr. Lopez,APPT_NEW
+I need to see a pulmonology,APPT_NEW
+Can I get in with Dr. Rivera,APPT_NEW
+New appointment for internal medicine,APPT_NEW
+I want a psychiatry visit,APPT_NEW
+primary care,APPT_NEW
+I’d like to see a urology specialist,APPT_NEW
+Book me with Dr. Lee,APPT_NEW
+need endocrinology,APPT_NEW
+Can I get in with Dr. Patel,APPT_NEW
+I want a family medicine visit,APPT_NEW
+Set up an appointment with Dr. Young,APPT_NEW
+looking for oncology,APPT_NEW
+Set up an appointment with Dr. Nguyen,APPT_NEW
+book endocrinology,APPT_NEW
+need gynecology,APPT_NEW
+Book me with Dr. Hernandez,APPT_NEW
+New appointment for obstetrics,APPT_NEW
+Schedule me with Dr. Nguyen,APPT_NEW
+rheumatology appointment,APPT_NEW
+set up internal medicine,APPT_NEW
+I’d like to see a psychiatry specialist,APPT_NEW
+Schedule me for pulmonology,APPT_NEW
+I want to see a ophthalmology,APPT_NEW
+endocrinology visit,APPT_NEW
+family medicine visit,APPT_NEW
+Set up an appointment with Dr. Garcia,APPT_NEW
+Please schedule otolaryngology,APPT_NEW
+I want to see Dr. Davis,APPT_NEW
+cardiology,APPT_NEW
+Set up an appointment with Dr. Hernandez,APPT_NEW
+set up dermatology,APPT_NEW
+Schedule me for gynecology,APPT_NEW
+book family medicine,APPT_NEW
+New appointment for otolaryngology,APPT_NEW
+Book me for gynecology,APPT_NEW
+I want a neurology visit,APPT_NEW
+Can I get in with Dr. Hernandez,APPT_NEW
+rheumatology,APPT_NEW
+I want a allergy visit,APPT_NEW
+Please schedule dermatology,APPT_NEW
+Please schedule with Dr. Lopez,APPT_NEW
+Can I get cardiology next week,APPT_NEW
+Please schedule with Dr. Martinez,APPT_NEW
+endocrinology appointment,APPT_NEW
+Please schedule with Dr. Rivera,APPT_NEW
+urology appointment,APPT_NEW
+I’d like to see a physical therapy specialist,APPT_NEW
+I’d like to see a nephrology specialist,APPT_NEW
+I want to see a oncology,APPT_NEW
+allergy,APPT_NEW
+Set up an appointment with Dr. Young,APPT_NEW
+need ophthalmology,APPT_NEW
+rheumatology visit,APPT_NEW
+looking for endocrinology,APPT_NEW
+Schedule me for family medicine,APPT_NEW
+Book me for oncology,APPT_NEW
+I’d like to see a orthopedics specialist,APPT_NEW
+Schedule me with Dr. Young,APPT_NEW
+orthopedics visit,APPT_NEW
+Book me for oncology,APPT_NEW
+I’d like to see a cardiology specialist,APPT_NEW
+I’d like to see a immunology specialist,APPT_NEW
+Schedule me for pediatrics,APPT_NEW
+book primary care,APPT_NEW
+Book me with Dr. Brown,APPT_NEW
+I want a dermatology visit,APPT_NEW
+Can I get in with Dr. Hernandez,APPT_NEW
+I want to see a urology,APPT_NEW
+Can I get cardiology next week,APPT_NEW
+Please schedule with Dr. Brown,APPT_NEW
+I want to see Dr. Martinez,APPT_NEW
+Can I get primary care next week,APPT_NEW
+looking for gastroenterology,APPT_NEW
+Schedule me for cardiology,APPT_NEW
+Can I get in with Dr. Patel,APPT_NEW
+New appointment for primary care,APPT_NEW
+Book me for nephrology,APPT_NEW
+nephrology appointment,APPT_NEW
+family medicine,APPT_NEW
+internal medicine appointment,APPT_NEW
+Schedule me with Dr. Davis,APPT_NEW
+I’d like an appointment with Dr. Johnson,APPT_NEW
+psychiatry visit,APPT_NEW
+Schedule me with Dr. Smith,APPT_NEW
+Schedule me with Dr. Johnson,APPT_NEW
+Schedule me for immunology,APPT_NEW
+looking for endocrinology,APPT_NEW
+I need to see a obstetrics,APPT_NEW
+Set up an appointment with Dr. Young,APPT_NEW
+Please schedule with Dr. Brown,APPT_NEW
+I’d like an appointment with Dr. Brown,APPT_NEW
+neurology appointment,APPT_NEW
+schedule gastroenterology,APPT_NEW
+set up physical therapy,APPT_NEW
+I’d like to see a oncology specialist,APPT_NEW
+schedule ophthalmology,APPT_NEW
+Set up an appointment with Dr. Young,APPT_NEW
+I need a nephrology appointment,APPT_NEW
+I want to see a psychiatry,APPT_NEW
+urology visit,APPT_NEW
+Schedule me with Dr. Nguyen,APPT_NEW
+need physical therapy,APPT_NEW
+I want to see a otolaryngology,APPT_NEW
+Schedule me for endocrinology,APPT_NEW
+Set up an appointment with Dr. Hernandez,APPT_NEW
+I need a allergy appointment,APPT_NEW
+I need a neurology appointment,APPT_NEW
+I’d like an appointment with Dr. Lee,APPT_NEW
+Please schedule with Dr. Nguyen,APPT_NEW
+schedule primary care,APPT_NEW
+Can I get in with Dr. Garcia,APPT_NEW
+schedule dermatology,APPT_NEW
+Set up an appointment with Dr. Patel,APPT_NEW
+orthopedics appointment,APPT_NEW
+Please schedule gastroenterology,APPT_NEW
+I want a ophthalmology visit,APPT_NEW
+Set up an appointment with Dr. Lee,APPT_NEW
+I’d like an appointment with Dr. Smith,APPT_NEW
+I’d like to see a physical therapy specialist,APPT_NEW
+Book me for obstetrics,APPT_NEW
+New appointment for nephrology,APPT_NEW
+ophthalmology visit,APPT_NEW
+need primary care,APPT_NEW
+Please schedule primary care,APPT_NEW
+looking for primary care,APPT_NEW
+Book me for internal medicine,APPT_NEW
+orthopedics appointment,APPT_NEW
+book pediatrics,APPT_NEW
+Schedule me for psychiatry,APPT_NEW
+I want a psychiatry visit,APPT_NEW
+I want a dermatology visit,APPT_NEW
+I need a rheumatology appointment,APPT_NEW
+Can I get psychiatry next week,APPT_NEW
+Can I get in with Dr. Lee,APPT_NEW
+Book me with Dr. Hernandez,APPT_NEW
+Schedule me for obstetrics,APPT_NEW
+I need a gynecology appointment,APPT_NEW
+I need a dermatology appointment,APPT_NEW
+Can I get dermatology next week,APPT_NEW
+schedule rheumatology,APPT_NEW
+I want to see a allergy,APPT_NEW
+Book me with Dr. Rivera,APPT_NEW
+I want to see Dr. Brown,APPT_NEW
+need physical therapy,APPT_NEW
+New appointment for immunology,APPT_NEW
+Set up an appointment with Dr. Patel,APPT_NEW
+I need to see a endocrinology,APPT_NEW
+I want to see Dr. Nguyen,APPT_NEW
+Can I get in with Dr. Smith,APPT_NEW
+New appointment for pediatrics,APPT_NEW
+looking for immunology,APPT_NEW
+I want to see a internal medicine,APPT_NEW
+Schedule me with Dr. Martinez,APPT_NEW
+I’d like to see a obstetrics specialist,APPT_NEW
+I need to see a primary care,APPT_NEW
+I want to see Dr. Garcia,APPT_NEW
+New appointment for nephrology,APPT_NEW
+I’d like an appointment with Dr. Davis,APPT_NEW
+need endocrinology,APPT_NEW
+I need a psychiatry appointment,APPT_NEW
+schedule otolaryngology,APPT_NEW
+Book me with Dr. Martinez,APPT_NEW
+I need a primary care appointment,APPT_NEW
+Book me for otolaryngology,APPT_NEW
+book gastroenterology,APPT_NEW
+Schedule me with Dr. Garcia,APPT_NEW
+schedule urology,APPT_NEW
+Set up an appointment with Dr. Davis,APPT_NEW
+schedule immunology,APPT_NEW
+book family medicine,APPT_NEW
+schedule immunology,APPT_NEW
+New appointment for primary care,APPT_NEW
+Please schedule internal medicine,APPT_NEW
+I’d like to see a gynecology specialist,APPT_NEW
+pediatrics,APPT_NEW
+nephrology visit,APPT_NEW
+I’d like an appointment with Dr. Davis,APPT_NEW
+Schedule me with Dr. Smith,APPT_NEW
+I need to see a cardiology,APPT_NEW
+book dermatology,APPT_NEW
+I want to see Dr. Nguyen,APPT_NEW
+Please schedule with Dr. Garcia,APPT_NEW
+set up primary care,APPT_NEW
+primary care visit,APPT_NEW
+dermatology,APPT_NEW
+Schedule me with Dr. Patel,APPT_NEW
+I want to see Dr. Smith,APPT_NEW
+Schedule me with Dr. Patel,APPT_NEW
+I want to see Dr. Clark,APPT_NEW
+Can I get neurology next week,APPT_NEW
+Schedule me with Dr. Young,APPT_NEW
+Can I get orthopedics next week,APPT_NEW
+I want a physical therapy visit,APPT_NEW
+Can I get in with Dr. Kim,APPT_NEW
+Can I get pediatrics next week,APPT_NEW
+Schedule me with Dr. Davis,APPT_NEW
+Please schedule with Dr. Brown,APPT_NEW
+Can I get in with Dr. Garcia,APPT_NEW
+gynecology appointment,APPT_NEW
+Schedule me with Dr. Young,APPT_NEW
+New appointment for gastroenterology,APPT_NEW
+I’d like to see a rheumatology specialist,APPT_NEW
+New appointment for orthopedics,APPT_NEW
+I need to see a family medicine,APPT_NEW
+orthopedics visit,APPT_NEW
+primary care,APPT_NEW
+Can I get in with Dr. Smith,APPT_NEW
+need nephrology,APPT_NEW
+I need a physical therapy appointment,APPT_NEW
+I want to see Dr. Brown,APPT_NEW
+I need a pulmonology appointment,APPT_NEW
+need endocrinology,APPT_NEW
+gynecology,APPT_NEW
+Book me with Dr. Kim,APPT_NEW
+Can I get pulmonology next week,APPT_NEW
+family medicine,APPT_NEW
+I want a obstetrics visit,APPT_NEW
+set up immunology,APPT_NEW
+I want to see a nephrology,APPT_NEW
+book urology,APPT_NEW
+cardiology appointment,APPT_NEW
+Please schedule with Dr. Nguyen,APPT_NEW
+Book me for physical therapy,APPT_NEW
+I need a obstetrics appointment,APPT_NEW
+I need to see a pediatrics,APPT_NEW
+I need to see a oncology,APPT_NEW
+Book me for internal medicine,APPT_NEW
+internal medicine,APPT_NEW
+I’d like an appointment with Dr. Brown,APPT_NEW
+Set up an appointment with Dr. Johnson,APPT_NEW
+New appointment for physical therapy,APPT_NEW
+Schedule me for obstetrics,APPT_NEW
+orthopedics appointment,APPT_NEW
+Book me with Dr. Young,APPT_NEW
+I want to see a family medicine,APPT_NEW
+I’d like an appointment with Dr. Smith,APPT_NEW
+need allergy,APPT_NEW
+I’d like an appointment with Dr. Kim,APPT_NEW
+I want a obstetrics visit,APPT_NEW
+need allergy,APPT_NEW
+Schedule me for pediatrics,APPT_NEW
+New appointment for gynecology,APPT_NEW
+I need to see a obstetrics,APPT_NEW
+Schedule me for immunology,APPT_NEW
+I’d like to see a rheumatology specialist,APPT_NEW
+neurology appointment,APPT_NEW
+Can I get internal medicine next week,APPT_NEW
+book physical therapy,APPT_NEW
+New appointment for psychiatry,APPT_NEW
+book gynecology,APPT_NEW
+set up orthopedics,APPT_NEW
+Please schedule otolaryngology,APPT_NEW
+need family medicine,APPT_NEW
+I need to see a orthopedics,APPT_NEW
+Can I get gastroenterology next week,APPT_NEW
+I want to see a pediatrics,APPT_NEW
+family medicine visit,APPT_NEW
+gynecology appointment,APPT_NEW
+book ophthalmology,APPT_NEW
+Can I get in with Dr. Clark,APPT_NEW
+set up ophthalmology,APPT_NEW
+Book me for rheumatology,APPT_NEW
+I want to see Dr. Lopez,APPT_NEW
+I’d like to see a internal medicine specialist,APPT_NEW
+book dermatology,APPT_NEW
+neurology,APPT_NEW
+Set up an appointment with Dr. Nguyen,APPT_NEW
+I want to see Dr. Clark,APPT_NEW
+urology,APPT_NEW
+Schedule me for allergy,APPT_NEW
+Book me for physical therapy,APPT_NEW
+ophthalmology appointment,APPT_NEW
+immunology visit,APPT_NEW
+Can I get immunology next week,APPT_NEW
+schedule psychiatry,APPT_NEW
+Schedule me for gynecology,APPT_NEW
+I need a psychiatry appointment,APPT_NEW
+Schedule me for pulmonology,APPT_NEW
+I need a gastroenterology appointment,APPT_NEW
+I need to see a pediatrics,APPT_NEW
+book dermatology,APPT_NEW
+ophthalmology appointment,APPT_NEW
+Please schedule with Dr. Clark,APPT_NEW
+I need a otolaryngology appointment,APPT_NEW
+internal medicine visit,APPT_NEW
+schedule orthopedics,APPT_NEW
+schedule oncology,APPT_NEW
+book immunology,APPT_NEW
+schedule urology,APPT_NEW
+I’d like an appointment with Dr. Lopez,APPT_NEW
+I need a endocrinology appointment,APPT_NEW
+need family medicine,APPT_NEW
+I need a immunology appointment,APPT_NEW
+I’d like to see a otolaryngology specialist,APPT_NEW
+I’d like to see a cardiology specialist,APPT_NEW
+I’d like to see a primary care specialist,APPT_NEW
+looking for otolaryngology,APPT_NEW
+I want to see a pediatrics,APPT_NEW
+Can I get in with Dr. Young,APPT_NEW
+I need a primary care appointment,APPT_NEW
+New appointment for gastroenterology,APPT_NEW
+Schedule me with Dr. Smith,APPT_NEW
+Book me for otolaryngology,APPT_NEW
+need psychiatry,APPT_NEW
+Book me for immunology,APPT_NEW
+Can I get allergy next week,APPT_NEW
+I need to see a neurology,APPT_NEW
+I’d like to see a otolaryngology specialist,APPT_NEW
+I need to see a internal medicine,APPT_NEW
+Book me with Dr. Martinez,APPT_NEW
+schedule immunology,APPT_NEW
+I want a urology visit,APPT_NEW
+family medicine appointment,APPT_NEW
+I want to see Dr. Martinez,APPT_NEW
+Can I get allergy next week,APPT_NEW
+Please schedule with Dr. Lee,APPT_NEW
+I need a gynecology appointment,APPT_NEW
+Schedule me with Dr. Garcia,APPT_NEW
+Please schedule with Dr. Kim,APPT_NEW
+I want a oncology visit,APPT_NEW
+I need a nephrology appointment,APPT_NEW
+I’d like an appointment with Dr. Smith,APPT_NEW
+I’d like an appointment with Dr. Garcia,APPT_NEW
+Book me with Dr. Brown,APPT_NEW
+set up urology,APPT_NEW
+Can I get gynecology next week,APPT_NEW
+Schedule me with Dr. Patel,APPT_NEW
+Please schedule with Dr. Brown,APPT_NEW
+I need to see a orthopedics,APPT_NEW
+Please schedule with Dr. Lopez,APPT_NEW
+Book me for psychiatry,APPT_NEW
+Book me with Dr. Johnson,APPT_NEW
+I want to see Dr. Davis,APPT_NEW
+set up neurology,APPT_NEW
+I’d like an appointment with Dr. Nguyen,APPT_NEW
+Please schedule otolaryngology,APPT_NEW
+looking for neurology,APPT_NEW
+Set up an appointment with Dr. Kim,APPT_NEW
+Set up an appointment with Dr. Smith,APPT_NEW
+I want to see a internal medicine,APPT_NEW
+New appointment for internal medicine,APPT_NEW
+Please schedule with Dr. Patel,APPT_NEW
+I need a family medicine appointment,APPT_NEW
+I want a internal medicine visit,APPT_NEW
+Can I get cardiology next week,APPT_NEW
+need immunology,APPT_NEW
+Can I get gastroenterology next week,APPT_NEW
+Can I get primary care next week,APPT_NEW
+family medicine appointment,APPT_NEW
+schedule endocrinology,APPT_NEW
+Book me with Dr. Smith,APPT_NEW
+looking for allergy,APPT_NEW
+looking for primary care,APPT_NEW
+Schedule me for urology,APPT_NEW
+I’d like to see a oncology specialist,APPT_NEW
+set up ophthalmology,APPT_NEW
+set up cardiology,APPT_NEW
+I want to see Dr. Smith,APPT_NEW
+Please schedule oncology,APPT_NEW
+I want to see Dr. Johnson,APPT_NEW
+Can I get gastroenterology next week,APPT_NEW
+Can I get in with Dr. Kim,APPT_NEW
+book obstetrics,APPT_NEW
+I want a nephrology visit,APPT_NEW
+pulmonology appointment,APPT_NEW
+I need a allergy appointment,APPT_NEW
+I’d like to see a psychiatry specialist,APPT_NEW
+I want a internal medicine visit,APPT_NEW
+set up neurology,APPT_NEW
+I want to see a pediatrics,APPT_NEW
+Schedule me with Dr. Davis,APPT_NEW
+Book me for cardiology,APPT_NEW
+I need to see a psychiatry,APPT_NEW
+I’d like to see a primary care specialist,APPT_NEW
+I’d like an appointment with Dr. Davis,APPT_NEW
+Please schedule allergy,APPT_NEW
+Book me with Dr. Lee,APPT_NEW
+I want to see a otolaryngology,APPT_NEW
+book allergy,APPT_NEW
+Can I get immunology next week,APPT_NEW
+Please schedule dermatology,APPT_NEW
+set up pulmonology,APPT_NEW
+I’d like to see a gastroenterology specialist,APPT_NEW
+Book me for family medicine,APPT_NEW
+book endocrinology,APPT_NEW
+book physical therapy,APPT_NEW
+looking for allergy,APPT_NEW
+Please schedule with Dr. Davis,APPT_NEW
+Please schedule with Dr. Clark,APPT_NEW
+I need to see a psychiatry,APPT_NEW
+set up psychiatry,APPT_NEW
+I want a gynecology visit,APPT_NEW
+psychiatry visit,APPT_NEW
+I want to see a orthopedics,APPT_NEW
+Schedule me with Dr. Rivera,APPT_NEW
+cardiology,APPT_NEW
+schedule gastroenterology,APPT_NEW
+Please schedule ophthalmology,APPT_NEW
+I want to see Dr. Lopez,APPT_NEW
+I need a immunology appointment,APPT_NEW
+Please schedule family medicine,APPT_NEW
+I need a immunology appointment,APPT_NEW
+New appointment for gynecology,APPT_NEW
+schedule gynecology,APPT_NEW
+need otolaryngology,APPT_NEW
+orthopedics,APPT_NEW
+Please schedule with Dr. Davis,APPT_NEW
+Schedule me for pediatrics,APPT_NEW
+endocrinology,APPT_NEW
+I want to see a rheumatology,APPT_NEW
+set up urology,APPT_NEW
+Schedule me for family medicine,APPT_NEW
+Schedule me for rheumatology,APPT_NEW
+Can I get in with Dr. Brown,APPT_NEW
+set up gynecology,APPT_NEW
+Can I get ophthalmology next week,APPT_NEW
+oncology visit,APPT_NEW
+set up psychiatry,APPT_NEW
+Schedule me for gastroenterology,APPT_NEW
+Schedule me for gastroenterology,APPT_NEW
+I’d like to see a internal medicine specialist,APPT_NEW
+neurology visit,APPT_NEW
+need psychiatry,APPT_NEW
+ophthalmology appointment,APPT_NEW
+set up rheumatology,APPT_NEW
+I’d like an appointment with Dr. Young,APPT_NEW
+looking for internal medicine,APPT_NEW
+Set up an appointment with Dr. Davis,APPT_NEW
+book orthopedics,APPT_NEW
+Schedule me for orthopedics,APPT_NEW
+set up physical therapy,APPT_NEW
+Can I get urology next week,APPT_NEW
+I want a orthopedics visit,APPT_NEW
+Book me with Dr. Young,APPT_NEW
+I want to see a psychiatry,APPT_NEW
+dermatology visit,APPT_NEW
+rheumatology visit,APPT_NEW
+Can I get in with Dr. Johnson,APPT_NEW
+family medicine visit,APPT_NEW
+Book me with Dr. Patel,APPT_NEW
+Book me for gastroenterology,APPT_NEW
+Book me with Dr. Smith,APPT_NEW
+Please schedule with Dr. Brown,APPT_NEW
+I’d like an appointment with Dr. Garcia,APPT_NEW
+Book me with Dr. Johnson,APPT_NEW
+Schedule me for pulmonology,APPT_NEW
+I’d like to see a primary care specialist,APPT_NEW
+I need a cardiology appointment,APPT_NEW
+Set up an appointment with Dr. Patel,APPT_NEW
+looking for psychiatry,APPT_NEW
+set up psychiatry,APPT_NEW
+Can I get in with Dr. Martinez,APPT_NEW
+Please schedule with Dr. Patel,APPT_NEW
+I want to see a neurology,APPT_NEW
+set up otolaryngology,APPT_NEW
+neurology visit,APPT_NEW
+I want a neurology visit,APPT_NEW
+I’d like to see a otolaryngology specialist,APPT_NEW
+I’d like to see a allergy specialist,APPT_NEW
+Please schedule cardiology,APPT_NEW
+primary care visit,APPT_NEW
+schedule orthopedics,APPT_NEW
+orthopedics,APPT_NEW
+New appointment for dermatology,APPT_NEW
+set up primary care,APPT_NEW
+need primary care,APPT_NEW

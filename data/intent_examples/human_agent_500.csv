@@ -1,0 +1,388 @@
+text,label
+"Um, Customer service, please.",HUMAN_AGENT
+"Um, is there a person i can talk to  right now.",HUMAN_AGENT
+Can you transfer me to support  ASAP,HUMAN_AGENT
+I'd like to speak to a real person about my bill.,HUMAN_AGENT
+Can I talk to a live agent?,HUMAN_AGENT
+"Okay, I'd like to speak with the receptionist.",HUMAN_AGENT
+Get me an operator.,HUMAN_AGENT
+"Hi, Can I reach an operator  if possible.",HUMAN_AGENT
+Put me through to a person.,HUMAN_AGENT
+I need a human agent.,HUMAN_AGENT
+i'd like to talk to an agent. ASAP,HUMAN_AGENT
+Get me a live person now.,HUMAN_AGENT
+Can I connect with someone  if possible. right now,HUMAN_AGENT
+Can you call the receptionist for me  right now,HUMAN_AGENT
+"Uh, Switch me to someone in appointments.",HUMAN_AGENT
+Can I reach someone in customer service,HUMAN_AGENT
+Let me talk to someone who works there.,HUMAN_AGENT
+"Okay, Can I talk to an operator? right now",HUMAN_AGENT
+Can you put me in touch with someone real  today,HUMAN_AGENT
+Can I talk to a representative  if possible.,HUMAN_AGENT
+Can I reach someone in billing  right now.,HUMAN_AGENT
+Can i connect with someone?,HUMAN_AGENT
+Can i be transferred to an operator  today.,HUMAN_AGENT
+Connect me with someone real.,HUMAN_AGENT
+"Hi, Customer service, please. please",HUMAN_AGENT
+"Hey, Human support pls.",HUMAN_AGENT
+Can I speak to the receptionist?,HUMAN_AGENT
+Connect me to a person in billing.,HUMAN_AGENT
+Can I connect with someone in scheduling,HUMAN_AGENT
+Please pass me to a person.,HUMAN_AGENT
+Please escalate to a person.,HUMAN_AGENT
+Can I get on the line with a live agent?,HUMAN_AGENT
+Can I be transferred to a representative,HUMAN_AGENT
+Is there a way to reach a person if possible,HUMAN_AGENT
+Can i get on the line with a representative?,HUMAN_AGENT
+"Okay, I need to speak with an actual person.",HUMAN_AGENT
+Can I talk to an operator?,HUMAN_AGENT
+I want to speak with a human about portal access. today,HUMAN_AGENT
+"Talk to a person, please.",HUMAN_AGENT
+"Okay, Can you get a staff member on the line?",HUMAN_AGENT
+Can I reach an operator?,HUMAN_AGENT
+Can I talk to a person about my refill?,HUMAN_AGENT
+"Uh, Can I reach someone in front desk?",HUMAN_AGENT
+Can I connect with someone in portal support?,HUMAN_AGENT
+Can I get on the line with an operator  if possible.,HUMAN_AGENT
+Can I connect with someone in customer service  thanks.,HUMAN_AGENT
+Can i get on the line with the receptionist  if possible.,HUMAN_AGENT
+Transfer me to a human agent ASAP.,HUMAN_AGENT
+"Hi, I'd like to speak with the receptionist.",HUMAN_AGENT
+"Alright, Can you escalate this to the front desk  asap.",HUMAN_AGENT
+"Uh, Send me to the front desk.",HUMAN_AGENT
+Can you connect me to a real person in scheduling  right now.,HUMAN_AGENT
+I need a human ASAP.,HUMAN_AGENT
+I need the front desk.,HUMAN_AGENT
+"Operator, please.",HUMAN_AGENT
+Can I talk to an operator  today.,HUMAN_AGENT
+"Front desk, please transfer. right now",HUMAN_AGENT
+Can you connect me with medical records  please.,HUMAN_AGENT
+Can you get me a real person?,HUMAN_AGENT
+"Give me a human, not a bot.",HUMAN_AGENT
+Can I connect with the receptionist  right now.,HUMAN_AGENT
+"Customer service, please.",HUMAN_AGENT
+Please transfer me to a human.,HUMAN_AGENT
+Can I speak to a rep  please.,HUMAN_AGENT
+Can i get on the line with someone  please.,HUMAN_AGENT
+Can I talk to a live agent? today,HUMAN_AGENT
+Can you hand me off to a real person?,HUMAN_AGENT
+Can you hand me off to a real person  if possible.,HUMAN_AGENT
+Can i speak to a human this minute,HUMAN_AGENT
+Can you connect me to the front desk?,HUMAN_AGENT
+Can you connect me with medical records thanks,HUMAN_AGENT
+Let me talk to a human at the front desk. quickly,HUMAN_AGENT
+"Hi, i need to talk to a live agent about billing.",HUMAN_AGENT
+Can i be transferred to a live agent,HUMAN_AGENT
+Can i talk to an actual human being? ASAP,HUMAN_AGENT
+Can I get on the line with the receptionist  right now.,HUMAN_AGENT
+Can I talk to a human  if possible.,HUMAN_AGENT
+Can you call the receptionist for me  thanks.,HUMAN_AGENT
+Human support please.,HUMAN_AGENT
+Can you route me to someone real?,HUMAN_AGENT
+Can I be routed to the receptionist  thanks. today,HUMAN_AGENT
+Can I reach the receptionist,HUMAN_AGENT
+"Hello, i'd like to speak with someone live.",HUMAN_AGENT
+Let me talk to a human at the front desk.,HUMAN_AGENT
+Can you xfer me to a nurse? please,HUMAN_AGENT
+"Um, I need to speak with a person about insurance. ASAP",HUMAN_AGENT
+Please connect me to a human representative. this minute,HUMAN_AGENT
+"Uh, Can I connect with the receptionist?",HUMAN_AGENT
+Please connect me to someone live.,HUMAN_AGENT
+Can I connect with the receptionist,HUMAN_AGENT
+"Hi, Get me a live person now. this minute",HUMAN_AGENT
+Can I talk to a human?,HUMAN_AGENT
+Live operator please.,HUMAN_AGENT
+Can I get on the line with a human  today. this minute,HUMAN_AGENT
+Can i be routed to someone in appointments  today.,HUMAN_AGENT
+Can I reach the receptionist?,HUMAN_AGENT
+"Portal support human, please.",HUMAN_AGENT
+"Hey, Can I speak to an operator  thanks.",HUMAN_AGENT
+"Uh, Can I speak to a representative?",HUMAN_AGENT
+Can I talk to a human  please. if possible,HUMAN_AGENT
+Can I speak to a human  today.,HUMAN_AGENT
+Can i speak to a rep  today. thanks,HUMAN_AGENT
+"Hey, Please connect me to a human representative.",HUMAN_AGENT
+Can I get on the line with an operator  right now.,HUMAN_AGENT
+Can I reach a live agent? this minute,HUMAN_AGENT
+"Hi, Can you escalate this to the front desk?",HUMAN_AGENT
+"Hey, Can you put me through to someone  if possible",HUMAN_AGENT
+Can I be routed to a representative?,HUMAN_AGENT
+Can i talk to a representative,HUMAN_AGENT
+"Uh, Can I talk to a representative  please.",HUMAN_AGENT
+Can i be transferred to someone in customer service?,HUMAN_AGENT
+Can I be transferred to a representative? quickly,HUMAN_AGENT
+Send me to the front desk. thanks,HUMAN_AGENT
+Can you get me a live person right now?,HUMAN_AGENT
+Can I get on the line with a live agent,HUMAN_AGENT
+Can I reach a human  today.,HUMAN_AGENT
+"Hi, Could a human help me with this  right now.",HUMAN_AGENT
+I want to talk to a live human.,HUMAN_AGENT
+"Hi, Portal support human, please.",HUMAN_AGENT
+I want to talk to a person.,HUMAN_AGENT
+"Uh, Put me through to customer service.",HUMAN_AGENT
+I need to speak with a person about insurance. today,HUMAN_AGENT
+Connect me to someone at the clinic.,HUMAN_AGENT
+Can I speak to a human  right now.,HUMAN_AGENT
+"Hello, Can I connect with someone in scheduling? right now",HUMAN_AGENT
+Can you transfer me to the front desk for directions?,HUMAN_AGENT
+I'd like to reach a human instead of the bot.,HUMAN_AGENT
+Please route me to staff. today,HUMAN_AGENT
+"Hi, Can you call the receptionist for me",HUMAN_AGENT
+Agent please.,HUMAN_AGENT
+"Hello, I want to speak with a human about portal access.",HUMAN_AGENT
+Can someone in the office talk to me  if possible.,HUMAN_AGENT
+"Alright, Can you transfer me to the front desk for directions",HUMAN_AGENT
+Can you escalate this to a human  right now.,HUMAN_AGENT
+Can I connect with a live agent  thanks.,HUMAN_AGENT
+"Human representative, please.",HUMAN_AGENT
+Can I reach someone?,HUMAN_AGENT
+"Hi, Connect me to someone at the clinic.",HUMAN_AGENT
+Can I be routed to a live agent?,HUMAN_AGENT
+Can I speak to someone  right now.,HUMAN_AGENT
+"Hi, Can you route me to someone real  thanks",HUMAN_AGENT
+I want the front desk.,HUMAN_AGENT
+Can I speak to a human?,HUMAN_AGENT
+Can I be transferred to a live agent? thanks,HUMAN_AGENT
+"Um, Can i get on the line with someone in medical records?",HUMAN_AGENT
+Can I connect with someone in scheduling  please,HUMAN_AGENT
+Can I speak to a human,HUMAN_AGENT
+Can I get on the line with someone? ASAP,HUMAN_AGENT
+"i prefer a human, can you transfer me?",HUMAN_AGENT
+"Hi, Front desk, please xfer.",HUMAN_AGENT
+Transfer me to the front desk.,HUMAN_AGENT
+Switch me to a human representative.,HUMAN_AGENT
+Send me to the front desk. ASAP,HUMAN_AGENT
+Can I get on the line with the receptionist?,HUMAN_AGENT
+Can you escalate this to a human?,HUMAN_AGENT
+Representative please.,HUMAN_AGENT
+Can I be transferred to a live agent? right now,HUMAN_AGENT
+Can I talk to someone in customer service  right now.,HUMAN_AGENT
+Connect me with the front desk staff. right now,HUMAN_AGENT
+Can i talk to a live agent?,HUMAN_AGENT
+Can I be routed to someone?,HUMAN_AGENT
+"Hi, i need to speak to someone ASAP.",HUMAN_AGENT
+"Okay, Can I be transferred to someone in customer service",HUMAN_AGENT
+"Um, Is there a receptionist I can speak with?",HUMAN_AGENT
+Can I be routed to a human?,HUMAN_AGENT
+Can i connect with the receptionist?,HUMAN_AGENT
+"Hello, Can I be routed to a live agent  if possible.",HUMAN_AGENT
+is there a person i can talk to?,HUMAN_AGENT
+Connect me to the office staff.,HUMAN_AGENT
+Can I speak to someone in appointments?,HUMAN_AGENT
+Can I talk to someone?,HUMAN_AGENT
+Let me talk to someone on staff. this minute,HUMAN_AGENT
+"I prefer a human, can you transfer me  please.",HUMAN_AGENT
+Can I connect with a representative?,HUMAN_AGENT
+I need to talk to a live agent about billing.,HUMAN_AGENT
+Can you get me a real person,HUMAN_AGENT
+Please connect me to a human representative.,HUMAN_AGENT
+Can a human call me back?,HUMAN_AGENT
+Connect me with the front desk staff.,HUMAN_AGENT
+Can I connect with someone  today.,HUMAN_AGENT
+"Alright, Live person pls.",HUMAN_AGENT
+Real person please. right now,HUMAN_AGENT
+I need to speak with a person about insurance.,HUMAN_AGENT
+Can you transfer me to a nurse  asap.,HUMAN_AGENT
+"Hello, Is there a way to reach a person?",HUMAN_AGENT
+Can you call the receptionist for me?,HUMAN_AGENT
+I want to speak with a human about portal access. please,HUMAN_AGENT
+"Okay, I need the front desk. right now",HUMAN_AGENT
+I'd like to speak to billing.,HUMAN_AGENT
+"Front desk, pls transfer.",HUMAN_AGENT
+Let me talk to someone on staff.,HUMAN_AGENT
+Can you put me through to someone,HUMAN_AGENT
+Please route me to staff.,HUMAN_AGENT
+I’d like a human on the line.,HUMAN_AGENT
+I'd like to be transferred to someone.,HUMAN_AGENT
+Can I talk to the receptionist,HUMAN_AGENT
+Can i reach a representative,HUMAN_AGENT
+Can I get on the line with a representative? ASAP,HUMAN_AGENT
+"Put me through to billing, human please.",HUMAN_AGENT
+I'd like to talk to a human at Sunrise Family Medicine. quickly,HUMAN_AGENT
+"Hey, Can I speak to a live agent  please. if possible",HUMAN_AGENT
+I need to talk to a representative about my appointment.,HUMAN_AGENT
+"Uh, Can I speak to a representative? please",HUMAN_AGENT
+Can I reach someone,HUMAN_AGENT
+Please connect me to scheduling. today,HUMAN_AGENT
+Can I connect with the receptionist?,HUMAN_AGENT
+"Hi, I'd like a call with a real person.",HUMAN_AGENT
+"Alright, Transfer me to a human agent ASAP.",HUMAN_AGENT
+Can i be routed to a human?,HUMAN_AGENT
+"Give me a human, not a bot. today",HUMAN_AGENT
+"Hello, Can I be routed to a representative?",HUMAN_AGENT
+Can you connect me with medical records this minute,HUMAN_AGENT
+Send me to the front desk. right now,HUMAN_AGENT
+Please xfer me to a human.,HUMAN_AGENT
+Can you escalate this to a human,HUMAN_AGENT
+Can I be transferred to someone  asap.,HUMAN_AGENT
+Can I get on the line with someone,HUMAN_AGENT
+Can I reach an operator  asap.,HUMAN_AGENT
+Please switch me from the bot to a human.,HUMAN_AGENT
+"Front desk human, please.",HUMAN_AGENT
+"Okay, Transfer me to someone for portal support.",HUMAN_AGENT
+Real person please. thanks,HUMAN_AGENT
+Can I be transferred to a human?,HUMAN_AGENT
+Can i connect with an operator  asap.,HUMAN_AGENT
+Can I speak to someone  please,HUMAN_AGENT
+"Talk to a person, please. today",HUMAN_AGENT
+"Hello, Can I be transferred to a representative",HUMAN_AGENT
+Can I talk to someone in billing?,HUMAN_AGENT
+"Uh, Can I be routed to a live agent  asap.",HUMAN_AGENT
+Can I be xferred to the receptionist? right now,HUMAN_AGENT
+Can you call the receptionist for me? ASAP,HUMAN_AGENT
+Can I get on the line with a human?,HUMAN_AGENT
+"Hey, Can I connect with someone in billing  if possible",HUMAN_AGENT
+Please connect me to a human representative. right now,HUMAN_AGENT
+"Uh, i need to speak with a person about insurance.",HUMAN_AGENT
+"Uh, Front desk human, please.",HUMAN_AGENT
+Can i connect with a live agent?,HUMAN_AGENT
+Can I speak to a representative,HUMAN_AGENT
+Can I get on the line with an operator?,HUMAN_AGENT
+Can I be transferred to the receptionist  today. quickly,HUMAN_AGENT
+I need to talk to a representative about my appointment. right now,HUMAN_AGENT
+I'd like to speak with someone live.,HUMAN_AGENT
+Can I be transferred to a representative  right now.,HUMAN_AGENT
+Can I speak to a representative?,HUMAN_AGENT
+"Hey, Can I reach someone in scheduling  if possible.",HUMAN_AGENT
+i'd like to be transferred to someone.,HUMAN_AGENT
+"Uh, Can i get on the line with a representative",HUMAN_AGENT
+I'd like a call with a real person. right now,HUMAN_AGENT
+"Hi, I'd like a call with a real person. right now",HUMAN_AGENT
+i'd like to talk to an agent.,HUMAN_AGENT
+I want to speak with a human about portal access.,HUMAN_AGENT
+"Hey, Can I get on the line with the receptionist?",HUMAN_AGENT
+Can I be transferred to the receptionist?,HUMAN_AGENT
+Can you escalate this to the front desk  asap.,HUMAN_AGENT
+Can I get on the line with the receptionist,HUMAN_AGENT
+Can I talk to an operator  if possible.,HUMAN_AGENT
+Can you get me a live person right now,HUMAN_AGENT
+"Hello, Can I be transferred to someone?",HUMAN_AGENT
+"I prefer a human, can you transfer me?",HUMAN_AGENT
+I'd like to talk to an agent.,HUMAN_AGENT
+Can I connect with a human?,HUMAN_AGENT
+is there a way to reach a person?,HUMAN_AGENT
+Please connect me to someone live. please,HUMAN_AGENT
+I need to speak to someone ASAP.,HUMAN_AGENT
+Can you get a staff member on the line  right now.,HUMAN_AGENT
+I'd like to speak with a nurse.,HUMAN_AGENT
+Put me through to customer service.,HUMAN_AGENT
+Real person please.,HUMAN_AGENT
+Can I be routed to the receptionist  pls.,HUMAN_AGENT
+Can I connect with an operator  quickly,HUMAN_AGENT
+Can someone in the office talk to me?,HUMAN_AGENT
+i'd like to talk to a human at Sunrise Family Medicine.,HUMAN_AGENT
+"Hello, Can I connect with a human  pls.",HUMAN_AGENT
+Can I be transferred to a human  if possible. ASAP,HUMAN_AGENT
+"Uh, Can I talk to someone in billing",HUMAN_AGENT
+Can you put me in touch with someone real?,HUMAN_AGENT
+"Okay, Connect me to a person in billing.",HUMAN_AGENT
+"Okay, Can you get a staff member on the line? thanks",HUMAN_AGENT
+Can I talk to someone in front desk  asap.,HUMAN_AGENT
+"Uh, Can I talk to the receptionist  right now.",HUMAN_AGENT
+Can I talk to a human quickly,HUMAN_AGENT
+Live person please.,HUMAN_AGENT
+Send me to the front desk.,HUMAN_AGENT
+"Um, Please connect me to a human representative.",HUMAN_AGENT
+Can i connect with someone in medical records?,HUMAN_AGENT
+"Okay, Can I connect with a live agent?",HUMAN_AGENT
+"Put me through to billing, human please. ASAP",HUMAN_AGENT
+"Uh, Is there a person I can talk to",HUMAN_AGENT
+"Hello, Can I connect with a live agent  today.",HUMAN_AGENT
+Can I be routed to the receptionist?,HUMAN_AGENT
+Can I be xferred to someone?,HUMAN_AGENT
+I need a human ASAP. ASAP,HUMAN_AGENT
+Can I talk to a live agent,HUMAN_AGENT
+"Talk to a person, please. ASAP",HUMAN_AGENT
+Can I connect with a live agent  asap.,HUMAN_AGENT
+I'd like a call with a real person. today,HUMAN_AGENT
+Can I speak to someone in portal support  asap.,HUMAN_AGENT
+Live person please. ASAP,HUMAN_AGENT
+"Okay, Can I connect with someone in billing  asap.",HUMAN_AGENT
+Please escalate to a live agent. please,HUMAN_AGENT
+"Um, Switch me to a human representative.",HUMAN_AGENT
+Can I speak to an operator?,HUMAN_AGENT
+Can you connect me to the front desk  today.,HUMAN_AGENT
+"Front desk, please transfer.",HUMAN_AGENT
+"Hello, Can I get on the line with the receptionist  today.",HUMAN_AGENT
+Can you transfer me to support,HUMAN_AGENT
+Can I connect with someone? right now,HUMAN_AGENT
+"Okay, I'd like to reach a human instead of the bot.",HUMAN_AGENT
+Connect me to a live agent. if possible,HUMAN_AGENT
+Can I speak to your manager? thanks,HUMAN_AGENT
+Could a human help me with this  please.,HUMAN_AGENT
+Can I talk to a human  pls. thanks,HUMAN_AGENT
+I'd like to speak with the receptionist.,HUMAN_AGENT
+Can i speak to a representative?,HUMAN_AGENT
+Let me talk to someone on staff. right now,HUMAN_AGENT
+"Hi, Can I get on the line with someone  please. right now",HUMAN_AGENT
+Can I speak to someone in scheduling,HUMAN_AGENT
+"Hello, I need to speak to someone ASAP.",HUMAN_AGENT
+Can I get on the line with the receptionist  today.,HUMAN_AGENT
+"Okay, Can I speak to an operator?",HUMAN_AGENT
+"Uh, Can I talk to an operator",HUMAN_AGENT
+Can I speak to a representative  please.,HUMAN_AGENT
+Can I be routed to a representative,HUMAN_AGENT
+Can I get on the line with someone in customer service?,HUMAN_AGENT
+Get me an operator. quickly,HUMAN_AGENT
+Can I reach someone  ASAP,HUMAN_AGENT
+"Hi, I want to speak with a human about portal access.",HUMAN_AGENT
+Can I speak to a representative thanks,HUMAN_AGENT
+i need to speak with an actual person.,HUMAN_AGENT
+Can you transfer me to a nurse  thanks. thanks,HUMAN_AGENT
+Can you connect me with medical records?,HUMAN_AGENT
+"Alright, i'd like to speak with a nurse.",HUMAN_AGENT
+Can I speak to a representative  right now. quickly,HUMAN_AGENT
+Please have a person call me.,HUMAN_AGENT
+Is there a person I can talk to,HUMAN_AGENT
+Can I speak to a representative? today,HUMAN_AGENT
+Can I reach someone in customer service  if possible.,HUMAN_AGENT
+"Alright, Can I be transferred to an operator  asap.",HUMAN_AGENT
+"Hi, Can I talk to someone?",HUMAN_AGENT
+I'd like to talk to a human at Sunrise Family Medicine.,HUMAN_AGENT
+"Hello, Can I be routed to a human?",HUMAN_AGENT
+Can i get on the line with the receptionist? this minute,HUMAN_AGENT
+Can you connect me to a real person in scheduling  please.,HUMAN_AGENT
+"Hey, Customer service, please.",HUMAN_AGENT
+I'd like a call with a real person.,HUMAN_AGENT
+Can I speak to your manager? today,HUMAN_AGENT
+Can I be routed to a live agent? quickly,HUMAN_AGENT
+"Hello, Can I speak to a human? please",HUMAN_AGENT
+"Uh, Can you get a staff member on the line? thanks",HUMAN_AGENT
+"Okay, Operator, please.",HUMAN_AGENT
+"Hello, Can I reach someone in appointments",HUMAN_AGENT
+Please get me a person in medical records.,HUMAN_AGENT
+"Hey, Please switch me from the bot to a human.",HUMAN_AGENT
+Can you transfer me to support?,HUMAN_AGENT
+"Hi, Please connect me to a human representative.",HUMAN_AGENT
+Can I speak to someone  today.,HUMAN_AGENT
+"Okay, Is there a receptionist I can speak with",HUMAN_AGENT
+Transfer me to someone for portal support.,HUMAN_AGENT
+"Um, Can I talk to a human  right now.",HUMAN_AGENT
+"Alright, Let me talk to the receptionist.",HUMAN_AGENT
+is there a way to reach a person  please.,HUMAN_AGENT
+Can I reach someone in scheduling?,HUMAN_AGENT
+"Okay, Talk to a person, please. if possible",HUMAN_AGENT
+Can I be routed to someone in front desk?,HUMAN_AGENT
+Can I speak to a human  asap. today,HUMAN_AGENT
+Let me talk to someone human.,HUMAN_AGENT
+Can i get on the line with an operator  right now.,HUMAN_AGENT
+Can I be transferred to a human  ASAP.,HUMAN_AGENT
+Can I get on the line with someone in portal support,HUMAN_AGENT
+Transfer me to a human agent ASAP. right now,HUMAN_AGENT
+"Um, Can I connect with a live agent  please.",HUMAN_AGENT
+Can I talk to an actual human being  today,HUMAN_AGENT
+Can I be transferred to someone? if possible,HUMAN_AGENT
+"Hey, I need to speak with a person about insurance.",HUMAN_AGENT
+Please connect me to someone live. this minute,HUMAN_AGENT
+Transfer me to a supervisor. right now,HUMAN_AGENT
+"Hey, Can I be routed to someone  if possible. if possible",HUMAN_AGENT
+Transfer me to the front desk. today,HUMAN_AGENT
+Can I connect with a live agent? if possible,HUMAN_AGENT
+Can I get on the line with someone?,HUMAN_AGENT
+"Hey, Can you transfer me to the front desk for directions  right now. if possible",HUMAN_AGENT
+Can I reach the receptionist  today. quickly,HUMAN_AGENT
+Can I get on the line with someone in portal support?,HUMAN_AGENT
+Can i be routed to an operator  thanks.,HUMAN_AGENT
+"Give me a human, not a bot. please",HUMAN_AGENT
+Can you hand me off to a real person,HUMAN_AGENT
+Can I connect with an operator? quickly,HUMAN_AGENT

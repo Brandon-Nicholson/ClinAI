@@ -1,0 +1,22 @@
+{
+  "clinic_name": "Sunrise Family Medicine",
+  "address": "123 Main St, Springfield, CA 90000",
+  "phone": "(555) 555-0123",
+  "fax": "(555) 555-0456",
+  "hours": {
+    "Mon": "8:00am–5:00pm",
+    "Tue": "8:00am–5:00pm",
+    "Wed": "8:00am–5:00pm",
+    "Thu": "8:00am–5:00pm",
+    "Fri": "8:00am–4:00pm",
+    "Sat": "Closed",
+    "Sun": "Closed"
+  },
+  "parking": "Lot behind the building; first 2 hours free.",
+  "walk_ins": "Limited same-day availability; please call first.",
+  "portal": {
+    "url": "https://portal.example.com",
+    "support": "(555) 555-0199"
+  },
+  "insurances": ["Anthem","Aetna","Blue Shield","UnitedHealthcare","Cigna","Kaiser"]
+}
