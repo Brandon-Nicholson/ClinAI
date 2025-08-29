@@ -39,7 +39,7 @@ class Call(Base):
     patient_id: Mapped[Optional[int]] = mapped_column(ForeignKey("patients.id"))
     from_number: Mapped[Optional[str]] = mapped_column(String(32))
 
-    intent: Mapped[Optional[str]] = mapped_column(Text)          # 'schedule','refill','prior_auth',...
+    intent: Mapped[Optional[str]] = mapped_column(Text)
     resolved: Mapped[bool] = mapped_column(Boolean, default=False, server_default="false")
     escalated: Mapped[bool] = mapped_column(Boolean, default=False, server_default="false")
     notes: Mapped[Optional[str]] = mapped_column(Text)

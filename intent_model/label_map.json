@@ -1,0 +1,9 @@
+{
+  "0": "APPT_NEW",
+  "1": "APPT_RESCHEDULE",
+  "2": "APPT_CANCEL",
+  "3": "RX_REFILL",
+  "4": "ADMIN_INFO",
+  "5": "OTHER",
+  "6": "HUMAN_AGENT"
+}

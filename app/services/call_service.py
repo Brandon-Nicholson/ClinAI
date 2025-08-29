@@ -21,9 +21,8 @@ def log_turn(call_id: int, role: str, text: str) -> Transcript:
     with get_session() as s:
         t = Transcript(call_id=call_id, role=role, text=text)
         s.add(t); s.commit(); s.refresh(t)
-        return t
 
-def set_intent(call_id: int, intent: Optional[str]) -> None:
+def set_intent(call_id: int, intent: Optional[list]) -> None:
     """Store the LLM/classifier result for this call."""
     with get_session() as s:
         c = s.get(Call, call_id)
@@ -44,6 +43,24 @@ def end_call(call_id: int, *, resolved: bool, escalated: bool, notes: Optional[s
         if notes:
             c.notes = notes
         s.commit()
+        
+def was_resolved(reply: str) -> bool:
+    if not reply:
+        return None  # or False, depending on how you want to handle silence
+    
+    text = reply.lower()
+    
+    negatives = ["no", "nah", "not really", "not at all", "nope", "didn't", "wasn't"]
+    positives = ["yes", "yeah", "yep", "sure", "it was", "all good", "thanks", "okay", "resolved"]
+
+    if any(neg in text for neg in negatives):
+        return False
+    if any(pos in text for pos in positives):
+        return True
+    
+    # default (ambiguous replies like "maybe")
+    return None
+
 
 # Tasks
 def create_task(call_id: int, task_type: str, payload: Dict) -> Task:

@@ -1,0 +1,601 @@
+text,label
+I'd like to schedule with Dr. Garcia on Wednesday September 10.,APPT_NEW
+Thanks for your help earlier.,OTHER
+"Good evening, Need prescription refill for lisinopril 10mg. That’s all.",RX_REFILL
+Do you accept walk-ins?,ADMIN_INFO
+"Good afternoon, Can the doctor approve a refill for levothyroxine 50mcg? Thanks.",RX_REFILL
+I'd like to cancel my appointment at Westside Health.,APPT_CANCEL
+I need to cancel tomorrow's appointment.,APPT_CANCEL
+"Hi, Thanks for your help earlier. Thanks so much.",OTHER
+"Good morning, I need to reschedule my appointment from Friday August 08 to Monday September 29. Please let me know.",APPT_RESCHEDULE
+"Good afternoon, Can we move my appointment to Friday September 19?",APPT_RESCHEDULE
+Can I book an appointment for Thursday September 18?,APPT_NEW
+"Hi, I need to change the time; Sunday September 07 would work. Thanks.",APPT_RESCHEDULE
+Can you cancel my visit with Dr. Garcia?,APPT_CANCEL
+"Hi, Do you accept walk-ins? I can't log into the portal.",ADMIN_INFO
+Could I create an appointment for on Saturday September 13 at Sunrise Family Medicine?,APPT_NEW
+"Hi, Is on Sunday September 14 available for a first-time appointment?",APPT_NEW
+"New patient appointment on Monday September 08, do you have openings? Thanks so much.",APPT_NEW
+"Good morning, Do you accept walk-ins?",ADMIN_INFO
+"Good afternoon, I have to push my appointment—can I switch to Friday October 10?",APPT_RESCHEDULE
+"Hey, I'd like to cancel my appointment at Lakeview Medical.",APPT_CANCEL
+Just calling to check something. Thanks.,OTHER
+"Hey, Please change my visit to Monday September 01. Thanks so much.",APPT_RESCHEDULE
+Thanks for your help earlier.,OTHER
+Hello there. Thanks so much.,OTHER
+I'm out of atorvastatin 20mg; please send a refill to Rite Aid by the mall.,RX_REFILL
+Need prescription refill for atorvastatin 20mg. Thank you.,RX_REFILL
+Can you renew my amlodipine 5mg prescription at CVS on Main St?,RX_REFILL
+"Hello, Need prescription refill for amlodipine 5mg. Thanks.",RX_REFILL
+Do you accept walk-ins? That’s all.,ADMIN_INFO
+Please change my visit to Monday September 01.,APPT_RESCHEDULE
+I'd like to cancel my appointment at Westside Health.,APPT_CANCEL
+"Hello, Need prescription refill for lisinopril 10mg.",RX_REFILL
+"Hey, New patient appointment next Thursday, do you have openings? That’s all.",APPT_NEW
+I want to set up a visit with Dr. Patel next Friday. Thanks so much.,APPT_NEW
+Can you move my Dr. Kim appointment to Monday September 29? Thanks so much.,APPT_RESCHEDULE
+I need to schedule a new appointment next Friday. Appreciate it.,APPT_NEW
+Thanks for your help earlier.,OTHER
+I'd like to cancel my appointment at Sunrise Family Medicine. Thank you.,APPT_CANCEL
+"Hi, Is anyone available?",OTHER
+"New patient appointment next Wednesday, do you have openings?",APPT_NEW
+"Hello, Can I book an appointment next Friday? Thanks.",APPT_NEW
+Can you cancel my visit with Dr. Lee?,APPT_CANCEL
+I want to set up a visit with Dr. Brown next Wednesday. Please let me know.,APPT_NEW
+Please change my visit to Saturday September 27.,APPT_RESCHEDULE
+"Good evening, Do you have parking?",ADMIN_INFO
+Just calling to check something. Appreciate it.,OTHER
+Hi.,OTHER
+"Hello, I want to set up a visit with Dr. Kim for Sunday September 14.",APPT_NEW
+I need to reschedule my appointment from Monday August 18 to Friday September 26. Appreciate it.,APPT_RESCHEDULE
+Not sure what I need yet.,OTHER
+"Good afternoon, Hi.",OTHER
+"Good evening, Can you move my PA Johnson appointment to Tuesday September 30? That’s all.",APPT_RESCHEDULE
+Can someone help me with something? Thanks.,OTHER
+"Hello, Can you cancel my visit with Dr. Kim?",APPT_CANCEL
+Can the doctor approve a refill for atorvastatin 20mg?,RX_REFILL
+I need to reschedule my appointment from Monday July 14 to Monday September 15. Appreciate it.,APPT_RESCHEDULE
+I need to change the time; Friday October 03 would work. Thank you.,APPT_RESCHEDULE
+I'd like to schedule with NP Davis on Thursday September 04. That’s all.,APPT_NEW
+Do you have parking? Thank you.,ADMIN_INFO
+Cancel my appointment—something came up.,APPT_CANCEL
+I need the clinic phone number. Do you have an online portal for forms? That’s all.,ADMIN_INFO
+I'm out of lisinopril 10mg; please send a refill to Costco Pharmacy.,RX_REFILL
+I need the clinic phone number. Thanks.,ADMIN_INFO
+"Hi, Just calling to check something. Thanks.",OTHER
+"Good morning, I want to set up a visit with Dr. Kim next Thursday. Appreciate it.",APPT_NEW
+"Good evening, Hi.",OTHER
+I have to push my appointment—can I switch to Monday October 06?,APPT_RESCHEDULE
+"Good morning, Can I book an appointment on Saturday September 13?",APPT_NEW
+"Good morning, I'd like to cancel my appointment at Sunrise Family Medicine.",APPT_CANCEL
+Can I book an appointment for Thursday September 04?,APPT_NEW
+I need to reschedule my appointment from Monday July 14 to Tuesday September 16. Please let me know.,APPT_RESCHEDULE
+I need the clinic phone number. That’s all.,ADMIN_INFO
+"Hello, Can someone help me with something? Thanks so much.",OTHER
+"New patient appointment next Friday, do you have openings? Please let me know.",APPT_NEW
+Do you take Aetna? Thanks.,ADMIN_INFO
+I need to cancel tomorrow's appointment. Thank you.,APPT_CANCEL
+"Hello, I need to reschedule my appointment from Saturday August 09 to Friday September 19.",APPT_RESCHEDULE
+"Hi, Do you take Blue Shield?",ADMIN_INFO
+I'm out of metformin 500mg; please send a refill to Walmart Pharmacy. That’s all.,RX_REFILL
+"Good morning, Cancel my appointment—something came up. That’s all.",APPT_CANCEL
+I need to change the time; Saturday October 04 would work. Thanks.,APPT_RESCHEDULE
+How do I send a fax to the office? I can't log into the portal. Thank you.,ADMIN_INFO
+"Hey, What's your address?",ADMIN_INFO
+"Hi, Can you renew my sertraline 50mg prescription at Walmart Pharmacy? Appreciate it.",RX_REFILL
+Please change my visit to Tuesday September 30. Appreciate it.,APPT_RESCHEDULE
+How do I send a fax to the office? Thanks.,ADMIN_INFO
+Can we move my appointment to Friday August 29?,APPT_RESCHEDULE
+I need to schedule a new appointment next Friday. Thanks.,APPT_NEW
+"Hello, Is anyone available? Thank you.",OTHER
+I'm out of omeprazole 20mg; please send a refill to Walmart Pharmacy.,RX_REFILL
+"Good afternoon, Do you take Cigna? Thanks.",ADMIN_INFO
+I need a refill on sertraline 50mg to Walgreens on 5th.,RX_REFILL
+Please help me schedule a checkup on Tuesday September 09. Please let me know.,APPT_NEW
+"Good morning, Just calling to check something.",OTHER
+"Hi, Cancel my appointment—something came up.",APPT_CANCEL
+"Good evening, Hi.",OTHER
+"Good evening, I'd like to cancel my appointment at Lakeview Medical. Thanks.",APPT_CANCEL
+"Good afternoon, I have to push my appointment—can I switch to Saturday October 11? Thanks so much.",APPT_RESCHEDULE
+Not sure what I need yet.,OTHER
+Do you have parking? How do I reset my portal password?,ADMIN_INFO
+Please help me schedule a checkup for Friday September 26. Please let me know.,APPT_NEW
+I need to cancel tomorrow's appointment. Please let me know.,APPT_CANCEL
+"Good evening, Cancel my appointment—something came up.",APPT_CANCEL
+Can you cancel my visit with PA Johnson? Thanks.,APPT_CANCEL
+"Good evening, Can you cancel my visit with Dr. Lee?",APPT_CANCEL
+Cancel my appointment—something came up. Thanks.,APPT_CANCEL
+"Good morning, I need to change the time; Tuesday October 07 would work. Please let me know.",APPT_RESCHEDULE
+Please help me schedule a checkup next Tuesday.,APPT_NEW
+I need to change the time; Tuesday September 16 would work. Appreciate it.,APPT_RESCHEDULE
+What are your hours this week? That’s all.,ADMIN_INFO
+"Hey, Can someone help me with something?",OTHER
+"New patient appointment for Monday September 15, do you have openings?",APPT_NEW
+Can the doctor approve a refill for levothyroxine 50mcg?,RX_REFILL
+"Hello, What are your hours this week?",ADMIN_INFO
+I need to change the time; Monday October 06 would work.,APPT_RESCHEDULE
+Cancel my appointment—something came up.,APPT_CANCEL
+Could I create an appointment for for Saturday September 06 at Westside Health?,APPT_NEW
+Please help me schedule a checkup for Sunday September 14. That’s all.,APPT_NEW
+Do you take Blue Shield? Thanks.,ADMIN_INFO
+Can you cancel my visit with Dr. Patel?,APPT_CANCEL
+"Good morning, Can someone help me with something? Thanks so much.",OTHER
+"Hi, I need to reschedule my appointment from Tuesday July 22 to Monday October 06. Please let me know.",APPT_RESCHEDULE
+"Good morning, I need to schedule a new appointment next Friday.",APPT_NEW
+Please change my visit to Sunday August 31. Appreciate it.,APPT_RESCHEDULE
+I want to set up a visit with Dr. Garcia for Monday September 15.,APPT_NEW
+Please help me schedule a checkup for Tuesday September 02.,APPT_NEW
+"Good evening, Need prescription refill for amlodipine 5mg. Appreciate it.",RX_REFILL
+Lol okay. Appreciate it.,OTHER
+I want to set up a visit with NP Davis on Thursday October 02. Please let me know.,APPT_NEW
+I need to reschedule my appointment from Saturday August 02 to Wednesday October 01.,APPT_RESCHEDULE
+I have to push my appointment—can I switch to Sunday October 05?,APPT_RESCHEDULE
+"Good afternoon, I need to reschedule my appointment from Monday August 25 to Thursday September 18. Thanks so much.",APPT_RESCHEDULE
+"Hi, Can someone help me with something? That’s all.",OTHER
+Just calling to check something.,OTHER
+"Good afternoon, I need to schedule a new appointment for Thursday October 02. Please let me know.",APPT_NEW
+"Good afternoon, What's your address?",ADMIN_INFO
+What's your address?,ADMIN_INFO
+Can we move my appointment to Friday August 29?,APPT_RESCHEDULE
+"Hello, I'd like to cancel my appointment at Downtown Clinic. Thanks.",APPT_CANCEL
+I'd like to schedule with Dr. Garcia on Saturday September 20.,APPT_NEW
+I need to cancel tomorrow's appointment.,APPT_CANCEL
+Can the doctor approve a refill for levothyroxine 50mcg? Appreciate it.,RX_REFILL
+"Hey, Can someone help me with something? Thanks so much.",OTHER
+Cancel my appointment—something came up. Appreciate it.,APPT_CANCEL
+Do you take UnitedHealthcare? Thanks.,ADMIN_INFO
+What's your address? Appreciate it.,ADMIN_INFO
+Can you renew my omeprazole 20mg prescription at CVS on Main St? Thanks.,RX_REFILL
+"New patient appointment on Tuesday September 02, do you have openings?",APPT_NEW
+"Hi, What's your address? I can't log into the portal. That’s all.",ADMIN_INFO
+"Hi, How do I send a fax to the office? I can't log into the portal. Appreciate it.",ADMIN_INFO
+"Great, bye. Thank you.",OTHER
+Need prescription refill for amlodipine 5mg.,RX_REFILL
+"Good afternoon, Thanks for your help earlier.",OTHER
+I want to set up a visit with Dr. Nguyen for Saturday September 27.,APPT_NEW
+"Hi, I'm out of atorvastatin 20mg; please send a refill to Costco Pharmacy.",RX_REFILL
+"Good morning, Can you cancel my visit with NP Davis?",APPT_CANCEL
+Can you cancel my visit with Dr. Garcia? Thanks so much.,APPT_CANCEL
+I need to change the time; Sunday August 31 would work. Thanks so much.,APPT_RESCHEDULE
+Need prescription refill for levothyroxine 50mcg. Thanks.,RX_REFILL
+What's your address? Do you have an online portal for forms? Thank you.,ADMIN_INFO
+How’s your day going?,OTHER
+Thanks for your help earlier.,OTHER
+I need a refill on amlodipine 5mg to Rite Aid by the mall.,RX_REFILL
+"New patient appointment next Monday, do you have openings?",APPT_NEW
+I need to change the time; Friday October 10 would work.,APPT_RESCHEDULE
+"Hi, Not sure what I need yet. Thank you.",OTHER
+I need the clinic phone number.,ADMIN_INFO
+"New patient appointment on Thursday September 25, do you have openings?",APPT_NEW
+Please change my visit to Tuesday September 16. Please let me know.,APPT_RESCHEDULE
+Could I create an appointment for for Sunday August 31 at Westside Health?,APPT_NEW
+How do I send a fax to the office?,ADMIN_INFO
+"Good morning, Could I create an appointment for on Thursday September 11 at Hillside Care?",APPT_NEW
+I need to cancel tomorrow's appointment. Please let me know.,APPT_CANCEL
+I have to push my appointment—can I switch to Sunday October 12? That’s all.,APPT_RESCHEDULE
+"Hey, Is anyone available?",OTHER
+"Hello, Is Dr. Patel accepting new patients? Thank you.",ADMIN_INFO
+Is on Friday October 10 available for a first-time appointment?,APPT_NEW
+Can you renew my metformin 500mg prescription at Target CVS?,RX_REFILL
+I need to change the time; Friday October 03 would work. Please let me know.,APPT_RESCHEDULE
+"Good evening, Could I create an appointment for on Friday September 19 at Hillside Care? Thank you.",APPT_NEW
+"Hi, Can you cancel my visit with Dr. Brown?",APPT_CANCEL
+"Good afternoon, Can the doctor approve a refill for levothyroxine 50mcg?",RX_REFILL
+Do you have parking? Thanks so much.,ADMIN_INFO
+"Hi, What's your address? I can't log into the portal. Thank you.",ADMIN_INFO
+"Hey, Hello there.",OTHER
+Just checking in.,OTHER
+Can you cancel my visit with NP Davis?,APPT_CANCEL
+Is anyone available?,OTHER
+"Good evening, Can you move my Dr. Brown appointment to Saturday September 13? Appreciate it.",APPT_RESCHEDULE
+Can someone help me with something? That’s all.,OTHER
+I have to push my appointment—can I switch to Tuesday September 23? Appreciate it.,APPT_RESCHEDULE
+"Good morning, I need to cancel tomorrow's appointment.",APPT_CANCEL
+"Good afternoon, Do you have parking? That’s all.",ADMIN_INFO
+"Good morning, I need to cancel tomorrow's appointment.",APPT_CANCEL
+I need the clinic phone number.,ADMIN_INFO
+"Good afternoon, I want to set up a visit with Dr. Patel on Wednesday September 03. Please let me know.",APPT_NEW
+I need to reschedule my appointment from Thursday August 14 to Tuesday September 30. Appreciate it.,APPT_RESCHEDULE
+I'd like to cancel my appointment at Westside Health.,APPT_CANCEL
+Do you have parking? Please let me know.,ADMIN_INFO
+"Good morning, Can someone help me with something? Thanks.",OTHER
+I need to change the time; Sunday September 28 would work. That’s all.,APPT_RESCHEDULE
+Can the doctor approve a refill for metformin 500mg?,RX_REFILL
+Need prescription refill for omeprazole 20mg. Thanks so much.,RX_REFILL
+Need prescription refill for lisinopril 10mg. Thanks.,RX_REFILL
+Do you accept walk-ins? Thanks so much.,ADMIN_INFO
+"Hey, What's your address? Do you have an online portal for forms? That’s all.",ADMIN_INFO
+Can you renew my atorvastatin 20mg prescription at Costco Pharmacy?,RX_REFILL
+"Good morning, I need a refill on lisinopril 10mg to Target CVS.",RX_REFILL
+I need a refill on amlodipine 5mg to Walgreens on 5th. Please let me know.,RX_REFILL
+Cancel my appointment—something came up. Please let me know.,APPT_CANCEL
+Can you renew my metformin 500mg prescription at Costco Pharmacy? Appreciate it.,RX_REFILL
+I want to set up a visit with Dr. Lee for Tuesday September 23.,APPT_NEW
+"Hello, Do you take Aetna? I can't log into the portal. Thanks so much.",ADMIN_INFO
+"Hey, Can I book an appointment next Wednesday? Thanks.",APPT_NEW
+"Hi, I need to schedule a new appointment on Friday October 03. Thanks so much.",APPT_NEW
+Cancel my appointment—something came up. Thanks.,APPT_CANCEL
+I'm out of amlodipine 5mg; please send a refill to CVS on Main St.,RX_REFILL
+"Good evening, New patient appointment on Tuesday September 02, do you have openings?",APPT_NEW
+I need to schedule a new appointment next Friday. Thank you.,APPT_NEW
+Just calling to check something.,OTHER
+"Hi, I need to change the time; Thursday September 04 would work. That’s all.",APPT_RESCHEDULE
+"Hi, Can the doctor approve a refill for sertraline 50mg?",RX_REFILL
+"Hello, Can I book an appointment on Friday September 05?",APPT_NEW
+"Good afternoon, Cancel my appointment—something came up.",APPT_CANCEL
+"Good afternoon, Cancel my appointment—something came up.",APPT_CANCEL
+Can someone help me with something?,OTHER
+I need to cancel tomorrow's appointment.,APPT_CANCEL
+I need a refill on sertraline 50mg to CVS on Main St.,RX_REFILL
+Do you take Anthem? Thanks so much.,ADMIN_INFO
+Cancel my appointment—something came up.,APPT_CANCEL
+Can you move my Dr. Lee appointment to Sunday October 05? Please let me know.,APPT_RESCHEDULE
+"Hello, Cancel my appointment—something came up.",APPT_CANCEL
+I need to reschedule my appointment from Wednesday August 20 to Tuesday September 23. Please let me know.,APPT_RESCHEDULE
+"Hello, Can you cancel my visit with Dr. Patel? Thank you.",APPT_CANCEL
+I'd like to cancel my appointment at Lakeview Medical. That’s all.,APPT_CANCEL
+"Hello, Just calling to check something.",OTHER
+Do you have parking? Thanks.,ADMIN_INFO
+"Good evening, Do you take Aetna?",ADMIN_INFO
+"Hey, Hi.",OTHER
+Do you take Aetna?,ADMIN_INFO
+"Good evening, Sounds good. That’s all.",OTHER
+"Awesome, talk soon. Thank you.",OTHER
+I need a refill on amlodipine 5mg to Rite Aid by the mall.,RX_REFILL
+I need to reschedule my appointment from Wednesday August 06 to Friday October 10. That’s all.,APPT_RESCHEDULE
+I need to change the time; Friday September 26 would work. Thanks so much.,APPT_RESCHEDULE
+Thanks for your help earlier.,OTHER
+"Good afternoon, I need a refill on metformin 500mg to Rite Aid by the mall.",RX_REFILL
+Need prescription refill for atorvastatin 20mg.,RX_REFILL
+Can I book an appointment next Friday? Thank you.,APPT_NEW
+Not sure what I need yet. That’s all.,OTHER
+Please change my visit to Sunday October 12. Thanks.,APPT_RESCHEDULE
+"Hi, Cancel my appointment—something came up. That’s all.",APPT_CANCEL
+"Good afternoon, I need to cancel tomorrow's appointment. That’s all.",APPT_CANCEL
+Please cancel my appointment on Saturday October 04. That’s all.,APPT_CANCEL
+I need to cancel tomorrow's appointment.,APPT_CANCEL
+Could I create an appointment for next Friday at Lakeview Medical? Appreciate it.,APPT_NEW
+I'd like to schedule with Dr. Brown on Tuesday September 09.,APPT_NEW
+What's your address?,ADMIN_INFO
+"Hey, I'd like to schedule with PA Johnson on Friday September 19. Thanks.",APPT_NEW
+Can you renew my amlodipine 5mg prescription at Rite Aid by the mall?,RX_REFILL
+Please help me schedule a checkup next Tuesday. That’s all.,APPT_NEW
+I need to cancel tomorrow's appointment.,APPT_CANCEL
+Do you accept walk-ins? Do you have an online portal for forms?,ADMIN_INFO
+What are your hours this week? Appreciate it.,ADMIN_INFO
+I need a refill on metformin 500mg to Walgreens on 5th.,RX_REFILL
+Can you move my Dr. Garcia appointment to Wednesday September 03? That’s all.,APPT_RESCHEDULE
+Please cancel my appointment on Sunday August 31.,APPT_CANCEL
+Hello there.,OTHER
+I need to change the time; Wednesday September 03 would work.,APPT_RESCHEDULE
+"Good morning, Can you move my Dr. Kim appointment to Wednesday October 01?",APPT_RESCHEDULE
+"Hey, I need to reschedule my appointment from Tuesday July 15 to Wednesday October 01.",APPT_RESCHEDULE
+"Good afternoon, Is Dr. Lee accepting new patients?",ADMIN_INFO
+Can the doctor approve a refill for lisinopril 10mg? That’s all.,RX_REFILL
+Do you have parking?,ADMIN_INFO
+I need a refill on amlodipine 5mg to Walmart Pharmacy. Thanks.,RX_REFILL
+Can we move my appointment to Thursday September 04?,APPT_RESCHEDULE
+Not sure what I need yet.,OTHER
+Just calling to check something.,OTHER
+I have to push my appointment—can I switch to Tuesday September 02? Thanks so much.,APPT_RESCHEDULE
+I'd like to schedule with Dr. Garcia on Tuesday September 30. Thank you.,APPT_NEW
+Is on Thursday September 04 available for a first-time appointment?,APPT_NEW
+I'd like to cancel my appointment at Westside Health. Thanks.,APPT_CANCEL
+"Hi, Do you have parking? Thanks.",ADMIN_INFO
+How do I send a fax to the office? Thank you.,ADMIN_INFO
+Do you take Blue Shield? I can't log into the portal.,ADMIN_INFO
+I need to change the time; Sunday September 07 would work. That’s all.,APPT_RESCHEDULE
+"Hey, Need prescription refill for sertraline 50mg. Thanks.",RX_REFILL
+Can you renew my sertraline 50mg prescription at Costco Pharmacy? Thanks.,RX_REFILL
+Is anyone available?,OTHER
+"Good afternoon, I need to reschedule my appointment from Thursday July 17 to Sunday September 07.",APPT_RESCHEDULE
+I have to push my appointment—can I switch to Saturday October 04?,APPT_RESCHEDULE
+"Good afternoon, Can I book an appointment on Tuesday September 30? Thanks so much.",APPT_NEW
+"Good afternoon, I'd like to cancel my appointment at Lakeview Medical. Thank you.",APPT_CANCEL
+"Hello, Can you cancel my visit with Dr. Brown?",APPT_CANCEL
+"Good morning, I need to cancel tomorrow's appointment. That’s all.",APPT_CANCEL
+"Hey, Is anyone available? Appreciate it.",OTHER
+"Good afternoon, Can I book an appointment on Thursday September 18? Thanks so much.",APPT_NEW
+What's your address? I can't log into the portal.,ADMIN_INFO
+Is for Saturday September 13 available for a first-time appointment?,APPT_NEW
+"Hey, I need to cancel tomorrow's appointment.",APPT_CANCEL
+Please help me schedule a checkup on Monday September 29.,APPT_NEW
+Can you move my NP Davis appointment to Thursday September 04? Thank you.,APPT_RESCHEDULE
+"Good evening, I'd like to cancel my appointment at Downtown Clinic.",APPT_CANCEL
+Please change my visit to Monday September 01. Please let me know.,APPT_RESCHEDULE
+"Hey, Please help me schedule a checkup for Tuesday September 30.",APPT_NEW
+"Good afternoon, How do I send a fax to the office?",ADMIN_INFO
+"Good morning, Please cancel my appointment on Saturday September 13. Thanks so much.",APPT_CANCEL
+"Good evening, Can you cancel my visit with Dr. Kim?",APPT_CANCEL
+Please cancel my appointment on Saturday September 27. Thanks so much.,APPT_CANCEL
+Can you move my Dr. Garcia appointment to Thursday September 18? Appreciate it.,APPT_RESCHEDULE
+I want to set up a visit with NP Davis next Thursday.,APPT_NEW
+"Hello, Need prescription refill for lisinopril 10mg. Thanks so much.",RX_REFILL
+"Good evening, What are your hours this week?",ADMIN_INFO
+"Hello, Please help me schedule a checkup for Wednesday September 24. Thanks.",APPT_NEW
+Need prescription refill for lisinopril 10mg.,RX_REFILL
+"Good evening, New patient appointment on Tuesday September 23, do you have openings?",APPT_NEW
+I need to cancel tomorrow's appointment. Thank you.,APPT_CANCEL
+Can someone help me with something?,OTHER
+What are your hours this week?,ADMIN_INFO
+Please change my visit to Tuesday September 16. Thank you.,APPT_RESCHEDULE
+What are your hours this week?,ADMIN_INFO
+"Good afternoon, Need prescription refill for metformin 500mg.",RX_REFILL
+I'd like to schedule with Dr. Kim on Friday September 19. That’s all.,APPT_NEW
+I need to change the time; Thursday September 04 would work. Please let me know.,APPT_RESCHEDULE
+"Good morning, Just calling to check something. Thank you.",OTHER
+I need to change the time; Thursday September 04 would work.,APPT_RESCHEDULE
+"Good evening, Please cancel my appointment on Friday October 10. Please let me know.",APPT_CANCEL
+"New patient appointment for Sunday October 05, do you have openings? Thanks.",APPT_NEW
+I need to reschedule my appointment from Tuesday July 15 to Monday October 06. Thanks.,APPT_RESCHEDULE
+"Good afternoon, I'd like to schedule with NP Davis on Tuesday September 02. Thanks so much.",APPT_NEW
+Can you cancel my visit with Dr. Garcia?,APPT_CANCEL
+"Hi, Do you accept walk-ins?",ADMIN_INFO
+Can I book an appointment on Saturday August 30?,APPT_NEW
+Could I create an appointment for on Saturday September 06 at Hillside Care?,APPT_NEW
+What's your address? Please let me know.,ADMIN_INFO
+Thanks for your help earlier.,OTHER
+Do you have parking? Please let me know.,ADMIN_INFO
+Just checking in. Appreciate it.,OTHER
+I need to reschedule my appointment from Friday July 18 to Friday September 26. Thank you.,APPT_RESCHEDULE
+I need the clinic phone number. Please let me know.,ADMIN_INFO
+"Good afternoon, Can you cancel my visit with NP Davis? Please let me know.",APPT_CANCEL
+What are your hours this week? Thank you.,ADMIN_INFO
+I need to change the time; Tuesday September 02 would work.,APPT_RESCHEDULE
+"Good morning, I'm out of amlodipine 5mg; please send a refill to Rite Aid by the mall. Thanks.",RX_REFILL
+"Good morning, Just calling to check something.",OTHER
+"Hi, Please change my visit to Monday September 22.",APPT_RESCHEDULE
+"Good evening, Cancel my appointment—something came up. Thanks.",APPT_CANCEL
+I'm out of levothyroxine 50mcg; please send a refill to Walmart Pharmacy. Thank you.,RX_REFILL
+"Good evening, I need to change the time; Friday September 05 would work. That’s all.",APPT_RESCHEDULE
+"Good evening, Do you accept walk-ins?",ADMIN_INFO
+I'm out of lisinopril 10mg; please send a refill to CVS on Main St.,RX_REFILL
+I need a refill on lisinopril 10mg to CVS on Main St. Please let me know.,RX_REFILL
+"Good evening, I need to cancel tomorrow's appointment.",APPT_CANCEL
+"Good morning, How do I send a fax to the office? I can't log into the portal.",ADMIN_INFO
+Can you renew my metformin 500mg prescription at Target CVS? Thanks.,RX_REFILL
+"Good morning, Do you accept walk-ins? That’s all.",ADMIN_INFO
+Hello there. That’s all.,OTHER
+Can the doctor approve a refill for levothyroxine 50mcg? Thanks.,RX_REFILL
+Do you have parking? I can't log into the portal.,ADMIN_INFO
+Can the doctor approve a refill for metformin 500mg? Please let me know.,RX_REFILL
+"Good morning, Do you take Blue Shield? That’s all.",ADMIN_INFO
+Can we move my appointment to Friday September 19? Thank you.,APPT_RESCHEDULE
+"Hey, Can the doctor approve a refill for atorvastatin 20mg?",RX_REFILL
+Can you cancel my visit with Dr. Kim? Thanks so much.,APPT_CANCEL
+"Hi, Hi. Please let me know.",OTHER
+Can you move my Dr. Lee appointment to Tuesday September 30?,APPT_RESCHEDULE
+Can the doctor approve a refill for lisinopril 10mg?,RX_REFILL
+"Hello, Can the doctor approve a refill for metformin 500mg?",RX_REFILL
+I need to change the time; Tuesday September 23 would work.,APPT_RESCHEDULE
+What are your hours this week? Thanks so much.,ADMIN_INFO
+"Good evening, Not sure what I need yet. Thanks so much.",OTHER
+Can you renew my metformin 500mg prescription at Walmart Pharmacy?,RX_REFILL
+"New patient appointment next Friday, do you have openings? That’s all.",APPT_NEW
+"Hi, Is Dr. Brown accepting new patients? How do I reset my portal password?",ADMIN_INFO
+"Hello, Please change my visit to Saturday September 20. Thank you.",APPT_RESCHEDULE
+"New patient appointment for Wednesday September 17, do you have openings?",APPT_NEW
+"Hello, Not sure what I need yet.",OTHER
+"Hello, I have to push my appointment—can I switch to Wednesday September 24? Please let me know.",APPT_RESCHEDULE
+"Good evening, Can you move my Dr. Nguyen appointment to Friday September 26?",APPT_RESCHEDULE
+Can the doctor approve a refill for sertraline 50mg?,RX_REFILL
+"Hey, Can I book an appointment on Sunday August 31? That’s all.",APPT_NEW
+"Good evening, Can the doctor approve a refill for levothyroxine 50mcg? Appreciate it.",RX_REFILL
+I need to change the time; Friday October 10 would work.,APPT_RESCHEDULE
+Hi.,OTHER
+Do you have parking? Do you have an online portal for forms?,ADMIN_INFO
+"Good afternoon, Could I create an appointment for for Wednesday October 01 at Westside Health? Appreciate it.",APPT_NEW
+"Good evening, Need prescription refill for amlodipine 5mg. Appreciate it.",RX_REFILL
+Can you move my Dr. Nguyen appointment to Thursday September 18?,APPT_RESCHEDULE
+"Good afternoon, I need the clinic phone number. Thanks so much.",ADMIN_INFO
+Please help me schedule a checkup for Friday October 03.,APPT_NEW
+"Good afternoon, Can you renew my metformin 500mg prescription at CVS on Main St?",RX_REFILL
+I'd like to schedule with Dr. Kim on Monday September 08. That’s all.,APPT_NEW
+Could I create an appointment for on Thursday October 09 at Sunrise Family Medicine? That’s all.,APPT_NEW
+"Hey, Just calling to check something.",OTHER
+I want to set up a visit with Dr. Patel on Sunday September 07. Thanks so much.,APPT_NEW
+Please help me schedule a checkup for Saturday September 13.,APPT_NEW
+"Good evening, I'd like to cancel my appointment at Hillside Care. Thanks.",APPT_CANCEL
+"Hey, Can I book an appointment for Tuesday September 16? Appreciate it.",APPT_NEW
+Please cancel my appointment on Friday October 10.,APPT_CANCEL
+Can you move my Dr. Nguyen appointment to Tuesday September 02?,APPT_RESCHEDULE
+Cancel my appointment—something came up.,APPT_CANCEL
+"Hey, Hello there.",OTHER
+"Good afternoon, Can the doctor approve a refill for lisinopril 10mg?",RX_REFILL
+I need to cancel tomorrow's appointment. Thanks.,APPT_CANCEL
+Hi.,OTHER
+"Good evening, I need a refill on lisinopril 10mg to Walmart Pharmacy.",RX_REFILL
+Can you cancel my visit with Dr. Nguyen? Thank you.,APPT_CANCEL
+Hi. Thanks so much.,OTHER
+Please cancel my appointment on Tuesday September 16.,APPT_CANCEL
+Can you cancel my visit with NP Davis?,APPT_CANCEL
+"Good afternoon, I need to reschedule my appointment from Monday July 14 to Sunday September 21.",APPT_RESCHEDULE
+"Good evening, I'm out of lisinopril 10mg; please send a refill to Walgreens on 5th. Please let me know.",RX_REFILL
+"Hey, Please help me schedule a checkup next Tuesday.",APPT_NEW
+"Hi, I need the clinic phone number. Thanks so much.",ADMIN_INFO
+I need to change the time; Tuesday October 07 would work.,APPT_RESCHEDULE
+I need a refill on amlodipine 5mg to Rite Aid by the mall.,RX_REFILL
+I need a refill on amlodipine 5mg to Rite Aid by the mall.,RX_REFILL
+"Good morning, Can you cancel my visit with Dr. Patel?",APPT_CANCEL
+Cancel my appointment—something came up.,APPT_CANCEL
+"New patient appointment on Saturday October 11, do you have openings? Thank you.",APPT_NEW
+I'm out of levothyroxine 50mcg; please send a refill to Rite Aid by the mall. Please let me know.,RX_REFILL
+Not sure what I need yet. Thanks so much.,OTHER
+"Hi, New patient appointment on Saturday September 20, do you have openings?",APPT_NEW
+How’s your day going?,OTHER
+Can you move my Dr. Nguyen appointment to Monday September 22?,APPT_RESCHEDULE
+"Good morning, I need a refill on omeprazole 20mg to Target CVS. Thanks so much.",RX_REFILL
+"Hi, Can we move my appointment to Sunday September 14?",APPT_RESCHEDULE
+I need a refill on sertraline 50mg to CVS on Main St. Thanks so much.,RX_REFILL
+Can you renew my levothyroxine 50mcg prescription at Target CVS?,RX_REFILL
+"Good afternoon, I have to push my appointment—can I switch to Friday October 10? Thanks so much.",APPT_RESCHEDULE
+"Hi, Please change my visit to Monday September 08.",APPT_RESCHEDULE
+"Hi, I have to push my appointment—can I switch to Sunday September 07? Please let me know.",APPT_RESCHEDULE
+Sounds good.,OTHER
+Do you have parking?,ADMIN_INFO
+I'm out of metformin 500mg; please send a refill to Rite Aid by the mall.,RX_REFILL
+"Hello, Need prescription refill for sertraline 50mg. Please let me know.",RX_REFILL
+Is anyone available? Thanks.,OTHER
+Can you cancel my visit with Dr. Garcia?,APPT_CANCEL
+"Good evening, Can the doctor approve a refill for omeprazole 20mg? That’s all.",RX_REFILL
+How do I send a fax to the office? Do you have an online portal for forms? Thanks.,ADMIN_INFO
+I need to reschedule my appointment from Thursday July 31 to Saturday October 11.,APPT_RESCHEDULE
+"Hey, I'd like to cancel my appointment at Westside Health.",APPT_CANCEL
+I need a refill on omeprazole 20mg to Target CVS.,RX_REFILL
+Can you renew my lisinopril 10mg prescription at Rite Aid by the mall?,RX_REFILL
+"Hello, I'm out of levothyroxine 50mcg; please send a refill to Walgreens on 5th. Please let me know.",RX_REFILL
+Is anyone available? Thanks.,OTHER
+I'd like to schedule with Dr. Nguyen on Wednesday September 17.,APPT_NEW
+Do you take UnitedHealthcare? Appreciate it.,ADMIN_INFO
+Not sure what I need yet.,OTHER
+Can you cancel my visit with PA Johnson? Thank you.,APPT_CANCEL
+I need to reschedule my appointment from Friday August 01 to Wednesday October 01. Appreciate it.,APPT_RESCHEDULE
+Please change my visit to Tuesday September 16. That’s all.,APPT_RESCHEDULE
+Can you cancel my visit with NP Davis?,APPT_CANCEL
+I need to reschedule my appointment from Friday August 01 to Thursday October 09.,APPT_RESCHEDULE
+Please change my visit to Monday October 06.,APPT_RESCHEDULE
+"Good morning, Need prescription refill for sertraline 50mg.",RX_REFILL
+"Good evening, Just calling to check something.",OTHER
+Is anyone available? Please let me know.,OTHER
+I'd like to cancel my appointment at Hillside Care.,APPT_CANCEL
+I have to push my appointment—can I switch to Friday October 03?,APPT_RESCHEDULE
+"Good morning, Hello there. Thanks so much.",OTHER
+"Good evening, Is anyone available? That’s all.",OTHER
+Please change my visit to Friday September 05.,APPT_RESCHEDULE
+"Hi, Do you accept walk-ins? Do you have an online portal for forms? Thank you.",ADMIN_INFO
+Can the doctor approve a refill for amlodipine 5mg? Thanks so much.,RX_REFILL
+I need a refill on amlodipine 5mg to Costco Pharmacy.,RX_REFILL
+Can the doctor approve a refill for lisinopril 10mg?,RX_REFILL
+"Hey, Please change my visit to Thursday September 11. Thank you.",APPT_RESCHEDULE
+"Hi, Can I book an appointment on Friday September 19?",APPT_NEW
+"Hey, I'd like to schedule with Dr. Garcia on Wednesday September 03. Appreciate it.",APPT_NEW
+I need the clinic phone number.,ADMIN_INFO
+"Hi, Need prescription refill for sertraline 50mg.",RX_REFILL
+"Hi, I need to schedule a new appointment on Wednesday September 17.",APPT_NEW
+I need to cancel tomorrow's appointment. That’s all.,APPT_CANCEL
+"Hello, Is anyone available? Thanks.",OTHER
+Thanks for your help earlier.,OTHER
+"Good evening, Do you have parking? Thanks.",ADMIN_INFO
+"Good evening, Do you take Cigna? Thanks.",ADMIN_INFO
+"Good morning, Need prescription refill for atorvastatin 20mg.",RX_REFILL
+Is anyone available?,OTHER
+"Hi, Do you accept walk-ins? That’s all.",ADMIN_INFO
+I need to cancel tomorrow's appointment.,APPT_CANCEL
+"Good afternoon, Please cancel my appointment on Friday September 05.",APPT_CANCEL
+What's your address?,ADMIN_INFO
+Can you cancel my visit with Dr. Nguyen?,APPT_CANCEL
+Do you accept walk-ins? Appreciate it.,ADMIN_INFO
+"Hi, Cancel my appointment—something came up. That’s all.",APPT_CANCEL
+"New patient appointment on Saturday September 13, do you have openings? Appreciate it.",APPT_NEW
+Need prescription refill for amlodipine 5mg. That’s all.,RX_REFILL
+Can you cancel my visit with PA Johnson? Thank you.,APPT_CANCEL
+Thanks for your help earlier.,OTHER
+Cancel my appointment—something came up.,APPT_CANCEL
+"Good evening, I want to set up a visit with NP Davis for Tuesday October 07.",APPT_NEW
+I need to cancel tomorrow's appointment. Thanks so much.,APPT_CANCEL
+"Hello, Do you have parking?",ADMIN_INFO
+Thanks for your help earlier.,OTHER
+"Hello, Can you renew my amlodipine 5mg prescription at Rite Aid by the mall? Thank you.",RX_REFILL
+I'd like to cancel my appointment at Hillside Care. Appreciate it.,APPT_CANCEL
+I need to cancel tomorrow's appointment. Thank you.,APPT_CANCEL
+What are your hours this week?,ADMIN_INFO
+"Hi, Can you renew my atorvastatin 20mg prescription at Costco Pharmacy?",RX_REFILL
+"Good evening, New patient appointment for Wednesday September 24, do you have openings? Thanks so much.",APPT_NEW
+I need a refill on levothyroxine 50mcg to Costco Pharmacy. Please let me know.,RX_REFILL
+Can the doctor approve a refill for sertraline 50mg?,RX_REFILL
+Is Dr. Kim accepting new patients? How do I reset my portal password? Appreciate it.,ADMIN_INFO
+Need prescription refill for lisinopril 10mg.,RX_REFILL
+"Good morning, I need the clinic phone number. I can't log into the portal.",ADMIN_INFO
+"Hi, I'd like to schedule with Dr. Lee on Thursday September 25. That’s all.",APPT_NEW
+"Hi, I'd like to cancel my appointment at Downtown Clinic.",APPT_CANCEL
+Not sure what I need yet. Thanks.,OTHER
+Not sure what I need yet. Appreciate it.,OTHER
+"Hello, Can someone help me with something?",OTHER
+I need to change the time; Wednesday September 17 would work. That’s all.,APPT_RESCHEDULE
+"Good morning, I need the clinic phone number. Thank you.",ADMIN_INFO
+"Good morning, Cancel my appointment—something came up.",APPT_CANCEL
+"Hello, Do you take Cigna?",ADMIN_INFO
+"Good morning, I have to push my appointment—can I switch to Wednesday October 08? Appreciate it.",APPT_RESCHEDULE
+"Hey, Can you move my Dr. Garcia appointment to Wednesday October 01? Appreciate it.",APPT_RESCHEDULE
+I need to cancel tomorrow's appointment. That’s all.,APPT_CANCEL
+Can you cancel my visit with PA Johnson? Thanks.,APPT_CANCEL
+I have to push my appointment—can I switch to Saturday October 04?,APPT_RESCHEDULE
+Is Dr. Patel accepting new patients? How do I reset my portal password?,ADMIN_INFO
+I have to push my appointment—can I switch to Monday September 01? Thanks.,APPT_RESCHEDULE
+"Hey, Not sure what I need yet. Thank you.",OTHER
+"Good morning, I need to reschedule my appointment from Monday August 18 to Wednesday October 08.",APPT_RESCHEDULE
+"Good afternoon, Could I create an appointment for for Tuesday September 09 at Lakeview Medical?",APPT_NEW
+I have to push my appointment—can I switch to Monday September 22?,APPT_RESCHEDULE
+"Hey, Need prescription refill for lisinopril 10mg.",RX_REFILL
+"Good afternoon, I'd like to cancel my appointment at Hillside Care.",APPT_CANCEL
+Can you renew my amlodipine 5mg prescription at Costco Pharmacy? Thanks so much.,RX_REFILL
+Is anyone available? Appreciate it.,OTHER
+"New patient appointment next Friday, do you have openings?",APPT_NEW
+"Good morning, Can you cancel my visit with NP Davis?",APPT_CANCEL
+"Good morning, I'd like to schedule with NP Davis on Friday September 05. Please let me know.",APPT_NEW
+I need to change the time; Wednesday October 08 would work.,APPT_RESCHEDULE
+"Hey, I need the clinic phone number.",ADMIN_INFO
+Thanks for your help earlier.,OTHER
+"Hello, What are your hours this week? Do you have an online portal for forms? Thank you.",ADMIN_INFO
+Need prescription refill for sertraline 50mg. That’s all.,RX_REFILL
+What's your address? I can't log into the portal. Appreciate it.,ADMIN_INFO
+"Hi, Thanks for your help earlier.",OTHER
+Thanks for your help earlier. Thanks.,OTHER
+"Hello, I'm out of metformin 500mg; please send a refill to Walgreens on 5th. Thanks so much.",RX_REFILL
+I need a refill on atorvastatin 20mg to Costco Pharmacy. Thanks so much.,RX_REFILL
+"Hey, Is Dr. Lee accepting new patients? How do I reset my portal password? That’s all.",ADMIN_INFO
+"Hello, Cancel my appointment—something came up. Thanks.",APPT_CANCEL
+"Good afternoon, Thanks for your help earlier. Thank you.",OTHER
+I'm out of metformin 500mg; please send a refill to Costco Pharmacy. Thank you.,RX_REFILL
+Please help me schedule a checkup next Monday.,APPT_NEW
+"Good evening, Can I book an appointment on Wednesday October 08? That’s all.",APPT_NEW
+Could I create an appointment for on Sunday September 07 at Lakeview Medical? That’s all.,APPT_NEW
+Do you take UnitedHealthcare?,ADMIN_INFO
+Do you take Cigna?,ADMIN_INFO
+"Good morning, I need to change the time; Tuesday September 30 would work.",APPT_RESCHEDULE
+"New patient appointment on Thursday September 25, do you have openings? That’s all.",APPT_NEW
+Can someone help me with something?,OTHER
+I have to push my appointment—can I switch to Sunday September 14?,APPT_RESCHEDULE
+"Good morning, I'm out of omeprazole 20mg; please send a refill to Walgreens on 5th.",RX_REFILL
+How do I send a fax to the office? Thank you.,ADMIN_INFO
+Hi.,OTHER
+Could I create an appointment for for Sunday September 28 at Lakeview Medical?,APPT_NEW
+"Good evening, How do I send a fax to the office? Please let me know.",ADMIN_INFO
+Do you have parking? Do you have an online portal for forms?,ADMIN_INFO
+What are your hours this week? How do I reset my portal password? That’s all.,ADMIN_INFO
+"Hello, Is on Friday October 03 available for a first-time appointment? Thank you.",APPT_NEW
+I'd like to cancel my appointment at Downtown Clinic. That’s all.,APPT_CANCEL
+Is NP Davis accepting new patients?,ADMIN_INFO
+Need prescription refill for omeprazole 20mg.,RX_REFILL
+How’s your day going? Thank you.,OTHER
+Cancel my appointment—something came up.,APPT_CANCEL
+"Good evening, Just calling to check something.",OTHER
+"Good morning, Could I create an appointment for for Friday August 29 at Hillside Care?",APPT_NEW
+I'd like to cancel my appointment at Hillside Care.,APPT_CANCEL
+I'm out of amlodipine 5mg; please send a refill to Walmart Pharmacy. Thanks so much.,RX_REFILL
+Can you cancel my visit with Dr. Patel?,APPT_CANCEL
+Can you renew my omeprazole 20mg prescription at CVS on Main St?,RX_REFILL
+"Good evening, Awesome, talk soon. Thanks so much.",OTHER
+"Hey, I'd like to schedule with NP Davis on Friday October 10. Thank you.",APPT_NEW
+Can we move my appointment to Friday September 19? Appreciate it.,APPT_RESCHEDULE
+"Good morning, Thanks for your help earlier. Thanks so much.",OTHER
+"Hello, How do I send a fax to the office? I can't log into the portal. That’s all.",ADMIN_INFO
+Hi.,OTHER
+Can you move my Dr. Lee appointment to Saturday September 06?,APPT_RESCHEDULE
+I'd like to schedule with Dr. Garcia on Thursday September 25. Thanks.,APPT_NEW
+"Hi, I'd like to schedule with Dr. Nguyen on Sunday October 12.",APPT_NEW
+Hi. That’s all.,OTHER
+I have to push my appointment—can I switch to Wednesday September 17? Thanks so much.,APPT_RESCHEDULE
+"Hey, I need a refill on atorvastatin 20mg to Costco Pharmacy. That’s all.",RX_REFILL
+Can you renew my levothyroxine 50mcg prescription at CVS on Main St? That’s all.,RX_REFILL
+What's your address?,ADMIN_INFO
+"Good morning, Can you cancel my visit with NP Davis? Thanks.",APPT_CANCEL
+I need the clinic phone number.,ADMIN_INFO
+Can I book an appointment next Thursday? Thanks.,APPT_NEW
+"Cool, got it. Thanks so much.",OTHER
+Hello there. Please let me know.,OTHER
+"Good evening, Can the doctor approve a refill for sertraline 50mg?",RX_REFILL
+Please cancel my appointment on Wednesday October 08. That’s all.,APPT_CANCEL
+Hello there.,OTHER
+Hello there.,OTHER
+"Good afternoon, Hello there. Thanks so much.",OTHER
