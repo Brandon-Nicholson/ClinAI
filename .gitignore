@@ -21,3 +21,7 @@ Thumbs.db
 
 # Dev notes/ideas
 notes
+
+# intent classifier
+/intent_model/intent_classifier/
+
