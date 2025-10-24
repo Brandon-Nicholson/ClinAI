@@ -14,8 +14,8 @@
   },
   "parking": "Lot behind the building; first 2 hours free.",
   "walk_ins": "Limited same-day availability; please call first.",
-  "portal": {
-    "url": "https://portal.example.com",
+  "website": {
+    "url": "https://sunrisemedicine.com",
     "support": "(555) 555-0199"
   },
   "insurances": ["Anthem","Aetna","Blue Shield","UnitedHealthcare","Cigna","Kaiser"]

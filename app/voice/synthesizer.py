@@ -11,6 +11,7 @@ Text-to-Speech (TTS) playback utilities.
 import pygame
 import io
 import threading
+import time
 
 # Try Edge TTS first
 try:
@@ -58,7 +59,7 @@ class EdgeTTSPlayer:
 
     
     async def _speak_async(self, text):
-        # Generate speech with Edge TTS and play it immediately
+        # Generates speech with Edge TTS and play it immediately
         
         # create temporary file to store mp3 data
         mp3_fp = io.BytesIO()
@@ -78,6 +79,21 @@ class EdgeTTSPlayer:
     def speak(self, text):
         # Public method to speak text (schedules the async call)
         asyncio.run_coroutine_threadsafe(self._speak_async(text), self.loop)
+        
+    def speak_and_wait(self, text, poll=0.03):
+        print(f"Agent: {text}")
+        # Synthesize + play and block until playback finishes
+        # Wait for synthesis + .play() to be scheduled/completed
+        fut = asyncio.run_coroutine_threadsafe(self._speak_async(text), self.loop)
+        fut.result()  # wait until audio is loaded and playback started
+
+        # Wait until pygame finishes playing this clip
+        # busy becomes True shortly after .play()
+        start_deadline = time.time() + 2.0  # guard if device is muted/etc.
+        while not pygame.mixer.music.get_busy() and time.time() < start_deadline:
+            time.sleep(poll)
+        while pygame.mixer.music.get_busy():
+            time.sleep(poll)
 
     def stop(self):
         # Stop any current playback
