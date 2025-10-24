@@ -120,7 +120,7 @@ def listen_and_transcribe_whisper(model, q, response, sample_rate=16000,
             if energy < rms_threshold:
                 # if patient waits too long before speaking, return sentinel
                 if (time.time() - start_time) > total_wait_seconds:
-                    return "max_wait_exceeded"
+                    return None
                 else:
                     continue
             spoken_started = True   # first voice detected

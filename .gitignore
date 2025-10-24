@@ -22,6 +22,9 @@ Thumbs.db
 # Dev notes/ideas
 notes
 
-# intent classifier
-/intent_model/intent_classifier/
+# classifiers
+classifiers/intent_model/intent_classifier/
+classifiers/appt_context_model/appt_context_classifier/
+classifiers/appt_confirmation_model/appt_confirmation_classifier/
+
 

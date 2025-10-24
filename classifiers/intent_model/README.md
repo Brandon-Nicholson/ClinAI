@@ -26,7 +26,7 @@ Learning rate: 2e-5
 
 Train/test split: 90/10 stratified
 
-Output directory: intent_model/intent_classifier/
+Output directory: classifiers/intent_model/intent_classifier/
 
 Results:
 The model achieved ~100% accuracy on the held-out evaluation set (synthetic data).

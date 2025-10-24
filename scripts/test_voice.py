@@ -11,6 +11,7 @@ async def list_voices():
 
 asyncio.run(list_voices())
 
-tts = EdgeTTSPlayer(voice="en-US-AriaNeural", rate="+10%")
-tts.speak("Hi. How can I assist you today?")
-time.sleep(6)
+tts = EdgeTTSPlayer(voice="en-AU-WilliamMultilingualNeural", rate="+15%")
+message = "Hi, would you like to schedule an appointment?"
+tts.speak(message)
+time.sleep(5)

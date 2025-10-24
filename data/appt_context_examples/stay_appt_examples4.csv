@@ -1,0 +1,201 @@
+text,label
+"uh no no, i said schedule me for tuesday afternoon bro",STAY_APPT
+"...wait nope, try scheduling me for 8am",STAY_APPT
+"...no hm no, please schedule me on the 10th instead",STAY_APPT
+"...uhh no, schedule my appointment for next week man",STAY_APPT
+"...nah I do not confirm, i want to be scheduled june 8th at 7pm right now",STAY_APPT
+"no, not 8am, schedule me for 9 instead dude",STAY_APPT
+"that didnt sound right, can you repeat what time you scheduled me for? dude.",STAY_APPT
+"hm no, please schedule me on the 10th instead dude",STAY_APPT
+"Wait, no, schedule me for next wednesday instead if possible",STAY_APPT
+"wait thats incorrect, schedule my appointment for noon dude.",STAY_APPT
+"huh no not the morning, schedule me at night please!",STAY_APPT
+"...incorrect, i want to be scheduled for thursday 5pm now",STAY_APPT
+"dont confirm that, i need my appointment bookd later bro",STAY_APPT
+"i didnt say that time, please schedule me for the right one",STAY_APPT
+"Im not confirming that, you were supposed to schedule me at 3pm dude dude",STAY_APPT
+"...wrong again, please schedule me properly this time please",STAY_APPT
+"wait wait, no, book me for next wednesday instead",STAY_APPT
+"no I do not confirm, i want to be scheduled june 8th at 7pm today",STAY_APPT
+"no no, dont book me then book me for friday I guess please",STAY_APPT
+"...hm incorrect time, please fix my schedule to 5pm",STAY_APPT
+"not that day, you can schedule me for thursday instead today",STAY_APPT
+"no, i need to be bookd earlier in the day",STAY_APPT
+"wait nope, schedule me for saturday morning",STAY_APPT
+"you got the tI'me wrong, please reschedule me for 6 today",STAY_APPT
+"not 6pm, schedule me for 7pm instead man",STAY_APPT
+"oh no no, not that time, schedule me later",STAY_APPT
+"no no, book me for another day",STAY_APPT
+"uhh that’s not what i said, book me on monday morning bro",STAY_APPT
+"...no, i said schedule me for next monday man",STAY_APPT
+"huh hm no, please schedule me on the 10th instead please",STAY_APPT
+"No no, i said schedule me for next monday",STAY_APPT
+"no, don’t confirm, i need to change my appointment time",STAY_APPT
+"that’s the wrong date, please fix it to october 15th if possible!",STAY_APPT
+"not 6pm, schedule me for 7pm instead.",STAY_APPT
+"oh that’s not what i said, schedule me on monday morning.",STAY_APPT
+"incorrect, i want to be bookd for thursday 5pm",STAY_APPT
+"...oh wrong again, please schedule me properly this time",STAY_APPT
+"wait you got the time wrong, please reschedule me for 6.",STAY_APPT
+"you got it wrong, schedule me for october 3rd at noon please",STAY_APPT
+"oh no no, not that time, schedule me later.",STAY_APPT
+"uh not that day, you can schedule me for thursday instead",STAY_APPT
+"hm no, don’t confirm, i need to change my appt time for real",STAY_APPT
+"nah uh no, i said 4pm not 3 today",STAY_APPT
+"not that day, you can book me for thursday instead man",STAY_APPT
+"no Im not confirming that, you were supposed to book me at 3pm dude right now",STAY_APPT
+"dont confirm that, i need my appointment scheduled later!",STAY_APPT
+"Huh uhh no, schedule my appointment for next week if possible",STAY_APPT
+"oh nah not 9am, schedule me for 10am right now",STAY_APPT
+"hmm oh no no, not that time, schedule me later now.",STAY_APPT
+"hm no, please schedule me on the 10th instead",STAY_APPT
+"no, dont schedule me then schedule me for friday I guess",STAY_APPT
+"uh not 6pm, schedule me for 7pm instead right now.",STAY_APPT
+"no, i said next month not this month, schedule me right!",STAY_APPT
+"oh that’s not what i said, i want my appointment on friday!",STAY_APPT
+"uhh that didnt sound right, can you repeat what time you scheduled me for? now",STAY_APPT
+"hmm incorrect, i want to be scheduled for thursday 5pm if possible",STAY_APPT
+"...incorrect time, please fix my schedule to 5pm dude",STAY_APPT
+"oh no no, not that time, schedule me later for real!",STAY_APPT
+"hm that’s not what i said, schedule me on monday morning.",STAY_APPT
+"uhh wrong again, please schedule me properly this tI'me dude",STAY_APPT
+"nah not 9am, schedule me for 10am",STAY_APPT
+"oh wrong again, please schedule me properly this time thanks.",STAY_APPT
+"huh wrong again, please schedule me properly this time now",STAY_APPT
+"uhh oh no no, not that time, schedule me later if possible.",STAY_APPT
+"nope, schedule me for saturday morning if possible",STAY_APPT
+"oh no no, schedule me for another day right now.",STAY_APPT
+"no, dont schedule me then schedule me for friday i guess today",STAY_APPT
+"...oh no no, not that time, schedule me later bro",STAY_APPT
+"Thats incorrect, schedule my appointment for noon today",STAY_APPT
+"uhh no, schedule my appointment for next week man",STAY_APPT
+"...huh no, not that, i said schedule me in the evening",STAY_APPT
+"no, i said schedule me for next monday",STAY_APPT
+"wrong, schedule it properly this time please",STAY_APPT
+"uhh nah not 9am, schedule me for 10am",STAY_APPT
+"hmm oh no no, not that time, schedule me later if possible",STAY_APPT
+"No, dont schedule me then schedule me for friday i guess",STAY_APPT
+"oh that’s not what i said, i want my appointment on friday",STAY_APPT
+"no no, don’t confirm, i need to change my appointment time!",STAY_APPT
+"that’s the wrong date, please fix it to october 15th",STAY_APPT
+"...no incorrect time, please fix my schedule to 5pm",STAY_APPT
+"huh dont confirm that, i need my appointment scheduled later dude.",STAY_APPT
+"wrong time, schedule me for 5pm",STAY_APPT
+"...not that day, you can schedule me for thursday instead today",STAY_APPT
+"...no, not that, i said schedule me in the evening",STAY_APPT
+"...I do not confirm, i want to be scheduled june 8th at 7pm man",STAY_APPT
+"wait, that’s not the right date, schedule me for tomorrow.",STAY_APPT
+"nope, book me for saturday morning",STAY_APPT
+"Nah hm no, please schedule me on the 10th instead right now",STAY_APPT
+"nah no, don’t confirm, i need to change my appt time if possible",STAY_APPT
+"hmm no no, schedule me for another day",STAY_APPT
+"uhh wrong day, schedule it for friday instead",STAY_APPT
+"hm no, dont schedule me then schedule me for friday I guess",STAY_APPT
+"nope, schedule me for saturday morning thanks",STAY_APPT
+"nah not 9am, schedule me for 10am",STAY_APPT
+"Hm dont confirm that, i need my appointment scheduled later",STAY_APPT
+"you got it wrong, book me for october 3rd at noon please",STAY_APPT
+"oh no no, not that time, schedule me later man",STAY_APPT
+"wait thats wrong, please schedule me on the right day, july 4th not july 5th please!",STAY_APPT
+"nah no, dont book me then book me for friday I guess",STAY_APPT
+"hm no no, i said schedule me for tuesday afternoon now",STAY_APPT
+"hm no, i said schedule me for next monday",STAY_APPT
+"no, don’t confirm, i need to change my appointment time bro",STAY_APPT
+"you got the time wrong, please reschedule me for 6 man.",STAY_APPT
+"i do not confirm, i want to be scheduled june 8th at 7pm bro",STAY_APPT
+"no, i need to be scheduled earlier in the day today",STAY_APPT
+"nah nope, try scheduling me for 8am",STAY_APPT
+"uhh no, not that, i said book me in the evening please",STAY_APPT
+"uhh not that date, please schedule me for the correct one if possible.",STAY_APPT
+"wrong tI'me, schedule me for 5pm",STAY_APPT
+"uhh that’s not what i said, book me on monday morning",STAY_APPT
+"hmm no, i said schedule me for next monday thanks.",STAY_APPT
+"uh no, dont schedule me then schedule me for friday I guess",STAY_APPT
+"huh uh no, i said 4pm not 3",STAY_APPT
+"...no no, schedule me for another day now",STAY_APPT
+"oh you got it wrong, schedule me for october 3rd at noon",STAY_APPT
+"no, i need to be scheduled earlier in the day",STAY_APPT
+"no that’s not what i said, schedule me on monday morning",STAY_APPT
+"that’s not what i said, i want my appointment on friday",STAY_APPT
+"wrong time, schedule me for 5pm dude",STAY_APPT
+"nah no no, schedule me for another day man",STAY_APPT
+"no, don’t confirm, i need to change my appointment time",STAY_APPT
+"you got it wrong, schedule me for october 3rd at noon",STAY_APPT
+"hm that didnt sound right, can you repeat what time you scheduled me for? thanks",STAY_APPT
+"oh wrong, schedule it properly this tI'me",STAY_APPT
+"not that date, please schedule me for the correct one dude",STAY_APPT
+"hm no no, i said schedule me for tuesday afternoon thanks",STAY_APPT
+"No you got the time wrong, please reschedule me for 6",STAY_APPT
+"...oh no no, not that time, schedule me later",STAY_APPT
+"oh uh no, i said 4pm not 3 thanks",STAY_APPT
+"that’s not what i said, schedule me on monday morning dude",STAY_APPT
+"...hm no, please schedule me on the 10th instead",STAY_APPT
+"...no no, i said schedule me for next monday bro",STAY_APPT
+"oh no not the morning, schedule me at night if possible",STAY_APPT
+"hm nope, schedule me for saturday morning",STAY_APPT
+"hm no, please schedule me on the 10th instead",STAY_APPT
+"uh incorrect, i want to be scheduled for thursday 5pm dude",STAY_APPT
+"uhh uh no, i said 4pm not 3",STAY_APPT
+"wrong, schedule it properly this tI'me now",STAY_APPT
+"...hm no, please schedule me on the 10th instead now",STAY_APPT
+"uh wrong again, please book me properly this time",STAY_APPT
+"I didnt say that time, please schedule me for the right one for real",STAY_APPT
+"no I do not confirm, i want to be scheduled june 8th at 7pm thanks",STAY_APPT
+"i do not confirm, i want to be scheduled june 8th at 7pm man",STAY_APPT
+"that’s the wrong date, please fix it to october 15th if possible.",STAY_APPT
+"hmm incorrect time, please fix my schedule to 5pm for real",STAY_APPT
+"incorrect time, please fix my schedule to 5pm.",STAY_APPT
+"you got it wrong, schedule me for october 3rd at noon bro!",STAY_APPT
+"I do not confirm, i want to be scheduled june 8th at 7pm",STAY_APPT
+"Nah not 9am, schedule me for 10am",STAY_APPT
+"Wrong day, schedule it for friday instead",STAY_APPT
+"Huh that didnt sound right, can you repeat what time you scheduled me for? right now",STAY_APPT
+"that’s the wrong date, please fix it to october 15th!",STAY_APPT
+"that’s not what i said, i want my appointment on friday!",STAY_APPT
+"...wrong again, please schedule me properly this time",STAY_APPT
+"nah I do not confirm, i want to be bookd june 8th at 7pm bro",STAY_APPT
+"im not confirming that, you were supposed to schedule me at 3pm dude",STAY_APPT
+"uh no, don’t confirm, i need to change my appointment time bro",STAY_APPT
+"oh wrong, schedule it properly this time",STAY_APPT
+"...hm thats wrong, please schedule me on the right day, july 4th not july 5th",STAY_APPT
+"Uh not 6pm, schedule me for 7pm instead now",STAY_APPT
+"Wait no, don’t confirm, i need to change my appointment time",STAY_APPT
+"oh wrong time, book me for 5pm",STAY_APPT
+"oh thats incorrect, schedule my appointment for noon!",STAY_APPT
+"uh wait, that’s not the right date, schedule me for tomorrow",STAY_APPT
+"...no not the morning, schedule me at night thanks",STAY_APPT
+"...no, not that, i said schedule me in the evening today",STAY_APPT
+"wait, no, schedule me for next wednesday instead!",STAY_APPT
+"Huh hm no, please schedule me on the 10th instead",STAY_APPT
+"no, i said book me for next monday",STAY_APPT
+"i didnt say that time, please schedule me for the right one for real",STAY_APPT
+"...no, don’t confirm, i need to change my appointment time",STAY_APPT
+"hm you got the time wrong, please reschedule me for 6!",STAY_APPT
+"that’s not what i said, i want my appointment on friday thanks",STAY_APPT
+"hmm that didnt sound right, can you repeat what time you scheduled me for? now",STAY_APPT
+"Wrong again, please schedule me properly this time",STAY_APPT
+"wait uh no, i said 4pm not 3 thanks",STAY_APPT
+"you got it wrong, schedule me for october 3rd at noon",STAY_APPT
+"...incorrect, i want to be scheduled for thursday 5pm man",STAY_APPT
+"uhh no, i need to be scheduled earlier in the day now",STAY_APPT
+"not 6pm, book me for 7pm instead",STAY_APPT
+"i didnt say that time, please book me for the right one today",STAY_APPT
+"Oh nope, schedule me for saturday morning dude",STAY_APPT
+"wrong tI'me, schedule me for 5pm please",STAY_APPT
+"...nope, schedule me for saturday morning",STAY_APPT
+"i didnt say that time, please book me for the right one for real",STAY_APPT
+"...nah not 9am, schedule me for 10am",STAY_APPT
+"uh no, i said 4pm not 3 dude",STAY_APPT
+"hm I do not confirm, i want to be bookd june 8th at 7pm",STAY_APPT
+"no, i need to be scheduled earlier in the day please",STAY_APPT
+"oh incorrect time, please fix my schedule to 5pm right now",STAY_APPT
+"wrong time, schedule me for 5pm bro.",STAY_APPT
+"no no, schedule me for another day now",STAY_APPT
+"no, i said schedule me for next monday",STAY_APPT
+"i do not confirm, i want to be scheduled june 8th at 7pm right now",STAY_APPT
+"nah no, not that, i said book me in the evening today",STAY_APPT
+"uh no, i said 4pm not 3 thanks",STAY_APPT
+"uhh no, i said schedule me for next monday.",STAY_APPT
+"nah I do not confirm, i want to be scheduled june 8th at 7pm bro",STAY_APPT
+"nah no, dont book me then book me for friday I guess man",STAY_APPT
+"wrong day, schedule it for friday instead if possible.",STAY_APPT
