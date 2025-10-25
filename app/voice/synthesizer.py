@@ -4,29 +4,16 @@ synthesizer.py
 Text-to-Speech (TTS) playback utilities.
 
 - Default: Microsoft Edge TTS (natural voices, async).
-- Fallback: Google gTTS (simple, requires internet).
-- Both use pygame.mixer for playback and support interruption.
+- pygame.mixer for playback and support interruption.
 """
 
 import pygame
 import io
 import threading
 import time
+import edge_tts
+import asyncio
 
-# Try Edge TTS first
-try:
-    import edge_tts
-    import asyncio
-    USE_EDGE = True
-except ImportError:
-    edge_tts = None
-    USE_EDGE = False
-
-# Try gTTS as fallback
-try:
-    from gtts import gTTS
-except ImportError:
-    gTTS = None
 
 pygame.mixer.init()
 
@@ -98,38 +85,6 @@ class EdgeTTSPlayer:
     def stop(self):
         # Stop any current playback
         stop_speaking()
-
-# ---------------------------
-# gTTS implementation
-# ---------------------------
-
-# Keep a reference to the playback thread so we can stop/replace it
-_playback_thread = None
-
-def _play_audio(mp3_fp):
-    # Load and play audio from a BytesIO file-like object
-    pygame.mixer.music.load(mp3_fp)
-    pygame.mixer.music.play()
-
-def speak_gtts(text, lang='en'):
-    """
-    Speak text using Google gTTS.
-    Runs playback in a background thread so the main loop isn’t blocked.
-    """
-    global _playback_thread
-    tts = gTTS(text=text, lang=lang, slow=False)
-    
-    # Save the generated audio into memory (instead of a temp file)
-    mp3_fp = io.BytesIO()
-    tts.write_to_fp(mp3_fp)
-    mp3_fp.seek(0)
-
-    # Stop anything that’s already playing
-    stop_speaking()
-    
-    # Play in a separate thread so the program keeps running
-    _playback_thread = threading.Thread(target=_play_audio, args=(mp3_fp,), daemon=True)
-    _playback_thread.start()
 
 
 

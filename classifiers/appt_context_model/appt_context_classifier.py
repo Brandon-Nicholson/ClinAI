@@ -15,3 +15,5 @@ def classify_appt_context(text: str) -> str:
         pred_id = int(torch.argmax(logits, dim=1).item())
         classification = _model.config.id2label[pred_id]
     return classification
+
+print(classify_appt_context("I'm not sure"))

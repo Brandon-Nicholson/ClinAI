@@ -1,19 +1,11 @@
 """
 main.py
-
-Entry point for ClinAI.
-
-- Choose between EdgeTTS (default, better voices) and gTTS (fallback).
-- Runs a simple "listen → transcribe → respond → speak" loop.
-- Exit cleanly if user says "exit", "quit", "stop", or "goodbye".
 """
-# Toggle which synthesizer to use
-USE_EDGE = True # change this to False if you want to use gTTS
 
 # Imports from modular voice pipeline
 from app.ui.intake_form import run_intake_form
 from app.services.call_service import start_call, end_call, set_intent, log_turn, was_resolved
-from app.voice.synthesizer import speak_gtts, stop_speaking, EdgeTTSPlayer, USE_EDGE
+from app.voice.synthesizer import stop_speaking, EdgeTTSPlayer
 from app.voice.transcriber import start_microphone, listen_and_transcribe_whisper
 from app.voice.llm import query_ollama, add_to_history, main_system_prompt, info_system_prompt, human_system_prompt
 from faster_whisper import WhisperModel
@@ -27,7 +19,7 @@ import re
 import json
 
 # ---------------------------
-# EdgeTTS version of main loop
+# EdgeTTS main loop
 # ---------------------------
 def main_edge():
     # submit patient info before talking to agent
@@ -161,8 +153,53 @@ def main_edge():
             # classify user intent unless appt scheduling is in process
             intent = classify_intent(user_input, patient_intents)
             # print(intent)
-            
+            # perform next action based on intent
+            print(appt_state)
             print("Thinking...")
+            
+            # 1. Check for escalation to representative
+            if intent == "HUMAN_AGENT" and not escalated:
+                escalated = True
+                
+                escalation_msg = "Please hold while I transfer you to a human."
+                tts.speak(escalation_msg)
+                add_to_history(chat_history, "assistant", escalation_msg)
+                time.sleep(8)
+                log_turn(call.id, "assistant", escalation_msg)
+                
+                # change main assistant voice to fake human rep voice
+                tts = tts_fake_rep
+                
+                # remove old system prompt from context window
+                chat_history.pop(0)
+                
+                # add new system prompt
+                add_to_history(chat_history, "system", human_system_prompt)
+                
+                # introduce fake rep
+                fake_rep_msg = "Hi, this is William with Sunrise Family Medicine. How can I help you today?"
+                tts.speak_and_wait(fake_rep_msg)
+                add_to_history(chat_history, "assistant", fake_rep_msg)
+                log_turn(call.id, "assistant", fake_rep_msg)
+                
+                # reset appt date holder
+                temp_appt_date = ap.new_temp_appt_date()
+                # reset appt_state back to None
+                appt_state = None
+                continue
+            
+            # 2. Check if user needs admin info
+            if intent == "ADMIN_INFO":
+                # get LLM query help
+                response = query_ollama(user_input, chat_history, llm_model)
+                tts.speak_and_wait(response)
+                log_turn(call.id, "assistant", response)
+                # set appt_state back to in_progress if currently pending_confirmation
+                if appt_state == "pending_confirmation":
+                    appt_state = "None"
+                    temp_appt_date = ap.new_temp_appt_date() # reset date holder
+                    print(appt_state)
+                continue
             
             # classifier detects if user wants to exit appointment scheduling pipeline
             if appt_state == "pending_confirmation" or appt_state == "in_progress":
@@ -212,34 +249,7 @@ def main_edge():
                 appt_state = None
                 continue
             
-            # perform next action based on intent
-            # 1. Check for escalation to representative
-            if intent == "HUMAN_AGENT" and not escalated:
-                escalated = True
-                
-                escalation_msg = "Please hold while I transfer you to a human."
-                tts.speak(escalation_msg)
-                add_to_history(chat_history, "assistant", escalation_msg)
-                time.sleep(8)
-                log_turn(call.id, "assistant", escalation_msg)
-                
-                # change main assistant voice to fake human rep voice
-                tts = tts_fake_rep
-                
-                # remove old system prompt from context window
-                chat_history.pop(0)
-                
-                # add new system prompt
-                add_to_history(chat_history, "system", human_system_prompt)
-                
-                # introduce fake rep
-                fake_rep_msg = "Hi, this is William with Sunrise Family Medicine. How can I help you today?"
-                tts.speak_and_wait(fake_rep_msg)
-                add_to_history(chat_history, "assistant", fake_rep_msg)
-                log_turn(call.id, "assistant", fake_rep_msg)
-                continue
-            
-            # 2. Check for new appointment
+            # 3. Check for new appointment
             if intent == "APPT_NEW" or appt_state == "in_progress":
                 appt_state = "in_progress"
                 formatted_input = ap.format_prompt_time(user_input) # format time e.g. "9:00am"
@@ -248,7 +258,7 @@ def main_edge():
                 if results:
                     # update global placeholder dict for appt date using first captured appt date (results[-1])
                     temp_appt_date = ap.update_results(results[-1], temp_appt_date)
-                
+                    temp_appt_date = ap.ampm_mislabel_fix(temp_appt_date) # fix potentially mislabeled am/pm
                 # return a list of any missing info
                 blanks = ap.missing_info_check(temp_appt_date)
                 
@@ -288,6 +298,7 @@ def main_edge():
                 
                 # if only time is missing    
                 elif not temp_appt_date['time']:
+                    print(temp_appt_date)
                     missing_time_msg = f"Please state the time that you would like to schedule your appointment for on {pretty_date}."
                     tts.speak_and_wait(missing_time_msg)
                     add_to_history(chat_history, "assistant", missing_time_msg)
@@ -314,7 +325,7 @@ def main_edge():
                 
             # get LLM query
             response = query_ollama(user_input, chat_history, llm_model)
-            print(f"AI: {response}")
+            print(f"Agent: {response}")
             
             # log LLM output -> db
             log_turn(call.id, "assistant", response)
@@ -333,70 +344,6 @@ def main_edge():
         set_intent(call.id, db_intents)
         
         end_call(call.id, resolved=resolved, escalated=False, notes="blank")
-
-# ---------------------------
-# gTTS version of main loop
-# ---------------------------
-def main_gtts():
-    # submit patient info before talking to agent
-    patient = run_intake_form()
-    if not patient:
-        print("No patient submitted. Exiting...")
-        return
-    
-    print(f"Starting ClinAI agent for patient: {patient.first_name} {patient.last_name}")
-    
-    # Initialize components
-    print("Loading Whisper model...")
-    model_size = "base"
-    whisper_model = WhisperModel(model_size, device="cpu", compute_type="int8")
-    
-    # Conversation settings
-    chat_history = []
-    llm_model = "llama3.1:8b"
-    
-    print("Voice AI agent ready! Speak now or say 'stop' to exit.")
-    
-    try:
-        while True:
-            # Start microphone
-            q, stream = start_microphone()
-            
-            # Listen for user input
-            user_input = listen_and_transcribe_whisper(whisper_model, q)
-
-            # Close microphone
-            stream.stop()
-            stream.close()
-
-            if not user_input or user_input.strip() == "":
-                continue
-
-            print(f"You: {user_input}")
-
-            # Check for exit command
-            if any(exit_cmd in user_input.lower() for exit_cmd in ["exit", "quit", "stop", "goodbye"]):
-                print("Goodbye!")
-                stop_speaking()   # stop any ongoing speech
-                break
-
-            # Get response from LLM
-            print("Thinking...")
-            response = query_ollama(user_input, chat_history, llm_model)
-            print(f"AI: {response}")
-
-            # Speak the response
-            speak_gtts(response)
-
-            print("Ready for next input...")
-                
-    except KeyboardInterrupt:
-        print("\nShutting down...")
-    finally:
-        stop_speaking()
-
+        
 if __name__ == "__main__":
-    if USE_EDGE:
-        main_edge()
-    else:
-        main_gtts()
+    main_edge()

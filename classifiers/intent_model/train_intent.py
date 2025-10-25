@@ -95,7 +95,7 @@ def compute_metrics(eval_pred):
 
 # Training args
 training_args = TrainingArguments(
-    output_dir="./intent_model/intent_classifier",
+    output_dir="./classifiers/intent_model/intent_classifier",
     save_strategy="epoch",
     learning_rate=2e-5,
     per_device_train_batch_size=16,
@@ -123,7 +123,7 @@ eval_results = trainer.evaluate()
 print(eval_results)
 
 # Save final model (will include id2label/label2id in config.json)
-save_dir = "./intent_model/intent_classifier"
+save_dir = "./classifiers/intent_model/intent_classifier"
 trainer.save_model(save_dir)
 tokenizer.save_pretrained(save_dir)
 

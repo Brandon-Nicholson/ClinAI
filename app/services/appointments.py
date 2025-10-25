@@ -35,10 +35,19 @@ bare_weekday_pattern = re.compile(
     flags=re.IGNORECASE
 )
 
+# e.g., "830", "1030", "945", "1730"
+compact_time_pattern = re.compile(r"\b(?P<h>\d{1,2})(?P<m>\d{2})\b")
+
 # month name -> day [ordinal] [, year]
 month_names = r"jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|jun(?:e)?|jul(?:y)?|aug(?:ust)?|sep(?:t(?:ember)?)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?"
 month_day_pattern = re.compile(
     rf"\b(?P<month>{month_names})\s+(?P<day>\d{{1,2}})(?:st|nd|rd|th)?(?:,?\s*(?P<year>\d{{4}}))?\b",
+    flags=re.IGNORECASE
+)
+
+# e.g., "17th of June", "17 June", "on the 17th June, 2026"
+day_first_month_pattern = re.compile(
+    rf"\b(?:on\s+)?(?:the\s+)?(?P<day>\d{{1,2}})(?:st|nd|rd|th)?(?:\s+of)?\s+(?P<month>{month_names})(?:,?\s*(?P<year>\d{{4}}))?\b",
     flags=re.IGNORECASE
 )
 
@@ -211,7 +220,7 @@ def _find_nearby_time(text, anchor_start, window=120):
             h24, ap = infer
             t12, period = _format_12h(h24, 0)
             return t12, period
-        return (None, None)
+        return None
 
     # 1) Normal time patterns (your existing rules)
     for tm in time_pattern.finditer(slice_text):
@@ -223,6 +232,71 @@ def _find_nearby_time(text, anchor_start, window=120):
             maybe = _try_accept_unqualified(tm, slice_text)
             if maybe:
                 return maybe
+
+    # 2) Compact times like "at 830"
+    def _try_compact(haystack: str):
+        for cm in compact_time_pattern.finditer(haystack):
+            # require "at " right before the number
+            pre_start = max(0, cm.start() - 6)
+            prefix = haystack[pre_start:cm.start()].lower()
+            if not re.search(r"\bat\s*$", prefix):
+                continue
+
+            h = int(cm.group("h")); m = int(cm.group("m"))
+            if not (0 <= m < 60):
+                continue
+
+            # look for immediate am/pm after the number (rare with STT, but cheap to check)
+            suffix = haystack[cm.end(): cm.end()+6].lower()
+            ap = "am" if re.match(r"^\s*a\.?m?\.?", suffix) else ("pm" if re.match(r"^\s*p\.?m?\.?", suffix) else None)
+
+            # daypart nearby?
+            dp = None
+            dp_match = re.search(r"\b(morning|afternoon|evening|night)\b", haystack[cm.end(): cm.end()+20], re.IGNORECASE)
+            if dp_match:
+                dp = dp_match.group(1).lower()
+
+            # Decide hour24
+            if 13 <= h <= 23:
+                hour24 = h  # 24h style like 1730
+            elif ap:
+                hour24 = (h % 12) + (12 if ap.startswith("p") else 0)
+            elif dp in ("afternoon","evening","night"):
+                hour24 = (h % 12) + (12 if h != 12 else 0)
+            else:
+                inferred = _infer_ampm_from_hours(h)
+                if not inferred:
+                    continue
+                hour24, _ = inferred
+
+            t12, period = _format_12h(hour24, m)
+            return t12, period
+        return None
+
+    maybe = _try_compact(slice_text)
+    if maybe:
+        return maybe
+
+    # also check a little to the left (e.g., "at 830 on Friday")
+    left_start = max(0, anchor_start - 40)
+    left_slice = text[left_start:anchor_start]
+
+    for tm in time_pattern.finditer(left_slice):
+        if not _is_unqualified_hour_only(tm):
+            h24, mi = _normalize_time_match(tm)
+            t12, period = _format_12h(h24, mi)
+            return t12, period
+        else:
+            maybe = _try_accept_unqualified(tm, left_slice)
+            if maybe:
+                return maybe
+
+    maybe = _try_compact(left_slice)
+    if maybe:
+        return maybe
+
+    return None, None
+
 
 # Main
 
@@ -237,11 +311,7 @@ def extract_schedule_json(text: str, now=None, tz: ZoneInfo = DEFAULT_TZ):
     covered_spans = []
 
     def add_result(date_obj, anchor_start, anchor_span):
-        nearby = _find_nearby_time(text, anchor_start)
-        if nearby:
-            t, ap = nearby
-        else:
-            t, ap = None, None
+        t, ap = _find_nearby_time(text, anchor_start)
         results.append({"date": date_obj.isoformat() if date_obj else None, "time": t, "ampm": ap})
         covered_spans.append(anchor_span)
 
@@ -269,7 +339,23 @@ def extract_schedule_json(text: str, now=None, tz: ZoneInfo = DEFAULT_TZ):
         except ValueError:
             continue  # invalid date like Feb 30
         add_result(dt_date, ms, (ms, me))
-
+    
+     # Pass A2: Day-first month (e.g., "17th of June", "17 June, 2026")
+    for m in day_first_month_pattern.finditer(text):
+        ms, me = m.span()
+        # avoid overlap with earlier captures
+        if any(not (me <= s or ms >= e) for (s, e) in covered_spans):
+            continue
+        month = _month_str_to_int(m.group("month"))
+        day = int(m.group("day"))
+        year = m.group("year")
+        year = int(year) if year else None
+        try:
+            dt_date = _apply_year_rollover(today, month, day, year)
+        except ValueError:
+            continue
+        add_result(dt_date, ms, (ms, me))
+    
     # Pass B: Numeric dates
     for m in numeric_date_pattern.finditer(text):
         ms, me = m.span()
@@ -332,6 +418,7 @@ def extract_schedule_json(text: str, now=None, tz: ZoneInfo = DEFAULT_TZ):
 
     return results
 
+
 # check for missing info in appt date
 def missing_info_check(temp_appt_date):
     blanks = []
@@ -354,6 +441,7 @@ def len_deduped_results(results):
     
     return len(deduped_appts)
 
+# check that times are compatible with hours of operation and scheduling structure
 def check_time(time: str, ampm: str, appt_date: str, open_time = 8, close_time = 17) -> bool:
     
     """
@@ -369,8 +457,12 @@ def check_time(time: str, ampm: str, appt_date: str, open_time = 8, close_time =
     
     # map up to 7 because clinic is closed 6-7 both am/pm
     tf_hour_map = {1:13, 2:14, 3:15, 4:16, 5:17}
-    # remove formatting
-    hour = int(time.split(':')[0])
+    
+    # remove formatting/separate hour and minute
+    hour_min_split = time.split(':')
+    hour = int(hour_min_split[0])
+    minute = int(hour_min_split[1])
+    
     # make constant copy of original
     RAW_HOUR = hour
     
@@ -381,7 +473,8 @@ def check_time(time: str, ampm: str, appt_date: str, open_time = 8, close_time =
     # convert day to numerical representation of week day (Mon-Sun = 0-6)
     d = date.fromisoformat(appt_date)
     weekday = d.weekday()
-    
+     
+    # handle incorrect times with specific messages
     if weekday == 4 and hour > 16:
         return "Sorry, we're only open from 8am to 4pm on Fridays."
     elif weekday > 4:
@@ -392,8 +485,12 @@ def check_time(time: str, ampm: str, appt_date: str, open_time = 8, close_time =
         return "Sorry, we're only open from 8am to 5pm Monday through Thursday and 8am to 4pm on Friday."
     elif RAW_HOUR in [12,1,2,3,4,5,6,7] and ampm == "am":
         return "Sorry, we're only open from 8am to 5pm Monday through Thursday and 8am to 4pm on Friday."
+    
+    # check that appointment starts on the hour or half-hour
+    if minute not in [0,30]:
+        return f"Sorry, we only schedule appointments on the hour or half hour. For example, {RAW_HOUR} or {RAW_HOUR}:30."
     else:
-        return None  
+        return None
 
 # ----Formatting-----
 
@@ -441,6 +538,24 @@ def format_appt_time(time: str):
         return time[1:]
     else:
         return time
+    
+# fix incorrect labeling of am/pm
+def ampm_mislabel_fix(temp_appt_date: dict) -> dict:
+    time = temp_appt_date['time']
+    ampm = temp_appt_date['ampm']
+    
+    # return original dict if no time is captured yet
+    if not time:
+        return temp_appt_date
+    
+    # extract the hour
+    hour = int(time.split(":")[0])
+    # assume pm for hours 1-5
+    if hour in [1,2,3,4,5] and ampm == "am":
+        temp_appt_date['ampm'] = 'pm'
+        return temp_appt_date
+    else:
+        return temp_appt_date
 
 def appt_local_parts(appt: Appointment):
     """Return (YYYY-MM-DD, HH:MM (12h, zero-padded), am|pm) in clinic time."""
