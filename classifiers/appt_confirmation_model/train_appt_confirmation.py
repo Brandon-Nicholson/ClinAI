@@ -58,7 +58,7 @@ model = DistilBertForSequenceClassification.from_pretrained(
 )
 
 args = TrainingArguments(
-    output_dir="./appt_confirmation_model",
+    output_dir="./classifiers/appt_confirmation_model",
     save_strategy="epoch",
     learning_rate=2e-5,
     per_device_train_batch_size=16,
@@ -71,5 +71,5 @@ args = TrainingArguments(
 
 trainer = Trainer(model=model, args=args, train_dataset=train_ds, eval_dataset=val_ds)
 trainer.train()
-trainer.save_model("./appt_confirmation_model")
-tok.save_pretrained("./appt_confirmation_model")
+trainer.save_model("./classifiers/appt_confirmation_model")
+tok.save_pretrained("./classifiers/appt_confirmation_model")

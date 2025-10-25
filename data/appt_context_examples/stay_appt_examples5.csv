@@ -1,0 +1,52 @@
+text,label
+I'm not sure,STAY_APPT
+not sure,STAY_APPT
+I’m unsure,STAY_APPT
+I don’t know,STAY_APPT
+don’t know yet,STAY_APPT
+I’m still thinking,STAY_APPT
+no idea yet,STAY_APPT
+I haven’t decided,STAY_APPT
+not certain,STAY_APPT
+still deciding,STAY_APPT
+I’m a bit uncertain,STAY_APPT
+I’m not positive,STAY_APPT
+can’t say for sure,STAY_APPT
+I’m thinking about it,STAY_APPT
+not completely sure,STAY_APPT
+I haven’t made up my mind,STAY_APPT
+I might need a moment,STAY_APPT
+I’m still figuring it out,STAY_APPT
+I’m a little unsure,STAY_APPT
+not exactly sure,STAY_APPT
+I’ll need to think about it,STAY_APPT
+I’m torn,STAY_APPT
+I need a second to decide,STAY_APPT
+I’m between options,STAY_APPT
+I don’t know yet,STAY_APPT
+not totally sure,STAY_APPT
+still unsure,STAY_APPT
+I’m not clear on that yet,STAY_APPT
+I’m still considering,STAY_APPT
+I’ll let you know in a bit,STAY_APPT
+I haven’t thought that through yet,STAY_APPT
+not decided yet,STAY_APPT
+I’m still mulling it over,STAY_APPT
+I’m still uncertain,STAY_APPT
+I haven’t chosen yet,STAY_APPT
+I’m weighing my options,STAY_APPT
+not really sure yet,STAY_APPT
+still thinking about it,STAY_APPT
+I’m unsure at the moment,STAY_APPT
+I haven’t figured that out yet,STAY_APPT
+I’m a little indecisive,STAY_APPT
+I’ll have to think about it,STAY_APPT
+I might need to check first,STAY_APPT
+I’m not too sure,STAY_APPT
+not sure at the moment,STAY_APPT
+I’m still trying to decide,STAY_APPT
+still up in the air,STAY_APPT
+I don’t have an answer yet,STAY_APPT
+I’ll decide soon,STAY_APPT
+I haven’t made a choice yet,STAY_APPT
+I’m not completely certain,STAY_APPT
