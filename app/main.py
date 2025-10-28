@@ -133,6 +133,7 @@ def main_edge():
                 resolved = was_resolved(user_input)
                 goodbye_msg = "Your feedback is appreciated, Goodbye!"
                 tts.speak_and_wait(goodbye_msg)
+                log_turn(call.id, "assistant", goodbye_msg)
                 break
             
             
@@ -208,6 +209,7 @@ def main_edge():
                 if exit_appt_scheduling == "EXIT_APPT":
                     exit_appt_pipeline_msg = "Got it. If you'd like help with anything else, just ask! If you'd like to exit the call, say stop."
                     tts.speak_and_wait(exit_appt_pipeline_msg)
+                    log_turn(call.id, "assistant", exit_appt_pipeline_msg)
                     # reset appt variables
                     temp_appt_date = ap.new_temp_appt_date()
                     appt_state = None
@@ -223,6 +225,7 @@ def main_edge():
                 elif confirmed_appt == "REJECT":
                     appt_denied_msg = "Sorry if I misheard you. Please try stating your date and time again in one sentence or you may exit the scheduling process by telling me so."
                     tts.speak_and_wait(appt_denied_msg)
+                    log_turn(call.id, "assistant", appt_denied_msg)
                     # reset appt date holder
                     temp_appt_date = ap.new_temp_appt_date()
                     # switch appt_state to in_progress
@@ -232,6 +235,7 @@ def main_edge():
                 elif confirmed_appt == "UNSURE":
                     unsure_msg = f"Sorry, I didn't catch your answer. Can you confirm that you'd like to schedule your appointment on {pretty_date} at {ap.format_appt_time(temp_appt_date['time'])}{temp_appt_date['ampm']}?"
                     tts.speak_and_wait(unsure_msg)
+                    log_turn(call.id, "assistant", unsure_msg)
                     continue
                 
             # check if appt info is complete and appt is confirmed by user
