@@ -48,11 +48,6 @@ label_map_str2id = {
 }
 label_map_id2str = {v: k for k, v in label_map_str2id.items()}
 
-# Save alongsidetraining script
-os.makedirs("./intent_model", exist_ok=True)
-with open("./intent_model/label_map.json", "w") as f:
-    json.dump({str(k): v for k, v in label_map_id2str.items()}, f, indent=2)
-
 # Map labels to ints
 df["labels"] = df["label"].map(label_map_str2id)
 

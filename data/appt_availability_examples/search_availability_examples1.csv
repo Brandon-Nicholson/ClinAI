@@ -1,0 +1,501 @@
+text,label
+"Could you, Do you know what time windows are open on next Sunday? I need to book.",SEARCH_AVAILABILITY
+"If possible, Could you check what times could i get an appointment for next week to set an appointment?",SEARCH_AVAILABILITY
+Quick question: Can you tell me what times can i book for august 10th so I can book?,SEARCH_AVAILABILITY
+"Hello, Do you have any times I can schedule for the day after tomorrow to schedule a visit? thanks.",SEARCH_AVAILABILITY
+"If possible, What booking times are free for january 24th, 2027?",SEARCH_AVAILABILITY
+Quick question: Which appointment slots are open on next tuesday for a checkup appointment?,SEARCH_AVAILABILITY
+"What times could I get an appointment for September 22nd, 2027. Please include morning and afternoon options.",SEARCH_AVAILABILITY
+Quick question: Could you check what openings do you have for this thursday to set an appointment?,SEARCH_AVAILABILITY
+"Hey, Can you tell me do you have any times i can schedule for december 8th for an appointment?",SEARCH_AVAILABILITY
+"Please, Trying to schedule—what times are free to book for this tuesday?",SEARCH_AVAILABILITY
+"Hey, Can you tell me any open appointment times for next thursday to schedule a visit?",SEARCH_AVAILABILITY
+"When you can, Before I book, what openings do you have on next friday to book a visit?",SEARCH_AVAILABILITY
+"Could you, What are your available appointment times for september 25th?",SEARCH_AVAILABILITY
+"Hey, I want to see which appointment slots are open for February 18th, 2026 for an appointment.",SEARCH_AVAILABILITY
+Quick question: What are your available appointment times for next tuesday?,SEARCH_AVAILABILITY
+"If possible, I want to see any open appointment times for this monday for a quick appointment.",SEARCH_AVAILABILITY
+"Hi, Which appointment slots are open for next wednesday. Please share the earliest and latest times.",SEARCH_AVAILABILITY
+"When you can, I want to see do you have any times i can schedule for june 27th so I can book.",SEARCH_AVAILABILITY
+"If possible, What openings do you have for February 20th for booking purposes?",SEARCH_AVAILABILITY
+"Hi, What times could I get an appointment for next weekend?",SEARCH_AVAILABILITY
+"Could you, Any open appointment times for this Wednesday for an appointment?",SEARCH_AVAILABILITY
+"Hi, I want to see what times do you have available for early next week to schedule a visit.",SEARCH_AVAILABILITY
+"Could you, Before I book, when are you free for appointments on late next week so I can book?",SEARCH_AVAILABILITY
+"Hi, What time slots are available on next sunday. Please share the earliest and latest times.",SEARCH_AVAILABILITY
+"If possible, Could you check what times can i book for february 18th so I can schedule?",SEARCH_AVAILABILITY
+"Could you, When are you free for appointments on november 8th, 2025 for an appointment? Please.",SEARCH_AVAILABILITY
+"I want to see any open appointment times on november 26th, 2026 to book a visit.",SEARCH_AVAILABILITY
+"Hello, What are your available appointment times for next Friday?",SEARCH_AVAILABILITY
+"Could you, What times can I book on December 26th. I’m flexible; what works?",SEARCH_AVAILABILITY
+Quick question: What are your available appointment times on next Monday?,SEARCH_AVAILABILITY
+"Quick question: Trying to schedule—what times can i book on january 13th, 2026?",SEARCH_AVAILABILITY
+"Please, Could you check what times could i get an appointment on this wednesday to book a visit?",SEARCH_AVAILABILITY
+"Please, Before I book, what times could i schedule for July 24th, 2027 for scheduling?",SEARCH_AVAILABILITY
+"If possible, Do you know what times are free to book on march 21st, 2027? I need to book.",SEARCH_AVAILABILITY
+Quick question: What time windows are open for next Tuesday. Please include morning and afternoon options.,SEARCH_AVAILABILITY
+"Hi, I want to see what booking times are free on next friday to schedule a visit.",SEARCH_AVAILABILITY
+"If possible, Do you know what times can i book for next monday? I need to book.",SEARCH_AVAILABILITY
+"Hi, What times can I book for march 25th, 2027 for scheduling?",SEARCH_AVAILABILITY
+"Could you, Can you tell me what bookable times are available for early next week so I can schedule?",SEARCH_AVAILABILITY
+"If possible, Could you check what scheduling slots are open for august 4th for an appointment?",SEARCH_AVAILABILITY
+"Please, Trying to schedule—what time windows are open on September 3rd, 2026?",SEARCH_AVAILABILITY
+"When you can, What booking times are free for November 4th. Prefer late afternoon if possible.",SEARCH_AVAILABILITY
+"Hi, Do you know what times can i book on July 18th, 2026? I need to book.",SEARCH_AVAILABILITY
+"Hello, Before I book, could you tell me the available times on January 15th to schedule a visit?",SEARCH_AVAILABILITY
+"Hi, What times could I get an appointment for next saturday?",SEARCH_AVAILABILITY
+"When you can, What openings do you have on March 8th, 2026?",SEARCH_AVAILABILITY
+"If possible, What booking times are free for this Friday. Please share the earliest and latest times.",SEARCH_AVAILABILITY
+"If possible, What are your available appointment times on April 13th, 2025?",SEARCH_AVAILABILITY
+Trying to schedule—when are you free for appointments on next thursday?,SEARCH_AVAILABILITY
+"If possible, Do you know what times are free to book for september 2nd, 2027? I need to book.",SEARCH_AVAILABILITY
+"Please, Do you have any appointment openings for May 10th?",SEARCH_AVAILABILITY
+"Hi, Can you check your appointment availability on July 13th, 2027? thanks.",SEARCH_AVAILABILITY
+"Hey, Do you have any appointment openings for this thursday for booking purposes? if you can.",SEARCH_AVAILABILITY
+"When you can, What times are free to book on next sunday. If none, what about the next day?",SEARCH_AVAILABILITY
+"If possible, I want to see what times do you have available on next Monday for an appointment.",SEARCH_AVAILABILITY
+"When you can, What openings do you have for june 6th to set an appointment?",SEARCH_AVAILABILITY
+"Hello, What openings do you have for this monday?",SEARCH_AVAILABILITY
+"Quick question: What times do you have available on august 12th, 2027. Preferably between 1 and 4 pm.",SEARCH_AVAILABILITY
+"When you can, Before I book, what times are free to book on next week so I can schedule?",SEARCH_AVAILABILITY
+"Hi, Do you know could you tell me the available times on today? I need to book.",SEARCH_AVAILABILITY
+Do you know what time slots are available on next sunday? I need to book.,SEARCH_AVAILABILITY
+"If possible, Trying to schedule—any open appointment times for next Friday?",SEARCH_AVAILABILITY
+"Hello, Before I book, what bookable times are available on next wednesday for booking purposes?",SEARCH_AVAILABILITY
+"Hi, I want to see what times are free to book for early next week for booking purposes.",SEARCH_AVAILABILITY
+"Hi, What time slots are available for april 24th, 2027?",SEARCH_AVAILABILITY
+"If possible, Do you know what bookable times are available for next monday? I need to book.",SEARCH_AVAILABILITY
+"Hey, Do you know any open appointment times for this weekend? I need to book.",SEARCH_AVAILABILITY
+"Hi, Can you check your appointment availability for this Monday to book a visit? if you can.",SEARCH_AVAILABILITY
+Quick question: Do you have any appointment openings for February 13th for a quick appointment?,SEARCH_AVAILABILITY
+"Hi, Do you know which appointment slots are open on May 26th? I need to book.",SEARCH_AVAILABILITY
+"Hey, What booking times are free for november 18th?",SEARCH_AVAILABILITY
+"Could you, What time windows are open for August 13th? Please.",SEARCH_AVAILABILITY
+"Could you, Do you have any appointment openings for next wednesday to set an appointment? Thanks!",SEARCH_AVAILABILITY
+"Hello, Can you tell me what bookable times are available on next sunday to schedule a visit?",SEARCH_AVAILABILITY
+"When you can, What times could I schedule for next Thursday? Please.",SEARCH_AVAILABILITY
+"When you can, I want to see any open appointment times on July 19th, 2027 for an appointment.",SEARCH_AVAILABILITY
+"If possible, What bookable times are available for july 6th so I can book?",SEARCH_AVAILABILITY
+Quick question: What booking times are free for next Wednesday for booking purposes?,SEARCH_AVAILABILITY
+Which appointment slots are open for this Friday. Please share the earliest and latest times.,SEARCH_AVAILABILITY
+How's your appointment availability for next sunday?,SEARCH_AVAILABILITY
+"When you can, Before I book, what times can i book for January 15th for booking purposes?",SEARCH_AVAILABILITY
+"Hi, What times could I get an appointment on tomorrow to schedule a visit? thanks.",SEARCH_AVAILABILITY
+Quick question: Could you check what bookable times are available for this Sunday to set an appointment?,SEARCH_AVAILABILITY
+"If possible, Do you have any appointment openings for september 18th, 2027 so I can book?",SEARCH_AVAILABILITY
+"When you can, What times are free to book on february 10th, 2027. Looking for something before noon.",SEARCH_AVAILABILITY
+"Before I book, any open appointment times for next week for a quick appointment?",SEARCH_AVAILABILITY
+Quick question: Do you have any appointment openings for April 28th to book a visit?,SEARCH_AVAILABILITY
+"Hi, Do you know what times could i schedule on late next week? I need to book.",SEARCH_AVAILABILITY
+"Hey, Which appointment slots are open on this Monday?",SEARCH_AVAILABILITY
+"Could you, What bookable times are available on this thursday for scheduling? thanks.",SEARCH_AVAILABILITY
+"If possible, What are your available appointment times on next Tuesday?",SEARCH_AVAILABILITY
+"Hey, Do you know do you have any appointment openings on june 13th? I need to book.",SEARCH_AVAILABILITY
+"Hello, Could you check what times can i book on september 21st, 2027 for booking purposes?",SEARCH_AVAILABILITY
+"Could you, Could you check what times are free to book for next Monday for a checkup appointment?",SEARCH_AVAILABILITY
+Quick question: Which appointment slots are open on next Sunday so I can book? Thanks!,SEARCH_AVAILABILITY
+"When you can, Do you know what scheduling slots are open on april 26th, 2027? I need to book.",SEARCH_AVAILABILITY
+"Hi, I want to see do you have any times i can schedule on march 24th, 2025 to book a visit.",SEARCH_AVAILABILITY
+Quick question: What bookable times are available on February 23rd for booking purposes?,SEARCH_AVAILABILITY
+"Please, What are your available appointment times for june 1st, 2026?",SEARCH_AVAILABILITY
+"If possible, Before I book, do you have any times i can schedule on today to book a visit?",SEARCH_AVAILABILITY
+"Could you, What times are free to book on August 7th for scheduling?",SEARCH_AVAILABILITY
+What times do you have available on next week? Please.,SEARCH_AVAILABILITY
+"Please, What bookable times are available on next Friday for a quick appointment?",SEARCH_AVAILABILITY
+"Hi, Could you check what booking times are free for this weekend for scheduling?",SEARCH_AVAILABILITY
+"Please, What are your available appointment times on January 12th?",SEARCH_AVAILABILITY
+"Could you, Do you have any times I can schedule on the day after tomorrow? if you can.",SEARCH_AVAILABILITY
+"Please, Could you check when are you free for appointments on next Sunday for booking purposes?",SEARCH_AVAILABILITY
+"If possible, Before I book, do you have any times i can schedule on june 3rd, 2027 for an appointment?",SEARCH_AVAILABILITY
+"Could you, I want to see do you have any times i can schedule for this friday to schedule a visit.",SEARCH_AVAILABILITY
+"Hey, What are your available appointment times for this friday?",SEARCH_AVAILABILITY
+"Could you, Do you know what times can i book on next thursday? I need to book.",SEARCH_AVAILABILITY
+"Please, What time slots are available for July 8th, 2027?",SEARCH_AVAILABILITY
+"When you can, Before I book, when are you free for appointments on next Thursday for an appointment?",SEARCH_AVAILABILITY
+"Hey, What are your available appointment times for june 22nd, 2025?",SEARCH_AVAILABILITY
+"Hello, What time slots are available for this monday? Please.",SEARCH_AVAILABILITY
+"If possible, Before I book, when could you fit me in on september 11th, 2026 to set an appointment?",SEARCH_AVAILABILITY
+"Could you, I want to see what times are free to book on this thursday for a quick appointment.",SEARCH_AVAILABILITY
+Could you check any open appointment times on next Thursday to book a visit?,SEARCH_AVAILABILITY
+"When you can, I want to see what time windows are open for September 3rd for a checkup appointment.",SEARCH_AVAILABILITY
+"When you can, What are your available appointment times for August 17th, 2026?",SEARCH_AVAILABILITY
+"Please, I want to see do you have any appointment openings on this friday to set an appointment.",SEARCH_AVAILABILITY
+"Could you, Before I book, can you check your appointment availability on next monday to schedule a visit?",SEARCH_AVAILABILITY
+"Hey, Any open appointment times on february 26th. Please share the earliest and latest times.",SEARCH_AVAILABILITY
+"Could you, I want to see what times could i get an appointment on February 7th, 2025 to book a visit.",SEARCH_AVAILABILITY
+Quick question: What scheduling slots are open for October 21st?,SEARCH_AVAILABILITY
+"Could you, Before I book, what times do you have available for July 14th so I can schedule?",SEARCH_AVAILABILITY
+Quick question: I want to see what booking times are free for next Friday so I can book.,SEARCH_AVAILABILITY
+What times can I book on January 5th for scheduling?,SEARCH_AVAILABILITY
+"Could you check what booking times are free on August 2nd, 2025 for a checkup appointment?",SEARCH_AVAILABILITY
+"Please, What are your available appointment times for late next week?",SEARCH_AVAILABILITY
+"Hello, What are your available appointment times for next week?",SEARCH_AVAILABILITY
+"Hey, Could you check when are you free for appointments on december 27th for an appointment?",SEARCH_AVAILABILITY
+"Hello, Do you know when are you free for appointments on October 13th, 2027? I need to book.",SEARCH_AVAILABILITY
+"Hey, Do you know when could you fit me in for september 26th? I need to book.",SEARCH_AVAILABILITY
+"Please, Do you know what times could i schedule for August 21st, 2025? I need to book.",SEARCH_AVAILABILITY
+"Hello, Before I book, what times are free to book for next week so I can schedule?",SEARCH_AVAILABILITY
+What times are free to book on this sunday for an appointment? thanks.,SEARCH_AVAILABILITY
+"Could you, Could you check when are you free for appointments on next Wednesday for an appointment?",SEARCH_AVAILABILITY
+"Please, Trying to schedule—what times can i book for June 21st?",SEARCH_AVAILABILITY
+"If possible, I want to see what openings do you have on august 7th, 2026 to set an appointment.",SEARCH_AVAILABILITY
+"Could you, Could you check when are you free for appointments for January 8th so I can schedule?",SEARCH_AVAILABILITY
+"If possible, Could you check how's your appointment availability for this Wednesday to schedule a visit?",SEARCH_AVAILABILITY
+"Hello, How's your appointment availability for this monday for an appointment? thanks.",SEARCH_AVAILABILITY
+"Hi, Do you know which appointment slots are open for this Wednesday? I need to book.",SEARCH_AVAILABILITY
+"Hello, Could you check what booking times are free on next tuesday for an appointment?",SEARCH_AVAILABILITY
+"Hi, Can you tell me what times can i book for next Sunday so I can schedule?",SEARCH_AVAILABILITY
+"If possible, Before I book, what bookable times are available for february 21st, 2025 for scheduling?",SEARCH_AVAILABILITY
+"Hello, What booking times are free for May 19th, 2026. Please include morning and afternoon options.",SEARCH_AVAILABILITY
+"Hello, Before I book, can you check your appointment availability on February 6th, 2026 for booking purposes?",SEARCH_AVAILABILITY
+"Could you, What bookable times are available for this Thursday? thanks.",SEARCH_AVAILABILITY
+"Hey, Trying to schedule—what time windows are open for this Saturday?",SEARCH_AVAILABILITY
+Quick question: What are your available appointment times for next Monday?,SEARCH_AVAILABILITY
+"Please, I want to see any open appointment times on tomorrow for a quick appointment.",SEARCH_AVAILABILITY
+"When you can, What times do you have available for january 1st, 2027 so I can book? thanks.",SEARCH_AVAILABILITY
+"Please, What times can I book for tomorrow? Thanks!",SEARCH_AVAILABILITY
+"Hey, What times are free to book for February 1st so I can schedule? if you can.",SEARCH_AVAILABILITY
+"Hello, What are your available appointment times on december 15th?",SEARCH_AVAILABILITY
+"Do you know what openings do you have for september 17th, 2025? I need to book.",SEARCH_AVAILABILITY
+Quick question: I want to see what times are free to book on next Saturday for a quick appointment.,SEARCH_AVAILABILITY
+"Could you, I want to see what time slots are available for next friday so I can book.",SEARCH_AVAILABILITY
+"If possible, What bookable times are available on January 23rd?",SEARCH_AVAILABILITY
+"Hi, Before I book, what booking times are free on next thursday for a quick appointment?",SEARCH_AVAILABILITY
+"Please, Before I book, what times can i book on December 11th, 2026 to book a visit?",SEARCH_AVAILABILITY
+"If possible, I want to see what times do you have available on next weekend for an appointment.",SEARCH_AVAILABILITY
+"Hi, Before I book, when could you fit me in on tomorrow so I can book?",SEARCH_AVAILABILITY
+"Please, Do you know can you check your appointment availability for July 10th? I need to book.",SEARCH_AVAILABILITY
+"Hi, Before I book, what openings do you have on this weekend for an appointment?",SEARCH_AVAILABILITY
+"Please, Do you know what time windows are open on november 15th? I need to book.",SEARCH_AVAILABILITY
+"Hey, What scheduling slots are open on november 12th?",SEARCH_AVAILABILITY
+"Could you, Could you tell me the available times for June 12th. A few choices would help.",SEARCH_AVAILABILITY
+"When you can, Trying to schedule—what scheduling slots are open for the day after tomorrow?",SEARCH_AVAILABILITY
+"Hi, Can you tell me how's your appointment availability on January 28th so I can schedule?",SEARCH_AVAILABILITY
+"Could you, What are your available appointment times for the day after tomorrow?",SEARCH_AVAILABILITY
+"When you can, Before I book, do you have any times i can schedule on September 23rd, 2026 for a quick appointment?",SEARCH_AVAILABILITY
+"When you can, Trying to schedule—what times could i schedule for next Monday?",SEARCH_AVAILABILITY
+"Hi, Do you know what openings do you have for early next week? I need to book.",SEARCH_AVAILABILITY
+"Hi, Trying to schedule—what time slots are available on next Friday?",SEARCH_AVAILABILITY
+"When you can, Could you check what bookable times are available for next tuesday so I can book?",SEARCH_AVAILABILITY
+"Before I book, what times could i schedule for September 11th for an appointment?",SEARCH_AVAILABILITY
+"Hello, I want to see could you tell me the available times for this Friday for a checkup appointment.",SEARCH_AVAILABILITY
+"When you can, Before I book, what openings do you have for late next week so I can book?",SEARCH_AVAILABILITY
+What are your available appointment times on next friday?,SEARCH_AVAILABILITY
+"Could you, Could you check what booking times are free on next Monday to schedule a visit?",SEARCH_AVAILABILITY
+"Hi, Could you check what booking times are free for april 4th for booking purposes?",SEARCH_AVAILABILITY
+"If possible, When are you free for appointments on this Tuesday to schedule a visit? thanks.",SEARCH_AVAILABILITY
+"Hey, Any open appointment times on late next week. If none, what about the next day?",SEARCH_AVAILABILITY
+Quick question: I want to see what bookable times are available on May 27th for booking purposes.,SEARCH_AVAILABILITY
+"Please, What are your available appointment times for next Thursday?",SEARCH_AVAILABILITY
+Quick question: What booking times are free on next friday?,SEARCH_AVAILABILITY
+"When you can, I want to see when are you free for appointments on next Saturday so I can book.",SEARCH_AVAILABILITY
+"Could you, Could you check how's your appointment availability for the day after tomorrow for a quick appointment?",SEARCH_AVAILABILITY
+"Hello, Could you check what times can i book for tomorrow for an appointment?",SEARCH_AVAILABILITY
+What bookable times are available for this Saturday for a checkup appointment? if you can.,SEARCH_AVAILABILITY
+"Hey, What time windows are open on august 21st, 2027 to set an appointment?",SEARCH_AVAILABILITY
+"If possible, Can you tell me what times could i get an appointment for the day after tomorrow for a checkup appointment?",SEARCH_AVAILABILITY
+"Hi, Do you know what times can i book on april 24th? I need to book.",SEARCH_AVAILABILITY
+"Please, Could you check how's your appointment availability for early next week for booking purposes?",SEARCH_AVAILABILITY
+"If possible, Trying to schedule—what times are free to book on this tuesday?",SEARCH_AVAILABILITY
+"Could you, Before I book, what scheduling slots are open for april 8th, 2025 to book a visit?",SEARCH_AVAILABILITY
+"Quick question: What are your available appointment times on March 21st, 2026?",SEARCH_AVAILABILITY
+"Hello, What openings do you have on this wednesday. Please share the earliest and latest times.",SEARCH_AVAILABILITY
+"If possible, Before I book, what bookable times are available on this Friday to set an appointment?",SEARCH_AVAILABILITY
+"When you can, What times are free to book on this wednesday for a quick appointment?",SEARCH_AVAILABILITY
+Could you check how's your appointment availability on next Saturday to set an appointment?,SEARCH_AVAILABILITY
+"Hi, Do you know what times could i schedule on September 19th? I need to book.",SEARCH_AVAILABILITY
+"Hi, What times can I book on next thursday. And can you list a few options?",SEARCH_AVAILABILITY
+"Hey, Can you tell me what booking times are free on this Friday to set an appointment?",SEARCH_AVAILABILITY
+"When you can, What are your available appointment times for this wednesday?",SEARCH_AVAILABILITY
+"When you can, Do you know what times can i book for this Wednesday? I need to book.",SEARCH_AVAILABILITY
+"Hi, What times are free to book on may 2nd, 2027 for an appointment? thanks.",SEARCH_AVAILABILITY
+"Please, I want to see can you check your appointment availability for next week to set an appointment.",SEARCH_AVAILABILITY
+"Please, Before I book, what openings do you have for this friday for a quick appointment?",SEARCH_AVAILABILITY
+"Could you, When are you free for appointments for april 4th, 2027. And can you list a few options?",SEARCH_AVAILABILITY
+"Could you, When could you fit me in for may 22nd? thanks.",SEARCH_AVAILABILITY
+"Hello, What are your available appointment times for this tuesday?",SEARCH_AVAILABILITY
+"Quick question: Trying to schedule—what times could i schedule on october 19th, 2027?",SEARCH_AVAILABILITY
+Quick question: What times can I book for tomorrow to schedule a visit?,SEARCH_AVAILABILITY
+"Quick question: Could you check what times could i schedule on september 27th, 2025 for a checkup appointment?",SEARCH_AVAILABILITY
+"When you can, Before I book, how's your appointment availability on next monday for scheduling?",SEARCH_AVAILABILITY
+"Hello, Can you tell me when could you fit me in on march 22nd, 2026 for a checkup appointment?",SEARCH_AVAILABILITY
+"When you can, When could you fit me in for next Saturday for a quick appointment? if you can.",SEARCH_AVAILABILITY
+"Do you know do you have any times i can schedule for May 15th, 2025? I need to book.",SEARCH_AVAILABILITY
+"Hello, What times are free to book on this wednesday?",SEARCH_AVAILABILITY
+"Hi, Do you know when could you fit me in on next Thursday? I need to book.",SEARCH_AVAILABILITY
+"Hello, I want to see what times could i schedule on January 11th for a checkup appointment.",SEARCH_AVAILABILITY
+"If possible, Can you tell me do you have any times i can schedule for late next week so I can schedule?",SEARCH_AVAILABILITY
+"Hello, Before I book, what scheduling slots are open for next friday to book a visit?",SEARCH_AVAILABILITY
+"Quick question: Can you tell me what time windows are open for January 28th, 2026 for a quick appointment?",SEARCH_AVAILABILITY
+"When you can, Could you check what time windows are open for November 10th so I can book?",SEARCH_AVAILABILITY
+"Hey, Before I book, what times could i schedule on October 27th to book a visit?",SEARCH_AVAILABILITY
+"When you can, What times are free to book for august 15th. Any time after 10am works.",SEARCH_AVAILABILITY
+"If possible, Can you tell me could you tell me the available times on july 28th, 2026 for an appointment?",SEARCH_AVAILABILITY
+"Could you, What times can I book on next Monday to schedule a visit? if you can.",SEARCH_AVAILABILITY
+"Before I book, when are you free for appointments for july 14th so I can schedule?",SEARCH_AVAILABILITY
+"Could you, Can you check your appointment availability on next Tuesday?",SEARCH_AVAILABILITY
+"When you can, Trying to schedule—what times could i get an appointment for january 16th?",SEARCH_AVAILABILITY
+"Hello, What are your available appointment times on next week?",SEARCH_AVAILABILITY
+Quick question: Trying to schedule—what scheduling slots are open for tomorrow?,SEARCH_AVAILABILITY
+"Hey, What are your available appointment times on today?",SEARCH_AVAILABILITY
+"When you can, I want to see what booking times are free on this sunday for a checkup appointment.",SEARCH_AVAILABILITY
+"Could you, Trying to schedule—do you have any times i can schedule for today?",SEARCH_AVAILABILITY
+"When you can, I want to see what times could i schedule on this monday to book a visit.",SEARCH_AVAILABILITY
+"Could you, I want to see what times could i schedule on july 23rd, 2025 so I can book.",SEARCH_AVAILABILITY
+"When you can, Before I book, what openings do you have on this tuesday to book a visit?",SEARCH_AVAILABILITY
+"If possible, Before I book, what times could i schedule for April 13th, 2026 for booking purposes?",SEARCH_AVAILABILITY
+"Hello, Do you know what bookable times are available for august 28th, 2025? I need to book.",SEARCH_AVAILABILITY
+"When you can, Can you tell me which appointment slots are open on today to book a visit?",SEARCH_AVAILABILITY
+"When you can, When could you fit me in on february 20th so I can schedule?",SEARCH_AVAILABILITY
+"Hi, What are your available appointment times on august 26th?",SEARCH_AVAILABILITY
+"Hi, I want to see can you check your appointment availability for this thursday to book a visit.",SEARCH_AVAILABILITY
+"When you can, Do you know can you check your appointment availability on next Monday? I need to book.",SEARCH_AVAILABILITY
+"When you can, Do you have any times I can schedule on the day after tomorrow. A few choices would help.",SEARCH_AVAILABILITY
+Trying to schedule—when are you free for appointments for March 8th?,SEARCH_AVAILABILITY
+"When you can, Do you know when could you fit me in for February 4th? I need to book.",SEARCH_AVAILABILITY
+"If possible, Can you tell me what scheduling slots are open for next Thursday so I can book?",SEARCH_AVAILABILITY
+"If possible, I want to see any open appointment times on this saturday to schedule a visit.",SEARCH_AVAILABILITY
+"Could you, What are your available appointment times on november 22nd?",SEARCH_AVAILABILITY
+What times could I schedule for today?,SEARCH_AVAILABILITY
+"Please, Before I book, what openings do you have on October 9th to set an appointment?",SEARCH_AVAILABILITY
+"Hello, What openings do you have for november 15th?",SEARCH_AVAILABILITY
+"When you can, Trying to schedule—what times are free to book for december 17th, 2025?",SEARCH_AVAILABILITY
+"Could you, Do you know what booking times are free for next Tuesday? I need to book.",SEARCH_AVAILABILITY
+"When you can, Could you check what time windows are open on next Thursday for booking purposes?",SEARCH_AVAILABILITY
+"Hi, I want to see do you have any appointment openings on april 6th to set an appointment.",SEARCH_AVAILABILITY
+"Please, Can you tell me what times do you have available for may 5th for an appointment?",SEARCH_AVAILABILITY
+"If possible, Can you tell me when are you free for appointments on tomorrow for a quick appointment?",SEARCH_AVAILABILITY
+"Hi, What times can I book for august 25th, 2026. A few choices would help.",SEARCH_AVAILABILITY
+"What time slots are available on may 27th, 2027 for a checkup appointment?",SEARCH_AVAILABILITY
+Quick question: Do you know what time slots are available for this thursday? I need to book.,SEARCH_AVAILABILITY
+"Please, Do you know what times can i book on this weekend? I need to book.",SEARCH_AVAILABILITY
+"Hey, Can you tell me what times do you have available on september 28th to book a visit?",SEARCH_AVAILABILITY
+"Hello, What openings do you have for August 3rd, 2026 to schedule a visit?",SEARCH_AVAILABILITY
+"If possible, What are your available appointment times for the day after tomorrow?",SEARCH_AVAILABILITY
+"Could you, I want to see can you check your appointment availability for next weekend for a checkup appointment.",SEARCH_AVAILABILITY
+"When you can, When could you fit me in on next Friday?",SEARCH_AVAILABILITY
+"If possible, Do you have any appointment openings on this Sunday. And can you list a few options?",SEARCH_AVAILABILITY
+"When you can, Trying to schedule—what times could i get an appointment for january 17th, 2027?",SEARCH_AVAILABILITY
+"Hi, Before I book, do you have any times i can schedule on September 27th for a quick appointment?",SEARCH_AVAILABILITY
+"Could you check do you have any times i can schedule for May 11th, 2027 to schedule a visit?",SEARCH_AVAILABILITY
+"Hello, I want to see what bookable times are available on december 4th to book a visit.",SEARCH_AVAILABILITY
+"Please, Do you know what booking times are free for this Monday? I need to book.",SEARCH_AVAILABILITY
+Quick question: What times do you have available on next sunday for a checkup appointment?,SEARCH_AVAILABILITY
+"Hi, Do you know do you have any appointment openings on next wednesday? I need to book.",SEARCH_AVAILABILITY
+"Hi, Can you tell me what time slots are available for next Wednesday to schedule a visit?",SEARCH_AVAILABILITY
+"Could you, Can you tell me do you have any appointment openings on the day after tomorrow for scheduling?",SEARCH_AVAILABILITY
+"When you can, Can you tell me any open appointment times for september 26th to schedule a visit?",SEARCH_AVAILABILITY
+Quick question: I want to see what time windows are open for next monday for a quick appointment.,SEARCH_AVAILABILITY
+"Could you, What bookable times are available for this thursday for a quick appointment?",SEARCH_AVAILABILITY
+Quick question: Trying to schedule—what times could i schedule on May 16th?,SEARCH_AVAILABILITY
+"Hi, What scheduling slots are open for next friday. Prefer late afternoon if possible.",SEARCH_AVAILABILITY
+"Please, Do you have any times I can schedule for october 4th. Please share the earliest and latest times.",SEARCH_AVAILABILITY
+"Hey, Trying to schedule—what scheduling slots are open for january 8th, 2025?",SEARCH_AVAILABILITY
+"Hey, Any open appointment times for November 10th, 2027. Please include morning and afternoon options.",SEARCH_AVAILABILITY
+"Hi, Before I book, what bookable times are available on next Monday for booking purposes?",SEARCH_AVAILABILITY
+"Hi, Trying to schedule—could you tell me the available times on august 11th?",SEARCH_AVAILABILITY
+"Hey, What booking times are free for this Tuesday to schedule a visit? Thanks!",SEARCH_AVAILABILITY
+"Could you, Do you have any times I can schedule for next Monday?",SEARCH_AVAILABILITY
+"Please, Can you check your appointment availability for this monday for a quick appointment? thanks.",SEARCH_AVAILABILITY
+"Hey, I want to see do you have any appointment openings on may 19th, 2027 so I can book.",SEARCH_AVAILABILITY
+"Please, Could you tell me the available times for this weekend. A few choices would help.",SEARCH_AVAILABILITY
+"Hi, Could you check what times are free to book on next friday for booking purposes?",SEARCH_AVAILABILITY
+"Please, Could you check which appointment slots are open for this Thursday to book a visit?",SEARCH_AVAILABILITY
+"When you can, Trying to schedule—what times could i get an appointment on July 21st, 2025?",SEARCH_AVAILABILITY
+"Could you, Trying to schedule—what times could i schedule on this Monday?",SEARCH_AVAILABILITY
+"Quick question: Can you tell me what scheduling slots are open for June 23rd, 2026 so I can schedule?",SEARCH_AVAILABILITY
+"When you can, I want to see do you have any times i can schedule on june 19th to schedule a visit.",SEARCH_AVAILABILITY
+"When you can, Before I book, what time slots are available for next Sunday so I can schedule?",SEARCH_AVAILABILITY
+Quick question: What bookable times are available on march 16th. Please share the earliest and latest times.,SEARCH_AVAILABILITY
+"Could you, What scheduling slots are open on this weekend. A few choices would help.",SEARCH_AVAILABILITY
+"Hi, I want to see could you tell me the available times on August 22nd, 2025 for a quick appointment.",SEARCH_AVAILABILITY
+"If possible, Could you check what bookable times are available on this weekend to schedule a visit?",SEARCH_AVAILABILITY
+"Could you, What are your available appointment times on this saturday?",SEARCH_AVAILABILITY
+"Please, What are your available appointment times for October 12th, 2025?",SEARCH_AVAILABILITY
+"Could you, How's your appointment availability for next Friday?",SEARCH_AVAILABILITY
+Quick question: Can you tell me what times do you have available on next Thursday for booking purposes?,SEARCH_AVAILABILITY
+"Hey, I want to see what times could i get an appointment for january 1st, 2027 to set an appointment.",SEARCH_AVAILABILITY
+What are your available appointment times for today?,SEARCH_AVAILABILITY
+"When you can, What are your available appointment times for april 3rd?",SEARCH_AVAILABILITY
+"If possible, Do you know what times do you have available for next Wednesday? I need to book.",SEARCH_AVAILABILITY
+"If possible, What times are free to book for next tuesday for booking purposes? if you can.",SEARCH_AVAILABILITY
+"Please, What are your available appointment times on next tuesday?",SEARCH_AVAILABILITY
+"Could you, What times do you have available for late next week. Looking for something before noon.",SEARCH_AVAILABILITY
+Do you know which appointment slots are open for this Wednesday? I need to book.,SEARCH_AVAILABILITY
+Quick question: Can you tell me when could you fit me in for next week for scheduling?,SEARCH_AVAILABILITY
+"Trying to schedule—can you check your appointment availability on January 25th, 2027?",SEARCH_AVAILABILITY
+"When you can, Before I book, do you have any appointment openings for next friday so I can book?",SEARCH_AVAILABILITY
+What times are free to book for today?,SEARCH_AVAILABILITY
+"Please, Could you check what times do you have available on next tuesday to set an appointment?",SEARCH_AVAILABILITY
+"Hey, How's your appointment availability for next thursday. A few choices would help.",SEARCH_AVAILABILITY
+"Quick question: What times could I schedule for October 17th, 2027? thanks.",SEARCH_AVAILABILITY
+"Hey, Do you know do you have any times i can schedule on next friday? I need to book.",SEARCH_AVAILABILITY
+What times could I get an appointment for this Wednesday. I’m flexible; what works?,SEARCH_AVAILABILITY
+Quick question: I want to see do you have any times i can schedule for next weekend for a quick appointment.,SEARCH_AVAILABILITY
+Quick question: How's your appointment availability on next monday. A few choices would help.,SEARCH_AVAILABILITY
+"Hi, Could you check what time windows are open for next sunday to set an appointment?",SEARCH_AVAILABILITY
+Quick question: What time windows are open for the day after tomorrow. I’m flexible; what works?,SEARCH_AVAILABILITY
+Quick question: What times do you have available on the day after tomorrow? Please.,SEARCH_AVAILABILITY
+"Could you, Can you tell me how's your appointment availability for next thursday so I can book?",SEARCH_AVAILABILITY
+"Could you, Can you tell me what booking times are free on October 19th for a quick appointment?",SEARCH_AVAILABILITY
+"When you can, Can you tell me what times could i schedule for july 20th, 2027 for scheduling?",SEARCH_AVAILABILITY
+"Hey, I want to see which appointment slots are open on May 17th, 2027 for scheduling.",SEARCH_AVAILABILITY
+"Please, Trying to schedule—what time windows are open for april 25th, 2025?",SEARCH_AVAILABILITY
+"When you can, How's your appointment availability for May 12th, 2025. Any time after 10am works.",SEARCH_AVAILABILITY
+What times could I schedule for tomorrow? Thanks!,SEARCH_AVAILABILITY
+"Hi, Could you check what times can i book on next week for a quick appointment?",SEARCH_AVAILABILITY
+Quick question: Could you tell me the available times on early next week for booking purposes? Please.,SEARCH_AVAILABILITY
+"Please, Trying to schedule—what times could i schedule for next tuesday?",SEARCH_AVAILABILITY
+Do you know what times could i schedule on December 5th? I need to book.,SEARCH_AVAILABILITY
+"Hi, What are your available appointment times for October 14th, 2026?",SEARCH_AVAILABILITY
+"When you can, What times could I get an appointment for October 4th to schedule a visit?",SEARCH_AVAILABILITY
+"Hey, When could you fit me in on august 28th, 2026. Looking for something before noon.",SEARCH_AVAILABILITY
+"Could you, I want to see do you have any times i can schedule on next tuesday for an appointment.",SEARCH_AVAILABILITY
+"Hello, I want to see what time slots are available on February 10th for a quick appointment.",SEARCH_AVAILABILITY
+"If possible, Trying to schedule—what times could i get an appointment on next Friday?",SEARCH_AVAILABILITY
+"When you can, Before I book, do you have any times i can schedule for next Tuesday for scheduling?",SEARCH_AVAILABILITY
+"Hello, Trying to schedule—how's your appointment availability on next Friday?",SEARCH_AVAILABILITY
+"Hello, Can you tell me what times could i get an appointment on next friday for scheduling?",SEARCH_AVAILABILITY
+"When you can, Could you check what times can i book for june 5th, 2026 so I can book?",SEARCH_AVAILABILITY
+"Please, I want to see do you have any times i can schedule on next friday to schedule a visit.",SEARCH_AVAILABILITY
+"Please, Could you check do you have any times i can schedule on next saturday so I can book?",SEARCH_AVAILABILITY
+"Could you, Before I book, when are you free for appointments for next week so I can schedule?",SEARCH_AVAILABILITY
+Quick question: Can you tell me what times could i schedule on October 1st for a quick appointment?,SEARCH_AVAILABILITY
+"Hey, Can you tell me when could you fit me in on October 12th for scheduling?",SEARCH_AVAILABILITY
+"Please, Which appointment slots are open for next thursday?",SEARCH_AVAILABILITY
+"Quick question: Trying to schedule—which appointment slots are open on september 8th, 2026?",SEARCH_AVAILABILITY
+"Please, Can you tell me what scheduling slots are open for tomorrow for scheduling?",SEARCH_AVAILABILITY
+"When you can, What scheduling slots are open for late next week for a quick appointment?",SEARCH_AVAILABILITY
+"Quick question: What are your available appointment times on january 17th, 2027?",SEARCH_AVAILABILITY
+"When you can, What are your available appointment times for today?",SEARCH_AVAILABILITY
+"If possible, What scheduling slots are open on next saturday?",SEARCH_AVAILABILITY
+"Please, I want to see do you have any appointment openings on late next week for booking purposes.",SEARCH_AVAILABILITY
+"Hello, Could you check what bookable times are available for this monday for a checkup appointment?",SEARCH_AVAILABILITY
+"Could you, What times do you have available for early next week. Please share the earliest and latest times.",SEARCH_AVAILABILITY
+"Hello, Can you tell me do you have any appointment openings for December 28th to set an appointment?",SEARCH_AVAILABILITY
+Quick question: I want to see what times could i schedule for next Friday to set an appointment.,SEARCH_AVAILABILITY
+"Could you check what booking times are free on February 26th, 2027 to set an appointment?",SEARCH_AVAILABILITY
+"Please, Do you have any times I can schedule for next Friday for booking purposes? thanks.",SEARCH_AVAILABILITY
+"Hi, Trying to schedule—what times can i book for this saturday?",SEARCH_AVAILABILITY
+"When you can, Could you check when could you fit me in on late next week so I can schedule?",SEARCH_AVAILABILITY
+"When you can, What times are free to book for next Thursday?",SEARCH_AVAILABILITY
+"If possible, I want to see what times are free to book for today so I can schedule.",SEARCH_AVAILABILITY
+"Hi, What are your available appointment times for next thursday?",SEARCH_AVAILABILITY
+Quick question: What scheduling slots are open for next Wednesday so I can schedule?,SEARCH_AVAILABILITY
+"Could you, What scheduling slots are open for this Sunday for booking purposes? if you can.",SEARCH_AVAILABILITY
+"If possible, Trying to schedule—any open appointment times for december 15th, 2025?",SEARCH_AVAILABILITY
+"Please, Any open appointment times on next friday? Please.",SEARCH_AVAILABILITY
+"If possible, Do you know how's your appointment availability for tomorrow? I need to book.",SEARCH_AVAILABILITY
+"Hi, I want to see what time windows are open on next thursday for booking purposes.",SEARCH_AVAILABILITY
+"If possible, Do you know what time slots are available on this weekend? I need to book.",SEARCH_AVAILABILITY
+"If possible, What openings do you have on next saturday so I can schedule?",SEARCH_AVAILABILITY
+"Could you, Trying to schedule—any open appointment times on next week?",SEARCH_AVAILABILITY
+"Hi, Do you have any appointment openings on february 6th, 2027?",SEARCH_AVAILABILITY
+"Quick question: Before I book, what booking times are free for today so I can schedule?",SEARCH_AVAILABILITY
+"Hey, What are your available appointment times for March 11th, 2027?",SEARCH_AVAILABILITY
+"When you can, What are your available appointment times for june 8th, 2025?",SEARCH_AVAILABILITY
+"Hey, Can you tell me when could you fit me in for may 14th, 2025 so I can book?",SEARCH_AVAILABILITY
+Quick question: Do you know do you have any appointment openings on next Thursday? I need to book.,SEARCH_AVAILABILITY
+"When you can, I want to see what bookable times are available on next Tuesday to book a visit.",SEARCH_AVAILABILITY
+What bookable times are available on June 9th? thanks.,SEARCH_AVAILABILITY
+"If possible, I want to see could you tell me the available times on next weekend to schedule a visit.",SEARCH_AVAILABILITY
+"Could you, Do you have any appointment openings on September 6th, 2027? Thanks!",SEARCH_AVAILABILITY
+"If possible, What openings do you have for next Thursday. If none, what about the next day?",SEARCH_AVAILABILITY
+"If possible, Do you know what times can i book on October 19th? I need to book.",SEARCH_AVAILABILITY
+"If possible, Trying to schedule—what scheduling slots are open for October 4th?",SEARCH_AVAILABILITY
+"Please, What booking times are free for may 8th, 2027 to schedule a visit?",SEARCH_AVAILABILITY
+"Hi, Can you tell me do you have any appointment openings on march 18th for a checkup appointment?",SEARCH_AVAILABILITY
+"Could you tell me the available times for September 18th, 2025? thanks.",SEARCH_AVAILABILITY
+"Hi, Before I book, do you have any appointment openings for next thursday for a checkup appointment?",SEARCH_AVAILABILITY
+"Hello, What are your available appointment times for November 21st?",SEARCH_AVAILABILITY
+"Hi, What times can I book for August 20th, 2027?",SEARCH_AVAILABILITY
+"Hello, Could you check what openings do you have on next friday for scheduling?",SEARCH_AVAILABILITY
+"Hello, I want to see any open appointment times for late next week for a quick appointment.",SEARCH_AVAILABILITY
+"Please, What times do you have available for today. I’m flexible; what works?",SEARCH_AVAILABILITY
+"Hey, What time windows are open for june 25th for a quick appointment?",SEARCH_AVAILABILITY
+"Please, What times can I book for next Tuesday. Please share the earliest and latest times.",SEARCH_AVAILABILITY
+"Please, I want to see do you have any times i can schedule for next Saturday for scheduling.",SEARCH_AVAILABILITY
+"When you can, Do you know what time slots are available on next weekend? I need to book.",SEARCH_AVAILABILITY
+"If possible, What time slots are available for next monday to set an appointment? thanks.",SEARCH_AVAILABILITY
+"If possible, Trying to schedule—what times can i book for early next week?",SEARCH_AVAILABILITY
+"Could you check when are you free for appointments on february 21st, 2026 to set an appointment?",SEARCH_AVAILABILITY
+"When you can, Do you know what time windows are open on early next week? I need to book.",SEARCH_AVAILABILITY
+"Hi, What are your available appointment times for april 19th?",SEARCH_AVAILABILITY
+"Hello, Can you tell me what scheduling slots are open for next Friday for booking purposes?",SEARCH_AVAILABILITY
+"Hey, What are your available appointment times on July 16th?",SEARCH_AVAILABILITY
+Quick question: I want to see what scheduling slots are open for this Wednesday for an appointment.,SEARCH_AVAILABILITY
+"Hello, Trying to schedule—what openings do you have on next wednesday?",SEARCH_AVAILABILITY
+Quick question: Can you tell me do you have any times i can schedule on next Wednesday to book a visit?,SEARCH_AVAILABILITY
+"If possible, What times do you have available on May 12th, 2025. Please include morning and afternoon options.",SEARCH_AVAILABILITY
+"Hello, Before I book, which appointment slots are open for next weekend to schedule a visit?",SEARCH_AVAILABILITY
+"Please, Can you tell me what times could i get an appointment on next Saturday for a checkup appointment?",SEARCH_AVAILABILITY
+"Please, What scheduling slots are open for July 14th, 2026 for booking purposes?",SEARCH_AVAILABILITY
+"If possible, Could you check what scheduling slots are open for december 23rd for a quick appointment?",SEARCH_AVAILABILITY
+"Hi, Could you check what bookable times are available on next weekend for a quick appointment?",SEARCH_AVAILABILITY
+"Please, Do you know do you have any appointment openings on the day after tomorrow? I need to book.",SEARCH_AVAILABILITY
+"When you can, Before I book, which appointment slots are open for next Sunday to book a visit?",SEARCH_AVAILABILITY
+"Hey, Before I book, could you tell me the available times for next saturday for scheduling?",SEARCH_AVAILABILITY
+"Hi, Can you tell me when could you fit me in for next monday so I can schedule?",SEARCH_AVAILABILITY
+"Hey, How's your appointment availability on this sunday. And can you list a few options?",SEARCH_AVAILABILITY
+"Hello, What are your available appointment times for this saturday?",SEARCH_AVAILABILITY
+What are your available appointment times for next Thursday?,SEARCH_AVAILABILITY
+"Please, What bookable times are available on november 15th, 2026 to schedule a visit?",SEARCH_AVAILABILITY
+"Hi, What times could I schedule for january 24th, 2025? Please.",SEARCH_AVAILABILITY
+"Hello, What are your available appointment times for the day after tomorrow?",SEARCH_AVAILABILITY
+"Hi, Could you tell me the available times for next week? Please.",SEARCH_AVAILABILITY
+"When you can, I want to see what times could i schedule on november 18th for booking purposes.",SEARCH_AVAILABILITY
+"Hey, Trying to schedule—what times could i get an appointment for march 26th, 2025?",SEARCH_AVAILABILITY
+"Hello, Can you check your appointment availability for January 12th? Thanks!",SEARCH_AVAILABILITY
+"Hello, What are your available appointment times for May 15th?",SEARCH_AVAILABILITY
+"Hi, Trying to schedule—when could you fit me in for next Monday?",SEARCH_AVAILABILITY
+"Could you, What times are free to book on may 17th, 2026? Thanks!",SEARCH_AVAILABILITY
+"If possible, Do you have any appointment openings for next Sunday. And can you list a few options?",SEARCH_AVAILABILITY
+"Could you, Trying to schedule—what bookable times are available for may 8th?",SEARCH_AVAILABILITY
+"Hey, Do you have any appointment openings on November 18th, 2027? thanks.",SEARCH_AVAILABILITY
+"Hello, Do you know when are you free for appointments for November 16th, 2025? I need to book.",SEARCH_AVAILABILITY
+"If possible, Can you tell me what time windows are open for March 11th to book a visit?",SEARCH_AVAILABILITY
+"Could you, What bookable times are available on next monday. Please include morning and afternoon options.",SEARCH_AVAILABILITY
+"When you can, Could you check when are you free for appointments on next monday to book a visit?",SEARCH_AVAILABILITY
+"Please, Trying to schedule—what times do you have available for February 18th, 2027?",SEARCH_AVAILABILITY
+"When you can, What are your available appointment times for December 5th, 2027?",SEARCH_AVAILABILITY
+"If possible, Before I book, how's your appointment availability on this thursday to schedule a visit?",SEARCH_AVAILABILITY
+"If possible, Do you know what openings do you have on june 26th? I need to book.",SEARCH_AVAILABILITY
+Do you know what time windows are open for next tuesday? I need to book.,SEARCH_AVAILABILITY
+"When you can, What times could I schedule on april 24th, 2027 for a checkup appointment? Thanks!",SEARCH_AVAILABILITY
+"If possible, Could you tell me the available times for next Sunday to schedule a visit?",SEARCH_AVAILABILITY
+"If possible, What time slots are available on June 4th. Looking for something before noon.",SEARCH_AVAILABILITY
+"When you can, Could you check what bookable times are available for september 23rd for a quick appointment?",SEARCH_AVAILABILITY
+"Hi, What are your available appointment times on august 23rd?",SEARCH_AVAILABILITY
+What are your available appointment times on next thursday?,SEARCH_AVAILABILITY
+"Hi, Do you have any times I can schedule on november 3rd, 2026. Please include morning and afternoon options.",SEARCH_AVAILABILITY
+Quick question: Could you check could you tell me the available times for this sunday for booking purposes?,SEARCH_AVAILABILITY
+"Please, Trying to schedule—when could you fit me in for february 21st, 2027?",SEARCH_AVAILABILITY
+"Please, What times could I schedule on early next week for a checkup appointment?",SEARCH_AVAILABILITY
+"Hey, Do you know what times do you have available on next Friday? I need to book.",SEARCH_AVAILABILITY
+"Could you, Can you tell me which appointment slots are open on November 7th so I can book?",SEARCH_AVAILABILITY
+"When you can, Trying to schedule—what booking times are free on July 4th, 2025?",SEARCH_AVAILABILITY
+"If possible, Could you check what time windows are open on next sunday to set an appointment?",SEARCH_AVAILABILITY
+"If possible, What are your available appointment times for next tuesday?",SEARCH_AVAILABILITY
+What are your available appointment times for next thursday?,SEARCH_AVAILABILITY
+"Hello, I want to see do you have any appointment openings for november 21st, 2025 to set an appointment.",SEARCH_AVAILABILITY
+"Hello, Do you know what scheduling slots are open for March 15th, 2026? I need to book.",SEARCH_AVAILABILITY
+"Please, I want to see what booking times are free on this Sunday to book a visit.",SEARCH_AVAILABILITY
+"Hello, Can you tell me do you have any appointment openings on next friday for scheduling?",SEARCH_AVAILABILITY
+"Hi, Can you tell me how's your appointment availability for next wednesday for a quick appointment?",SEARCH_AVAILABILITY
+"When you can, Any open appointment times on next sunday for scheduling? Please.",SEARCH_AVAILABILITY
+"When you can, What scheduling slots are open for may 2nd, 2026 to set an appointment?",SEARCH_AVAILABILITY
+"What times can I book for september 3rd, 2025 so I can schedule? if you can.",SEARCH_AVAILABILITY
+Quick question: What are your available appointment times on today?,SEARCH_AVAILABILITY
+"Please, Trying to schedule—what times are free to book for this Thursday?",SEARCH_AVAILABILITY
+"If possible, Trying to schedule—what booking times are free for next Monday?",SEARCH_AVAILABILITY
+"Hi, Trying to schedule—what times could i schedule for August 5th?",SEARCH_AVAILABILITY
+"When you can, Which appointment slots are open for late next week to book a visit? thanks.",SEARCH_AVAILABILITY
+Quick question: Do you know do you have any appointment openings on next monday? I need to book.,SEARCH_AVAILABILITY
+"Hi, What times do you have available on july 2nd?",SEARCH_AVAILABILITY
+"Could you, What are your available appointment times on this weekend?",SEARCH_AVAILABILITY
+"If possible, I want to see what times are free to book on this Thursday so I can book.",SEARCH_AVAILABILITY
+"Hi, Any open appointment times on april 19th, 2025? Thanks!",SEARCH_AVAILABILITY
+"Hello, I want to see what scheduling slots are open for this Monday for booking purposes.",SEARCH_AVAILABILITY
+Quick question: Could you tell me the available times on next wednesday?,SEARCH_AVAILABILITY
+"Please, What time slots are available on next Saturday. Looking for something before noon.",SEARCH_AVAILABILITY
+"Hi, Could you check do you have any appointment openings for next Monday for booking purposes?",SEARCH_AVAILABILITY
