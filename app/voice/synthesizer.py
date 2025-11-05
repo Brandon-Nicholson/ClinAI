@@ -71,9 +71,13 @@ class EdgeTTSPlayer:
         print(f"Agent: {text}")
         # Synthesize + play and block until playback finishes
         # Wait for synthesis + .play() to be scheduled/completed
-        fut = asyncio.run_coroutine_threadsafe(self._speak_async(text), self.loop)
-        fut.result()  # wait until audio is loaded and playback started
-
+        try:
+            fut = asyncio.run_coroutine_threadsafe(self._speak_async(text), self.loop)
+            fut.result()  # wait until audio is loaded and playback started
+        except Exception as e:
+            # catch connection or timeout error
+            print(f"[WARN] Failed to connect to Edge TTS: {e}")
+            print("[INFO] Continuing without speech output.")
         # Wait until pygame finishes playing this clip
         # busy becomes True shortly after .play()
         start_deadline = time.time() + 2.0  # guard if device is muted/etc.

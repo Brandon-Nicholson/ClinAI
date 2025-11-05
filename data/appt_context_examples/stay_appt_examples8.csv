@@ -1,0 +1,151 @@
+text,label
+"Now I may not repeat the available time slots, could you list them again?",STAY_APPT
+I may not repeat the available time slots back to you; please read them again.,STAY_APPT
+I may not be able to repeat the time options—can you go over them once more?,STAY_APPT
+I may not restate the available times accurately; could you repeat them?,STAY_APPT
+I may not have the list memorized; please repeat the available time slots.,STAY_APPT
+I may not recall the available times; can you say them again?,STAY_APPT
+I may not remember all the time slots—can you read them again?,STAY_APPT
+I may not get the times right; could you list the availability again?,STAY_APPT
+I may not quote the times perfectly; please repeat the available slots.,STAY_APPT
+I may not repeat the slots correctly; can you say them once more?,STAY_APPT
+I may not repeat your last message; please read the times again.,STAY_APPT
+I may not remember the time options just said—could you repeat them?,STAY_APPT
+I may not keep all those times straight; list them again for me.,STAY_APPT
+I may not capture each slot; can you go through the availability again?,STAY_APPT
+I may not accurately restate the times; please share them again.,STAY_APPT
+I may not echo the list of slots; could you repeat them for me?,STAY_APPT
+I may not retain the slots well; can you re-read the times?,STAY_APPT
+I may not repeat the full set of times; please summarize again.,STAY_APPT
+I may not have caught every time; could you list them one more time?,STAY_APPT
+I may not be precise if I repeat them; please read the times again.,STAY_APPT
+Now I may not restate the times correctly; can you list them again?,STAY_APPT
+I may not paraphrase the times well—please repeat the availability.,STAY_APPT
+I may not get the list exactly—could you say the time slots again?,STAY_APPT
+I may not recall noon vs afternoon; can you read the slots again?,STAY_APPT
+"I may not remember the afternoon times; list those again, please.",STAY_APPT
+I may not quote the morning times; could you restate them?,STAY_APPT
+I may not repeat the lunchtime options; can you repeat them?,STAY_APPT
+I may not correctly repeat the openings after 2; please list them again.,STAY_APPT
+I may not repeat the earliest time; can you mention it again?,STAY_APPT
+I may not restate the latest time; please say it again.,STAY_APPT
+I may not have the availability fresh; can you go over it again?,STAY_APPT
+I may not repeat the schedule; could you read it again?,STAY_APPT
+I may not recall the schedule details; please list the slots again.,STAY_APPT
+I may not echo the exact times; can you provide the list again?,STAY_APPT
+I may not recite the availability; please share it again.,STAY_APPT
+I may not recall the times after lunch; can you repeat those?,STAY_APPT
+I may not remember the morning windows; please restate them.,STAY_APPT
+"I may not repeat the openings correctly; go over them again, please.",STAY_APPT
+I may not say the slots back perfectly; could you repeat them?,STAY_APPT
+I may not enumerate every option; please list the times again.,STAY_APPT
+I may not keep track of all the times; can you repeat them?,STAY_APPT
+I may not repeat the items you said; please read the times again.,STAY_APPT
+I may not be certain I heard all the slots; could you say them again?,STAY_APPT
+I may not remember if 1:30 was included; can you repeat the list?,STAY_APPT
+I may not be sure about 12:30; please go over the times again.,STAY_APPT
+"I may not recall whether 4:00 was open; list them again, please.",STAY_APPT
+I may not know if 10am is open; could you repeat availability?,STAY_APPT
+I may not have the full list; please repeat the available times.,STAY_APPT
+I may not remember the nearest options; can you say them again?,STAY_APPT
+I may not repeat the options in order; can you re-list them?,STAY_APPT
+"I may not be sure which ones were morning; restate those, please.",STAY_APPT
+I may not be sure which were afternoon; please repeat those times.,STAY_APPT
+I may not capture the exact wording; could you read the slots again?,STAY_APPT
+"I may not remember the segment after noon; list it again, please.",STAY_APPT
+I may not recall the options around 3pm; could you restate them?,STAY_APPT
+I may not repeat the 8am options; please mention them again.,STAY_APPT
+I may not restate the 11am window; can you repeat that part?,STAY_APPT
+"I may not remember if noon was included; read the list again, please.",STAY_APPT
+I may not recall if 5pm was open; could you repeat the options?,STAY_APPT
+I may not know the first available time; please repeat availability.,STAY_APPT
+"I may not know the next open slot; list it again, please.",STAY_APPT
+I may not have heard the earliest slot; can you say it again?,STAY_APPT
+I may not have heard the latest slot; please repeat that.,STAY_APPT
+I may not be confident I got the times; could you repeat them?,STAY_APPT
+I may not be fully sure on times; please re-list availability.,STAY_APPT
+I may not have caught the 1pm block; can you go over it again?,STAY_APPT
+I may not have heard the 2pm block; please restate it.,STAY_APPT
+"I may not have caught 12:30; repeat that part, please.",STAY_APPT
+I may not remember the half-hour slots; list them again.,STAY_APPT
+I may not repeat the minute details; share the time slots again.,STAY_APPT
+"I may not recall all half-hour increments; repeat the list, please.",STAY_APPT
+I may not keep track of AM vs PM; could you re-say the times?,STAY_APPT
+I may not repeat AM/PM correctly; please restate the times.,STAY_APPT
+"I may not recall the time labels; read availability again, please.",STAY_APPT
+"I may not restate the schedule exactly; list it again, please.",STAY_APPT
+I may not have copied the times right; can you repeat them?,STAY_APPT
+I may not have written the times; please say them again.,STAY_APPT
+I may not type them correctly; can you go over the times again?,STAY_APPT
+I may not echo every detail; please re-list the slots.,STAY_APPT
+I may not catch fast lists; could you slow down and repeat the times?,STAY_APPT
+I may not hear well; please repeat the available appointments.,STAY_APPT
+"I may not have heard the afternoon list; read it again, please.",STAY_APPT
+I may not recall the morning list; could you re-read it?,STAY_APPT
+"I may not remember the options after 4pm; restate them, please.",STAY_APPT
+I may not recall the options before noon; can you repeat those?,STAY_APPT
+I may not repeat them verbatim; please summarize the times again.,STAY_APPT
+I may not keep all that in mind; list the availability again.,STAY_APPT
+I may not remember the nearest options; can you restate them?,STAY_APPT
+"I may not be sure I got the times; read them again, please.",STAY_APPT
+I may not recall the count of openings; could you repeat the list?,STAY_APPT
+I may not distinguish 1:00 vs 1:30; please restate availability.,STAY_APPT
+"I may not recall if 9:30 was included; repeat the options, please.",STAY_APPT
+I may not remember if 10:30 was free; go over that again?,STAY_APPT
+I may not be sure about 8:30; can you restate that part?,STAY_APPT
+"I may not have the details straight; repeat the times, please.",STAY_APPT
+"I may not repeat the afternoon windows; list them again, please.",STAY_APPT
+I may not restate the morning windows; can you repeat those?,STAY_APPT
+I may not recall the lunch window; please re-list it.,STAY_APPT
+"I may not be certain on the openings; repeat them again, please.",STAY_APPT
+I may not remember the remaining times; can you say them again?,STAY_APPT
+I may not capture the remaining slots; please list them again.,STAY_APPT
+"I may not get the order right; read the availability again, please.",STAY_APPT
+I may not restate the order; can you list the times in order again?,STAY_APPT
+I may not know which ones are left; could you repeat what’s open?,STAY_APPT
+I may not recall what’s left today; list the open slots again.,STAY_APPT
+I may not remember which were taken; please repeat what’s open.,STAY_APPT
+I may not recall which were free; could you go over them again?,STAY_APPT
+"I may not keep track of conflicts; read the open times again, please.",STAY_APPT
+"I may not remember morning vs afternoon; list both again, please.",STAY_APPT
+I may not recall today’s options; could you say them again?,STAY_APPT
+I may not recall tomorrow’s options; please repeat those.,STAY_APPT
+"I may not restate Friday’s options; read them again, please.",STAY_APPT
+"I may not repeat the earliest openings; list them again, please.",STAY_APPT
+I may not repeat the latest openings; could you restate those?,STAY_APPT
+I may not have the list handy; please repeat availability.,STAY_APPT
+I may not recall the phone readout; can you repeat the times?,STAY_APPT
+I may not remember your last list; please go over it again.,STAY_APPT
+"I may not recite the options clearly; repeat them again, please.",STAY_APPT
+"I may not share them back accurately; read the slots again, please.",STAY_APPT
+I may not repeat the next hour options; can you restate them?,STAY_APPT
+I may not recall the options around 9; list that block again.,STAY_APPT
+I may not recall the options around 10; please repeat that block.,STAY_APPT
+"I may not recall the options around 11; re-list those, please.",STAY_APPT
+"I may not recall the options around 12; read those again, please.",STAY_APPT
+I may not recall the options around 1; could you re-read that part?,STAY_APPT
+"I may not recall the options around 2; list them again, please.",STAY_APPT
+"I may not recall the options around 3; repeat that group, please.",STAY_APPT
+"I may not recall the options around 4; re-say those, please.",STAY_APPT
+"I may not recall the options near 5; read them again, please.",STAY_APPT
+I may not be sure I heard 12:00; can you repeat that?,STAY_APPT
+I may not be sure I heard 12:30; please restate it.,STAY_APPT
+I may not be sure I heard 1:00; could you repeat that slot?,STAY_APPT
+I may not be sure I heard 1:30; please repeat that slot.,STAY_APPT
+"I may not be sure I heard 2:00; read that again, please.",STAY_APPT
+I may not be sure I heard 2:30; can you repeat that?,STAY_APPT
+I may not be sure I heard 3:00; please say it again.,STAY_APPT
+"I may not be sure I heard 3:30; repeat it, please.",STAY_APPT
+"I may not be sure I heard 4:00; re-read that, please.",STAY_APPT
+"I may not be sure I heard 4:30; restate that, please.",STAY_APPT
+"I may not be sure I heard 5:00; repeat that one, please.",STAY_APPT
+"I may not recall the nearest after 2; list that again, please.",STAY_APPT
+I may not recall the nearest before noon; please repeat.,STAY_APPT
+I may not be able to decide yet; can you list the times again?,STAY_APPT
+I may not decide until I hear them again; please repeat the slots.,STAY_APPT
+I may not choose without a repeat; could you list availability again?,STAY_APPT
+I may not confirm until I hear the times again; please re-list them.,STAY_APPT
+"I may not proceed without hearing them again; read the times, please.",STAY_APPT
+I may not pick a slot yet; can you repeat availability?,STAY_APPT
+"I may not finalize a time; list the options again, please.",STAY_APPT
+"I may not be sure which is best; read the times again, please.",STAY_APPT

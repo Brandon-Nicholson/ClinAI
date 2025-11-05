@@ -99,9 +99,6 @@ def listen_and_transcribe_whisper(model, q, response, sample_rate=16000,
         if adj_conf < min_conf:
             return ""
         
-        # require at least one alpha char
-        if not re.search(r"[A-Za-z]", text):
-            return ""
         return text
 
     while True:
