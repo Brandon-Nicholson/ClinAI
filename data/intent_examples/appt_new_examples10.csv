@@ -1,0 +1,202 @@
+text,label
+"okay, then can we do 2:30pm?",APPT_NEW
+"930 works for me, book it",APPT_NEW
+put me at 4 30 please,APPT_NEW
+confirm 930,APPT_NEW
+sign me up for 1100,APPT_NEW
+schedule the appointment at 1:30 pm,APPT_NEW
+is 3 30 available to schedule?,APPT_NEW
+schedule me for 9 00,APPT_NEW
+i'll do 4:30 pm,APPT_NEW
+confirm 4:30 pm,APPT_NEW
+ill take 430,APPT_NEW
+can we confirm 2.30?,APPT_NEW
+can we make it 2:00 pm?,APPT_NEW
+let's schedule 130,APPT_NEW
+book me for 03:30,APPT_NEW
+schedule me for 9.00,APPT_NEW
+"okay, then can we do 3:30pm?",APPT_NEW
+please book 200,APPT_NEW
+"i'm good with 2:00 pm, schedule it",APPT_NEW
+"330 works, please schedule it",APPT_NEW
+schedule 2:30,APPT_NEW
+"i can do 1000, please book it",APPT_NEW
+put me down for 2:00,APPT_NEW
+i'll do 04:30,APPT_NEW
+"i can do 02:30, please book it",APPT_NEW
+i'd like to schedule 1000,APPT_NEW
+"im good with 3:00 pm, schedule it",APPT_NEW
+i'll take 2:30,APPT_NEW
+i choose 12.30 for the appointment,APPT_NEW
+put me down for 01:30,APPT_NEW
+can you book 03:30 for me?,APPT_NEW
+lets do 12:30,APPT_NEW
+let's book 12 30,APPT_NEW
+sign me up for 3:00 pm,APPT_NEW
+"okay, 03:30 then—book it",APPT_NEW
+can we lock 200 in?,APPT_NEW
+sign me up for 02:00,APPT_NEW
+can you book 12:30pm for me?,APPT_NEW
+put me down for 3 pm,APPT_NEW
+can we make it 3:30pm?,APPT_NEW
+"330 works, lock it in",APPT_NEW
+"im good with 9 00, schedule it",APPT_NEW
+i'll do 4 pm,APPT_NEW
+confirm 12:30pm,APPT_NEW
+can we set it for 1230?,APPT_NEW
+can we make it 500?,APPT_NEW
+can we lock 12.30 in?,APPT_NEW
+confirm 4.30,APPT_NEW
+can we make it 12 30 pm?,APPT_NEW
+can we set it for 130?,APPT_NEW
+please schedule 09 00,APPT_NEW
+book me for 3:00,APPT_NEW
+book me at 4:30 pm,APPT_NEW
+can i take 4 pm?,APPT_NEW
+1:30pm please schedule,APPT_NEW
+"i can do 3:30, please book it",APPT_NEW
+put me down for 12:30,APPT_NEW
+can we make it 3:30?,APPT_NEW
+put me down for 2:30pm,APPT_NEW
+lock in 9 for me,APPT_NEW
+i'll take 3 00,APPT_NEW
+could we lock in 3:30pm?,APPT_NEW
+let's do 400,APPT_NEW
+can you pencil me in at 3 pm?,APPT_NEW
+lock in 03:30 for me,APPT_NEW
+set it for 9 00,APPT_NEW
+can we do 400?,APPT_NEW
+"ok, 9 then—please schedule",APPT_NEW
+set it for 3.30,APPT_NEW
+put me at 2:30 please,APPT_NEW
+put me down for 4.30,APPT_NEW
+can we lock 500 in?,APPT_NEW
+i want to schedule 3:00 pm,APPT_NEW
+book the appointment at 3 30,APPT_NEW
+reserve 1130,APPT_NEW
+"2 pm works, lock it in",APPT_NEW
+book me for 900,APPT_NEW
+1 30 please book,APPT_NEW
+reserve 2 pm,APPT_NEW
+1000 please schedule,APPT_NEW
+can we go with 1 pm?,APPT_NEW
+1030 please book,APPT_NEW
+sign me up for 1030,APPT_NEW
+"i'm good with 4 pm, schedule it",APPT_NEW
+ill do 4:30 pm,APPT_NEW
+could we lock in 3:00?,APPT_NEW
+is 4 pm available to schedule?,APPT_NEW
+schedule me for 1100,APPT_NEW
+can you book 2.30 for me?,APPT_NEW
+i pick 2 30 for my appointment,APPT_NEW
+can we confirm 4 30?,APPT_NEW
+"3:00 pm works for me, book it",APPT_NEW
+9 00 please schedule,APPT_NEW
+can we set it for 12 30 pm?,APPT_NEW
+4 pm please book,APPT_NEW
+3:00 please schedule,APPT_NEW
+i'll do 1100,APPT_NEW
+confirm 3:30pm,APPT_NEW
+can i take 9.00?,APPT_NEW
+sign me up for 2:00,APPT_NEW
+schedule me for 9am,APPT_NEW
+please book 2 pm,APPT_NEW
+3:30pm please book,APPT_NEW
+lets do 12:30pm,APPT_NEW
+confirm 900,APPT_NEW
+can we do 09 00?,APPT_NEW
+"i'm good with 2.30, schedule it",APPT_NEW
+could we lock in 3:30?,APPT_NEW
+can you pencil me in at 230?,APPT_NEW
+book 3pm,APPT_NEW
+schedule me for 12:30pm,APPT_NEW
+schedule me for 2pm,APPT_NEW
+ill take 1:30 pm,APPT_NEW
+let's schedule 3:30,APPT_NEW
+let's set the appointment for 2:30,APPT_NEW
+"130 works for me, book it",APPT_NEW
+"9:00 works for me, book it",APPT_NEW
+let's schedule 430,APPT_NEW
+can we make it 12 30?,APPT_NEW
+i pick 3 00 for my appointment,APPT_NEW
+"2:00 works, lock it in",APPT_NEW
+can we make it 130?,APPT_NEW
+book me for 9:00,APPT_NEW
+i want to schedule 09 00,APPT_NEW
+can we lock 2 30 in?,APPT_NEW
+lock in 230 for me,APPT_NEW
+book the appointment at 3:30,APPT_NEW
+put me down for 3 00,APPT_NEW
+let's set the appointment for 12.30,APPT_NEW
+please book 130,APPT_NEW
+can we do 4:30?,APPT_NEW
+could we lock in 09:00?,APPT_NEW
+can we lock 3:30pm in?,APPT_NEW
+set it for 12 pm,APPT_NEW
+"okay, 9.00 then—book it",APPT_NEW
+"im good with 12:30pm, schedule it",APPT_NEW
+schedule the appointment at 900,APPT_NEW
+sign me up for 3 pm,APPT_NEW
+ill take 930,APPT_NEW
+i choose 1:30pm for the appointment,APPT_NEW
+lets do 1000,APPT_NEW
+"04:30 works, please schedule it",APPT_NEW
+can we set it for 200?,APPT_NEW
+let's set the appointment for 12 30,APPT_NEW
+sign me up for 1230,APPT_NEW
+i choose 3 00 for the appointment,APPT_NEW
+book me at 330,APPT_NEW
+ill take 3 00,APPT_NEW
+let's book 4:30,APPT_NEW
+put me at 3:00 please,APPT_NEW
+"ok, 130 then—please schedule",APPT_NEW
+can we go with 1:30?,APPT_NEW
+"3:00 pm works, please schedule it",APPT_NEW
+book me at 2 pm,APPT_NEW
+can we do 3.30?,APPT_NEW
+"12:30 works for me, book it",APPT_NEW
+sign me up for 4:30 pm,APPT_NEW
+can we lock 2 00 in?,APPT_NEW
+schedule the appointment at 3:30,APPT_NEW
+"400 works, lock it in",APPT_NEW
+book the appointment at 12 30,APPT_NEW
+i choose 900 for the appointment,APPT_NEW
+sign me up for 1:30 pm,APPT_NEW
+confirm 03:00,APPT_NEW
+can we set it for 04:30?,APPT_NEW
+is 3.30 available to schedule?,APPT_NEW
+let's schedule 500,APPT_NEW
+"3 00 works, lock it in",APPT_NEW
+please book 01:30,APPT_NEW
+lets do 4.30,APPT_NEW
+can we confirm 12 pm?,APPT_NEW
+reserve 2:30pm,APPT_NEW
+"03:00 works for me, book it",APPT_NEW
+"okay, then can we do 1 30?",APPT_NEW
+sign me up for 4 pm,APPT_NEW
+can we go with 3 00?,APPT_NEW
+is 1130 open for an appointment?,APPT_NEW
+let's schedule 230,APPT_NEW
+schedule the appointment at 400,APPT_NEW
+can you pencil me in at 3.00?,APPT_NEW
+put me down for 12 30 pm,APPT_NEW
+can we do 1 30?,APPT_NEW
+i'll do 3pm,APPT_NEW
+i pick 4 30 for my appointment,APPT_NEW
+"i can do 9:00, please book it",APPT_NEW
+can you book 12 30 pm for me?,APPT_NEW
+can we go with 9?,APPT_NEW
+sign me up for 01:30,APPT_NEW
+let's do 3.00,APPT_NEW
+"ok, 1:30 then—please schedule",APPT_NEW
+"9am works for me, book it",APPT_NEW
+reserve 2.30,APPT_NEW
+let's do 4:30 pm,APPT_NEW
+reserve 12 30 pm,APPT_NEW
+let's set the appointment for 330,APPT_NEW
+i choose 3 30 for the appointment,APPT_NEW
+can you book 09 00 for me?,APPT_NEW
+i'll do 2:00 pm,APPT_NEW
+book 2pm,APPT_NEW
+"Okay, then can we do 430?",APPT_NEW
+"well then lets do 1230",APPT_NEW

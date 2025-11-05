@@ -3,17 +3,28 @@
 from __future__ import annotations
 from typing import Iterable, Optional, List
 from zoneinfo import ZoneInfo
-from datetime import datetime, timedelta, date
+from datetime import datetime, timedelta, date, time
+from apscheduler.schedulers.background import BackgroundScheduler
 import re
 
+from app.db.session import get_session
 from sqlalchemy.orm import Session
-from sqlalchemy import select, and_
+from sqlalchemy import select, and_, text
 
 from app.db.models import Appointment
 
 # creates temporary appt date holder
 def new_temp_appt_date():
     return {'date': None, 'time': None, 'ampm': None}
+
+# list all possible time slots
+TIME_SLOTS = [
+"08:00", "08:30", "09:00", "09:30",
+"10:00", "10:30", "11:00", "11:30",
+"12:00", "12:30", "01:00", "01:30",
+"02:00", "02:30", "03:00", "03:30",
+"04:00", "04:30"
+]
 
 WEEKDAYS = ["monday","tuesday","wednesday","thursday","friday","saturday","sunday"]
 WDX = {w:i for i,w in enumerate(WEEKDAYS)}
@@ -78,6 +89,81 @@ tomorrow_pattern = re.compile(r"\btomorrow\b", flags=re.IGNORECASE)
 
 # simple sentence terminator to limit the “nearby time” window
 sentence_end = re.compile(r"[.!?]")
+
+# word -> time normalizer
+WORD_NUM_MAP = {
+    "one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6,
+    "seven": 7, "eight": 8, "nine": 9, "ten": 10, "eleven": 11, "twelve": 12
+}
+
+# maps minute words we care about
+_MIN_WORD = {
+    "thirty": 30, "fifteen": 15, "forty five": 45, "forty-five": 45,
+    "o'clock": 0, "oclock": 0
+}
+
+# e.g. "five", "seven thirty", "eleven o'clock", optional "pm" and/or daypart text
+_word_time_norm_pattern = re.compile(
+    r"\b(?P<hour>one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)"
+    r"(?:\s+(?P<min>thirty|fifteen|forty(?:\s|-)?five|o['’]?clock|oclock))?"
+    r"(?:\s*(?P<ampm>a\.?m?\.?|p\.?m?\.?))?"
+    r"(?:\s*(?:in\s+the\s+)?(?P<daypart>morning|afternoon|evening|night))?"
+    r"\b",
+    flags=re.IGNORECASE
+)
+
+def _normalize_word_times_in_text(text: str) -> str:
+    """
+    Convert word-based times (one..twelve) into numeric forms the existing extractor already supports.
+    Examples:
+      "How about three?"            -> "How about 3?"
+      "at seven thirty in the evening" -> "at 7:30 pm"
+      "eleven o'clock"              -> "11"
+      "five pm"                     -> "5 pm"
+    We DO NOT guess AM/PM if we can't—your existing logic will infer where appropriate.
+    """
+    def _repl(m: re.Match) -> str:
+        hour_word = m.group("hour").lower()
+        hour = WORD_NUM_MAP[hour_word]
+
+        # minutes
+        minute_word = m.group("min")
+        minute = 0
+        if minute_word:
+            mw = minute_word.lower().replace("’", "'")
+            # normalize "o'clock"
+            if mw in ("o'clock", "oclock"):
+                minute = 0
+            elif mw in ("thirty", "fifteen"):
+                minute = _MIN_WORD[mw]
+            elif mw.startswith("forty"):
+                minute = 45
+
+        # am/pm or daypart (if given, we keep it)
+        ampm = (m.group("ampm") or "").lower().replace(".", "")
+        daypart = (m.group("daypart") or "").lower()
+
+        # compose numeric time
+        if minute:
+            core = f"{hour}:{minute:02d}"
+        else:
+            core = f"{hour}"
+
+        # keep explicit am/pm if present
+        if ampm in ("am", "pm"):
+            return f"{core} {ampm}"
+
+        # otherwise keep daypart as am/pm if it implies PM
+        if daypart in ("afternoon", "evening", "night"):
+            return f"{core} pm"
+        if daypart == "morning":
+            return f"{core} am"
+
+        # no qualifier -> leave as bare time; downstream inference will handle it
+        return core
+
+    return _word_time_norm_pattern.sub(_repl, text)
+
 
 # Helpers
 def _week_start(d): return d - timedelta(days=d.weekday())
@@ -301,6 +387,9 @@ def _find_nearby_time(text, anchor_start, window=120):
 # Main
 
 def extract_schedule_json(text: str, now=None, tz: ZoneInfo = DEFAULT_TZ):
+    # normalize any word-times
+    text = _normalize_word_times_in_text(text)
+    
     if now is None:
         now = datetime.now(tz)
     else:
@@ -440,9 +529,9 @@ def len_deduped_results(results):
         return 0
     
     return len(deduped_appts)
-
+    
 # check that times are compatible with hours of operation and scheduling structure
-def check_time(time: str, ampm: str, appt_date: str, open_time = 8, close_time = 17) -> bool:
+def check_time(temp_appt_date: dict, open_time = 8, close_time = 17) -> bool:
     
     """
     Hours of Operation:
@@ -454,43 +543,64 @@ def check_time(time: str, ampm: str, appt_date: str, open_time = 8, close_time =
     "Sat": "Closed",
     "Sun": "Closed"
     """
+    time = temp_appt_date['time']
+    ampm = temp_appt_date['ampm']
+    appt_date = temp_appt_date['date']
     
     # map up to 7 because clinic is closed 6-7 both am/pm
     tf_hour_map = {1:13, 2:14, 3:15, 4:16, 5:17}
     
-    # remove formatting/separate hour and minute
-    hour_min_split = time.split(':')
-    hour = int(hour_min_split[0])
-    minute = int(hour_min_split[1])
+    if time:
+        # remove formatting/separate hour and minute
+        hour_min_split = time.split(':')
+        hour = int(hour_min_split[0])
+        minute = int(hour_min_split[1])
+        
+        # make constant copy of original
+        RAW_HOUR = hour
+        
+        # get correct 24 hour time for certain hours
+        if hour >= 1 and hour <= 5:
+            hour = tf_hour_map[hour]
+            
+    if appt_date:
+        # convert day to numerical representation of week day (Mon-Sun = 0-6)
+        d = date.fromisoformat(appt_date)
+        weekday = d.weekday()
     
-    # make constant copy of original
-    RAW_HOUR = hour
-    
-    # get correct 24 hour time for certain hours
-    if hour >= 1 and hour <= 5:
-        hour = tf_hour_map[hour]
-    
-    # convert day to numerical representation of week day (Mon-Sun = 0-6)
-    d = date.fromisoformat(appt_date)
-    weekday = d.weekday()
+    if time and not appt_date:
+        # check that appointment starts on the hour or half-hour
+        if minute not in [0,30]:
+            return f"Sorry, we only schedule appointments on the hour or half hour. For example, {RAW_HOUR} or {RAW_HOUR}:30."
+        elif RAW_HOUR in [6,7,8,9,10,11] and ampm == "pm":
+            return "Sorry, we're only open from 8am to 5pm Monday through Thursday and 8am to 4pm on Friday."
+        elif RAW_HOUR in [12,1,2,3,4,5,6,7] and ampm == "am":
+            return "Sorry, we're only open from 8am to 5pm Monday through Thursday and 8am to 4pm on Friday."
+        
+    elif appt_date and not time:
+        # handle incorrect times with specific messages
+        if weekday > 4:
+            return "Sorry, we are closed on weekends."
      
-    # handle incorrect times with specific messages
-    if weekday == 4 and hour > 16:
-        return "Sorry, we're only open from 8am to 4pm on Fridays."
-    elif weekday > 4:
-        return "Sorry, we are closed on weekends."
-    elif weekday < 4 and hour > 17:
-        return "Sorry, we're only open from 8am to 5pm Monday through Thursday and 8am to 4pm on Friday."
-    elif RAW_HOUR in [6,7,8,9,10,11] and ampm == "pm":
-        return "Sorry, we're only open from 8am to 5pm Monday through Thursday and 8am to 4pm on Friday."
-    elif RAW_HOUR in [12,1,2,3,4,5,6,7] and ampm == "am":
-        return "Sorry, we're only open from 8am to 5pm Monday through Thursday and 8am to 4pm on Friday."
-    
-    # check that appointment starts on the hour or half-hour
-    if minute not in [0,30]:
-        return f"Sorry, we only schedule appointments on the hour or half hour. For example, {RAW_HOUR} or {RAW_HOUR}:30."
-    else:
-        return None
+    elif appt_date and time: 
+        # handle incorrect times with specific messages
+        if weekday == 4 and hour >= 16:
+            return "Sorry, we're only open from 8am to 4pm on Fridays. The last appointment is at 3:30pm."
+        elif weekday > 4:
+            return "Sorry, we are closed on weekends."
+        elif weekday < 4 and hour >= 17:
+            return "Sorry, we're only open from 8am to 5pm Monday through Thursday and 8am to 4pm on Friday. The last appointment is 30 minutes before closing."
+        elif RAW_HOUR in [5,6,7,8,9,10,11] and ampm == "pm":
+            return "Sorry, we're only open from 8am to 5pm Monday through Thursday and 8am to 4pm on Friday. The last appointment is 30 minutes before closing."
+        elif RAW_HOUR in [12,1,2,3,4,5,6,7] and ampm == "am":
+            return "Sorry, we're only open from 8am to 5pm Monday through Thursday and 8am to 4pm on Friday. The last appointment is 30 minutes before closing."
+        
+        # check that appointment starts on the hour or half-hour
+        if minute not in [0,30]:
+            return f"Sorry, we only schedule appointments on the hour or half hour. For example, {RAW_HOUR} or {RAW_HOUR}:30."
+
+    return None
+
 
 # ----Formatting-----
 
@@ -554,9 +664,43 @@ def ampm_mislabel_fix(temp_appt_date: dict) -> dict:
     if hour in [1,2,3,4,5] and ampm == "am":
         temp_appt_date['ampm'] = 'pm'
         return temp_appt_date
+    # assume am for hours 8-11
+    elif hour in [8,9,10,11] and ampm == "pm":
+        temp_appt_date['ampm'] = 'am'
+        return temp_appt_date
     else:
         return temp_appt_date
 
+# converts dictionary format to DB timestamp format
+def parts_to_local_dt(parts: dict, tz: ZoneInfo = DEFAULT_TZ) -> datetime:
+    
+    if not parts or not parts.get("date") or not parts.get("time"):
+        raise ValueError("Missing date or time parts")
+
+    yyyy, mm, dd = map(int, parts["date"].split("-"))
+    hh12, mi = map(int, parts["time"].split(":"))
+    ap = (parts.get("ampm") or "").lower()
+
+    # Infer am/pm if missing
+    if not ap:
+        inferred = _infer_ampm_from_hours(hh12)
+        if inferred:
+            hh24, ap = inferred
+        else:
+            ap = "pm" if 1 <= hh12 <= 6 else "am"  # fallback if outside clinic hours
+            hh24 = (hh12 % 12) + (12 if ap == "pm" else 0)
+    else:
+        # Convert 12h -> 24h manually if am/pm provided
+        if ap == "pm" and hh12 != 12:
+            hh24 = hh12 + 12
+        elif ap == "am" and hh12 == 12:
+            hh24 = 0
+        else:
+            hh24 = hh12
+
+    return datetime(yyyy, mm, dd, hh24, mi, tzinfo=tz)
+
+# converts DB timestamp format to dictionary format
 def appt_local_parts(appt: Appointment):
     """Return (YYYY-MM-DD, HH:MM (12h, zero-padded), am|pm) in clinic time."""
     tz = ZoneInfo(appt.clinic_tz or DEFAULT_TZ)
@@ -568,139 +712,164 @@ def appt_local_parts(appt: Appointment):
     time_str = f"{hour12:02d}:{minute:02d}"
     return date_str, time_str, ampm
 
+# finds time slots close to unavailable time for recommendation from agent
+def nearest_available_slots(time_slots, available_slots, time_pick):
+    
+    # return None if no available slots for that day
+    if not available_slots:
+        return None
 
-# Day window helpers
+    # grab slots nearest to patient's desired time
+    after_slots = time_slots[time_slots.index(time_pick)+1:] # slots to the right
+    before_slots = time_slots[time_slots.index(time_pick)-1::-1] # slots to the left
 
-def day_range(target_date: date, tz_str: str = DEFAULT_TZ):
-    """Inclusive start, exclusive end window for a given local day."""
-    tz = ZoneInfo(tz_str)
-    start = datetime(target_date.year, target_date.month, target_date.day, 0, 0, tzinfo=tz)
-    end = start + timedelta(days=1)
-    return start, end
+    ordered_slots = zip(after_slots,before_slots)
+
+    ordered_slots_list = []
+
+    for a,b in ordered_slots:
+        ordered_slots_list.append(a)
+        ordered_slots_list.append(b)
+
+    recommend_slots = [] # max length = 2
+    counter = 0
+    for slot in ordered_slots_list:
+        if slot in available_slots:
+            if counter > 2:
+                break
+            else:
+                recommend_slots.append(slot)
+    
+    # if only one other slot is available
+    if len(recommend_slots) == 1:
+        return f"We only have {recommend_slots[0]} available for that day. Would you like to do that instead?", recommend_slots[0]
+                    
+    return f"Would you like to try {recommend_slots[0]} or {recommend_slots[1]} instead?"
 
 
-# Queries
+# -----Checking Availabilities-----
 
 ACTIVE_STATUSES = ("scheduled", "rescheduled", "completed")  # exclude 'canceled','no_show'
 
-def get_appointments_for_day(
-    session: Session,
-    target_date: date,
-    tz_str: str = DEFAULT_TZ,
-    provider_id: Optional[int] = None,
-    include_statuses: Iterable[str] = ACTIVE_STATUSES,
-) -> List[Appointment]:
-    start, end = day_range(target_date, tz_str)
-    stmt = select(Appointment).where(
-        and_(
-            Appointment.starts_at >= start,
-            Appointment.starts_at < end,
-            Appointment.status.in_(list(include_statuses)),
-        )
-    )
-    if provider_id is not None:
-        stmt = stmt.where(Appointment.provider_id == provider_id)
-    stmt = stmt.order_by(Appointment.starts_at.asc())
-    return list(session.scalars(stmt))
+# return all available times on a certain day
+def check_appt_availability(date_str: str, time_slots: list, tz_str: str = "America/Los_Angeles") -> list[str]:
 
+    # convert day to numerical representation of week day (Mon-Sun = 0-6)
+    d = date.fromisoformat(date_str)
+    weekday = d.weekday()
 
-# Availability / slots
-
-def _occupied_minutes(appts: Iterable[Appointment], tz_str: str) -> set[int]:
-    tz = ZoneInfo(tz_str or DEFAULT_TZ)
-    occ: set[int] = set()
-    for a in appts:
-        start_local = a.starts_at.astimezone(tz)
-        dur = a.duration_min or 30
-        start_min = start_local.hour * 60 + start_local.minute
-        for m in range(start_min, start_min + dur):
-            occ.add(m)
-    return occ
-
-def generate_open_slots(
-    session: Session,
-    target_date: date,
-    *,
-    tz_str: str = DEFAULT_TZ,
-    provider_id: Optional[int] = None,
-    open_hour: int = 8,
-    close_hour: int = 17,
-    slot_minutes: int = 30,
-    max_suggestions: Optional[int] = None,
-) -> list[str]:
-    """Return human-friendly open start times (e.g., '09:00 am')."""
-    day_appts = get_appointments_for_day(session, target_date, tz_str, provider_id)
-    occupied = _occupied_minutes(day_appts, tz_str)
-
-    slots: list[str] = []
-    start_min_day = open_hour * 60
-    end_min_day = close_hour * 60
-
-    m = start_min_day
-    while m + slot_minutes <= end_min_day:
-        if all(mm not in occupied for mm in range(m, m + slot_minutes)):
-            hh, mm = divmod(m, 60)
-            ampm = "am" if hh < 12 else "pm"
-            hh12 = (hh % 12) or 12
-            slots.append(f"{hh12:02d}:{mm:02d} {ampm}")
-            if max_suggestions and len(slots) >= max_suggestions:
-                break
-        m += slot_minutes
-    return slots
-
-
-# Conflict checks / booking
-
-def has_conflict(
-    session: Session,
-    starts_at: datetime,
-    duration_min: int = 30,
-    *,
-    provider_id: Optional[int] = None,
-    tz_str: str = DEFAULT_TZ,
-) -> bool:
-    """Simple overlap check against active appointments."""
+    
+    # knock off time slots if friday (closes 1hr earlier)
+    if weekday == 4:
+        while time_slots[-1] != "03:30":
+            time_slots.pop()
+            
     tz = ZoneInfo(tz_str)
-    start_local = starts_at.astimezone(tz)
-    end_local = start_local + timedelta(minutes=duration_min)
+    day = datetime.fromisoformat(date_str).date()
 
-    day_appts = get_appointments_for_day(session, start_local.date(), tz.key, provider_id)
-    for a in day_appts:
-        a_start = a.starts_at.astimezone(tz)
-        a_end = a_start + timedelta(minutes=a.duration_min or 30)
-        # overlap if a_start < end_local and start_local < a_end
-        if a_start < end_local and start_local < a_end:
-            return True
-    return False
+    # local start/end of day
+    local_start = datetime.combine(day, time.min, tzinfo=tz)
+    local_end = local_start + timedelta(days=1)
 
+    # convert to UTC for timestamptz comparison
+    start_utc = local_start.astimezone(ZoneInfo("UTC"))
+    end_utc = local_end.astimezone(ZoneInfo("UTC"))
+    
+    # query for all scheduled appts that haven't been cancelled
+    with get_session() as session:
+        q = (
+            select(Appointment.starts_at)
+            .where(and_(
+                Appointment.starts_at >= start_utc,
+                Appointment.starts_at < end_utc,
+                Appointment.status == "scheduled"
+            ))
+            .order_by(Appointment.starts_at)
+        )
+        results = session.execute(q).scalars().all()
+            
+    # convert to local time strings
+    scheduled_appts = [dt.astimezone(tz).strftime("%I:%M") for dt in results]
+    # filter out unavailable slots
+    available_slots = [slot for slot in time_slots if slot not in scheduled_appts]
+    
+    # return None& empty list if no available slots
+    if not available_slots:
+        return None, None
+    
+    # format to be interpreted by agent
+    converted_times = [] 
+    for t in available_slots: 
+        # everything from 8:00–12:30 is AM, 1:00–5:00 is PM
+        hour = int(t.split(':')[0])
+        meridiem = 'am' if hour < 12 and hour != 0 else 'pm'
+        # if its 1–5, force pm
+        if 1 <= hour <= 5:
+            meridiem = 'pm'
+        # remove leading zero
+        converted_times.append(f"{hour}:{t.split(':')[1]}{meridiem}")
+    
+    # create system prompt with formatted times
+    sys_prompt = f"""
+    Below, you will be shown all the appointment times the clinic has available. Your job is to ONLY tell the user which appointment times are available.
+    Make sure to say ALL of these available appointment times when asked.
+    Listing appointment times that aren't in the list is very damaging to the patient and clinic.
+    Available Appointment Times for {date_str}: 
+    {converted_times}
+    """
+    # return sys_prompt for llm and available_slots
+    return sys_prompt, available_slots
 
+# -----Booking & Cancelling-----
+
+# update db with appt info
 def book_appointment(
-    session: Session,
-    *,
-    patient_id: int,
+    patient_id : int,
+    call_id: int,
     starts_at: datetime,
     duration_min: int = 30,
-    provider_id: Optional[int] = None,
     reason: Optional[str] = None,
-    location: Optional[str] = None,
-    clinic_tz: str = DEFAULT_TZ,
+    clinic_tz: str = "America/Los_Angeles",
 ) -> Appointment:
-    """Create an appointment if no conflict; raises ValueError if conflict."""
-    if has_conflict(session, starts_at, duration_min, provider_id=provider_id, tz_str=clinic_tz):
-        raise ValueError("Requested time conflicts with an existing appointment.")
 
     appt = Appointment(
         patient_id=patient_id,
-        provider_id=provider_id,
+        call_id=call_id,
         starts_at=starts_at,
         duration_min=duration_min,
         clinic_tz=clinic_tz,
-        reason=reason,
-        location=location,
-        status="scheduled",
-        meta={},
+        reason=reason
     )
-    session.add(appt)
-    session.commit()
-    session.refresh(appt)
+    with get_session() as session:
+        session.add(appt)
+        session.commit()
+        session.refresh(appt)
     return appt
+
+# cancel an appointment by changing the status
+def cancel_appointment(appt_id: int) -> bool:
+    with get_session() as s:
+        appt = s.get(Appointment, appt_id, with_for_update="read")  # lock row
+        if not appt or appt.status != "scheduled":
+            return False  # already cancelled/completed or not found
+        appt.status = "cancelled"
+        s.commit()
+        return True
+    
+# update status for appts that already happened
+def sweep_completed():
+    sql = text("""
+        UPDATE appointments
+           SET status = 'completed'
+         WHERE status = 'scheduled'
+           AND now() >= starts_at + make_interval(mins => duration_min)
+    """)
+    with get_session() as s:
+        s.execute(sql)
+        s.commit()
+
+def start_scheduler():
+    sch = BackgroundScheduler(timezone="UTC", daemon=True)
+    sch.add_job(sweep_completed, "interval", minutes=1, id="appt_sweeper")
+    sch.start()
+    return sch

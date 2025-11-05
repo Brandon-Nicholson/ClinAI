@@ -1,0 +1,51 @@
+text,label
+"No, I’d like to continue scheduling.",STAY_APPT
+"No, I'm not done, I want to book an appointment.",STAY_APPT
+"No, I’m trying to book something.",STAY_APPT
+"No, I’d like to keep scheduling.",STAY_APPT
+"No, I’m still trying to make an appointment.",STAY_APPT
+"No, I still want to set up an appointment.",STAY_APPT
+"No, I need to schedule a visit.",STAY_APPT
+"No, let’s keep scheduling.",STAY_APPT
+"No, keep booking my appointment please.",STAY_APPT
+"No, let's go on with scheduling.",STAY_APPT
+"No, please continue with the appointment setup.",STAY_APPT
+"No, I’m here to schedule.",STAY_APPT
+"No, let's proceed with booking.",STAY_APPT
+"No, I want to continue booking.",STAY_APPT
+"No, I’d like to continue with my appointment.",STAY_APPT
+"No, keep going, I’m trying to make an appointment.",STAY_APPT
+"No, not yet, I still want to make an appointment.",STAY_APPT
+"No, I want to finish making the appointment.",STAY_APPT
+"No, go ahead and schedule it.",STAY_APPT
+"No, I need to schedule an appointment.",STAY_APPT
+"No, I need to make an appointment please.",STAY_APPT
+"No, I’m trying to make a new appointment.",STAY_APPT
+"No, let's go ahead and schedule.",STAY_APPT
+"No, I want to book an appointment.",STAY_APPT
+"No, continue with the appointment please.",STAY_APPT
+"No, I’d like to book now.",STAY_APPT
+"No, I’m trying to book a time slot.",STAY_APPT
+"No, go ahead with scheduling.",STAY_APPT
+"No, keep going with the appointment please.",STAY_APPT
+"No, I want to continue the scheduling process.",STAY_APPT
+"No, not cancel, I want to schedule.",STAY_APPT
+"No, I’m still scheduling an appointment.",STAY_APPT
+"No, continue scheduling please.",STAY_APPT
+"No, I still need to book one.",STAY_APPT
+"No, I want to make an appointment.",STAY_APPT
+"No, I’m trying to make an appointment.",STAY_APPT
+"No, let's keep scheduling my appointment.",STAY_APPT
+"No, I want to finish scheduling.",STAY_APPT
+"No, I actually want to schedule an appointment.",STAY_APPT
+"No, please help me book an appointment.",STAY_APPT
+"No, keep going with the booking please.",STAY_APPT
+"No, I need to confirm an appointment.",STAY_APPT
+"No, I need to finish setting up my appointment.",STAY_APPT
+"No, let's finish booking.",STAY_APPT
+"No, I’d like to proceed with booking.",STAY_APPT
+"No, I still need to schedule something.",STAY_APPT
+"No, keep helping me schedule.",STAY_APPT
+"No, I’d like to move forward with the appointment.",STAY_APPT
+"No, I want to complete my appointment.",STAY_APPT
+"No, not yet, I want to make an appointment first.",STAY_APPT

@@ -45,7 +45,6 @@ class Call(Base):
 
     patient: Mapped[Optional[Patient]] = relationship(back_populates="calls")
     transcripts: Mapped[List["Transcript"]] = relationship(back_populates="call", cascade="all, delete-orphan")
-    tasks: Mapped[List["Task"]] = relationship(back_populates="call", cascade="all, delete-orphan")
 
 class Transcript(Base):
     __tablename__ = "transcripts"
@@ -58,19 +57,6 @@ class Transcript(Base):
 
     call: Mapped["Call"] = relationship(back_populates="transcripts")
 
-class Task(Base):
-    __tablename__ = "tasks"
-
-    id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    call_id: Mapped[int] = mapped_column(ForeignKey("calls.id", ondelete="CASCADE"))
-    task_type: Mapped[str] = mapped_column(Text)    # 'schedule','refill','prior_auth','callback','message'
-    payload: Mapped[Dict] = mapped_column(JSONB)    # structured info captured from the call
-    status: Mapped[str] = mapped_column(Text, default="open", server_default="open")  # 'open','in_progress','done','canceled'
-    created_at: Mapped[datetime] = mapped_column(TIMESTAMP(timezone=True), server_default=func.now())
-    updated_at: Mapped[datetime] = mapped_column(TIMESTAMP(timezone=True), server_default=func.now())
-
-    call: Mapped["Call"] = relationship(back_populates="tasks")
-
 class Appointment(Base):
     __tablename__ = "appointments"
 
@@ -79,7 +65,6 @@ class Appointment(Base):
     # who / provenance
     patient_id: Mapped[int] = mapped_column(ForeignKey("patients.id"), index=True)
     call_id: Mapped[Optional[int]] = mapped_column(ForeignKey("calls.id", ondelete="SET NULL"), nullable=True)
-    provider_id: Mapped[Optional[int]] = mapped_column(Integer, nullable=True)  # optional, if you add a Provider table later
 
     # when
     starts_at: Mapped[datetime] = mapped_column(TIMESTAMP(timezone=True), index=True)  # canonical, tz-aware
@@ -88,15 +73,14 @@ class Appointment(Base):
     # clinic time zone (string like "America/Los_Angeles"); useful if you serve multiple clinics
     clinic_tz: Mapped[str] = mapped_column(String(64), default="America/Los_Angeles", server_default="America/Los_Angeles")
 
-    # what
+    # reason for appt
     reason: Mapped[Optional[str]] = mapped_column(Text)
-    status: Mapped[str] = mapped_column(Text, default="scheduled", server_default="scheduled")  # 'scheduled','completed','canceled','no_show','rescheduled'
-    location: Mapped[Optional[str]] = mapped_column(Text)  # optional room/office/telehealth link
-    meta: Mapped[Dict] = mapped_column(JSONB, default=dict, server_default="{}")  # any extra fields
 
     # bookkeeping
     created_at: Mapped[datetime] = mapped_column(TIMESTAMP(timezone=True), server_default=func.now())
-    updated_at: Mapped[datetime] = mapped_column(TIMESTAMP(timezone=True), server_default=func.now())
+    
+    # appt status
+    status: Mapped[str] = mapped_column(Text, default="scheduled", nullable=False)
 
     patient: Mapped[Patient] = relationship(back_populates="appointments")
 
@@ -109,18 +93,6 @@ class RefillRequest(Base):
     dosage: Mapped[Optional[str]] = mapped_column(Text)
     pharmacy: Mapped[Optional[str]] = mapped_column(Text)
     last_fill_date: Mapped[Optional[Date]] = mapped_column(Date)
-
-
-class PriorAuthIntake(Base):
-    __tablename__ = "prior_auth_intake"
-
-    id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    call_id: Mapped[int] = mapped_column(ForeignKey("calls.id", ondelete="CASCADE"), unique=True)
-    payer: Mapped[Optional[str]] = mapped_column(Text)
-    cpt_codes: Mapped[Optional[str]] = mapped_column(Text)
-    icd_codes: Mapped[Optional[str]] = mapped_column(Text)
-    free_text: Mapped[Optional[str]] = mapped_column(Text)
-
 
 class Analytics(Base):
     __tablename__ = "analytics"

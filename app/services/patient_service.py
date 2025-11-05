@@ -38,7 +38,7 @@ def intake_patient(first_name: str, last_name: str, phone: str, dob: date | None
         if not patient:
             patient = Patient(first_name=first_name, last_name=last_name, phone=phone, dob=dob)
             s.add(patient)
-            s.commit() # populatye patient.id first
+            s.commit() # populate patient.id first
             patient.mrn = f"MRN{patient.id:03d}"
         else:
             # Update only missing values

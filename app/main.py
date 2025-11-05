@@ -4,7 +4,7 @@ main.py
 
 # Imports from modular voice pipeline
 from app.ui.intake_form import run_intake_form
-from app.services.call_service import start_call, end_call, set_intent, log_turn, was_resolved
+from app.services.call_service import start_call, end_call, set_intent, log_turn, was_resolved, call_notes
 from app.voice.synthesizer import stop_speaking, EdgeTTSPlayer
 from app.voice.transcriber import start_microphone, listen_and_transcribe_whisper
 from app.voice.llm import query_ollama, add_to_history, main_system_prompt, info_system_prompt, human_system_prompt
@@ -12,6 +12,7 @@ from faster_whisper import WhisperModel
 from classifiers.intent_model.intent_classifier import classify_intent
 from classifiers.appt_context_model.appt_context_classifier import classify_appt_context
 from classifiers.appt_confirmation_model.appt_confirmation_classifier import classify_appt_confirmation
+from classifiers.appt_availability_model.appt_availability_classifier import classify_appt_availability
 from datetime import date
 import app.services.appointments as ap
 import time
@@ -22,6 +23,7 @@ import json
 # EdgeTTS main loop
 # ---------------------------
 def main_edge():
+    _sch = ap.start_scheduler() # update status of appts that already happened
     # submit patient info before talking to agent
     patient = run_intake_form()
     if not patient:
@@ -68,6 +70,9 @@ def main_edge():
     # true if call was escalated to human
     escalated = False
     
+    # true, false or unknown, user asked for feedback at end of call
+    resolved = "unknown" # unknown by default
+    
     # initially set LLM response to an empty string
     response = "" # needs to be defined before listen_and_transcribe_whisper is called
     
@@ -75,7 +80,7 @@ def main_edge():
     temp_appt_date = ap.new_temp_appt_date() # resets after appointments are updated in db
     # current state of appt handling
     appt_state = None
-    
+    availability_state = None
     # keeps convo loop going if True
     loop_convo = True
     try:
@@ -97,6 +102,7 @@ def main_edge():
                 if not loop_convo:
                     tts.speak_and_wait("Goodbye!")                    
                     resolved = None
+                    add_to_history(chat_history, "assistant", "Goodbye!")
                     log_turn(call.id, "assistant", "Goodbye!")
                     break
                 
@@ -105,6 +111,7 @@ def main_edge():
                     max_wait_msg = "Looks like we got disconnected. I’ll end the call for now, but you can always reach us again. Goodbye"
                     tts.speak_and_wait(max_wait_msg)
                     resolved = None
+                    add_to_history(chat_history, "assistant", max_wait_msg)
                     log_turn(call.id, "assistant", max_wait_msg)
                     break
                 
@@ -115,8 +122,8 @@ def main_edge():
                 log_turn(call.id, "assistant", check_presence)
                 continue
             
-            # skip empties or junk (no letters/numbers)
-            if not user_input or not re.search(r"[A-Za-z0-9]", user_input):
+            # skip empties
+            if not user_input:
                 repeat_msg = "Sorry, I didn’t catch that clearly. Could you repeat?"
                 tts.speak_and_wait(repeat_msg)
                 add_to_history(chat_history, "assistant", repeat_msg)
@@ -133,18 +140,22 @@ def main_edge():
                 resolved = was_resolved(user_input)
                 goodbye_msg = "Your feedback is appreciated, Goodbye!"
                 tts.speak_and_wait(goodbye_msg)
+                add_to_history(chat_history, "assistant", goodbye_msg)
                 log_turn(call.id, "assistant", goodbye_msg)
                 break
             
             
             if user_input.lower().strip() in ["exit", "quit", "stop", "goodbye", "good bye", 
                                               "exit.", "quit.", "stop.", "goodbye.", "good bye.",
-                                              "exit!", "quit!", "stop!", "goodbye!", "good bye!"]:
+                                              "exit!", "quit!", "stop!", "goodbye!", "good bye!",
+                                              "up", "up.","up!", "top", "top.", "top!"]: # up & top commonly mistaken as 'stop' by transcriber
                 print("Goodbye!")
                 
                 # ask if query was resolved
                 feedback_msg = f"The conversation has ended. Was your query resolved today, {patient.first_name}?"
                 tts.speak_and_wait(feedback_msg)
+                add_to_history(chat_history, "assistant", feedback_msg)
+                log_turn(call.id, "assistant", feedback_msg)
                 tts.stop()
                 loop_convo = False
                 continue
@@ -153,9 +164,9 @@ def main_edge():
             
             # classify user intent unless appt scheduling is in process
             intent = classify_intent(user_input, patient_intents)
-            # print(intent)
             # perform next action based on intent
-            print(appt_state)
+            print(f"Prompt Intent: {intent}")
+            print(f"Appt State: {appt_state}")
             print("Thinking...")
             
             # 1. Check for escalation to representative
@@ -202,6 +213,55 @@ def main_edge():
                     print(appt_state)
                 continue
             
+            # if user is being asked to confirm the last available appointment on their desired appt date
+            if availability_state == "confirm_last_slot":
+                confirm_last_appt_time = classify_appt_confirmation(user_input)
+                
+                if confirm_last_appt_time == "CONFIRM":
+                    # update temp_appt_date time
+                    temp_appt_date['time'] = last_available_time
+                    temp_appt_date = ap.ampm_mislabel_fix(temp_appt_date) # fix potentially mislabeled am/pm
+                    # update db
+                    db_timestamp_format = ap.parts_to_local_dt(temp_appt_date) # convert dict to timestamp format for db
+                    ap.book_appointment(call.patient_id, call.id, db_timestamp_format, duration_min=30, reason=appt_reason)
+                    
+                    last_available_time_confirmation_msg = "Perfect! Your appointment has been registered into our system. If you'd like to make another appointment or request, just ask! If you'd like to end the call now, say stop."
+                    tts.speak_and_wait(last_available_time_confirmation_msg)
+                    add_to_history(chat_history, "assistant", last_available_time_confirmation_msg)
+                    log_turn(call.id, "assistant", last_available_time_confirmation_msg)
+                    
+                    # reset appt date holder after appt has been made
+                    temp_appt_date = ap.new_temp_appt_date()
+                    # reset appt_state
+                    appt_state = None
+                    # reset availability_state
+                    availability_state = None
+                    continue
+                
+                # Ask user to confirm again if unsure
+                elif confirm_last_appt_time == "UNSURE":
+                    last_appt_unsure_msg = f"Sorry, I didn't catch your answer. Please confirm, does {temp_appt_date['time']}{temp_appt_date['ampm']} work for you?"
+                    tts.speak_and_wait(last_appt_unsure_msg)
+                    add_to_history(chat_history, "assistant", last_appt_unsure_msg)
+                    log_turn(call.id, "assistant", last_appt_unsure_msg)
+                    continue
+                
+                # if user rejects recommended last appointment time
+                elif confirm_last_appt_time == "REJECT":
+                    # ask for another day
+                    last_appt_denied_msg = "Please state another day you would like to schedule your appointment for."
+                    tts.speak_and_wait(last_appt_denied_msg)
+                    add_to_history(chat_history, "assistant", last_appt_denied_msg)
+                    log_turn(call.id, "assistant", last_appt_denied_msg)
+                    
+                     # reset appt date holder after appt has been made
+                    temp_appt_date = ap.new_temp_appt_date()
+                    # set appt_state to still in_progress
+                    appt_state = "in_progress"
+                    # reset availability_state
+                    availability_state = None
+                    continue
+                    
             # classifier detects if user wants to exit appointment scheduling pipeline
             if appt_state == "pending_confirmation" or appt_state == "in_progress":
                 exit_appt_scheduling = classify_appt_context(user_input)
@@ -209,6 +269,7 @@ def main_edge():
                 if exit_appt_scheduling == "EXIT_APPT":
                     exit_appt_pipeline_msg = "Got it. If you'd like help with anything else, just ask! If you'd like to exit the call, say stop."
                     tts.speak_and_wait(exit_appt_pipeline_msg)
+                    add_to_history(chat_history, "assistant", exit_appt_pipeline_msg)
                     log_turn(call.id, "assistant", exit_appt_pipeline_msg)
                     # reset appt variables
                     temp_appt_date = ap.new_temp_appt_date()
@@ -225,6 +286,7 @@ def main_edge():
                 elif confirmed_appt == "REJECT":
                     appt_denied_msg = "Sorry if I misheard you. Please try stating your date and time again in one sentence or you may exit the scheduling process by telling me so."
                     tts.speak_and_wait(appt_denied_msg)
+                    add_to_history(chat_history, "assistant", appt_denied_msg)
                     log_turn(call.id, "assistant", appt_denied_msg)
                     # reset appt date holder
                     temp_appt_date = ap.new_temp_appt_date()
@@ -235,17 +297,33 @@ def main_edge():
                 elif confirmed_appt == "UNSURE":
                     unsure_msg = f"Sorry, I didn't catch your answer. Can you confirm that you'd like to schedule your appointment on {pretty_date} at {ap.format_appt_time(temp_appt_date['time'])}{temp_appt_date['ampm']}?"
                     tts.speak_and_wait(unsure_msg)
+                    add_to_history(chat_history, "assistant", unsure_msg)
                     log_turn(call.id, "assistant", unsure_msg)
                     continue
-                
-            # check if appt info is complete and appt is confirmed by user
+            
+            # ask reason for appt once date/time is confirmed
             if not ap.missing_info_check(temp_appt_date) and appt_state == "appt_confirmed":
-                appt_confirmation_msg = "Perfect, your appointment has been registered into our system. If you'd like to make another appointment or request, just ask! If you'd like to end the call now, say stop."
+                appt_reason_msg = "Perfect! And what is the reason for your appointment?"
+                tts.speak_and_wait(appt_reason_msg)
+                add_to_history(chat_history, "assistant", appt_reason_msg)
+                log_turn(call.id, "assistant", appt_reason_msg)
+                # update appt_state
+                appt_state = "appt_reason"
+                continue
+                
+            # update db with all appt info once appt reason is given
+            if appt_state == "appt_reason":
+                # store reason for appt in variable
+                appt_reason = user_input
+                print(f"Reason for appt: {appt_reason}")
+                appt_confirmation_msg = "Got it! Your appointment has been registered into our system. If you'd like to make another appointment or request, just ask! If you'd like to end the call now, say stop."
                 tts.speak_and_wait(appt_confirmation_msg)
                 add_to_history(chat_history, "assistant", appt_confirmation_msg)
                 log_turn(call.id, "assistant", appt_confirmation_msg)
                 
                 # update db
+                db_timestamp_format = ap.parts_to_local_dt(temp_appt_date) # convert dict to timestamp format for db
+                ap.book_appointment(call.patient_id, call.id, db_timestamp_format, duration_min=30, reason=appt_reason)
                 
                 # reset appt date holder after appt has been made
                 temp_appt_date = ap.new_temp_appt_date()
@@ -256,13 +334,26 @@ def main_edge():
             # 3. Check for new appointment
             if intent == "APPT_NEW" or appt_state == "in_progress":
                 appt_state = "in_progress"
-                formatted_input = ap.format_prompt_time(user_input) # format time e.g. "9:00am"
+                formatted_input = ap.format_prompt_time(user_input) # format time within e.g. "9:00am"
                 results = ap.extract_schedule_json(formatted_input) # regex date/time extractor
                 
                 if results:
+                    # Allow time availability check when new date is given
+                    if results[0]['date'] != temp_appt_date['date']:
+                        availability_state = "check_availability"
+                    
                     # update global placeholder dict for appt date using first captured appt date (results[-1])
                     temp_appt_date = ap.update_results(results[-1], temp_appt_date)
                     temp_appt_date = ap.ampm_mislabel_fix(temp_appt_date) # fix potentially mislabeled am/pm
+                    
+                    # check if time/date fits business hours
+                    check_appt_timestamp = ap.check_time(temp_appt_date)
+                    if check_appt_timestamp: # time/date conflict if true
+                        tts.speak_and_wait(check_appt_timestamp)
+                        add_to_history(chat_history, "assistant", check_appt_timestamp)
+                        log_turn(call.id, "assistant", check_appt_timestamp)
+                        continue
+                    
                 # return a list of any missing info
                 blanks = ap.missing_info_check(temp_appt_date)
                 
@@ -292,7 +383,7 @@ def main_edge():
                     log_turn(call.id, "assistant", ask_datetime_msg)
                     continue
                 
-                # if only date is missing
+                # if date is missing but time isn't
                 elif not temp_appt_date['date']:
                     missing_date_msg = f"Please say the date that you would like to schedule your appointment for at {ap.format_appt_time(temp_appt_date['time'])}{temp_appt_date['ampm']}."
                     tts.speak_and_wait(missing_date_msg)
@@ -300,26 +391,102 @@ def main_edge():
                     log_turn(call.id, "assistant", missing_date_msg)
                     continue
                 
-                # if only time is missing    
+                # if time is missing but date isn't 
+                # Provide available appt times for date
                 elif not temp_appt_date['time']:
                     print(temp_appt_date)
-                    missing_time_msg = f"Please state the time that you would like to schedule your appointment for on {pretty_date}."
-                    tts.speak_and_wait(missing_time_msg)
-                    add_to_history(chat_history, "assistant", missing_time_msg)
-                    log_turn(call.id, "assistant", missing_time_msg)
-                    continue
+                    # give availabilities for day if not given yet
+                    if availability_state == "check_availability":
+                        availability_msg = f"Let me check our availability for {pretty_date}."
+                        tts.speak_and_wait(availability_msg)
+                        add_to_history(chat_history, "assistant", availability_msg)
+                        log_turn(call.id, "assistant", availability_msg)
+                        
+                        # return all appt times available for day in a system prompt
+                        day_appts_sys_prompt,available_appt_times = ap.check_appt_availability(temp_appt_date['date'], ap.TIME_SLOTS) # TIME_SLOTS = list of all possible time slots
+                        # if whole day is completely booked
+                        if not available_appt_times:
+                            fully_booked_msg = f"Sorry, we are fully booked for {pretty_date}. Please try a different day."
+                            tts.speak_and_wait(fully_booked_msg)
+                            add_to_history(chat_history, "assistant", fully_booked_msg)
+                            log_turn(call.id, "assistant", fully_booked_msg)
+                            continue
+                
+                        # add to chat_history as system prompt to be interpreted by agent
+                        add_to_history(chat_history, "system", day_appts_sys_prompt)
+                        # prompt llm specifically for the available times
+                        prompt_for_availability = f"Please give me the available times for {temp_appt_date['date']}"
+                        availabilities_response = query_ollama(prompt_for_availability, chat_history, llm_model)
+                        
+                        # agent informs user on available times
+                        tts.speak_and_wait(availabilities_response)
+                        add_to_history(chat_history, "assistant", availabilities_response)
+                        log_turn(call.id, "assistant", availabilities_response)
+                        print(day_appts_sys_prompt)
+
+                        # if only one slot is available
+                        if len(available_appt_times) == 1:
+                            # put user through different line of logic for confirming last appt slot
+                            availability_state = "confirm_last_slot"
+                            continue
+                        
+                        # reset availability_state back to None when times have been given to user
+                        availability_state = None
+                        continue
                 
                 # ask for confirmation once appt info is complete
                 elif not blanks:
-                    incorrect_time = ap.check_time(temp_appt_date['time'], temp_appt_date['ampm'], temp_appt_date['date'])
+                    # double check time and date
+                    incorrect_time = ap.check_time(temp_appt_date)
                     if incorrect_time:
                         incorrect_time_msg = incorrect_time
                         tts.speak_and_wait(incorrect_time_msg)
                         add_to_history(chat_history, "assistant", incorrect_time_msg)
                         log_turn(call.id, "assistant", incorrect_time_msg)
                         continue
-                        
+                    
+                    # run if time/date checks out    
                     if not incorrect_time:
+                        # check if specific day & time are available for appointments
+                        _,available_appt_times = ap.check_appt_availability(temp_appt_date['date'], ap.TIME_SLOTS)
+                        
+                        # if there are no available times on that day
+                        if not available_appt_times:
+                            fully_booked_msg = f"Sorry, we are fully booked for {pretty_date}. Please try a different day."
+                            tts.speak_and_wait(fully_booked_msg)
+                            add_to_history(chat_history, "assistant", fully_booked_msg)
+                            log_turn(call.id, "assistant", fully_booked_msg)
+                            
+                            # reset temp_appt_date
+                            temp_appt_date = ap.new_temp_appt_date()
+                            continue
+                        
+                        print(f"AVAILABLE APPT TIMES: {available_appt_times}")
+                        if temp_appt_date['time'] not in available_appt_times:
+                            booked_time_msg = f"Sorry, {temp_appt_date['time']} is already booked for {pretty_date}."
+                            tts.speak_and_wait(booked_time_msg)
+                            add_to_history(chat_history, "assistant", booked_time_msg)
+                            log_turn(call.id, "assistant", booked_time_msg)
+                            
+                            # recommend closest appointment times
+                            nearest_slots = ap.nearest_available_slots(ap.TIME_SLOTS, available_appt_times, temp_appt_date['time'])
+                            
+                            # if only one slot is available
+                            if type(nearest_slots) == tuple: # returns message and only available time
+                                last_available_time = nearest_slots[1]
+                                availability_state = "confirm_last_slot" # change availability_state
+
+                                tts.speak_and_wait(nearest_slots[0])
+                                add_to_history(chat_history, "assistant", nearest_slots[0])
+                                log_turn(call.id, "assistant", nearest_slots[0])
+                                continue 
+                            
+                            else: # recommend other times
+                                tts.speak_and_wait(nearest_slots)
+                                add_to_history(chat_history, "assistant", nearest_slots)
+                                log_turn(call.id, "assistant", nearest_slots)
+                                continue
+                            
                         confirm_appt_msg = f"To confirm, you'd like to schedule your appointment for {pretty_date} at {ap.format_appt_time(temp_appt_date['time'])}{temp_appt_date['ampm']}, is that correct?"
                         appt_state = "pending_confirmation"
                         tts.speak_and_wait(confirm_appt_msg)
@@ -346,8 +513,7 @@ def main_edge():
         # update db with intent
         db_intents = json.dumps(patient_intents)
         set_intent(call.id, db_intents)
-        
-        end_call(call.id, resolved=resolved, escalated=False, notes="blank")
+        end_call(call.id, resolved=resolved, escalated=False, notes=call_notes(chat_history, llm_model))
         
 if __name__ == "__main__":
     main_edge()
