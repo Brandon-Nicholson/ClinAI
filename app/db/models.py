@@ -39,8 +39,8 @@ class Call(Base):
     from_number: Mapped[Optional[str]] = mapped_column(String(32))
 
     intent: Mapped[Optional[str]] = mapped_column(Text)
-    resolved: Mapped[bool] = mapped_column(Boolean, default=False, server_default="false")
-    escalated: Mapped[bool] = mapped_column(Boolean, default=False, server_default="false")
+    resolved: Mapped[bool] = mapped_column(Boolean, nullable=False, server_default="false")
+    escalated: Mapped[bool] = mapped_column(Boolean, nullable=False, server_default="false")
     notes: Mapped[Optional[str]] = mapped_column(Text)
 
     patient: Mapped[Optional[Patient]] = relationship(back_populates="calls")

@@ -642,6 +642,11 @@ def update_results(result: dict, appt_date_made: dict) -> dict:
 def ordinal(n: int) -> str:
     return f"{n}{'th' if 11<=n%100<=13 else {1:'st',2:'nd',3:'rd'}.get(n%10,'th')}"
 
+def prettify_date(date_str: str) -> str:
+    d = date.fromisoformat(date_str)   # YYYY-MM-DD
+    pretty_date = f"{d.strftime('%B')} {ordinal(d.day)}"
+    return pretty_date
+
 # quick format to make appt times more readable by voice
 def format_appt_time(time: str):
     if time[0] == '0':
@@ -701,16 +706,23 @@ def parts_to_local_dt(parts: dict, tz: ZoneInfo = DEFAULT_TZ) -> datetime:
     return datetime(yyyy, mm, dd, hh24, mi, tzinfo=tz)
 
 # converts DB timestamp format to dictionary format
-def appt_local_parts(appt: Appointment):
-    """Return (YYYY-MM-DD, HH:MM (12h, zero-padded), am|pm) in clinic time."""
-    tz = ZoneInfo(appt.clinic_tz or DEFAULT_TZ)
-    local_dt = appt.starts_at.astimezone(tz)
-    date_str = local_dt.date().isoformat()
-    hour24, minute = local_dt.hour, local_dt.minute
+def appt_local_parts(appt: Appointment, fallback_tz="America/Los_Angeles"):
+    tz = ZoneInfo(appt.clinic_tz or fallback_tz)
+    local = appt.starts_at.astimezone(tz)
+
+    date_str = local.date().isoformat()
+    hour24 = local.hour
+    minute = local.minute
     ampm = "am" if hour24 < 12 else "pm"
     hour12 = (hour24 % 12) or 12
     time_str = f"{hour12:02d}:{minute:02d}"
-    return date_str, time_str, ampm
+
+    return {
+        "id": appt.id,
+        "date": date_str,
+        "time": time_str,
+        "ampm": ampm
+    }
 
 # finds time slots close to unavailable time for recommendation from agent
 def nearest_available_slots(time_slots, available_slots, time_pick):
@@ -758,7 +770,6 @@ def check_appt_availability(date_str: str, time_slots: list, tz_str: str = "Amer
     d = date.fromisoformat(date_str)
     weekday = d.weekday()
 
-    
     # knock off time slots if friday (closes 1hr earlier)
     if weekday == 4:
         while time_slots[-1] != "03:30":
@@ -812,8 +823,9 @@ def check_appt_availability(date_str: str, time_slots: list, tz_str: str = "Amer
     # create system prompt with formatted times
     sys_prompt = f"""
     Below, you will be shown all the appointment times the clinic has available. Your job is to ONLY tell the user which appointment times are available.
-    Make sure to say ALL of these available appointment times when asked.
+    Make sure to say ALL of these available appointment times when asked then end your message directly after.
     Listing appointment times that aren't in the list is very damaging to the patient and clinic.
+    Not listing all available appointment times is also very damaging.
     Available Appointment Times for {date_str}: 
     {converted_times}
     """
@@ -845,16 +857,6 @@ def book_appointment(
         session.commit()
         session.refresh(appt)
     return appt
-
-# cancel an appointment by changing the status
-def cancel_appointment(appt_id: int) -> bool:
-    with get_session() as s:
-        appt = s.get(Appointment, appt_id, with_for_update="read")  # lock row
-        if not appt or appt.status != "scheduled":
-            return False  # already cancelled/completed or not found
-        appt.status = "cancelled"
-        s.commit()
-        return True
     
 # update status for appts that already happened
 def sweep_completed():
@@ -873,3 +875,42 @@ def start_scheduler():
     sch.add_job(sweep_completed, "interval", minutes=1, id="appt_sweeper")
     sch.start()
     return sch
+
+
+# -----Appointment Cancelling-----
+
+def patient_existing_appts(patient_id: int) -> list:
+    
+    with get_session() as s:
+        q = (
+            select(Appointment).where(
+                Appointment.patient_id == patient_id,
+                Appointment.status == "scheduled"
+            )
+            .order_by(Appointment.starts_at)
+        )
+        results = s.execute(q).scalars().all()
+        # convert to local time strings
+        scheduled_appts = [appt_local_parts(appt) for appt in results]
+
+        pretty_dates = []
+        for appt in scheduled_appts: 
+            pretty_date = f"{prettify_date(appt['date'])} at {appt['time']}{appt['ampm']}"
+            pretty_dates.append(pretty_date)
+        
+        if not pretty_dates:
+            return None, None
+        elif len(pretty_dates) == 1:
+            return f"You would like to cancel your appointment for {pretty_dates[0]}, correct?", scheduled_appts
+        elif len(pretty_dates) > 1:
+            return f"We have you down for multiple appointments in our system: {pretty_dates[0:-1]} and {pretty_dates[-1]}. Please say the date and time of the appointment you would like to cancel.", scheduled_appts
+        
+# cancel an appointment by changing the status
+def cancel_appointment(appt_id: int) -> bool:
+    with get_session() as s:
+        appt = s.get(Appointment, appt_id, with_for_update=True) # lock the row
+        if not appt or appt.status != "scheduled":
+            return False  # already cancelled/completed or not found
+        appt.status = "cancelled"
+        s.commit()
+        return True
