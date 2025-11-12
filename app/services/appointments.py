@@ -72,6 +72,11 @@ ordinal_day_pattern = re.compile(
     r"\b(?:on|for)?\s*(?:the\s+)?(?P<day>\d{1,2})(?:st|nd|rd|th)\b",
     flags=re.IGNORECASE
 )
+# e.g. June the 7th 
+month_first_ordinal_pattern = re.compile(
+    rf"\b(?P<month>{month_names})(?:\s+the)?\s+(?P<day>\d{{1,2}})(?:st|nd|rd|th)?(?:,?\s*(?P<year>\d{{4}}))?\b",
+    flags=re.IGNORECASE
+)
 
 # times:
 # - 5, 5pm, 5 pm, 5 p.m., 5:30, 17:30
@@ -104,9 +109,9 @@ _MIN_WORD = {
 
 # e.g. "five", "seven thirty", "eleven o'clock", optional "pm" and/or daypart text
 _word_time_norm_pattern = re.compile(
-    r"\b(?P<hour>one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)"
+    r"(?<!\bthe\s)\b(?P<hour>one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)"
     r"(?:\s+(?P<min>thirty|fifteen|forty(?:\s|-)?five|o['’]?clock|oclock))?"
-    r"(?:\s*(?P<ampm>a\.?m?\.?|p\.?m?\.?))?"
+    r"(?:\s*(?P<ampm>a\.?m?\.?|p\.?m?\.?)?)"
     r"(?:\s*(?:in\s+the\s+)?(?P<daypart>morning|afternoon|evening|night))?"
     r"\b",
     flags=re.IGNORECASE
@@ -429,7 +434,7 @@ def extract_schedule_json(text: str, now=None, tz: ZoneInfo = DEFAULT_TZ):
             continue  # invalid date like Feb 30
         add_result(dt_date, ms, (ms, me))
     
-     # Pass A2: Day-first month (e.g., "17th of June", "17 June, 2026")
+    # Pass A2: Day-first month (e.g., "17th of June", "17 June, 2026")
     for m in day_first_month_pattern.finditer(text):
         ms, me = m.span()
         # avoid overlap with earlier captures
@@ -444,6 +449,23 @@ def extract_schedule_json(text: str, now=None, tz: ZoneInfo = DEFAULT_TZ):
         except ValueError:
             continue
         add_result(dt_date, ms, (ms, me))
+        
+    # Pass A3: Month + "the" + day, e.g., "June the 7th"
+    for m in month_first_ordinal_pattern.finditer(text):
+        ms, me = m.span()
+        # avoid overlap with earlier captures
+        if any(not (me <= s or ms >= e) for (s, e) in covered_spans):
+            continue
+        month = _month_str_to_int(m.group("month"))
+        day = int(m.group("day"))
+        year = m.group("year")
+        year = int(year) if year else None
+        try:
+            dt_date = _apply_year_rollover(today, month, day, year)
+        except ValueError:
+            continue
+        add_result(dt_date, ms, (ms, me))
+
     
     # Pass B: Numeric dates
     for m in numeric_date_pattern.finditer(text):
@@ -755,8 +777,10 @@ def nearest_available_slots(time_slots, available_slots, time_pick):
     # if only one other slot is available
     if len(recommend_slots) == 1:
         return f"We only have {recommend_slots[0]} available for that day. Would you like to do that instead?", recommend_slots[0]
-                    
-    return f"Would you like to try {recommend_slots[0]} or {recommend_slots[1]} instead?"
+    elif len(recommend_slots) > 1:                
+        return f"Would you like to try {recommend_slots[0]} or {recommend_slots[1]} instead?"
+    else:
+        return None
 
 
 # -----Checking Availabilities-----
@@ -804,9 +828,15 @@ def check_appt_availability(date_str: str, time_slots: list, tz_str: str = "Amer
     # filter out unavailable slots
     available_slots = [slot for slot in time_slots if slot not in scheduled_appts]
     
-    # return None& empty list if no available slots
+    # return None if no available slots
     if not available_slots:
         return None, None
+    
+    # return full_availability_weekday if all time slots are available for that weekday (non-friday) - prevents agent from reading every slot
+    if available_slots == time_slots and weekday != 4:
+        return "full_availability_weekday", available_slots
+    elif available_slots == time_slots and weekday == 4:
+        return "full_availability_friday", available_slots # return full_evailability_friday for fridays (different closing times)
     
     # format to be interpreted by agent
     converted_times = [] 
@@ -823,9 +853,9 @@ def check_appt_availability(date_str: str, time_slots: list, tz_str: str = "Amer
     # create system prompt with formatted times
     sys_prompt = f"""
     Below, you will be shown all the appointment times the clinic has available. Your job is to ONLY tell the user which appointment times are available.
-    Make sure to say ALL of these available appointment times when asked then end your message directly after.
+    Make sure to say ALL of these available appointment times when asked then end your message by asking if those time(s) work for them.
     Listing appointment times that aren't in the list is very damaging to the patient and clinic.
-    Not listing all available appointment times is also very damaging.
+    You MUST list every single available appointment time for the patient.
     Available Appointment Times for {date_str}: 
     {converted_times}
     """

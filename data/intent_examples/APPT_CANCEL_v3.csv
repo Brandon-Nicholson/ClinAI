@@ -1,0 +1,251 @@
+text,label
+I would like to cancel my appointment,APPT_CANCEL
+"Hey, I would like to cancel my appointment",APPT_CANCEL
+I would like to cancel my appointment please,APPT_CANCEL
+"Actually, I would like to cancel my appointment",APPT_CANCEL
+"So, I would like to cancel my appointment",APPT_CANCEL
+"Just to confirm, I would like to cancel my appointment",APPT_CANCEL
+"Sorry, I would like to cancel my appointment",APPT_CANCEL
+"No, I would like to cancel my appointment",APPT_CANCEL
+"Wait, I would like to cancel my appointment",APPT_CANCEL
+I would like to cancel the appointment,APPT_CANCEL
+I want to cancel my appointment,APPT_CANCEL
+"Hey, I want to cancel my appointment",APPT_CANCEL
+I want to cancel my appointment please,APPT_CANCEL
+"Actually, I want to cancel my appointment",APPT_CANCEL
+"So, I want to cancel my appointment",APPT_CANCEL
+"Just to confirm, I want to cancel my appointment",APPT_CANCEL
+"Sorry, I want to cancel my appointment",APPT_CANCEL
+"No, I want to cancel my appointment",APPT_CANCEL
+"Wait, I want to cancel my appointment",APPT_CANCEL
+I want to cancel the appointment,APPT_CANCEL
+Can you help me cancel my appointment,APPT_CANCEL
+"Hey, Can you help me cancel my appointment",APPT_CANCEL
+Can you help me cancel my appointment please,APPT_CANCEL
+"Actually, Can you help me cancel my appointment",APPT_CANCEL
+"So, Can you help me cancel my appointment",APPT_CANCEL
+"Just to confirm, Can you help me cancel my appointment",APPT_CANCEL
+"Sorry, Can you help me cancel my appointment",APPT_CANCEL
+"No, Can you help me cancel my appointment",APPT_CANCEL
+"Wait, Can you help me cancel my appointment",APPT_CANCEL
+Can you help me cancel the appointment,APPT_CANCEL
+I need to cancel my appointment,APPT_CANCEL
+"Hey, I need to cancel my appointment",APPT_CANCEL
+I need to cancel my appointment please,APPT_CANCEL
+"Actually, I need to cancel my appointment",APPT_CANCEL
+"So, I need to cancel my appointment",APPT_CANCEL
+"Just to confirm, I need to cancel my appointment",APPT_CANCEL
+"Sorry, I need to cancel my appointment",APPT_CANCEL
+"No, I need to cancel my appointment",APPT_CANCEL
+"Wait, I need to cancel my appointment",APPT_CANCEL
+I need to cancel the appointment,APPT_CANCEL
+Please cancel my appointment,APPT_CANCEL
+"Hey, Please cancel my appointment",APPT_CANCEL
+Please cancel my appointment please,APPT_CANCEL
+"Actually, Please cancel my appointment",APPT_CANCEL
+"So, Please cancel my appointment",APPT_CANCEL
+"Just to confirm, Please cancel my appointment",APPT_CANCEL
+"Sorry, Please cancel my appointment",APPT_CANCEL
+"No, Please cancel my appointment",APPT_CANCEL
+"Wait, Please cancel my appointment",APPT_CANCEL
+Please cancel the appointment,APPT_CANCEL
+Let's cancel my appointment,APPT_CANCEL
+"Hey, Let's cancel my appointment",APPT_CANCEL
+Let's cancel my appointment please,APPT_CANCEL
+"Actually, Let's cancel my appointment",APPT_CANCEL
+"So, Let's cancel my appointment",APPT_CANCEL
+"Just to confirm, Let's cancel my appointment",APPT_CANCEL
+"Sorry, Let's cancel my appointment",APPT_CANCEL
+"No, Let's cancel my appointment",APPT_CANCEL
+"Wait, Let's cancel my appointment",APPT_CANCEL
+Let's cancel the appointment,APPT_CANCEL
+I have to cancel my appointment,APPT_CANCEL
+"Hey, I have to cancel my appointment",APPT_CANCEL
+I have to cancel my appointment please,APPT_CANCEL
+"Actually, I have to cancel my appointment",APPT_CANCEL
+"So, I have to cancel my appointment",APPT_CANCEL
+"Just to confirm, I have to cancel my appointment",APPT_CANCEL
+"Sorry, I have to cancel my appointment",APPT_CANCEL
+"No, I have to cancel my appointment",APPT_CANCEL
+"Wait, I have to cancel my appointment",APPT_CANCEL
+I have to cancel the appointment,APPT_CANCEL
+I need to cancel an appointment,APPT_CANCEL
+"Hey, I need to cancel an appointment",APPT_CANCEL
+I need to cancel an appointment please,APPT_CANCEL
+"Actually, I need to cancel an appointment",APPT_CANCEL
+"So, I need to cancel an appointment",APPT_CANCEL
+"Just to confirm, I need to cancel an appointment",APPT_CANCEL
+"Sorry, I need to cancel an appointment",APPT_CANCEL
+"No, I need to cancel an appointment",APPT_CANCEL
+"Wait, I need to cancel an appointment",APPT_CANCEL
+I need to cancel an appointment,APPT_CANCEL
+I want to cancel the appointment I scheduled,APPT_CANCEL
+"Hey, I want to cancel the appointment I scheduled",APPT_CANCEL
+I want to cancel the appointment I scheduled please,APPT_CANCEL
+"Actually, I want to cancel the appointment I scheduled",APPT_CANCEL
+"So, I want to cancel the appointment I scheduled",APPT_CANCEL
+"Just to confirm, I want to cancel the appointment I scheduled",APPT_CANCEL
+"Sorry, I want to cancel the appointment I scheduled",APPT_CANCEL
+"No, I want to cancel the appointment I scheduled",APPT_CANCEL
+"Wait, I want to cancel the appointment I scheduled",APPT_CANCEL
+I want to cancel the appointment I scheduled,APPT_CANCEL
+I need to cancel the appointment I made,APPT_CANCEL
+"Hey, I need to cancel the appointment I made",APPT_CANCEL
+I need to cancel the appointment I made please,APPT_CANCEL
+"Actually, I need to cancel the appointment I made",APPT_CANCEL
+"So, I need to cancel the appointment I made",APPT_CANCEL
+"Just to confirm, I need to cancel the appointment I made",APPT_CANCEL
+"Sorry, I need to cancel the appointment I made",APPT_CANCEL
+"No, I need to cancel the appointment I made",APPT_CANCEL
+"Wait, I need to cancel the appointment I made",APPT_CANCEL
+I need to cancel the appointment I made,APPT_CANCEL
+Can we cancel my appointment for tomorrow,APPT_CANCEL
+"Hey, Can we cancel my appointment for tomorrow",APPT_CANCEL
+Can we cancel my appointment for tomorrow please,APPT_CANCEL
+"Actually, Can we cancel my appointment for tomorrow",APPT_CANCEL
+"So, Can we cancel my appointment for tomorrow",APPT_CANCEL
+"Just to confirm, Can we cancel my appointment for tomorrow",APPT_CANCEL
+"Sorry, Can we cancel my appointment for tomorrow",APPT_CANCEL
+"No, Can we cancel my appointment for tomorrow",APPT_CANCEL
+"Wait, Can we cancel my appointment for tomorrow",APPT_CANCEL
+Can we cancel the appointment for tomorrow,APPT_CANCEL
+Cancel the appointment for next week,APPT_CANCEL
+"Hey, Cancel the appointment for next week",APPT_CANCEL
+Cancel the appointment for next week please,APPT_CANCEL
+"Actually, Cancel the appointment for next week",APPT_CANCEL
+"So, Cancel the appointment for next week",APPT_CANCEL
+"Just to confirm, Cancel the appointment for next week",APPT_CANCEL
+"Sorry, Cancel the appointment for next week",APPT_CANCEL
+"No, Cancel the appointment for next week",APPT_CANCEL
+"Wait, Cancel the appointment for next week",APPT_CANCEL
+Cancel the appointment for next week,APPT_CANCEL
+I want to cancel my appointment on Tuesday,APPT_CANCEL
+"Hey, I want to cancel my appointment on Tuesday",APPT_CANCEL
+I want to cancel my appointment on Tuesday please,APPT_CANCEL
+"Actually, I want to cancel my appointment on Tuesday",APPT_CANCEL
+"So, I want to cancel my appointment on Tuesday",APPT_CANCEL
+"Just to confirm, I want to cancel my appointment on Tuesday",APPT_CANCEL
+"Sorry, I want to cancel my appointment on Tuesday",APPT_CANCEL
+"No, I want to cancel my appointment on Tuesday",APPT_CANCEL
+"Wait, I want to cancel my appointment on Tuesday",APPT_CANCEL
+I want to cancel the appointment on Tuesday,APPT_CANCEL
+I want to cancel my appointment on Friday,APPT_CANCEL
+"Hey, I want to cancel my appointment on Friday",APPT_CANCEL
+I want to cancel my appointment on Friday please,APPT_CANCEL
+"Actually, I want to cancel my appointment on Friday",APPT_CANCEL
+"So, I want to cancel my appointment on Friday",APPT_CANCEL
+"Just to confirm, I want to cancel my appointment on Friday",APPT_CANCEL
+"Sorry, I want to cancel my appointment on Friday",APPT_CANCEL
+"No, I want to cancel my appointment on Friday",APPT_CANCEL
+"Wait, I want to cancel my appointment on Friday",APPT_CANCEL
+I want to cancel the appointment on Friday,APPT_CANCEL
+I would like to cancel my scheduled appointment,APPT_CANCEL
+"Hey, I would like to cancel my scheduled appointment",APPT_CANCEL
+I would like to cancel my scheduled appointment please,APPT_CANCEL
+"Actually, I would like to cancel my scheduled appointment",APPT_CANCEL
+"So, I would like to cancel my scheduled appointment",APPT_CANCEL
+"Just to confirm, I would like to cancel my scheduled appointment",APPT_CANCEL
+"Sorry, I would like to cancel my scheduled appointment",APPT_CANCEL
+"No, I would like to cancel my scheduled appointment",APPT_CANCEL
+"Wait, I would like to cancel my scheduled appointment",APPT_CANCEL
+I would like to cancel my scheduled appointment,APPT_CANCEL
+I’d like to cancel an appointment I booked,APPT_CANCEL
+"Hey, I’d like to cancel an appointment I booked",APPT_CANCEL
+I’d like to cancel an appointment I booked please,APPT_CANCEL
+"Actually, I’d like to cancel an appointment I booked",APPT_CANCEL
+"So, I’d like to cancel an appointment I booked",APPT_CANCEL
+"Just to confirm, I’d like to cancel an appointment I booked",APPT_CANCEL
+"Sorry, I’d like to cancel an appointment I booked",APPT_CANCEL
+"No, I’d like to cancel an appointment I booked",APPT_CANCEL
+"Wait, I’d like to cancel an appointment I booked",APPT_CANCEL
+I’d like to cancel an appointment I booked,APPT_CANCEL
+Please help me cancel an appointment,APPT_CANCEL
+"Hey, Please help me cancel an appointment",APPT_CANCEL
+Please help me cancel an appointment please,APPT_CANCEL
+"Actually, Please help me cancel an appointment",APPT_CANCEL
+"So, Please help me cancel an appointment",APPT_CANCEL
+"Just to confirm, Please help me cancel an appointment",APPT_CANCEL
+"Sorry, Please help me cancel an appointment",APPT_CANCEL
+"No, Please help me cancel an appointment",APPT_CANCEL
+"Wait, Please help me cancel an appointment",APPT_CANCEL
+Please help me cancel an appointment,APPT_CANCEL
+I need to cancel my appointment as soon as possible,APPT_CANCEL
+"Hey, I need to cancel my appointment as soon as possible",APPT_CANCEL
+I need to cancel my appointment as soon as possible please,APPT_CANCEL
+"Actually, I need to cancel my appointment as soon as possible",APPT_CANCEL
+"So, I need to cancel my appointment as soon as possible",APPT_CANCEL
+"Just to confirm, I need to cancel my appointment as soon as possible",APPT_CANCEL
+"Sorry, I need to cancel my appointment as soon as possible",APPT_CANCEL
+"No, I need to cancel my appointment as soon as possible",APPT_CANCEL
+"Wait, I need to cancel my appointment as soon as possible",APPT_CANCEL
+I need to cancel the appointment as soon as possible,APPT_CANCEL
+"Quick, I need to cancel my appointment",APPT_CANCEL
+"Hey, Quick, I need to cancel my appointment",APPT_CANCEL
+"Quick, I need to cancel my appointment please",APPT_CANCEL
+"Actually, Quick, I need to cancel my appointment",APPT_CANCEL
+"So, Quick, I need to cancel my appointment",APPT_CANCEL
+"Just to confirm, Quick, I need to cancel my appointment",APPT_CANCEL
+"Sorry, Quick, I need to cancel my appointment",APPT_CANCEL
+"No, Quick, I need to cancel my appointment",APPT_CANCEL
+"Wait, Quick, I need to cancel my appointment",APPT_CANCEL
+"Quick, I need to cancel the appointment",APPT_CANCEL
+Can you cancel my appointment for me,APPT_CANCEL
+"Hey, Can you cancel my appointment for me",APPT_CANCEL
+Can you cancel my appointment for me please,APPT_CANCEL
+"Actually, Can you cancel my appointment for me",APPT_CANCEL
+"So, Can you cancel my appointment for me",APPT_CANCEL
+"Just to confirm, Can you cancel my appointment for me",APPT_CANCEL
+"Sorry, Can you cancel my appointment for me",APPT_CANCEL
+"No, Can you cancel my appointment for me",APPT_CANCEL
+"Wait, Can you cancel my appointment for me",APPT_CANCEL
+Can you cancel the appointment for me,APPT_CANCEL
+I want to cancel my appointment for next month,APPT_CANCEL
+"Hey, I want to cancel my appointment for next month",APPT_CANCEL
+I want to cancel my appointment for next month please,APPT_CANCEL
+"Actually, I want to cancel my appointment for next month",APPT_CANCEL
+"So, I want to cancel my appointment for next month",APPT_CANCEL
+"Just to confirm, I want to cancel my appointment for next month",APPT_CANCEL
+"Sorry, I want to cancel my appointment for next month",APPT_CANCEL
+"No, I want to cancel my appointment for next month",APPT_CANCEL
+"Wait, I want to cancel my appointment for next month",APPT_CANCEL
+I want to cancel the appointment for next month,APPT_CANCEL
+I want to cancel my appointment today,APPT_CANCEL
+"Hey, I want to cancel my appointment today",APPT_CANCEL
+I want to cancel my appointment today please,APPT_CANCEL
+"Actually, I want to cancel my appointment today",APPT_CANCEL
+"So, I want to cancel my appointment today",APPT_CANCEL
+"Just to confirm, I want to cancel my appointment today",APPT_CANCEL
+"Sorry, I want to cancel my appointment today",APPT_CANCEL
+"No, I want to cancel my appointment today",APPT_CANCEL
+"Wait, I want to cancel my appointment today",APPT_CANCEL
+I want to cancel the appointment today,APPT_CANCEL
+I need to cancel my appointment right now,APPT_CANCEL
+"Hey, I need to cancel my appointment right now",APPT_CANCEL
+I need to cancel my appointment right now please,APPT_CANCEL
+"Actually, I need to cancel my appointment right now",APPT_CANCEL
+"So, I need to cancel my appointment right now",APPT_CANCEL
+"Just to confirm, I need to cancel my appointment right now",APPT_CANCEL
+"Sorry, I need to cancel my appointment right now",APPT_CANCEL
+"No, I need to cancel my appointment right now",APPT_CANCEL
+"Wait, I need to cancel my appointment right now",APPT_CANCEL
+I need to cancel the appointment right now,APPT_CANCEL
+Let’s cancel the 5pm appointment,APPT_CANCEL
+"Hey, Let’s cancel the 5pm appointment",APPT_CANCEL
+Let’s cancel the 5pm appointment please,APPT_CANCEL
+"Actually, Let’s cancel the 5pm appointment",APPT_CANCEL
+"So, Let’s cancel the 5pm appointment",APPT_CANCEL
+"Just to confirm, Let’s cancel the 5pm appointment",APPT_CANCEL
+"Sorry, Let’s cancel the 5pm appointment",APPT_CANCEL
+"No, Let’s cancel the 5pm appointment",APPT_CANCEL
+"Wait, Let’s cancel the 5pm appointment",APPT_CANCEL
+Let’s cancel the 5pm appointment,APPT_CANCEL
+Can we cancel the appointment I have scheduled,APPT_CANCEL
+"Hey, Can we cancel the appointment I have scheduled",APPT_CANCEL
+Can we cancel the appointment I have scheduled please,APPT_CANCEL
+"Actually, Can we cancel the appointment I have scheduled",APPT_CANCEL
+"So, Can we cancel the appointment I have scheduled",APPT_CANCEL
+"Just to confirm, Can we cancel the appointment I have scheduled",APPT_CANCEL
+"Sorry, Can we cancel the appointment I have scheduled",APPT_CANCEL
+"No, Can we cancel the appointment I have scheduled",APPT_CANCEL
+"Wait, Can we cancel the appointment I have scheduled",APPT_CANCEL
+Can we cancel the appointment I have scheduled,APPT_CANCEL

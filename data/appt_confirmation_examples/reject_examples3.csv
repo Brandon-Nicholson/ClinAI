@@ -1,0 +1,150 @@
+text,label
+Actually do not schedule the appointment today.,REJECT
+"Forget it, don't cancel the one we talked about the appointment for 3pm",REJECT
+"Wait, don't cancel that appointment that we just set for now",REJECT
+Let's skip finish cancelling the one on Tuesday right now.,REJECT
+"Scratch that, don't schedule that the one for next week actually.",REJECT
+Don't cancel the one we talked about the one we just discussed.,REJECT
+"Change of plans, don't lock that in the one on the 9th, I need a different day",REJECT
+"On second thought, don't schedule that the one on the 9th.",REJECT
+"Ignore my request to confirm it the appointment on Friday, I need a different time",REJECT
+"Hold off, don't set that up the one for next week at this time.",REJECT
+"Forget it, don't book it the one on 11/14, I need a different day.",REJECT
+Actually do not book it the one for 12/02.,REJECT
+"Nah, don't finish cancelling the one on 11/14, I found something else.",REJECT
+"Yeah, no, don't book it that we just set, I will call back.",REJECT
+"Change of plans, don't finalize the cancel the one for 12/02 for now",REJECT
+"Let's skip cancel it the one for 12/02, I need to check my calendar.",REJECT
+"Ignore my request to confirm it the one on Tuesday, I found something else.",REJECT
+"Cancel that request to cancel the appointment the one for next week, I need a different day",REJECT
+"Forget it, don't cancel the Thursday one the appointment on Friday after all.",REJECT
+Disregard the request to schedule it the one on Tuesday please.,REJECT
+"Actually, don't set that up, I need a different day",REJECT
+"Actually do not cancel the Thursday one the one for 12/02, I found something else.",REJECT
+"Hold off, don't set that up the one on Tuesday, I need a different day.",REJECT
+"Forget it, don't finish cancelling, I need a different time.",REJECT
+"Wait, don't schedule that the one for 12/02, I need a different time.",REJECT
+I do not want to lock that in the one on 11/14 please,REJECT
+"No thanks, don't process that cancellation the one on 11/14, I changed my mind.",REJECT
+Disregard the request to cancel the appointment that we just set anymore.,REJECT
+"Disregard the request to process that cancellation the one on Tuesday, I will call back.",REJECT
+"Abort the request to cancel the Thursday one the appointment for 3pm, I need a different day",REJECT
+"Ignore my request to cancel the appointment the one for 12/02, I need to check my calendar.",REJECT
+Don't book it the one on Tuesday today,REJECT
+I don't want to lock that in the appointment on Friday today,REJECT
+"Never mind, don't cancel that appointment the one for 12/02 please.",REJECT
+"Abort the request to book that appointment that we just set, I need a different day.",REJECT
+Ignore my request to schedule it please.,REJECT
+"No, don't confirm it the appointment for 3pm today.",REJECT
+"On second thought, don't cancel the one we talked about the appointment for 3pm, I changed my mind.",REJECT
+"Nevermind, don't book it the one on the 9th after all.",REJECT
+"Scratch that, don't cancel that appointment the one on the 9th, I changed my mind",REJECT
+"Change of plans, don't finish cancelling the one on Tuesday, I need to check my calendar.",REJECT
+"Please do not cancel the one we talked about the one we just discussed, I need a different time.",REJECT
+"Let's skip cancel that appointment the one on Tuesday, I found something else.",REJECT
+"Change of plans, don't cancel the Thursday one the appointment on Friday, I need a different time.",REJECT
+"Don't book it the one we just discussed, I changed my mind",REJECT
+Undo the request to process that cancellation the appointment for 3pm after all,REJECT
+Actually do not cancel the one we talked about the one for next week today.,REJECT
+Cancel that request to book that appointment today,REJECT
+"Forget it, don't lock that in the appointment on Friday, I need a different time",REJECT
+Please do not finalize the cancel that we just set for now.,REJECT
+Cancel that request to book that appointment the one for next week,REJECT
+"No, don't cancel the Thursday one the one for 12/02, I have a conflict",REJECT
+"Actually, don't set that up the one for next week anymore.",REJECT
+Undo the request to book that appointment that we just set,REJECT
+"Yeah, no, don't cancel the one we talked about the one on the 9th, I need to check my calendar.",REJECT
+Stop the request to finish cancelling the one for 12/02 after all.,REJECT
+"Hold off, don't confirm it the one we just discussed, I found something else",REJECT
+"Stop the request to schedule the appointment the one we just discussed, I changed my mind.",REJECT
+"No thanks, don't cancel the one we talked about the appointment for 3pm, I need a different time.",REJECT
+"No thanks, don't confirm that appointment the appointment on Friday for now.",REJECT
+Ignore my request to set that up at this time,REJECT
+Cancel that request to cancel the one we talked about the appointment on Friday today.,REJECT
+"Yeah, no, don't finalize the cancel the one for next week, I need to check my calendar.",REJECT
+"Ignore my request to confirm that appointment the one on the 9th, I have a conflict",REJECT
+"Never mind, don't finish cancelling the one for 12/02 for now",REJECT
+Let's skip cancel the Thursday one the one for next week today.,REJECT
+"Never mind, don't cancel the Thursday one the one for next week, I found something else",REJECT
+"Let's skip book that appointment the one for next week, I need a different day",REJECT
+"Wait, don't lock that in that we just set.",REJECT
+Don't schedule the appointment the appointment on Friday at this time.,REJECT
+"Abort the request to book it the one for 12/02, I found something else",REJECT
+Please don't confirm it the appointment for 3pm please,REJECT
+"Wait, don't confirm that appointment the appointment on Friday, I will call back.",REJECT
+Let's skip finalize the cancel today.,REJECT
+Ignore my request to cancel it the one for 12/02 actually.,REJECT
+Abort the request to schedule the appointment the appointment for 3pm please.,REJECT
+Please do not finalize the cancel the one on the 9th actually,REJECT
+"Disregard the request to schedule that the appointment for 3pm, I will call back.",REJECT
+"Nevermind, don't book that appointment the one for 12/02, I changed my mind",REJECT
+"Stop the request to schedule it the appointment for 3pm, I found something else.",REJECT
+"Never mind, don't cancel the Thursday one that we just set, I found something else.",REJECT
+Ignore my request to cancel it the appointment for 3pm today.,REJECT
+"Nah, don't schedule it the one for next week, I need a different day.",REJECT
+"Do not lock that in the one for next week, I found something else",REJECT
+"Please don't book that appointment, I changed my mind.",REJECT
+"Yeah, no, don't cancel the appointment anymore.",REJECT
+"Yeah, no, don't schedule that the appointment for 3pm today.",REJECT
+"No thanks, don't cancel the appointment the one on the 9th, I changed my mind.",REJECT
+Undo the request to process that cancellation the one on the 9th for the moment.,REJECT
+Disregard the request to cancel the Thursday one the one we just discussed.,REJECT
+Undo the request to confirm that appointment for the moment,REJECT
+"No thanks, don't finish cancelling the one on 11/14 please",REJECT
+I don't want to cancel it the one for 12/02 actually.,REJECT
+"Don't cancel that appointment the one on Tuesday, I need a different day",REJECT
+Let's skip process that cancellation the one we just discussed today,REJECT
+"Don't confirm it the one we just discussed, I have a conflict.",REJECT
+Let's skip cancel the appointment the one for 12/02 please.,REJECT
+"Hold off, don't cancel the one we talked about the one on Tuesday after all",REJECT
+"Nevermind, don't cancel the appointment the one we just discussed for now.",REJECT
+"Nevermind, don't book that appointment the one on Tuesday, I found something else",REJECT
+Don't finish cancelling the one for 12/02 today.,REJECT
+I do not want to cancel that appointment the one on Tuesday anymore.,REJECT
+"Do not book it the appointment on Friday, I changed my mind.",REJECT
+"Wait, don't cancel the Thursday one the appointment for 3pm, I have a conflict",REJECT
+"Do not process that cancellation the appointment for 3pm, I changed my mind",REJECT
+"Scratch that, don't schedule the appointment the appointment for 3pm actually.",REJECT
+"No, don't book that appointment the one on 11/14 actually",REJECT
+"Scratch that, don't cancel the one we talked about the one we just discussed, I will call back",REJECT
+Actually do not schedule it the one we just discussed at this time,REJECT
+"Stop the request to cancel the Thursday one that we just set, I need to check my calendar.",REJECT
+"Wait, don't lock that in the one on the 9th today.",REJECT
+"Forget it, don't finish cancelling the appointment for 3pm for now.",REJECT
+"No thanks, don't schedule it the appointment on Friday.",REJECT
+"Change of plans, don't finalize the cancel right now.",REJECT
+"No thanks, don't schedule that the appointment for 3pm actually.",REJECT
+"Stop the request to cancel the one we talked about the appointment for 3pm, I need to check my calendar.",REJECT
+"Ignore my request to book that appointment that we just set, I found something else.",REJECT
+"Hold off, don't schedule the appointment the appointment for 3pm, I will call back.",REJECT
+"Forget it, don't cancel the Thursday one.",REJECT
+"Please do not confirm that appointment the one we just discussed, I need a different time",REJECT
+Actually do not lock that in the one on the 9th please.,REJECT
+"Scratch that, don't book that appointment the one on the 9th",REJECT
+Abort the request to confirm it that we just set at this time,REJECT
+"Never mind, don't set that up the one on 11/14 for now.",REJECT
+Actually do not cancel the appointment the one for next week actually.,REJECT
+"Actually, don't finish cancelling the one we just discussed, I have a conflict.",REJECT
+"Please do not cancel the one we talked about the one on the 9th, I will call back.",REJECT
+"Forget it, don't book that appointment the one for next week, I changed my mind.",REJECT
+"Hold off, don't cancel the Thursday one the appointment on Friday, I need to check my calendar.",REJECT
+"Wait, don't schedule that that we just set please",REJECT
+"Never mind, don't process that cancellation that we just set, I have a conflict",REJECT
+Stop the request to set that up the one for 12/02 for the moment.,REJECT
+"Yeah, no, don't cancel the one we talked about the one for 12/02 for the moment",REJECT
+"Wait, don't lock that in that we just set for the moment",REJECT
+"Wait, don't schedule it the one for 12/02, I need to check my calendar.",REJECT
+Do not finish cancelling the appointment on Friday anymore.,REJECT
+Don't schedule it the one on the 9th today,REJECT
+Stop the request to finish cancelling for the moment.,REJECT
+"Yeah, no, don't cancel the one we talked about the one on the 9th, I need a different day",REJECT
+"Nevermind, don't confirm it the one for 12/02 right now.",REJECT
+Don't schedule that appointment right now.,REJECT
+Do not cancel the appointment anymore.,REJECT
+Please don't proceed with scheduling.,REJECT
+"Never mind, don't cancel it.",REJECT
+"Hold off, don't book that appointment.",REJECT
+Ignore my request to schedule it.,REJECT
+Disregard the request to cancel it.,REJECT
+Stop the request to schedule it.,REJECT
+Undo the request to cancel.,REJECT
