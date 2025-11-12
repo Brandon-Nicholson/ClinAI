@@ -1,0 +1,101 @@
+text,label
+"No thanks, don't schedule an appointment.",EXIT_APPT
+I don't want to continue scheduling an appointment.,EXIT_APPT
+"I decided not to book anything, don't schedule an appointment.",EXIT_APPT
+"Hold, I'm not scheduling an appointment.",EXIT_APPT
+"I'm opting out of scheduling, no appointment.",EXIT_APPT
+"I'm not going to book, please end scheduling.",EXIT_APPT
+"Don't lock anything in, no appointment for me.",EXIT_APPT
+"Stop here, no new appointment please.",EXIT_APPT
+"Please halt scheduling, I'm not booking.",EXIT_APPT
+"Actually, I don't want to schedule a new appointment.",EXIT_APPT
+"I'd like to exit, no new appointment thanks.",EXIT_APPT
+"Let's not set anything up, no appointment needed.",EXIT_APPT
+"No need to arrange an appointment, I'm fine.",EXIT_APPT
+"Don't make me an appointment, I'm fine.",EXIT_APPT
+"No new appointment after all, please stop.",EXIT_APPT
+"Changed my mind, I don't need the new appointment anymore.",EXIT_APPT
+"Stop trying to schedule, I don't want a new appointment.",EXIT_APPT
+"Don't confirm any appointment, I'm not scheduling.",EXIT_APPT
+"I prefer not to schedule now, please stop.",EXIT_APPT
+"Please don't add an appointment, I'm good.",EXIT_APPT
+"I won't be scheduling, please don't book anything.",EXIT_APPT
+"Cancel the scheduling step, I don't want a new appointment.",EXIT_APPT
+"I'm all set, please don't schedule anything new.",EXIT_APPT
+"Hold on, don't create any appointment for me.",EXIT_APPT
+"I changed my mind, no appointment needed.",EXIT_APPT
+"Do not book me, I don't want to schedule.",EXIT_APPT
+"Please skip the appointment, I'm not scheduling.",EXIT_APPT
+"No scheduling for me, end this step.",EXIT_APPT
+"I don't want to schedule, please stop.",EXIT_APPT
+"No appointment please, I'm not scheduling.",EXIT_APPT
+Let's stop here; I don't want to schedule an appointment.,EXIT_APPT
+"Please stop here, no appointment needed.",EXIT_APPT
+"I don't need to schedule, please end the flow.",EXIT_APPT
+"Calling it off, no appointment scheduling for me.",EXIT_APPT
+"I'm not interested in scheduling, please stop.",EXIT_APPT
+"I'm backing out, no appointment scheduling.",EXIT_APPT
+"Please don't create a new appointment, I don't need one.",EXIT_APPT
+"I'm passing on it, don't schedule an appointment.",EXIT_APPT
+"Please skip making an appointment, I don't want one.",EXIT_APPT
+"Disregard the booking, I don't want to schedule.",EXIT_APPT
+"Let's skip booking, I don't need an appointment.",EXIT_APPT
+"Don't proceed with scheduling, I don't need a new appointment.",EXIT_APPT
+"I'm not going to schedule, please don't book.",EXIT_APPT
+"I'm not moving forward with scheduling, don't book it.",EXIT_APPT
+"I'm okay without an appointment, please don't book.",EXIT_APPT
+"Don't schedule, I've decided against it.",EXIT_APPT
+"Not scheduling today, please stop the booking.",EXIT_APPT
+"Ignore the booking, I don't want to schedule now.",EXIT_APPT
+I don't need to set up an appointment anymore.,EXIT_APPT
+"Leave it, I'm not scheduling an appointment anymore.",EXIT_APPT
+"Do not proceed with booking, I'm not scheduling.",EXIT_APPT
+"Actually, don't make me a new appointment. I'm good.",EXIT_APPT
+"Skip this, no new appointment for me.",EXIT_APPT
+"Please stop trying to book, I don't want to schedule.",EXIT_APPT
+"Please remove the scheduling step, I don't need it.",EXIT_APPT
+"Declining to schedule, please stop.",EXIT_APPT
+"I'm not scheduling anything, please stop now.",EXIT_APPT
+"No appointment needed, please exit scheduling.",EXIT_APPT
+"Let's stop scheduling, I'm not interested.",EXIT_APPT
+"Please don't set any appointment, I'm opting out.",EXIT_APPT
+"Don't set anything, I'm not scheduling.",EXIT_APPT
+"Please exit scheduling, I won't be booking.",EXIT_APPT
+"I don't plan to schedule, please stop here.",EXIT_APPT
+"Scratch that, no new appointment for me.",EXIT_APPT
+"I'd rather not book, no appointment.",EXIT_APPT
+"Don't add anything to my calendar, no appointment.",EXIT_APPT
+"Please stop the scheduling process, I don't want to book.",EXIT_APPT
+"Let's not continue with scheduling, I'm opting out.",EXIT_APPT
+"Exit this, no appointment for me.",EXIT_APPT
+"On second thought, please don't schedule a new appointment for me.",EXIT_APPT
+"Please don't proceed to booking, I'm out.",EXIT_APPT
+"I don't need a booking anymore, please stop.",EXIT_APPT
+No need to schedule one for me after all.,EXIT_APPT
+"Hold up, do not schedule any new appointment.",EXIT_APPT
+"Stop there, please don't schedule a new appointment.",EXIT_APPT
+"Please end the scheduling step, I'm not booking.",EXIT_APPT
+"Please hold off, I'm not scheduling a new appointment.",EXIT_APPT
+"I'd rather not schedule right now, please stop.",EXIT_APPT
+"Pause that, no appointment needed after all.",EXIT_APPT
+"Let's end the scheduling here, I don't need it.",EXIT_APPT
+"Please remove me from scheduling, no appointment.",EXIT_APPT
+"End the flow, no appointment for me.",EXIT_APPT
+Please don't move forward with scheduling for me.,EXIT_APPT
+"Please don't arrange an appointment, I'm set.",EXIT_APPT
+"Wait, don't schedule an appointment anymore.",EXIT_APPT
+"Do not schedule an appointment for me, thanks.",EXIT_APPT
+"I'd like to stop before booking, no appointment.",EXIT_APPT
+"Nevermind, I actually don't need to schedule an appointment any longer.",EXIT_APPT
+"No appointment after all, please stop scheduling.",EXIT_APPT
+"I'm good, please don't schedule a new appointment.",EXIT_APPT
+"Please don't continue, I'm not scheduling.",EXIT_APPT
+"Please end the booking process, I don't want it.",EXIT_APPT
+"I won't be scheduling, please end this.",EXIT_APPT
+"I don't need the new appointment, please stop.",EXIT_APPT
+"Opting out, no new appointment please.",EXIT_APPT
+"Let's not proceed, I'm not booking.",EXIT_APPT
+"No booking for me, please halt scheduling.",EXIT_APPT
+"No need to book anything, I'm not scheduling.",EXIT_APPT
+"No more scheduling, I'm not booking.",EXIT_APPT
+"No need to set an appointment, please exit.",EXIT_APPT

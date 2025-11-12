@@ -72,14 +72,6 @@ def was_resolved(reply: str) -> bool:
     
     # default (ambiguous replies like "maybe")
     return None
-    
-# Tasks
-def create_task(call_id: int, task_type: str, payload: Dict) -> Task:
-    """Create a work item (schedule/refill/prior_auth/etc)."""
-    with get_session() as s:
-        t = Task(call_id=call_id, task_type=task_type, payload=payload)
-        s.add(t); s.commit(); s.refresh(t)
-        return t
 
 # Helpful getters for UI / debugging
 def get_call(call_id: int) -> Optional[Call]:

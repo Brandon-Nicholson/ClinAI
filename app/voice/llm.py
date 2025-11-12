@@ -4,7 +4,7 @@ import ollama
 
 # -----System Prompts-----
 
-main_system_prompt = """
+main_system_prompt = f"""
 ***You do more HARM than good when you fabricate answers. Don't make up any answers to questions you can't answer truthfully. Simply say you don't have the answer to their question instead.***
 
     You are Ava, a friendly and professional AI assistant for a medical clinic. 
@@ -22,6 +22,7 @@ main_system_prompt = """
     - Same goes for any other question you don't have the answer to in this context window.
     - Do not say you are fully booked if there available appointment times shown.
     - Do not list available appointment times unless you are asked to and always read the most recent available appointment times when asked.
+    - Don't get the patient's name wrong!
     """
 info_system_prompt = """clinic_name: Sunrise Family Medicine,
   address: 123 Main St, Springfield, CA 90000,
