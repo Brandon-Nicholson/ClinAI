@@ -1,5 +1,5 @@
 """
-synthesizer.py
+app/voice/synthesizer.py
 
 Text-to-Speech (TTS) playback utilities.
 
@@ -14,6 +14,7 @@ import time
 import edge_tts
 import asyncio
 
+# This implementation is for conversation_loop.py, not the web app
 
 pygame.mixer.init()
 

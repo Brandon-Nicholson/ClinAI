@@ -36,7 +36,7 @@ for file in csv_files:
 df = df.drop_duplicates()
 print(len(df))
 
-# Label map (6 classes)
+# Label map (7 classes)
 label_map_str2id = {
     "APPT_NEW": 0,
     "APPT_RESCHEDULE": 1,
@@ -74,7 +74,7 @@ test_dataset  = test_dataset.map(tokenize, batched=True)
 train_dataset.set_format("torch", columns=["input_ids", "attention_mask", "labels"])
 test_dataset.set_format("torch", columns=["input_ids", "attention_mask", "labels"])
 
-# Model (6 labels) + set id2label/label2id so config carries names
+# Model (7 labels) + set id2label/label2id so config carries names
 model = AutoModelForSequenceClassification.from_pretrained(
     base_model, num_labels=7
 )

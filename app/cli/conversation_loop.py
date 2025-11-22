@@ -1,22 +1,21 @@
 """
-main.py
+app/cli/conversation_loop.py
 """
 
 # Imports from modular voice pipeline
 from app.ui.intake_form import run_intake_form
 from app.services.call_service import start_call, end_call, set_intent, log_turn, was_resolved, call_notes
+from app.services.rx_refills import match_medication, handle_refill_request
 from app.voice.synthesizer import stop_speaking, EdgeTTSPlayer
 from app.voice.transcriber import start_microphone, listen_and_transcribe_whisper
-from app.voice.llm import query_ollama, add_to_history, main_system_prompt, info_system_prompt, human_system_prompt
+from app.voice.llm import query_ollama, add_to_history, main_system_prompt, info_system_prompt, human_system_prompt, reason_system_prompt
 from faster_whisper import WhisperModel
 from classifiers.intent_model.intent_classifier import classify_intent
 from classifiers.appt_context_model.appt_context_classifier import classify_appt_context
-from classifiers.appt_confirmation_model.appt_confirmation_classifier import classify_appt_confirmation
-from classifiers.appt_availability_model.appt_availability_classifier import classify_appt_availability
+from classifiers.confirmation_model.confirmation_classifier import classify_confirmation
 from datetime import date
 import app.services.appointments as ap
 import time
-import re
 import json
 
 # ---------------------------
@@ -82,18 +81,28 @@ def main_edge():
     appt_state = None
     reschedule_state = None
     availability_state = None
+    refill_state = None
     # keeps convo loop going if True
     loop_convo = True
     try:
         while True:
+            
+# --------------------- START MICROPHONE & TRANSCRIBE AUDIO ---------------------            
+            
             # before listening, cut off any ongoing speech
             tts.stop()
 
             # Start microphone stream
             q, stream = start_microphone()
-            user_input = listen_and_transcribe_whisper(whisper_model, q, response)
+            # set confidence threshold much lower when a drug name is being transcribed
+            if refill_state == "drug_name":
+                user_input = listen_and_transcribe_whisper(whisper_model, q, response, min_conf=-2.0)
+            else:
+                user_input = listen_and_transcribe_whisper(whisper_model, q, response)
             # Stop and close mic stream after transcribing
             stream.stop(); stream.close()
+
+# --------------------- HANDLE LACK OF INPUT FROM USER ---------------------
 
             # add 1 to max_wait_counter if set wait time without speaking is exceeded
             if user_input is None:
@@ -122,6 +131,8 @@ def main_edge():
                 add_to_history(chat_history, "assistant", check_presence)
                 log_turn(call.id, "assistant", check_presence)
                 continue
+
+# --------------------- HANDLE UNINTELLIGIBLE AUDIO FROM USER ---------------------
             
             # skip empties
             if not user_input:
@@ -131,10 +142,14 @@ def main_edge():
                 log_turn(call.id, "assistant", repeat_msg)
                 continue
             else:
-                # revert counter back to 0 if utterance
+                # revert counter back to 0 if user speaks
                 max_wait_counter = 0
 
+# --------------------- PRINT USER INPUT ---------------------
+
             print(f"You: {user_input}")
+
+# --------------------- OFFICIALLY END CONVO AFTER USER PROVIDES FEEDBACK ---------------------
             
             # get bool from was_resolved when convo ends
             if not loop_convo and user_input:
@@ -144,7 +159,8 @@ def main_edge():
                 add_to_history(chat_history, "assistant", goodbye_msg)
                 log_turn(call.id, "assistant", goodbye_msg)
                 break
-            
+
+# --------------------- USER WANTS TO END THE CALL ---------------------            
             
             if user_input.lower().strip() in ["exit", "quit", "stop", "goodbye", "good bye", 
                                               "exit.", "quit.", "stop.", "goodbye.", "good bye.",
@@ -158,11 +174,13 @@ def main_edge():
                 add_to_history(chat_history, "assistant", feedback_msg)
                 log_turn(call.id, "assistant", feedback_msg)
                 tts.stop()
-                loop_convo = False
+                loop_convo = False # assign loop_convo -> false indicating there will only be one more input from user 
                 continue
             # log user input -> db
             log_turn(call.id, "user", user_input)
-            
+
+# --------------------- INTENT CLASSIFIER DETECTS INTENT ---------------------
+           
             # classify user intent unless appt scheduling is in process
             intent = classify_intent(user_input, patient_intents)
                 
@@ -206,6 +224,8 @@ def main_edge():
                 availability_state = None
                 # reset reschedule_state
                 reschedule_state = None
+                # reset refill_state
+                refill_state = None
                 continue
 
 # --------------------- USER WANTS ADMIN INFO ---------------------       
@@ -222,17 +242,51 @@ def main_edge():
                     temp_appt_date = ap.new_temp_appt_date() # reset date holder
                     print(appt_state)
                 continue
-# -----------------------------------------------------------------
+            
+# --------------------- HELPERS TO AVOID INTENT CONFLICTS ---------------------
             
             # avoid conflict bewteen scheduling and cancelling appointments
             if appt_state == "awaiting_cancellation_date":
                 intent = "APPT_CANCEL"
-            
-# # --------------------- USER WANTS TO CANCEL A BOOKED APPOINTMENT ---------------------
+                
+            # avoid conflict between rx refills and appointment actions
+            if refill_state == "drug_name":
+                intent = "RX_REFILL"
+                
+# --------------------- USER CONFIRMS OR REJECTS RX REFILL ---------------------
+
+            # classification of user response on rx refill for drug name transcribed by agent
+            if refill_state == "confirm_drug_name":
+                confirm_drug_name = classify_confirmation(user_input)
+                
+                if confirm_drug_name == "CONFIRM":
+                    refill_confirmed_msg = handle_refill_request(patient.id, call.id, med)
+                    tts.speak_and_wait(refill_confirmed_msg)
+                    add_to_history(chat_history, "assistant", refill_confirmed_msg)
+                    log_turn(call.id, "assistant", refill_confirmed_msg)
+                    refill_state = None
+                    continue
+                
+                elif confirm_drug_name == "UNSURE":
+                    confirm_refill_unsure_msg = f"Sorry, I didn't catch your answer. Would you like a refill for {med}?"
+                    tts.speak_and_wait(confirm_refill_unsure_msg)
+                    add_to_history(chat_history, "assistant", confirm_refill_unsure_msg)
+                    log_turn(call.id, "assistant", confirm_refill_unsure_msg)
+                    continue
+                
+                elif confirm_drug_name == "REJECT":
+                    rejected_drug_refill_msg = "Sorry if I misheard you. Please try saying the name of the medication again, or if you'd like to exit the refill process, just say so!"
+                    tts.speak_and_wait(rejected_drug_refill_msg)
+                    add_to_history(chat_history, "assistant", rejected_drug_refill_msg)
+                    log_turn(call.id, "assistant", rejected_drug_refill_msg)
+                    refill_state = "drug_name"
+                    continue
+                    
+# --------------------- USER CONFIRMS OR REJECTS APPOINTMENT CANCELLATION ---------------------
 
             # if user is being asked to confirm cancellation for booked appointment
             if appt_state == "confirm_cancellation":
-                confirm_appt_cancellation = classify_appt_confirmation(user_input)         
+                confirm_appt_cancellation = classify_confirmation(user_input)         
                 
                 if confirm_appt_cancellation == "CONFIRM":
                     # change status of appt to cancelled in db
@@ -293,7 +347,7 @@ def main_edge():
                 
             # if user is being asked to confirm the last available appointment on their desired appt date
             if availability_state == "confirm_last_slot":
-                confirm_last_appt_time = classify_appt_confirmation(user_input)
+                confirm_last_appt_time = classify_confirmation(user_input)
                 
                 if confirm_last_appt_time == "CONFIRM":
                     # update temp_appt_date time
@@ -328,37 +382,23 @@ def main_edge():
                     availability_state = None
                     continue
 
-# --------------------- CONTEXT CLASSIFIER DETECTS USER DESIRE TO EXIT SCHEDULING PROCESS ---------------------
-                    
-            # classifier detects if user wants to exit appointment pipeline
-            if appt_state == "pending_confirmation" or appt_state == "scheduling_appt" or appt_state == "appt_reason" or appt_state == "awaiting_cancellation_date":
-                exit_appt_scheduling = classify_appt_context(user_input)
-                # if user intended to cancel an appt instead
-                if intent == "APPT_CANCEL":
-                    appt_state = "cancelling_appt"
-                    pass
-                # exit pipeline if user implies they no longer want to schedule appt
-                if exit_appt_scheduling == "EXIT_APPT":
-                    exit_appt_pipeline_msg = "Got it, we won't schedule a new appointment. If you'd like help with anything else, just ask! If you'd like to exit the call, say stop."
-                    tts.speak_and_wait(exit_appt_pipeline_msg)
-                    add_to_history(chat_history, "assistant", exit_appt_pipeline_msg)
-                    log_turn(call.id, "assistant", exit_appt_pipeline_msg)
-                    # reset global variables
-                    temp_appt_date = ap.new_temp_appt_date()
-                    appt_state = None
-                    availability_state = None
-                    reschedule_state = None
-                    continue
-
 # --------------------- CONFIRMATION CLASSIFIER DETECTS IF USER WANTS TO CONFIRM OR REJECT APPOINTMENT SLOT ---------------------
                 
             # detect if user wants to confirm or reject appointment date/time
             if not ap.missing_info_check(temp_appt_date) and appt_state == "pending_confirmation":
-                confirmed_appt = classify_appt_confirmation(user_input)
+                confirmed_appt = classify_confirmation(user_input)
                 # set appt_state to confirmed if confirmed
                 if confirmed_appt == "CONFIRM":
                     appt_state = "appt_confirmed" # continues to next step: asking reason for appt
                     
+                # Ask user to confirm again if unsure
+                elif confirmed_appt == "UNSURE":
+                    unsure_msg = f"Sorry, I didn't catch your answer. Can you confirm that you'd like to schedule your appointment on {pretty_date} at {ap.format_appt_time(temp_appt_date['time'])}{temp_appt_date['ampm']}?"
+                    tts.speak_and_wait(unsure_msg)
+                    add_to_history(chat_history, "assistant", unsure_msg)
+                    log_turn(call.id, "assistant", unsure_msg)
+                    continue
+                
                 # Ask user to try again if confirmation denied
                 elif confirmed_appt == "REJECT":
                     appt_denied_msg = "Sorry if I misheard you. Please try stating your date and time again in one sentence or you may exit the scheduling process by telling me so."
@@ -370,12 +410,28 @@ def main_edge():
                     # switch appt_state to scheduling_appt
                     appt_state = "scheduling_appt"
                     continue
-                # Ask user to confirm again if unsure
-                elif confirmed_appt == "UNSURE":
-                    unsure_msg = f"Sorry, I didn't catch your answer. Can you confirm that you'd like to schedule your appointment on {pretty_date} at {ap.format_appt_time(temp_appt_date['time'])}{temp_appt_date['ampm']}?"
-                    tts.speak_and_wait(unsure_msg)
-                    add_to_history(chat_history, "assistant", unsure_msg)
-                    log_turn(call.id, "assistant", unsure_msg)
+
+# --------------------- CONTEXT CLASSIFIER DETECTS USER DESIRE TO EXIT CURRENT PROCESS/PIPELINE ---------------------
+                    
+            # classifier detects if user wants to exit appointment pipeline
+            if appt_state in ["pending_confirmation", "scheduling_appt", "appt_reason", "awaiting_cancellation_date"] or refill_state in ["drug_name", "confirm_drug_name"]:
+                exit_appt_scheduling = classify_appt_context(user_input)
+                # if user intended to cancel an appt instead
+                if intent == "APPT_CANCEL":
+                    appt_state = "cancelling_appt"
+                    pass
+                # exit pipeline if user implies they no longer want to schedule appt
+                if exit_appt_scheduling == "EXIT_APPT":
+                    exit_appt_pipeline_msg = "Got it, we will stop this process. If you'd like help with anything else, just ask! If you'd like to exit the call, say stop."
+                    tts.speak_and_wait(exit_appt_pipeline_msg)
+                    add_to_history(chat_history, "assistant", exit_appt_pipeline_msg)
+                    log_turn(call.id, "assistant", exit_appt_pipeline_msg)
+                    # reset global variables
+                    temp_appt_date = ap.new_temp_appt_date()
+                    appt_state = None
+                    availability_state = None
+                    reschedule_state = None
+                    refill_state = None
                     continue
 
 # --------------------- USER ASKED REASON FOR APPOINTMENT ONCE CONFIRMED ---------------------
@@ -401,9 +457,12 @@ def main_edge():
                 add_to_history(chat_history, "assistant", appt_confirmation_msg)
                 log_turn(call.id, "assistant", appt_confirmation_msg)
                 
+                # AI summary of reasoning
+                appt_reason_summary = query_ollama(appt_reason, [{"role": "system", "content": reason_system_prompt}], model="llama3.1:8b")
+                
                 # update db
                 db_timestamp_format = ap.parts_to_local_dt(temp_appt_date) # convert dict to timestamp format for db
-                ap.book_appointment(call.patient_id, call.id, db_timestamp_format, duration_min=30, reason=appt_reason)
+                ap.book_appointment(call.patient_id, call.id, db_timestamp_format, duration_min=30, reason=appt_reason_summary)
                 # reset globals
                 # reset appt date holder after appt has been made
                 temp_appt_date = ap.new_temp_appt_date()
@@ -595,7 +654,6 @@ def main_edge():
                             temp_appt_date = ap.new_temp_appt_date()
                             continue
                         
-                        print(f"AVAILABLE APPT TIMES: {available_appt_times}")
                         if temp_appt_date['time'] not in available_appt_times:
                             booked_time_msg = f"Sorry, {temp_appt_date['time']} is already booked for {pretty_date}."
                             tts.speak_and_wait(booked_time_msg)
@@ -614,7 +672,7 @@ def main_edge():
                                 log_turn(call.id, "assistant", nearest_slots[0])
                                 continue 
                             
-                            else: # recommend other times
+                            else: # returns only recommended other times
                                 tts.speak_and_wait(nearest_slots)
                                 add_to_history(chat_history, "assistant", nearest_slots)
                                 log_turn(call.id, "assistant", nearest_slots)
@@ -720,10 +778,33 @@ def main_edge():
                     continue
 
 # --------------------- USER WANTS RX REFILL ---------------------
-            if intent == "RX_REFILL":
-                pass
-
-
+            if intent == "RX_REFILL" and refill_state != "drug_name":
+                rx_refill_msg = "Please exclusively name the medication you would like to refill."
+                tts.speak_and_wait(rx_refill_msg)
+                add_to_history(chat_history, "assistant", rx_refill_msg)
+                log_turn(call.id, "assistant", rx_refill_msg)
+                refill_state = "drug_name"
+                continue
+            
+            # use fuzzy match on input and ask to confirm drug match
+            # drug list for demo inlcudes: omeprazole, lisinopril, atorvastatin, metformin and amoxicillin
+            if refill_state == "drug_name":
+                med = match_medication(user_input)
+                # if drug name match not found, ask to repeat
+                if not med:
+                    no_drug_match_msg = "I'm sorry, I didn't catch the name of the medication. Could you repeat?"
+                    tts.speak_and_wait(no_drug_match_msg)
+                    add_to_history(chat_history, "assistant", no_drug_match_msg)
+                    log_turn(call.id, "assistant", no_drug_match_msg)
+                    continue
+                else:
+                    confirm_med_msg = f"To confirm, you would like a refill for {med}?"
+                    tts.speak_and_wait(confirm_med_msg)
+                    add_to_history(chat_history, "assistant", confirm_med_msg)
+                    log_turn(call.id, "assistant", confirm_med_msg)
+                    refill_state = "confirm_drug_name"
+                    continue
+                
 # --------------------- USER INTENT UNCLEAR, LLM TRIES TO REPLY HELPFULLY ---------------------
                 
             # get LLM query

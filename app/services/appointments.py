@@ -13,6 +13,13 @@ from sqlalchemy import select, and_, text
 
 from app.db.models import Appointment
 
+# Natural-language date/time parsing for clinic appointments.
+# Handles:
+# "next week on friday at 3"
+# "June 7th at 10:30"
+# "tomorrow morning" / "today at noon"
+# And normalizes everything to tz-aware datetimes in America/Los_Angeles.
+
 # creates temporary appt date holder
 def new_temp_appt_date():
     return {'date': None, 'time': None, 'ampm': None}
@@ -46,7 +53,7 @@ bare_weekday_pattern = re.compile(
     flags=re.IGNORECASE
 )
 
-# e.g., "830", "1030", "945", "1730"
+# "830", "1030", "945"
 compact_time_pattern = re.compile(r"\b(?P<h>\d{1,2})(?P<m>\d{2})\b")
 
 # month name -> day [ordinal] [, year]
@@ -56,32 +63,32 @@ month_day_pattern = re.compile(
     flags=re.IGNORECASE
 )
 
-# e.g., "17th of June", "17 June", "on the 17th June, 2026"
+# "17th of June", "17 June", "on the 17th June, 2026"
 day_first_month_pattern = re.compile(
     rf"\b(?:on\s+)?(?:the\s+)?(?P<day>\d{{1,2}})(?:st|nd|rd|th)?(?:\s+of)?\s+(?P<month>{month_names})(?:,?\s*(?P<year>\d{{4}}))?\b",
     flags=re.IGNORECASE
 )
 
-# numeric dates: 6/9, 06-09-2026, 6.9.26
+# numeric dates: 6/10, 06-10-2026, 6.9.26
 numeric_date_pattern = re.compile(
     r"\b(?P<m>\d{1,2})[\/\-\._](?P<d>\d{1,2})(?:[\/\-\._](?P<y>\d{2,4}))?\b"
 )
 
-# ordinal-only day: "on the 9th", "for the 21st"
+# "on the 9th", "for the 21st"
 ordinal_day_pattern = re.compile(
     r"\b(?:on|for)?\s*(?:the\s+)?(?P<day>\d{1,2})(?:st|nd|rd|th)\b",
     flags=re.IGNORECASE
 )
-# e.g. June the 7th 
+# "June the 7th", "April the 17th"
 month_first_ordinal_pattern = re.compile(
     rf"\b(?P<month>{month_names})(?:\s+the)?\s+(?P<day>\d{{1,2}})(?:st|nd|rd|th)?(?:,?\s*(?P<year>\d{{4}}))?\b",
     flags=re.IGNORECASE
 )
 
 # times:
-# - 5, 5pm, 5 pm, 5 p.m., 5:30, 17:30
-# - "noon", "midnight"
-# - "in the morning/afternoon/evening/night"
+# 5, 5pm, 5 pm, 5 p.m., 5:30
+# "noon", "midnight"
+# "in the morning/afternoon/evening/night"
 time_pattern = re.compile(
     r"\b(?:(?P<noon>noon)|(?P<midnight>midnight)|(?P<h>\d{1,2})(?::(?P<m>\d{2}))?\s*(?P<ampm>a\.?m?\.?|p\.?m?\.?)?)"
     r"(?:\s*(?:in\s+the\s+)?(?P<daypart>morning|afternoon|evening|night))?\b",
@@ -92,7 +99,7 @@ time_pattern = re.compile(
 today_pattern = re.compile(r"\btoday\b", flags=re.IGNORECASE)
 tomorrow_pattern = re.compile(r"\btomorrow\b", flags=re.IGNORECASE)
 
-# simple sentence terminator to limit the “nearby time” window
+# simple sentence terminator to limit the nearby time window
 sentence_end = re.compile(r"[.!?]")
 
 # word -> time normalizer
@@ -101,13 +108,13 @@ WORD_NUM_MAP = {
     "seven": 7, "eight": 8, "nine": 9, "ten": 10, "eleven": 11, "twelve": 12
 }
 
-# maps minute words we care about
+# maps minute words
 _MIN_WORD = {
     "thirty": 30, "fifteen": 15, "forty five": 45, "forty-five": 45,
     "o'clock": 0, "oclock": 0
 }
 
-# e.g. "five", "seven thirty", "eleven o'clock", optional "pm" and/or daypart text
+# "five", "seven thirty", "eleven o'clock"
 _word_time_norm_pattern = re.compile(
     r"(?<!\bthe\s)\b(?P<hour>one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)"
     r"(?:\s+(?P<min>thirty|fifteen|forty(?:\s|-)?five|o['’]?clock|oclock))?"
@@ -117,15 +124,21 @@ _word_time_norm_pattern = re.compile(
     flags=re.IGNORECASE
 )
 
+# "next week on friday", "next week friday"
+next_week_weekday_pattern = re.compile(
+    r"\bnext\s+week\s+(?:on\s+)?(?P<day>monday|tuesday|wednesday|thursday|friday|saturday|sunday)\b",
+    flags=re.IGNORECASE
+)
+
+
 def _normalize_word_times_in_text(text: str) -> str:
     """
-    Convert word-based times (one..twelve) into numeric forms the existing extractor already supports.
+    Convert word-based times into numeric forms the existing extractor already supports.
     Examples:
       "How about three?"            -> "How about 3?"
       "at seven thirty in the evening" -> "at 7:30 pm"
       "eleven o'clock"              -> "11"
       "five pm"                     -> "5 pm"
-    We DO NOT guess AM/PM if we can't—your existing logic will infer where appropriate.
     """
     def _repl(m: re.Match) -> str:
         hour_word = m.group("hour").lower()
@@ -136,7 +149,7 @@ def _normalize_word_times_in_text(text: str) -> str:
         minute = 0
         if minute_word:
             mw = minute_word.lower().replace("’", "'")
-            # normalize "o'clock"
+            # normalize o'clock
             if mw in ("o'clock", "oclock"):
                 minute = 0
             elif mw in ("thirty", "fifteen"):
@@ -164,7 +177,7 @@ def _normalize_word_times_in_text(text: str) -> str:
         if daypart == "morning":
             return f"{core} am"
 
-        # no qualifier -> leave as bare time; downstream inference will handle it
+        # leave as bare time
         return core
 
     return _word_time_norm_pattern.sub(_repl, text)
@@ -196,8 +209,8 @@ def _apply_year_rollover(today, month, day, year=None):
             year += 1
     return datetime(year, month, day).date()
 
+# Pick the next calendar month (including this month) where that day exists and is >= today
 def _infer_month_for_ordinal(today, day):
-    """Pick the next calendar month (including this month) where that day exists and is >= today."""
     # Try this month
     m = today.month
     y = today.year
@@ -216,15 +229,15 @@ def _infer_month_for_ordinal(today, day):
         cand = _valid(yy, mm, day)
         if cand and cand >= today:
             return cand
-    return None  # extremely rare (invalid day like 31 from Feb onward)
+    return None  # invalid day like 31 from Feb
 
 def _format_12h(hour24: int, minute: int):
     period = "am" if hour24 < 12 else "pm"
     hour12 = hour24 % 12 or 12
     return f"{hour12:02d}:{minute:02d}", period
 
+# Return (hour24, minute) from a time regex match, handling noon/midnight and dayparts
 def _normalize_time_match(m):
-    """Return (hour24, minute) from a time regex match, handling noon/midnight and dayparts."""
     if m.group("noon"):
         return 12, 0
     if m.group("midnight"):
@@ -235,7 +248,11 @@ def _normalize_time_match(m):
     ampm = m.group("ampm")
     daypart = (m.group("daypart") or "").lower()
 
-    # Normalize AM/PM text like 'p', 'p.m.', 'pm'
+    # If no am/pm and no daypart and hour > 12
+    if not ampm and not daypart and hour > 12:
+        return None, None
+
+    # Normalize am/pm text like 'p', 'p.m.', 'pm'
     if ampm:
         a = ampm.lower().replace(".", "")
         if a.startswith("p") and hour != 12:
@@ -246,31 +263,33 @@ def _normalize_time_match(m):
         # Use daypart hints if no explicit am/pm
         if 1 <= hour <= 11:
             if daypart in ("evening","night","afternoon"):
-                # push to PM; 12 is a special case (handled below)
                 hour = hour + 12 if hour != 12 else 12
-        # If 24h format like 17:30, nothing to do.
 
-    # Clamp 12 edge cases: if someone wrote "12am" -> 0 handled above; "12pm" stays 12.
     return hour, minute
 
 def _is_unqualified_hour_only(m) -> bool:
-    """True if the match is just a bare hour (1-12) with no minutes, no am/pm, no daypart."""
+    """
+    True if the match is just a bare hour (1–23) with no minutes,
+    no am/pm, and no daypart (we treat it as too ambiguous and ignore it).
+    """
     if m.group("noon") or m.group("midnight"):
         return False
-    if m.group("m"):              # has minutes like 5:30
+    if m.group("m"):       # has minutes like 5:30
         return False
-    if m.group("ampm"):           # has am/pm
+    if m.group("ampm"):    # has am/pm
         return False
-    if m.group("daypart"):        # has 'morning/afternoon/evening/night'
+    if m.group("daypart"): # has 'morning/afternoon/evening/night'
         return False
-    if m.group("h"):
-        h = int(m.group("h"))
-        # Allow 24h-style 13..23 as valid even without am/pm
-        if 13 <= h <= 23:
-            return False
-        # Bare 1..12 with no qualifiers → unqualified, ignore
-        if 1 <= h <= 12:
-            return True
+
+    htxt = m.group("h")
+    if not htxt:
+        return False
+
+    h = int(htxt)
+    # Any bare 1–23 with no qualifiers is "unqualified" -> gets ignored
+    if 1 <= h <= 23:
+        return True
+
     return False
 
 def _infer_ampm_from_hours(hour12: int, open_hour=OPEN_HOUR, close_hour=CLOSE_HOUR):
@@ -291,32 +310,49 @@ def _infer_ampm_from_hours(hour12: int, open_hour=OPEN_HOUR, close_hour=CLOSE_HO
     return None
 
 def _find_nearby_time(text, anchor_start, window=120):
+    ''' Look ahead a bit from where we found a "date-ish" phrase to see
+        if there's a time mentioned nearby (within `window` characters).'''
     window_end = min(len(text), anchor_start + window)
     slice_text = text[anchor_start:window_end]
+
+    # If we hit a punctuation end-of-sentence, stop there.
     cut = sentence_end.search(slice_text)
     if cut:
         slice_text = slice_text[:cut.start()]
 
     def _try_accept_unqualified(match, haystack: str):
+        # This helper handles raw hour mentions like "at 7",
+        # where there's no am/pm. We try to infer the period later.
         htxt = match.group("h")
         if not htxt:
             return None
+
+        # Check the few characters before the match to confirm
         pre_start = max(0, match.start() - 6)
         prefix = haystack[pre_start:match.start()].lower()
         if not re.search(r"\bat\s*$", prefix):
             return None
+
+        # Convert to int so we can infer am/pm.
         hour12 = int(htxt)
+
+        # Try to infer am/pm from the hour and surrounding context.
         infer = _infer_ampm_from_hours(hour12)
         if infer:
             h24, ap = infer
+            # Reformat it back to 12h so it’s usable downstream.
             t12, period = _format_12h(h24, 0)
             return t12, period
+
         return None
 
-    # 1) Normal time patterns (your existing rules)
+
+    # Normal time patterns
     for tm in time_pattern.finditer(slice_text):
         if not _is_unqualified_hour_only(tm):
             h24, mi = _normalize_time_match(tm)
+            if h24 is None:
+                continue
             t12, period = _format_12h(h24, mi)
             return t12, period
         else:
@@ -324,7 +360,7 @@ def _find_nearby_time(text, anchor_start, window=120):
             if maybe:
                 return maybe
 
-    # 2) Compact times like "at 830"
+    # Compact times like "at 830"
     def _try_compact(haystack: str):
         for cm in compact_time_pattern.finditer(haystack):
             # require "at " right before the number
@@ -337,22 +373,24 @@ def _find_nearby_time(text, anchor_start, window=120):
             if not (0 <= m < 60):
                 continue
 
-            # look for immediate am/pm after the number (rare with STT, but cheap to check)
+            # look for immediate am/pm after the number
             suffix = haystack[cm.end(): cm.end()+6].lower()
             ap = "am" if re.match(r"^\s*a\.?m?\.?", suffix) else ("pm" if re.match(r"^\s*p\.?m?\.?", suffix) else None)
 
             # daypart nearby?
             dp = None
-            dp_match = re.search(r"\b(morning|afternoon|evening|night)\b", haystack[cm.end(): cm.end()+20], re.IGNORECASE)
+            dp_match = re.search(r"\b(morning|afternoon|evening|night)\b",
+                                haystack[cm.end(): cm.end()+20], re.IGNORECASE)
             if dp_match:
                 dp = dp_match.group(1).lower()
 
-            # Decide hour24
-            if 13 <= h <= 23:
-                hour24 = h  # 24h style like 1730
-            elif ap:
+            # 12-hour only: if hour > 12 with no am/pm, ignore
+            if h > 12:
+                continue
+
+            if ap:
                 hour24 = (h % 12) + (12 if ap.startswith("p") else 0)
-            elif dp in ("afternoon","evening","night"):
+            elif dp in ("afternoon", "evening", "night"):
                 hour24 = (h % 12) + (12 if h != 12 else 0)
             else:
                 inferred = _infer_ampm_from_hours(h)
@@ -368,13 +406,15 @@ def _find_nearby_time(text, anchor_start, window=120):
     if maybe:
         return maybe
 
-    # also check a little to the left (e.g., "at 830 on Friday")
+    # check a little to the left "at 830 on Friday"
     left_start = max(0, anchor_start - 40)
     left_slice = text[left_start:anchor_start]
 
     for tm in time_pattern.finditer(left_slice):
         if not _is_unqualified_hour_only(tm):
             h24, mi = _normalize_time_match(tm)
+            if h24 is None:
+                continue
             t12, period = _format_12h(h24, mi)
             return t12, period
         else:
@@ -389,7 +429,7 @@ def _find_nearby_time(text, anchor_start, window=120):
     return None, None
 
 
-# Main
+# ----- Main extractor function -----
 
 def extract_schedule_json(text: str, now=None, tz: ZoneInfo = DEFAULT_TZ):
     # normalize any word-times
@@ -421,7 +461,7 @@ def extract_schedule_json(text: str, now=None, tz: ZoneInfo = DEFAULT_TZ):
         dt_date = today + timedelta(days=1)
         add_result(dt_date, ms, (ms, me))
 
-    # Pass A: Month-name absolute dates first (e.g., "June 9th, 2026")
+    # Month-name absolute dates first "June 9th, 2026"
     for m in month_day_pattern.finditer(text):
         ms, me = m.span()
         month = _month_str_to_int(m.group("month"))
@@ -434,7 +474,7 @@ def extract_schedule_json(text: str, now=None, tz: ZoneInfo = DEFAULT_TZ):
             continue  # invalid date like Feb 30
         add_result(dt_date, ms, (ms, me))
     
-    # Pass A2: Day-first month (e.g., "17th of June", "17 June, 2026")
+    # Day-first month "17th of June", "17 June, 2026"
     for m in day_first_month_pattern.finditer(text):
         ms, me = m.span()
         # avoid overlap with earlier captures
@@ -450,7 +490,7 @@ def extract_schedule_json(text: str, now=None, tz: ZoneInfo = DEFAULT_TZ):
             continue
         add_result(dt_date, ms, (ms, me))
         
-    # Pass A3: Month + "the" + day, e.g., "June the 7th"
+    # Month + "the" + day, "June the 7th"
     for m in month_first_ordinal_pattern.finditer(text):
         ms, me = m.span()
         # avoid overlap with earlier captures
@@ -467,10 +507,10 @@ def extract_schedule_json(text: str, now=None, tz: ZoneInfo = DEFAULT_TZ):
         add_result(dt_date, ms, (ms, me))
 
     
-    # Pass B: Numeric dates
+    # Numeric dates
     for m in numeric_date_pattern.finditer(text):
         ms, me = m.span()
-        # avoid overlapping with month-name we already captured
+        # avoid overlapping with month-name already captured
         if any(not (me <= s or ms >= e) for (s, e) in covered_spans):
             continue
         mth = int(m.group("m"))
@@ -479,7 +519,7 @@ def extract_schedule_json(text: str, now=None, tz: ZoneInfo = DEFAULT_TZ):
         year = None
         if y:
             year = int(y)
-            if year < 100:  # 2-digit year → assume 2000s
+            if year < 100:  # if 2-digit year assume 2000s
                 year += 2000
         try:
             dt_date = _apply_year_rollover(today, mth, day, year)
@@ -487,7 +527,7 @@ def extract_schedule_json(text: str, now=None, tz: ZoneInfo = DEFAULT_TZ):
             continue
         add_result(dt_date, ms, (ms, me))
 
-    # Pass C: Ordinal day (“on the 9th”) → infer next valid month
+    # Ordinal day “on the 9th” then infer next valid month
     for m in ordinal_day_pattern.finditer(text):
         ms, me = m.span()
         if any(not (me <= s or ms >= e) for (s, e) in covered_spans):
@@ -498,7 +538,7 @@ def extract_schedule_json(text: str, now=None, tz: ZoneInfo = DEFAULT_TZ):
             continue
         add_result(dt_date, ms, (ms, me))
 
-    # Pass D: explicit "this/next <weekday>"
+    # explicit "this/next <weekday>"
     for m in weekday_pattern.finditer(text):
         ms, me = m.span()
         if any(not (me <= s or ms >= e) for (s, e) in covered_spans):
@@ -509,7 +549,17 @@ def extract_schedule_json(text: str, now=None, tz: ZoneInfo = DEFAULT_TZ):
         dt_date = _date_this_week_or_next(today, target_idx) if kw == "this" else _date_next_week(today, target_idx)
         add_result(dt_date, ms, (ms, me))
 
-    # Pass E: bare "<weekday>" → treat as "this <weekday>"
+    # "next week on <weekday>" treat as next week's <weekday>
+    for m in next_week_weekday_pattern.finditer(text):
+        ms, me = m.span()
+        if any(not (me <= s or ms >= e) for (s, e) in covered_spans):
+            continue
+        day = m.group("day").lower()
+        target_idx = WDX[day]
+        dt_date = _date_next_week(today, target_idx)
+        add_result(dt_date, ms, (ms, me))
+
+    # bare "<weekday>" treat as "this <weekday>"
     for m in bare_weekday_pattern.finditer(text):
         ms, me = m.span()
         if any(not (me <= s or ms >= e) for (s, e) in covered_spans):
@@ -519,13 +569,14 @@ def extract_schedule_json(text: str, now=None, tz: ZoneInfo = DEFAULT_TZ):
         dt_date = _date_this_week_or_next(today, target_idx)
         add_result(dt_date, ms, (ms, me))
 
-    # Pass F: time-only with explicit or inferable am/pm
+    # time-only with explicit or inferable am/pm
     if not results:
         tm = time_pattern.search(text)
         if tm:
             h24, mi = _normalize_time_match(tm)
-            t12, period = _format_12h(h24, mi)
-            results.append({"date": None, "time": t12, "ampm": period})
+            if h24 is not None:
+                t12, period = _format_12h(h24, mi)
+                results.append({"date": None, "time": t12, "ampm": period})
 
     return results
 
@@ -624,7 +675,7 @@ def check_time(temp_appt_date: dict, open_time = 8, close_time = 17) -> bool:
     return None
 
 
-# ----Formatting-----
+# ----- Formatting -----
 
 # fix improperly transcribed times within prompt
 def format_prompt_time(prompt):
@@ -754,16 +805,20 @@ def nearest_available_slots(time_slots, available_slots, time_pick):
         return None
 
     # grab slots nearest to patient's desired time
-    after_slots = time_slots[time_slots.index(time_pick)+1:] # slots to the right
-    before_slots = time_slots[time_slots.index(time_pick)-1::-1] # slots to the left
+    if time_slots[-1] == time_pick: # if chosen time is the last time slot
+        ordered_slots_list = time_slots[time_slots.index(time_pick)-1::-1] # only slots to the left    
+    elif time_slots[0] == time_pick: # if chosen time is the first time slot
+        ordered_slots_list = time_slots[time_slots.index(time_pick)+1:] # only slots to the right
+    else: # if there are appts on both sides of time_pick in list
+        after_slots = time_slots[time_slots.index(time_pick)+1:] # slots to the right
+        before_slots = time_slots[time_slots.index(time_pick)-1::-1] # slots to the left
+        ordered_slots = zip(after_slots,before_slots) # zip together into one ordered list
 
-    ordered_slots = zip(after_slots,before_slots)
+        ordered_slots_list = []
 
-    ordered_slots_list = []
-
-    for a,b in ordered_slots:
-        ordered_slots_list.append(a)
-        ordered_slots_list.append(b)
+        for a,b in ordered_slots:
+            ordered_slots_list.append(a)
+            ordered_slots_list.append(b)
 
     recommend_slots = [] # max length = 2
     counter = 0
@@ -777,15 +832,12 @@ def nearest_available_slots(time_slots, available_slots, time_pick):
     # if only one other slot is available
     if len(recommend_slots) == 1:
         return f"We only have {recommend_slots[0]} available for that day. Would you like to do that instead?", recommend_slots[0]
-    elif len(recommend_slots) > 1:                
+    if len(recommend_slots) > 1:                
         return f"Would you like to try {recommend_slots[0]} or {recommend_slots[1]} instead?"
     else:
         return None
 
-
-# -----Checking Availabilities-----
-
-ACTIVE_STATUSES = ("scheduled", "rescheduled", "completed")  # exclude 'canceled','no_show'
+# ----- Checking Availabilities -----
 
 # return all available times on a certain day
 def check_appt_availability(date_str: str, time_slots: list, tz_str: str = "America/Los_Angeles") -> list[str]:
@@ -862,9 +914,9 @@ def check_appt_availability(date_str: str, time_slots: list, tz_str: str = "Amer
     # return sys_prompt for llm and available_slots
     return sys_prompt, available_slots
 
-# -----Booking & Cancelling-----
+# -----Booking-----
 
-# update db with appt info
+# update db with all appt info
 def book_appointment(
     patient_id : int,
     call_id: int,
@@ -888,7 +940,7 @@ def book_appointment(
         session.refresh(appt)
     return appt
     
-# update status for appts that already happened
+# updates status for appts that already happened
 def sweep_completed():
     sql = text("""
         UPDATE appointments
@@ -899,7 +951,8 @@ def sweep_completed():
     with get_session() as s:
         s.execute(sql)
         s.commit()
-
+# sweeps database for appopintments that already happened upon running the program
+# changes the status to completed
 def start_scheduler():
     sch = BackgroundScheduler(timezone="UTC", daemon=True)
     sch.add_job(sweep_completed, "interval", minutes=1, id="appt_sweeper")
@@ -907,7 +960,7 @@ def start_scheduler():
     return sch
 
 
-# -----Appointment Cancelling-----
+# ----- Appointment Cancelling -----
 
 def patient_existing_appts(patient_id: int) -> list:
     
@@ -923,6 +976,7 @@ def patient_existing_appts(patient_id: int) -> list:
         # convert to local time strings
         scheduled_appts = [appt_local_parts(appt) for appt in results]
 
+        # prettify dates to be read by agent
         pretty_dates = []
         for appt in scheduled_appts: 
             pretty_date = f"{prettify_date(appt['date'])} at {appt['time']}{appt['ampm']}"
@@ -933,7 +987,7 @@ def patient_existing_appts(patient_id: int) -> list:
         elif len(pretty_dates) == 1:
             return f"You would like to cancel your appointment for {pretty_dates[0]}, correct?", scheduled_appts
         elif len(pretty_dates) > 1:
-            return f"We have you down for multiple appointments in our system: {pretty_dates[0:-1]} and {pretty_dates[-1]}. Please say the date and time of the appointment you would like to cancel.", scheduled_appts
+            return f"We have you down for multiple appointments in our system: {', '.join(pretty_dates[0:-1])} and {pretty_dates[-1]}. Please say the date and time of the appointment you would like to cancel.", scheduled_appts
         
 # cancel an appointment by changing the status
 def cancel_appointment(appt_id: int) -> bool:
@@ -944,3 +998,14 @@ def cancel_appointment(appt_id: int) -> bool:
         appt.status = "cancelled"
         s.commit()
         return True
+    
+# ----- Helpers -----
+
+# Helper to prepend messages that are meant to be spoken without taking user input again
+def prepend_prefix(text: str) -> str:
+    # nonlocal prepend_prefix
+    if reschedule_prefix:
+        combined = f"{reschedule_prefix} {text}"
+        reschedule_prefix = None  # makes sure we don't reuse it later in this turn
+        return combined
+    return text

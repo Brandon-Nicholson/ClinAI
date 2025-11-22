@@ -1,0 +1,343 @@
+text,label
+Yeah I don't want that one. Cancel it. heard the,CONFIRM
+"Yeah fuck it, I want to cancel that one.",CONFIRM
+Yeah cancel that shit,CONFIRM
+"Yeah, I want to schedule that one",CONFIRM
+"Screw it, yeah let's cancel that",CONFIRM
+"fuck yeah, cancel it.",CONFIRM
+"Yep, do that now. Cancel it now. what then",CONFIRM
+okay do it that's fine. were in the,CONFIRM
+Yeah I don't want that one. Cancel it.,CONFIRM
+Yeah I don't want that one. Cancel it.  thanks,CONFIRM
+Yeah I don't want that one. Cancel it.  okay,CONFIRM
+Yeah I don't want that one. Cancel it.  cool,CONFIRM
+Yeah I don't want that one. Cancel it.  whatever,CONFIRM
+"Yeah fuck it, I want to cancel that one.  thanks",CONFIRM
+"Yeah fuck it, I want to cancel that one.  okay",CONFIRM
+"Yeah fuck it, I want to cancel that one.  cool",CONFIRM
+"Yeah fuck it, I want to cancel that one.  whatever",CONFIRM
+Yeah cancel that shit.,CONFIRM
+Yeah cancel that shit.  thanks,CONFIRM
+Yeah cancel that shit.  okay,CONFIRM
+Yeah cancel that shit.  cool,CONFIRM
+Yeah cancel that shit.  whatever,CONFIRM
+"Screw it, yeah let's cancel that.",CONFIRM
+"Screw it, yeah let's cancel that.  thanks",CONFIRM
+"Screw it, yeah let's cancel that.  okay",CONFIRM
+"Screw it, yeah let's cancel that.  cool",CONFIRM
+"Screw it, yeah let's cancel that.  whatever",CONFIRM
+"Fuck yeah, cancel it.",CONFIRM
+"Fuck yeah, cancel it.  thanks",CONFIRM
+"Fuck yeah, cancel it.  okay",CONFIRM
+"Fuck yeah, cancel it.  cool",CONFIRM
+"Fuck yeah, cancel it.  whatever",CONFIRM
+"Yep, do that now. Cancel it now.",CONFIRM
+"Yep, do that now. Cancel it now.  thanks",CONFIRM
+"Yep, do that now. Cancel it now.  okay",CONFIRM
+"Yep, do that now. Cancel it now.  cool",CONFIRM
+"Yep, do that now. Cancel it now.  whatever",CONFIRM
+"Okay do it, that's fine. Cancel it.",CONFIRM
+"Okay do it, that's fine. Cancel it.  thanks",CONFIRM
+"Okay do it, that's fine. Cancel it.  okay",CONFIRM
+"Okay do it, that's fine. Cancel it.  cool",CONFIRM
+"Okay do it, that's fine. Cancel it.  whatever",CONFIRM
+Yeah go ahead and cancel that appointment.,CONFIRM
+Yeah go ahead and cancel that appointment.  thanks,CONFIRM
+Yeah go ahead and cancel that appointment.  okay,CONFIRM
+Yeah go ahead and cancel that appointment.  cool,CONFIRM
+Yeah go ahead and cancel that appointment.  whatever,CONFIRM
+"Yeah, cancel that time for me please.",CONFIRM
+"Yeah, cancel that time for me please.  thanks",CONFIRM
+"Yeah, cancel that time for me please.  okay",CONFIRM
+"Yeah, cancel that time for me please.  cool",CONFIRM
+"Yeah, cancel that time for me please.  whatever",CONFIRM
+"Yes, cancel that date and time.",CONFIRM
+"Yes, cancel that date and time.  thanks",CONFIRM
+"Yes, cancel that date and time.  okay",CONFIRM
+"Yes, cancel that date and time.  cool",CONFIRM
+"Yes, cancel that date and time.  whatever",CONFIRM
+"Cancel that one, that's the one I want gone.",CONFIRM
+"Cancel that one, that's the one I want gone.  thanks",CONFIRM
+"Cancel that one, that's the one I want gone.  okay",CONFIRM
+"Cancel that one, that's the one I want gone.  cool",CONFIRM
+"Cancel that one, that's the one I want gone.  whatever",CONFIRM
+"Yeah, cancel the appointment at 3 pm on Tuesday.",CONFIRM
+"Yeah, cancel the appointment at 3 pm on Tuesday.  thanks",CONFIRM
+"Yeah, cancel the appointment at 3 pm on Tuesday.  okay",CONFIRM
+"Yeah, cancel the appointment at 3 pm on Tuesday.  cool",CONFIRM
+"Yeah, cancel the appointment at 3 pm on Tuesday.  whatever",CONFIRM
+Yes cancel my 9 am on Friday.,CONFIRM
+Yes cancel my 9 am on Friday.  thanks,CONFIRM
+Yes cancel my 9 am on Friday.  okay,CONFIRM
+Yes cancel my 9 am on Friday.  cool,CONFIRM
+Yes cancel my 9 am on Friday.  whatever,CONFIRM
+Go ahead and cancel tomorrow morning's appointment.,CONFIRM
+Go ahead and cancel tomorrow morning's appointment.  thanks,CONFIRM
+Go ahead and cancel tomorrow morning's appointment.  okay,CONFIRM
+Go ahead and cancel tomorrow morning's appointment.  cool,CONFIRM
+Go ahead and cancel tomorrow morning's appointment.  whatever,CONFIRM
+"Yeah, let's cancel that visit, do it.",CONFIRM
+"Yeah, let's cancel that visit, do it.  thanks",CONFIRM
+"Yeah, let's cancel that visit, do it.  okay",CONFIRM
+"Yeah, let's cancel that visit, do it.  cool",CONFIRM
+"Yeah, let's cancel that visit, do it.  whatever",CONFIRM
+"Yeah, I want you to cancel that appointment time.",CONFIRM
+"Yeah, I want you to cancel that appointment time.  thanks",CONFIRM
+"Yeah, I want you to cancel that appointment time.  okay",CONFIRM
+"Yeah, I want you to cancel that appointment time.  cool",CONFIRM
+"Yeah, I want you to cancel that appointment time.  whatever",CONFIRM
+"Please cancel that slot, that's the one.",CONFIRM
+"Please cancel that slot, that's the one.  thanks",CONFIRM
+"Please cancel that slot, that's the one.  okay",CONFIRM
+"Please cancel that slot, that's the one.  cool",CONFIRM
+"Please cancel that slot, that's the one.  whatever",CONFIRM
+"That's fine, cancel that one for me.",CONFIRM
+"That's fine, cancel that one for me.  thanks",CONFIRM
+"That's fine, cancel that one for me.  okay",CONFIRM
+"That's fine, cancel that one for me.  cool",CONFIRM
+"That's fine, cancel that one for me.  whatever",CONFIRM
+"Yeah, just cancel that appointment now.",CONFIRM
+"Yeah, just cancel that appointment now.  thanks",CONFIRM
+"Yeah, just cancel that appointment now.  okay",CONFIRM
+"Yeah, just cancel that appointment now.  cool",CONFIRM
+"Yeah, just cancel that appointment now.  whatever",CONFIRM
+I'm confirming I want that appointment cancelled.,CONFIRM
+I'm confirming I want that appointment cancelled.  thanks,CONFIRM
+I'm confirming I want that appointment cancelled.  okay,CONFIRM
+I'm confirming I want that appointment cancelled.  cool,CONFIRM
+I'm confirming I want that appointment cancelled.  whatever,CONFIRM
+"Yeah, I want to schedule that one.",CONFIRM
+"Yeah, I want to schedule that one.  thanks",CONFIRM
+"Yeah, I want to schedule that one.  okay",CONFIRM
+"Yeah, I want to schedule that one.  cool",CONFIRM
+"Yeah, I want to schedule that one.  whatever",CONFIRM
+"Yep, that time works, schedule it.",CONFIRM
+"Yep, that time works, schedule it.  thanks",CONFIRM
+"Yep, that time works, schedule it.  okay",CONFIRM
+"Yep, that time works, schedule it.  cool",CONFIRM
+"Yep, that time works, schedule it.  whatever",CONFIRM
+"Yes, go ahead and book that appointment.",CONFIRM
+"Yes, go ahead and book that appointment.  thanks",CONFIRM
+"Yes, go ahead and book that appointment.  okay",CONFIRM
+"Yes, go ahead and book that appointment.  cool",CONFIRM
+"Yes, go ahead and book that appointment.  whatever",CONFIRM
+"Yeah, let's do that time, schedule it.",CONFIRM
+"Yeah, let's do that time, schedule it.  thanks",CONFIRM
+"Yeah, let's do that time, schedule it.  okay",CONFIRM
+"Yeah, let's do that time, schedule it.  cool",CONFIRM
+"Yeah, let's do that time, schedule it.  whatever",CONFIRM
+"Okay, that works for me, schedule that slot.",CONFIRM
+"Okay, that works for me, schedule that slot.  thanks",CONFIRM
+"Okay, that works for me, schedule that slot.  okay",CONFIRM
+"Okay, that works for me, schedule that slot.  cool",CONFIRM
+"Okay, that works for me, schedule that slot.  whatever",CONFIRM
+"Yes, confirm that appointment time for me.",CONFIRM
+"Yes, confirm that appointment time for me.  thanks",CONFIRM
+"Yes, confirm that appointment time for me.  okay",CONFIRM
+"Yes, confirm that appointment time for me.  cool",CONFIRM
+"Yes, confirm that appointment time for me.  whatever",CONFIRM
+"Yeah, lock that in, schedule it now.",CONFIRM
+"Yeah, lock that in, schedule it now.  thanks",CONFIRM
+"Yeah, lock that in, schedule it now.  okay",CONFIRM
+"Yeah, lock that in, schedule it now.  cool",CONFIRM
+"Yeah, lock that in, schedule it now.  whatever",CONFIRM
+"Yep that date and time is good, go ahead and schedule.",CONFIRM
+"Yep that date and time is good, go ahead and schedule.  thanks",CONFIRM
+"Yep that date and time is good, go ahead and schedule.  okay",CONFIRM
+"Yep that date and time is good, go ahead and schedule.  cool",CONFIRM
+"Yep that date and time is good, go ahead and schedule.  whatever",CONFIRM
+"Sounds good, schedule that appointment for me.",CONFIRM
+"Sounds good, schedule that appointment for me.  thanks",CONFIRM
+"Sounds good, schedule that appointment for me.  okay",CONFIRM
+"Sounds good, schedule that appointment for me.  cool",CONFIRM
+"Sounds good, schedule that appointment for me.  whatever",CONFIRM
+"Confirm that booking for me, yeah do it.",CONFIRM
+"Confirm that booking for me, yeah do it.  thanks",CONFIRM
+"Confirm that booking for me, yeah do it.  okay",CONFIRM
+"Confirm that booking for me, yeah do it.  cool",CONFIRM
+"Confirm that booking for me, yeah do it.  whatever",CONFIRM
+"Yeah, I approve that time, schedule it.",CONFIRM
+"Yeah, I approve that time, schedule it.  thanks",CONFIRM
+"Yeah, I approve that time, schedule it.  okay",CONFIRM
+"Yeah, I approve that time, schedule it.  cool",CONFIRM
+"Yeah, I approve that time, schedule it.  whatever",CONFIRM
+"I'm confirming that date and time, schedule it.",CONFIRM
+"I'm confirming that date and time, schedule it.  thanks",CONFIRM
+"I'm confirming that date and time, schedule it.  okay",CONFIRM
+"I'm confirming that date and time, schedule it.  cool",CONFIRM
+"I'm confirming that date and time, schedule it.  whatever",CONFIRM
+"Yes, I want that appointment, schedule it now.",CONFIRM
+"Yes, I want that appointment, schedule it now.  thanks",CONFIRM
+"Yes, I want that appointment, schedule it now.  okay",CONFIRM
+"Yes, I want that appointment, schedule it now.  cool",CONFIRM
+"Yes, I want that appointment, schedule it now.  whatever",CONFIRM
+"Yeah, let's confirm that appointment time.",CONFIRM
+"Yeah, let's confirm that appointment time.  thanks",CONFIRM
+"Yeah, let's confirm that appointment time.  okay",CONFIRM
+"Yeah, let's confirm that appointment time.  cool",CONFIRM
+"Yeah, let's confirm that appointment time.  whatever",CONFIRM
+"Yeah, I want to confirm that time and date.",CONFIRM
+"Yeah, I want to confirm that time and date.  thanks",CONFIRM
+"Yeah, I want to confirm that time and date.  okay",CONFIRM
+"Yeah, I want to confirm that time and date.  cool",CONFIRM
+"Yeah, I want to confirm that time and date.  whatever",CONFIRM
+Confirm that 9 am slot on Monday.,CONFIRM
+Confirm that 9 am slot on Monday.  thanks,CONFIRM
+Confirm that 9 am slot on Monday.  okay,CONFIRM
+Confirm that 9 am slot on Monday.  cool,CONFIRM
+Confirm that 9 am slot on Monday.  whatever,CONFIRM
+"Yes, schedule the 3:30 pm on Thursday.",CONFIRM
+"Yes, schedule the 3:30 pm on Thursday.  thanks",CONFIRM
+"Yes, schedule the 3:30 pm on Thursday.  okay",CONFIRM
+"Yes, schedule the 3:30 pm on Thursday.  cool",CONFIRM
+"Yes, schedule the 3:30 pm on Thursday.  whatever",CONFIRM
+"Yeah, that date works, please schedule it.",CONFIRM
+"Yeah, that date works, please schedule it.  thanks",CONFIRM
+"Yeah, that date works, please schedule it.  okay",CONFIRM
+"Yeah, that date works, please schedule it.  cool",CONFIRM
+"Yeah, that date works, please schedule it.  whatever",CONFIRM
+"Lock in that appointment time, I'm confirming it.",CONFIRM
+"Lock in that appointment time, I'm confirming it.  thanks",CONFIRM
+"Lock in that appointment time, I'm confirming it.  okay",CONFIRM
+"Lock in that appointment time, I'm confirming it.  cool",CONFIRM
+"Lock in that appointment time, I'm confirming it.  whatever",CONFIRM
+"Yeah, confirm and schedule that one.",CONFIRM
+"Yeah, confirm and schedule that one.  thanks",CONFIRM
+"Yeah, confirm and schedule that one.  okay",CONFIRM
+"Yeah, confirm and schedule that one.  cool",CONFIRM
+"Yeah, confirm and schedule that one.  whatever",CONFIRM
+"Yes, I am confirming that appointment on Monday at 8:00 am.",CONFIRM
+"Yes, I am confirming that appointment on Monday at 8:00 am.  thanks",CONFIRM
+"Yes, I am confirming that appointment on Monday at 8:00 am.  okay",CONFIRM
+"Yes, I am confirming that appointment on Monday at 8:00 am.  cool",CONFIRM
+"Yes, I am confirming that appointment on Monday at 8:00 am.  whatever",CONFIRM
+"Yes, I am confirming that appointment on Monday at 8:00 am.  dude",CONFIRM
+"Yes, I am confirming that appointment on Monday at 9:00 am.",CONFIRM
+"Yes, I am confirming that appointment on Monday at 9:00 am.  thanks",CONFIRM
+"Yes, I am confirming that appointment on Monday at 9:00 am.  okay",CONFIRM
+"Yes, I am confirming that appointment on Monday at 9:00 am.  cool",CONFIRM
+"Yes, I am confirming that appointment on Monday at 9:00 am.  whatever",CONFIRM
+"Yes, I am confirming that appointment on Monday at 9:00 am.  dude",CONFIRM
+"Yes, I am confirming that appointment on Monday at 10:30 am.",CONFIRM
+"Yes, I am confirming that appointment on Monday at 10:30 am.  thanks",CONFIRM
+"Yes, I am confirming that appointment on Monday at 10:30 am.  okay",CONFIRM
+"Yes, I am confirming that appointment on Monday at 10:30 am.  cool",CONFIRM
+"Yes, I am confirming that appointment on Monday at 10:30 am.  whatever",CONFIRM
+"Yes, I am confirming that appointment on Monday at 10:30 am.  dude",CONFIRM
+"Yes, I am confirming that appointment on Monday at 1:00 pm.",CONFIRM
+"Yes, I am confirming that appointment on Monday at 1:00 pm.  thanks",CONFIRM
+"Yes, I am confirming that appointment on Monday at 1:00 pm.  okay",CONFIRM
+"Yes, I am confirming that appointment on Monday at 1:00 pm.  cool",CONFIRM
+"Yes, I am confirming that appointment on Monday at 1:00 pm.  whatever",CONFIRM
+"Yes, I am confirming that appointment on Monday at 1:00 pm.  dude",CONFIRM
+"Yes, I am confirming that appointment on Monday at 3:30 pm.",CONFIRM
+"Yes, I am confirming that appointment on Monday at 3:30 pm.  thanks",CONFIRM
+"Yes, I am confirming that appointment on Monday at 3:30 pm.  okay",CONFIRM
+"Yes, I am confirming that appointment on Monday at 3:30 pm.  cool",CONFIRM
+"Yes, I am confirming that appointment on Monday at 3:30 pm.  whatever",CONFIRM
+"Yes, I am confirming that appointment on Monday at 3:30 pm.  dude",CONFIRM
+"Yes, I am confirming that appointment on Monday at 4:00 pm.",CONFIRM
+"Yes, I am confirming that appointment on Monday at 4:00 pm.  thanks",CONFIRM
+"Yes, I am confirming that appointment on Monday at 4:00 pm.  okay",CONFIRM
+"Yes, I am confirming that appointment on Monday at 4:00 pm.  cool",CONFIRM
+"Yes, I am confirming that appointment on Monday at 4:00 pm.  whatever",CONFIRM
+"Yes, I am confirming that appointment on Monday at 4:00 pm.  dude",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 8:00 am.",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 8:00 am.  thanks",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 8:00 am.  okay",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 8:00 am.  cool",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 8:00 am.  whatever",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 8:00 am.  dude",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 9:00 am.",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 9:00 am.  thanks",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 9:00 am.  okay",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 9:00 am.  cool",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 9:00 am.  whatever",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 9:00 am.  dude",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 10:30 am.",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 10:30 am.  thanks",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 10:30 am.  okay",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 10:30 am.  cool",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 10:30 am.  whatever",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 10:30 am.  dude",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 1:00 pm.",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 1:00 pm.  thanks",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 1:00 pm.  okay",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 1:00 pm.  cool",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 1:00 pm.  whatever",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 1:00 pm.  dude",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 3:30 pm.",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 3:30 pm.  thanks",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 3:30 pm.  okay",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 3:30 pm.  cool",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 3:30 pm.  whatever",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 3:30 pm.  dude",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 4:00 pm.",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 4:00 pm.  thanks",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 4:00 pm.  okay",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 4:00 pm.  cool",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 4:00 pm.  whatever",CONFIRM
+"Yes, I am confirming that appointment on Tuesday at 4:00 pm.  dude",CONFIRM
+"Yes, I am confirming that appointment on Wednesday at 8:00 am.",CONFIRM
+"Yes, I am confirming that appointment on Wednesday at 8:00 am.  thanks",CONFIRM
+"Yes, I am confirming that appointment on Wednesday at 8:00 am.  okay",CONFIRM
+"Yes, I am confirming that appointment on Wednesday at 8:00 am.  cool",CONFIRM
+"Yes, I am confirming that appointment on Wednesday at 8:00 am.  whatever",CONFIRM
+"Yes, I am confirming that appointment on Wednesday at 8:00 am.  dude",CONFIRM
+"Yes, I am confirming that appointment on Wednesday at 9:00 am.",CONFIRM
+"Yes, I am confirming that appointment on Wednesday at 9:00 am.  thanks",CONFIRM
+"Yes, I am confirming that appointment on Wednesday at 9:00 am.  okay",CONFIRM
+"Yes, I am confirming that appointment on Wednesday at 9:00 am.  cool",CONFIRM
+"Yes, I am confirming that appointment on Wednesday at 9:00 am.  whatever",CONFIRM
+"Yes, I am confirming that appointment on Wednesday at 9:00 am.  dude",CONFIRM
+"Yes, I am confirming that appointment on Wednesday at 10:30 am.",CONFIRM
+"Yes, I am confirming that appointment on Wednesday at 10:30 am.  thanks",CONFIRM
+"Yes, I am confirming that appointment on Wednesday at 10:30 am.  okay",CONFIRM
+"Yes, I am confirming that appointment on Wednesday at 10:30 am.  cool",CONFIRM
+"Yes, I am confirming that appointment on Wednesday at 10:30 am.  whatever",CONFIRM
+"Yes, I am confirming that appointment on Wednesday at 10:30 am.  dude",CONFIRM
+"Yes, I am confirming that appointment on Wednesday at 1:00 pm.",CONFIRM
+"Yes, I am confirming that appointment on Wednesday at 1:00 pm.  thanks",CONFIRM
+"Yes, I am confirming that appointment on Wednesday at 1:00 pm.  okay",CONFIRM
+"Yes, i dont want that one",CONFIRM
+"Yeah i dont want that one",CONFIRM
+"Yes, cancel that one",CONFIRM
+"okay cancel that one.",CONFIRM
+"Yea cancel that appointment for me.",CONFIRM
+"correct i dont want that one",CONFIRM
+"correct, i don't want that one",CONFIRM
+"yep get rid of it.",CONFIRM
+"Yes, i do want that one",CONFIRM
+"yuh i want that one",CONFIRM
+"Ya give me that appointment please",CONFIRM
+"ya thanks",CONFIRM
+"Yes ill take that one",CONFIRM
+"right, thank you",CONFIRM
+"thats right ill take that one",CONFIRM
+"Yeah i dont want that appointment",CONFIRM
+"exactly, cancel it",CONFIRM
+"Exactly schedule that",CONFIRM
+"That is the correct date and time",CONFIRM
+"That is correct",CONFIRM
+"thats the correct one",CONFIRM
+"You got it right",CONFIRM
+"YUP, you got it",CONFIRM
+"indeed, good job ava",CONFIRM
+"indeed thats correct",CONFIRM
+"True",CONFIRM
+"Thats true",CONFIRM
+"Of course, yes",CONFIRM
+"affirmative",CONFIRM
+"affirmative cancel that",CONFIRM
+"affirmative, schedule that one",CONFIRM
+"Absolutely",CONFIRM
+"absolutely correct",CONFIRM
+"Yes, i dont want that one",CONFIRM
+"ummmm ya thats it",CONFIRM
+"uh yeah that's the one",CONFIRM
+"Certainly, thank you",CONFIRM
+"Yeah now lets do another one",CONFIRM
+"yes can you help me with something else too?",CONFIRM
+"yeah now I need help with something else.",CONFIRM
+"yeah but i also need a refill if possible.",CONFIRM
+"yes that works. Could you do something else for me?",CONFIRM

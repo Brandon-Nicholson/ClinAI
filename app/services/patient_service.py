@@ -1,26 +1,8 @@
-# services/patient_service.py
+# app/services/patient_service.py
 from datetime import date
 from sqlalchemy import select, func
 from app.db.session import get_session
 from app.db.models import Patient
-
-# helper functions
-def get_by_phone(phone: str):
-    with get_session() as s:
-        return s.execute(select(Patient).where(Patient.phone == phone)).scalar_one_or_none()
-
-def get_by_id(pid: int):
-    with get_session() as s:
-        return s.get(Patient, pid)
-
-def ensure_mrn(pid: int):
-    with get_session() as s:
-        p = s.get(Patient, pid)
-        if p and (p.mrn is None or p.mrn == ""):
-            p.mrn = f"MRN{p.id:03d}"
-            s.commit()
-            s.refresh(p)
-        return p
 
 # add new patient or update missing patient info
 def intake_patient(first_name: str, last_name: str, phone: str, dob: date | None = None) -> Patient:
@@ -52,3 +34,22 @@ def intake_patient(first_name: str, last_name: str, phone: str, dob: date | None
         s.commit()
         s.refresh(patient)
         return patient
+
+
+# helper functions
+def get_by_phone(phone: str):
+    with get_session() as s:
+        return s.execute(select(Patient).where(Patient.phone == phone)).scalar_one_or_none()
+
+def get_by_id(pid: int):
+    with get_session() as s:
+        return s.get(Patient, pid)
+
+def ensure_mrn(pid: int):
+    with get_session() as s:
+        p = s.get(Patient, pid)
+        if p and (p.mrn is None or p.mrn == ""):
+            p.mrn = f"MRN{p.id:03d}"
+            s.commit()
+            s.refresh(p)
+        return p

@@ -61,37 +61,26 @@ class Appointment(Base):
     __tablename__ = "appointments"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
-
-    # who / provenance
     patient_id: Mapped[int] = mapped_column(ForeignKey("patients.id"), index=True)
     call_id: Mapped[Optional[int]] = mapped_column(ForeignKey("calls.id", ondelete="SET NULL"), nullable=True)
-
-    # when
-    starts_at: Mapped[datetime] = mapped_column(TIMESTAMP(timezone=True), index=True)  # canonical, tz-aware
-    duration_min: Mapped[int] = mapped_column(Integer, default=30, server_default="30")
-
-    # clinic time zone (string like "America/Los_Angeles"); useful if you serve multiple clinics
-    clinic_tz: Mapped[str] = mapped_column(String(64), default="America/Los_Angeles", server_default="America/Los_Angeles")
-
-    # reason for appt
-    reason: Mapped[Optional[str]] = mapped_column(Text)
-
-    # bookkeeping
-    created_at: Mapped[datetime] = mapped_column(TIMESTAMP(timezone=True), server_default=func.now())
     
-    # appt status
+    starts_at: Mapped[datetime] = mapped_column(TIMESTAMP(timezone=True), index=True)
+    duration_min: Mapped[int] = mapped_column(Integer, default=30, server_default="30")
+    clinic_tz: Mapped[str] = mapped_column(String(64), default="America/Los_Angeles", server_default="America/Los_Angeles")
+    
+    reason: Mapped[Optional[str]] = mapped_column(Text)
+    created_at: Mapped[datetime] = mapped_column(TIMESTAMP(timezone=True), server_default=func.now())
     status: Mapped[str] = mapped_column(Text, default="scheduled", nullable=False)
-
+    
     patient: Mapped[Patient] = relationship(back_populates="appointments")
 
 class RefillRequest(Base):
     __tablename__ = "refill_requests"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    patient_id: Mapped[int] = mapped_column(ForeignKey("patients.id"), index=True)
     call_id: Mapped[int] = mapped_column(ForeignKey("calls.id", ondelete="CASCADE"), unique=True)
     drug_name: Mapped[Optional[str]] = mapped_column(Text)
-    dosage: Mapped[Optional[str]] = mapped_column(Text)
-    pharmacy: Mapped[Optional[str]] = mapped_column(Text)
     last_fill_date: Mapped[Optional[Date]] = mapped_column(Date)
 
 class Analytics(Base):

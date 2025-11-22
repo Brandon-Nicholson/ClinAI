@@ -18,15 +18,11 @@ Thumbs.db
 
 # Passwords
 .env
-
+.env.*
 # Dev notes/ideas
 notes
 
 # classifiers
 classifiers/intent_model/intent_classifier/
 classifiers/appt_context_model/appt_context_classifier/
-classifiers/appt_confirmation_model/appt_confirmation_classifier/
-classifiers/appt_availability_model/appt_availability_classifier/
-
-
-
+classifiers/confirmation_model/confirmation_classifier/

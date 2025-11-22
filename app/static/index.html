@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Mobile-friendly scaling -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>ClinAI Demo</title>
+    <style>
+      /* =============================
+         Layout + overall page styling
+         Dark & modern theme
+         ============================= */
+      /* ===== Base layout ===== */
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        background: radial-gradient(
+          circle at top,
+          #111111 0,
+          #050505 45%,
+          #020308 100%
+        );
+        color: #e5e7eb;
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 900px;
+        width: 100%;
+        padding: 1.5rem;
+        box-sizing: border-box;
+      }
+
+      .card {
+        position: relative;
+        background: rgba(10, 10, 12, 0.96);
+        border-radius: 0.9rem;
+        padding: 1.4rem 1.6rem;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9),
+          0 0 0 1px rgba(63, 63, 70, 0.85);
+        overflow: hidden;
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        inset: -40%;
+        background: radial-gradient(
+            circle at top left,
+            #0a84ff44,
+            transparent 55%
+          ),
+          radial-gradient(
+            circle at bottom right,
+            rgba(148, 163, 184, 0.12),
+            transparent 55%
+          );
+        opacity: 0.5;
+        filter: blur(20px);
+        pointer-events: none;
+      }
+
+      .card.session-active::after {
+        /* Animated ring that shows up when a session is active */
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        border: 1px solid rgba(148, 163, 184, 0.7);
+        box-shadow: 0 0 26px rgba(148, 163, 184, 0.5);
+        pointer-events: none;
+        animation: sessionRing 3s ease-in-out infinite;
+      }
+
+      @keyframes sessionRing {
+        0% {
+          opacity: 0.3;
+        }
+        50% {
+          opacity: 1;
+          box-shadow: 0 0 40px rgba(148, 163, 184, 0.7);
+        }
+        100% {
+          opacity: 0.3;
+        }
+      }
+
+      h1 {
+        margin: 0 0 0.4rem;
+        font-size: 1.55rem;
+        letter-spacing: 0.04em;
+      }
+
+      .subtitle {
+        font-size: 0.9rem;
+        color: #9ca3af;
+        margin-bottom: 1.1rem;
+      }
+
+      .row {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .row > div {
+        flex: 1;
+        min-width: 120px;
+      }
+
+      /* ---------- ClinAI Tips Box (Desktop Base)
+         Little “what Ava can do” cheat sheet above the chat
+         ---------- */
+      .clinai-tips {
+        margin-top: 12px;
+        margin-bottom: 22px;
+        padding: 16px 20px;
+        background: radial-gradient(circle at top left,
+            rgba(15, 23, 42, 0.95),
+            rgba(3, 7, 18, 0.98));
+        border-radius: 12px;
+        border: 1px solid rgba(148, 163, 184, 0.35);
+        color: #e5e7eb;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+      }
+
+      .clinai-tips strong {
+        display: block;
+        font-size: 1.02rem;
+        margin-bottom: 6px;
+        letter-spacing: 0.04em;
+      }
+
+      .clinai-tips ul {
+        margin: 4px 0 0 0 !important;
+        padding: 0 !important;
+        list-style: none;
+      }
+
+      .clinai-tips li {
+        position: relative;
+        padding-left: 18px;
+        margin-bottom: 2px;
+      }
+
+      .clinai-tips li::before {
+        /* Custom checkmark bullets */
+        content: "✓";
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 0.85rem;
+        color: #0a84ff;
+      }
+
+      .clinai-tips img {
+        width: 80px;
+        height: 80px;
+        flex-shrink: 0;
+        opacity: 0.96;
+        filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.7));
+        transition: transform 0.25s ease, opacity 0.25s ease;
+      }
+
+      .clinai-tips:hover img {
+        transform: translateY(-2px) scale(1.03);
+        opacity: 1;
+      }
+
+      /* ===== Form elements (patient intake section) ===== */
+      label {
+        display: block;
+        font-size: 0.75rem;
+        margin-bottom: 0.15rem;
+        color: #8b93a3;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      input {
+        width: 100%;
+        padding: 0.45rem 0.6rem;
+        border-radius: 0.45rem;
+        border: 1px solid #3f3f46;
+        background: #050507;
+        color: #e5e7eb;
+        box-sizing: border-box;
+        font-size: 0.9rem;
+        transition: border-color 140ms ease-out, box-shadow 140ms ease-out,
+          background 140ms ease-out, transform 80ms ease-out;
+      }
+
+      input::placeholder {
+        color: #6b7280;
+      }
+
+      input:focus {
+        outline: none;
+        border-color: #0a84ff;
+        box-shadow: 0 0 0 1px #0a84ff55, 0 0 26px #0a84ff33;
+        background: #020510;
+        transform: translateY(-0.5px);
+      }
+
+      .dob-group {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .dob-row {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .dob-row input {
+        width: 3.6rem;
+        text-align: center;
+      }
+
+      #dob_year {
+        width: 4.4rem;
+      }
+
+      .dob-separator {
+        color: #9ca3af;
+        font-size: 0.9rem;
+      }
+
+      .dob-hint {
+        color: #9ca3af;
+        font-size: 0.7rem;
+      }
+
+      /* ===== Buttons ===== */
+      button {
+        border: none;
+        border-radius: 999px;
+        padding: 0.5rem 1rem;
+        font-size: 0.86rem;
+        cursor: pointer;
+        background: linear-gradient(135deg, #0a84ff, #3b82f6);
+        color: #f9fafb;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.8),
+          0 0 0 1px rgba(15, 23, 42, 0.9);
+        transition: transform 120ms ease-out, box-shadow 120ms ease-out,
+          filter 120ms ease-out;
+      }
+
+      button:hover:not(:disabled) {
+        transform: translateY(-1px);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.9),
+          0 0 20px rgba(59, 130, 246, 0.5);
+        filter: brightness(1.02);
+      }
+
+      button:active:not(:disabled) {
+        transform: translateY(0);
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.8),
+          0 0 10px rgba(59, 130, 246, 0.35);
+      }
+
+      button:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+        box-shadow: 0 0 0 1px rgba(55, 65, 81, 0.85);
+      }
+
+      .start-btn-wrapper {
+        margin-top: 6px;
+        text-align: right; /* desktop: button aligned to the right */
+      }
+
+
+      /* ===== Chat window ===== */
+      .chat {
+        margin-top: 1rem;
+        border-radius: 0.9rem;
+        background: #050608;
+        border: 1px solid #283041;
+        display: flex;
+        flex-direction: column;
+        height: 440px;
+        overflow: hidden;
+        box-shadow: 0 22px 45px rgba(0, 0, 0, 0.9);
+        position: relative;
+      }
+
+      .chat::before {
+        /* Soft top gradient over the messages area */
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 52px;
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.06),
+          transparent
+        );
+        pointer-events: none;
+      }
+
+      .messages {
+        flex: 1;
+        padding: 0.9rem;
+        overflow-y: auto;
+        font-size: 0.9rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* subtle custom scrollbar */
+      .messages::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      .messages::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      .messages::-webkit-scrollbar-thumb {
+        background: #374151;
+        border-radius: 999px;
+      }
+
+      /* when new messages arrive, .has-new pulses the scrollbar */
+      .messages.has-new::-webkit-scrollbar-thumb {
+        animation: scrollPulse 1.1s ease-out 3;
+      }
+
+      @keyframes scrollPulse {
+        0% {
+          background: #374151;
+        }
+        50% {
+          background: #0a84ff;
+        }
+        100% {
+          background: #374151;
+        }
+      }
+
+      .msg {
+        margin-bottom: 0.55rem;
+        max-width: 90%;
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.8rem;
+        line-height: 1.4;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        position: relative;
+        opacity: 0;
+        transform: translateY(4px);
+        animation: messageIn 0.22s ease-out forwards;
+      }
+
+      @keyframes messageIn {
+        0% {
+          opacity: 0;
+          transform: translateY(6px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .msg.user {
+        background: linear-gradient(135deg, #111827, #020617);
+        border: 1px solid #283041;
+        align-self: flex-end;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.7);
+      }
+
+      .msg.user::before {
+        /* Small blue dot “tail” on user bubbles */
+        content: "";
+        position: absolute;
+        right: -4px;
+        bottom: 6px;
+        width: 6px;
+        height: 6px;
+        border-radius: 999px;
+        background: #0a84ff;
+      }
+
+      .msg.agent {
+        background: #020617;
+        border: 1px solid #283041;
+        align-self: flex-start;
+      }
+
+      .msg.agent::before {
+        /* Purple dot “tail” for agent bubbles */
+        content: "";
+        position: absolute;
+        left: -4px;
+        bottom: 6px;
+        width: 6px;
+        height: 6px;
+        border-radius: 999px;
+        background: #6366f1;
+      }
+
+      .msg.meta {
+        /* Meta messages are centered status lines (session start, errors, etc.) */
+        background: transparent;
+        color: #6b7280;
+        font-size: 0.75rem;
+        padding: 0.1rem 0;
+        text-align: center;
+        align-self: center;
+        opacity: 1;
+        transform: none;
+        animation: none;
+      }
+
+      .composer {
+        /* Input area at the bottom of the chat */
+        border-top: 1px solid #283041;
+        padding: 0.6rem 0.65rem;
+        display: flex;
+        gap: 0.5rem;
+        background: #020308;
+        position: relative;
+        z-index: 2;
+      }
+
+      .composer input {
+        flex: 1;
+        font-size: 0.9rem;
+      }
+
+      .typing-indicator {
+        /* Hidden by default, shown while Ava is “thinking” */
+        display: none;
+        align-items: center;
+        gap: 0.35rem;
+        font-size: 0.8rem;
+        color: #9ca3af;
+        padding: 0.2rem 0.3rem 0.25rem;
+        margin-left: 0.2rem;
+        margin-bottom: 0.1rem;
+      }
+
+      .typing-indicator.visible {
+        display: inline-flex;
+      }
+
+      .typing-dots {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+      }
+
+      .typing-dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 999px;
+        background: #0a84ff;
+        opacity: 0.3;
+        animation: typingBounce 1s infinite ease-in-out;
+      }
+
+      .typing-dot:nth-child(2) {
+        animation-delay: 0.15s;
+      }
+
+      .typing-dot:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+
+      @keyframes typingBounce {
+        0%,
+        80%,
+        100% {
+          transform: translateY(0);
+          opacity: 0.3;
+        }
+        40% {
+          transform: translateY(-3px);
+          opacity: 1;
+        }
+      }
+
+      /* ===== Status & pill at bottom (session status + voice toggle) ===== */
+      .status {
+        margin-top: 0.7rem;
+        font-size: 0.8rem;
+        color: #9ca3af;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.2rem 0.75rem;
+        border-radius: 999px;
+        background: #020617;
+        border: 1px solid #283041;
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .pill-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        background: #0a84ff;
+        box-shadow: 0 0 8px rgba(10, 132, 255, 0.7);
+        animation: dotPulse 1.3s ease-in-out infinite;
+      }
+
+      @keyframes dotPulse {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.35);
+          opacity: 0.55;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      /* ===== Returning patient toggle (checkbox) ===== */
+      .returning-toggle {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .returning-toggle input[type="checkbox"] {
+        width: 22px;
+        height: 22px;
+        cursor: pointer;
+        accent-color: #0a84ff;
+      }
+
+      .returning-toggle label {
+        font-size: 1.05rem;
+        cursor: pointer;
+        color: #e5e7eb;
+      }
+
+      /* Mic button visual pulse while recording */
+      #mic_btn {
+        position: relative;
+        overflow: visible;
+      }
+
+      #mic_btn.mic-active::before {
+        content: "";
+        position: absolute;
+        inset: -4px;
+        border-radius: 999px;
+        border: 2px solid rgba(148, 163, 184, 0.8);
+        opacity: 0.9;
+        animation: micPulse 1.1s ease-out infinite;
+      }
+
+      #mic_btn.mic-active {
+        box-shadow: 0 0 12px rgba(148, 163, 184, 0.7);
+      }
+
+      @keyframes micPulse {
+        0% {
+          transform: scale(1);
+          opacity: 0.9;
+        }
+        100% {
+          transform: scale(1.35);
+          opacity: 0;
+        }
+      }
+
+      /* ===== Voice toggle (turn agent audio on/off) ===== */
+      .voice-toggle-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .voice-label {
+        font-size: 0.85rem;
+        color: #d1d5db;
+      }
+
+      .voice-switch {
+        position: relative;
+        display: inline-block;
+        width: 48px;
+        height: 26px;
+      }
+
+      .voice-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .voice-switch .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #4b5563;
+        transition: 0.25s;
+        border-radius: 34px;
+      }
+
+      .voice-switch .slider:before {
+        position: absolute;
+        content: "";
+        height: 20px;
+        width: 20px;
+        left: 3px;
+        bottom: 3px;
+        background-color: #e5e7eb;
+        transition: 0.25s;
+        border-radius: 50%;
+      }
+
+      .voice-switch input:checked + .slider {
+        background-color: #0a84ff;
+      }
+
+      .voice-switch input:checked + .slider:before {
+        transform: translateX(22px);
+      }
+
+      /* ---------- Start session button base + ready state ---------- */
+
+      /* Default (inactive state). Visually dimmed until intake is valid. */
+      .start-btn-wrapper button {
+        background: linear-gradient(135deg, #005dcc 0%, #006ee9 100%);
+        opacity: 0.65;
+        cursor: pointer; /* keep clickable; JS still validates */
+        box-shadow: none;
+        transition: all 0.35s ease;
+        border: none;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 1.05rem;
+        padding: 0.75rem 1.8rem;
+      }
+
+      /* Active electric glow (when .ready is added via JS) */
+      .start-btn-wrapper button.ready {
+        opacity: 1;
+        background: linear-gradient(135deg, #007aff 0%, #0aa5ff 100%);
+        box-shadow:
+          0 6px 15px rgba(0, 122, 255, 0.45),
+          inset 0 0 10px rgba(255, 255, 255, 0.3);
+        transform: translateY(-1px);
+      }
+
+      /* Hover + press only applies when activated */
+      .start-btn-wrapper button.ready:hover {
+        transform: translateY(-3px);
+        box-shadow:
+          0 12px 20px rgba(0, 122, 255, 0.55),
+          inset 0 0 12px rgba(255, 255, 255, 0.4);
+      }
+
+      .start-btn-wrapper button.ready:active {
+        transform: translateY(0);
+        box-shadow:
+          0 6px 12px rgba(0, 122, 255, 0.35),
+          inset 0 0 6px rgba(255, 255, 255, 0.25);
+      }
+
+
+      /* ========== Mobile layout tweaks ==========
+         Mostly shrinking padding and reflowing columns to vertical
+         ========================================= */
+      @media (max-width: 768px) {
+        body {
+          align-items: flex-start;
+        }
+
+        .container {
+          max-width: 100%;
+          padding: 0.75rem;
+        }
+
+        .card {
+          padding: 1.1rem 1.1rem 1.3rem;
+          border-radius: 0.75rem;
+          box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85);
+        }
+
+        h1 {
+          font-size: 1.25rem;
+        }
+
+        .subtitle {
+          font-size: 0.8rem;
+        }
+
+        .start-btn-wrapper {
+          text-align: center;       /* mobile: center the button */
+          margin-top: 10px;
+          margin-bottom: 8px;       /* sits right above the chat box */
+        }
+
+        /* stack form fields instead of cramming them in one row */
+        .row {
+          flex-direction: column;
+          gap: 0.4rem;
+        }
+
+        /* make the top tips box breathe + stack content */
+        .clinai-tips {
+          padding: 14px 14px 16px;
+          flex-direction: column;
+          align-items: flex-start;
+          text-align: left;
+          gap: 10px;
+        }
+
+        .clinai-tips img {
+          display: none; /* hide assistant image on mobile */
+        }
+
+        /* Ava badge beside title (mobile only) */
+        .title-with-ava {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .ava-title-badge {
+          display: inline-block;
+          width: 34px;
+          height: 34px;
+          flex-shrink: 0;
+          filter: drop-shadow(0 0 6px rgba(0,0,0,0.6));
+          opacity: 0.95;
+        }
+
+        /* optional hover animation for fun */
+        .ava-title-badge:hover {
+          transform: scale(1.06);
+          opacity: 1;
+        }
+
+        /* slightly shorter chat area so everything fits on screen */
+        .chat {
+          height: 360px;
+        }
+
+        .messages {
+          padding: 0.75rem;
+          font-size: 0.86rem;
+        }
+
+        .composer {
+          padding: 0.5rem;
+          gap: 0.4rem;
+        }
+
+        .composer input {
+          font-size: 0.86rem;
+        }
+
+        button {
+          padding: 0.45rem 0.85rem;
+          font-size: 0.83rem;
+        }
+
+        .status {
+          font-size: 0.76rem;
+        }
+
+        .voice-label {
+          font-size: 0.8rem;
+        }
+      }
+
+      /* super small screens */
+      @media (max-width: 480px) {
+        .chat {
+          height: 320px;
+        }
+
+        h1 {
+          font-size: 1.15rem;
+        }
+
+        .clinai-tips {
+          font-size: 0.85rem;
+        }
+      }
+
+      /* Desktop: show Ava in tips box, hide Ava in title */
+      @media (min-width: 769px) {
+        .ava-title-badge {
+          display: none; /* hide title Ava on desktop */
+        }
+        .clinai-tips img {
+          display: block; /* show Ava in boxed tips section */
+        }
+      }
+
+      /* Mobile + small tablets: hide Ava in tips, show beside title */
+      @media (max-width: 768px) {
+        .clinai-tips img {
+          display: none; /* hide Ava inside tips box on mobile */
+        }
+
+        /* Prevent iPhone Safari zoom on form focus by forcing font size */
+        input,
+        select,
+        textarea {
+          font-size: 16px !important;
+        }
+
+        /* show title Ava instead */
+        .ava-title-badge {
+          display: inline-block;
+          width: 30px;
+          height: 30px;
+          flex-shrink: 0;
+          filter: drop-shadow(0 0 6px rgba(0,0,0,0.6));
+          opacity: 0.95;
+        }
+
+        .title-with-ava {
+          display: flex;
+          white-space: nowrap; /* prevent text wrapping */
+          justify-content: space-between;
+          align-items: center;
+          gap: 6px;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <!-- Header: title + Ava avatar (avatar location changes via media queries) -->
+        <h1 class="title-with-ava">
+          ClinAI Voice Agent (Web Demo)
+          <img class="ava-title-badge"
+              src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png"
+              alt="Ava" />
+        </h1>
+
+        <!-- Short “What Ava can do” cheat sheet for new users -->
+        <div class="clinai-tips">
+          <div>
+            <strong>Ava can help you with:</strong>
+            <ul style="margin: 6px 0 0 18px; padding: 0">
+              <li>Clinic information (hours, address, etc.)</li>
+              <li>Scheduling new appointments</li>
+              <li>Rescheduling appointments</li>
+              <li>Cancelling appointments</li>
+              <li>Prescription refill requests</li>
+              <li>Transferring you to a human representative</li>
+            </ul>
+          </div>
+
+          <!-- On desktop, Ava image shows here; hidden on mobile via CSS -->
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png"
+            alt="Healthcare bot"
+          />
+        </div>
+
+        <div class="subtitle">
+          Fill in the mock patient info, click <strong>Start session</strong>,
+          then chat with Ava.
+        </div>
+
+        <!-- New-patient intake fields; disabled when "Returning patient" is checked -->
+        <div id="full-intake-fields">
+          <div class="row">
+            <div>
+              <label for="first_name">First name</label>
+              <input id="first_name" value="" />
+            </div>
+            <div>
+              <label for="last_name">Last name</label>
+              <input id="last_name" value="" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="dob-group">
+              <label>Date of birth (MM / DD / YYYY)</label>
+              <div class="dob-row">
+                <input
+                  id="dob_month"
+                  placeholder="MM"
+                  inputmode="numeric"
+                  maxlength="2"
+                />
+                <span class="dob-separator">/</span>
+                <input
+                  id="dob_day"
+                  placeholder="DD"
+                  inputmode="numeric"
+                  maxlength="2"
+                />
+                <span class="dob-separator">/</span>
+                <input
+                  id="dob_year"
+                  placeholder="YYYY"
+                  inputmode="numeric"
+                  maxlength="4"
+                />
+              </div>
+              <small class="dob-hint">(MM / DD / YYYY)</small>
+            </div>
+          </div>
+        </div>
+        <!-- Phone is always required -->
+        <div class="row">
+          <div>
+            <label for="phone">Phone</label>
+            <input id="phone" value="" />
+          </div>
+
+          <!-- returning patient toggle -->
+          <div class="returning-toggle">
+            <input type="checkbox" id="returning-patient-toggle" />
+            <label for="returning-patient-toggle"
+              >I'm a returning patient</label
+            >
+          </div>
+        </div>
+
+        <!-- Intake hint/help text under the phone + returning toggle -->
+        <p
+          id="intake-hint"
+          style="font-size: 12px; color: #ccc; margin-top: 4px"
+        >
+          New patient? Complete the registration form. If you're already registered,
+          check the box.
+        </p>
+
+        <!-- Start session button (enabled when intake passes the checks in JS) -->
+        <div class="start-btn-wrapper">
+          <button id="start_btn">Start session</button>
+        </div>
+
+        <!-- Main chat container: messages + typing indicator + composer -->
+        <div class="chat">
+          <!-- Messages from user + Ava are appended here via JS -->
+          <div id="messages" class="messages"></div>
+
+          <!-- Typing indicator lives inside chat, above composer -->
+          <div id="typing_indicator" class="typing-indicator">
+            <span>Ava is thinking</span>
+            <span class="typing-dots">
+              <span class="typing-dot"></span>
+              <span class="typing-dot"></span>
+              <span class="typing-dot"></span>
+            </span>
+          </div>
+
+          <!-- Hidden audio element for Ava's voice (TTS playback) -->
+          <audio id="agent_audio" style="display: none"></audio>
+
+          <!-- Composer: text input + mic button + send button -->
+          <div class="composer">
+            <input
+              id="user_input"
+              placeholder="Type here..."
+              autocomplete="off"
+            />
+            <!-- Mic button (uses local machine microphone via backend) -->
+            <button
+              id="mic_btn"
+              disabled
+              title="Talk instead of typing"
+              style="font-size: 1.45rem"
+            >
+              🎙️
+            </button>
+            <button id="send_btn" disabled>Send</button>
+          </div>
+        </div>
+
+        <!-- Bottom status row:
+             - Left: session status pill (active / idle / error)
+             - Right: toggle for enabling/disabling agent voice playback -->
+        <div class="status" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+  
+        <!-- left side: session status pill -->
+          <span class="pill" id="status_pill">
+            <span class="pill-dot" id="pill_dot" style="background: #6b7280"></span>
+            <span id="status_text">No active session</span>
+          </span>
+
+        <!-- right side: agent voice toggle -->
+        <div class="voice-toggle-row">
+          <label for="voice_toggle" class="voice-label">Agent voice</label>
+          <label class="voice-switch">
+            <input type="checkbox" id="voice_toggle" checked />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+    <script>
+      // =======================
+      // DOM lookups + state
+      // =======================
+      const startBtn = document.getElementById("start_btn");
+      const sendBtn = document.getElementById("send_btn");
+      const userInput = document.getElementById("user_input");
+      const messagesDiv = document.getElementById("messages");
+      const statusText = document.getElementById("status_text");
+      const pillDot = document.getElementById("pill_dot");
+      const micBtn = document.getElementById("mic_btn");
+      const agentAudio = document.getElementById("agent_audio");
+
+      // Voice + recording state flags
+      let micActive = false; // true while in a voice turn
+      let agentVoiceEnabled = true;
+      let mediaRecorder = null;
+      let audioChunks = [];
+      let recording = false; // are we currently capturing audio?
+      let audioStream = null;
+      let audioContext = null;
+      let analyserNode = null;
+
+      // Silence detection settings for auto-stop recording
+      const SILENCE_THRESHOLD = 0.01;   // RMS amplitude
+      const SILENCE_TIMEOUT_MS = 3000;  // how long of silence before auto-stop (1.2s)
+
+      const voiceToggle = document.getElementById("voice_toggle");
+      const fullIntakeFields = document.getElementById("full-intake-fields");
+      const returningToggle = document.getElementById(
+        "returning-patient-toggle"
+      );
+      const intakeHint = document.getElementById("intake-hint");
+
+      // Card used for subtle “session active” outline
+      // Typing indicator shows while backend is responding
+      const cardEl = document.querySelector(".card");
+      const typingIndicator = document.getElementById("typing_indicator");
+
+      // ---- Intake fields for the “ready to start” logic ----
+      const firstNameInput = document.getElementById("first_name");
+      const lastNameInput  = document.getElementById("last_name");
+      const phoneInput     = document.getElementById("phone");
+      const monthInput = document.getElementById("dob_month");
+      const dayInput   = document.getElementById("dob_day");
+      const yearInput  = document.getElementById("dob_year");
+
+      // Only allow numbers for dob input
+      function allowOnlyNumbers(e) {
+        e.target.value = e.target.value.replace(/\D/g, "");
+      }
+
+      monthInput.addEventListener("input", allowOnlyNumbers);
+      dayInput.addEventListener("input", allowOnlyNumbers);
+      yearInput.addEventListener("input", allowOnlyNumbers);
+
+
+      // Decide when Start session should look "ready" based on intake
+      function updateStartBtnState() {
+        const isReturning = returningToggle.checked;
+
+        const phoneFilled = phoneInput.value.trim().length > 0;
+        const firstFilled = firstNameInput.value.trim().length > 0;
+        const lastFilled  = lastNameInput.value.trim().length > 0;
+        // dob optional for now
+
+        // Logic:
+        // - Returning patient: only phone required
+        // - New patient: phone + first + last
+        let ready = false;
+        if (isReturning) {
+          ready = phoneFilled;
+        } else {
+          ready = phoneFilled && firstFilled && lastFilled;
+        }
+
+        if (ready) {
+          startBtn.classList.add("ready");
+        } else {
+          startBtn.classList.remove("ready");
+        }
+      }
+
+      // Watch changes on relevant fields
+      [firstNameInput, lastNameInput, phoneInput].forEach((el) => {
+        if (!el) return;
+        el.addEventListener("input", updateStartBtnState);
+      });
+
+      if (returningToggle) {
+        returningToggle.addEventListener("change", updateStartBtnState);
+      }
+
+      [monthInput, dayInput, yearInput].forEach((el) => {
+        if (!el) return;
+        el.addEventListener("input", updateStartBtnState);
+      });
+
+      // initialize once on load
+      updateStartBtnState();
+
+      let sessionId = null;
+      let callEnded = false;
+
+      // Toggles for enabling/disabling agent TTS playback
+      if (voiceToggle) {
+        voiceToggle.addEventListener("change", () => {
+          agentVoiceEnabled = voiceToggle.checked;
+        });
+      }
+
+      // Centralized audio playback for any agent audio in base64
+      function playAgentAudioFromBase64(b64) {
+        if (!agentVoiceEnabled) {
+          // Voice is toggled OFF, do nothing.
+          return;
+        }
+        if (!b64) return;
+
+        try {
+          const byteStr = atob(b64);
+          const len = byteStr.length;
+          const bytes = new Uint8Array(len);
+          for (let i = 0; i < len; i++) {
+            bytes[i] = byteStr.charCodeAt(i);
+          }
+          const blob = new Blob([bytes], { type: "audio/mpeg" });
+          const url = URL.createObjectURL(blob);
+          agentAudio.src = url;
+          agentAudio
+            .play()
+            .catch((err) => console.warn("Agent audio playback failed:", err));
+        } catch (e) {
+          console.warn("Failed to handle audio_b64:", e);
+        }
+      }
+
+      // ---------------------------
+      // Intake mode UI
+      // (New vs returning patient)
+      // ---------------------------
+      function setIntakeMode(isReturning) {
+        if (isReturning) {
+          // Returning patient: we only care about phone
+          fullIntakeFields.style.opacity = "0.4";
+          fullIntakeFields.style.pointerEvents = "none";
+          intakeHint.textContent =
+            "Returning patient: we'll look you up by phone number only.";
+        } else {
+          // New patient: everything active
+          fullIntakeFields.style.opacity = "1";
+          fullIntakeFields.style.pointerEvents = "auto";
+          intakeHint.textContent =
+            "New patient? Complete the registration form. If you're already registered, check the box.";
+        }
+      }
+
+      setIntakeMode(false); // default: new patient mode
+
+      returningToggle.addEventListener("change", () => {
+        setIntakeMode(returningToggle.checked);
+      });
+
+      // ---------------------------
+      // UI helpers
+      // ---------------------------
+      function setTyping(visible) {
+        if (!typingIndicator) return;
+        typingIndicator.classList.toggle("visible", visible);
+      }
+
+      // Append a chat bubble to the messages div
+      // role: "agent" | "user" | "meta"
+      function addMessage(text, role = "agent") {
+        const div = document.createElement("div");
+        div.className = "msg " + role;
+        div.textContent = text;
+        messagesDiv.appendChild(div);
+
+        // trigger scrollbar pulse
+        messagesDiv.classList.add("has-new");
+        setTimeout(() => {
+          messagesDiv.classList.remove("has-new");
+        }, 1200);
+
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+      }
+
+      // Update the session status pill (label + green/gray dot)
+      function setStatus(label, active) {
+        statusText.textContent = label;
+        pillDot.style.background = active ? "#22c55e" : "#6b7280";
+      }
+
+      // ---------------------------
+      // Start session
+      // ---------------------------
+      // Collects intake, hits /start_session, and wires up UI for an active session
+      async function startSession() {
+        const first_name = firstNameInput.value.trim();
+        const last_name  = lastNameInput.value.trim();
+
+        // phone: strip everything that’s not a digit
+        const rawPhone = phoneInput.value.trim();
+        const phone    = rawPhone.replace(/\D/g, "");
+
+        const isReturning = returningToggle.checked;
+
+        // DOB pieces
+        const month = monthInput.value.trim();
+        const day   = dayInput.value.trim();
+        const year  = yearInput.value.trim();
+
+        let dob = "";
+
+        // If any part is filled, require a valid full date (MM / DD / YYYY)
+        if (year || month || day) {
+          const pad2 = (v) => (v.length === 1 ? "0" + v : v);
+
+          if (year.length !== 4 || month.length === 0 || day.length === 0) {
+            alert("Please enter a complete date of birth (MM / DD / YYYY).");
+            return;
+          }
+
+          const mm = pad2(month);
+          const dd = pad2(day);
+
+          // backend still gets ISO style
+          dob = `${year}-${mm}-${dd}`;
+        }
+
+        if (!phone) {
+          alert("Please enter your phone number.");
+          return;
+        }
+
+        // reset UI
+        messagesDiv.innerHTML = "";
+        callEnded = false;
+        setTyping(false);
+        addMessage("Starting ClinAI session...", "meta");
+        setStatus("Starting session…", false);
+        if (cardEl) cardEl.classList.remove("session-active");
+
+        // build payload depending on mode
+        let payload = { phone };
+        if (!isReturning) {
+          payload.first_name = first_name;
+          payload.last_name  = last_name;
+          if (dob) payload.dob = dob;
+        }
+
+        try {
+          const res = await fetch("/start_session", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+
+          if (!res.ok) {
+            addMessage("Error starting session: " + res.status, "meta");
+            setStatus("Error starting session", false);
+
+            // nice UX hint if returning + not found (assuming you 404 on no patient)
+            if (res.status === 404 && isReturning) {
+              addMessage(
+                "We couldn't find a patient with that phone number. " +
+                  "Try unchecking 'Returning patient' and filling in your info.",
+                "meta"
+              );
+            }
+            return;
+          }
+
+          const data = await res.json();
+          sessionId = data.session_id;
+
+          // initial messages from backend (intro + welcome)
+          (data.messages || []).forEach((m) =>
+            addMessage(m.content, m.role === "user" ? "user" : "agent")
+          );
+
+          // Play intro+welcome audio if provided & agent voice is toggled on
+          playAgentAudioFromBase64(data.audio_b64);
+
+          // Turn on chat controls
+          sendBtn.disabled = false;
+          userInput.disabled = false;
+          userInput.focus();
+          setStatus("Session active", true);
+          if (micBtn) micBtn.disabled = false;
+          if (cardEl) cardEl.classList.add("session-active");
+        } catch (err) {
+          console.error(err);
+          addMessage("Network error starting session.", "meta");
+          setStatus("Error starting session", false);
+        }
+      }
+
+      // ---------------------------
+      // Send a text turn
+      // ---------------------------
+      async function sendTurn() {
+        if (!sessionId || callEnded) return;
+        const text = userInput.value.trim();
+        if (!text) return;
+
+        addMessage(text, "user");
+        userInput.value = "";
+        setStatus("Thinking…", true);
+        setTyping(true);
+
+        try {
+          const res = await fetch("/turn", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ session_id: sessionId, user_input: text }),
+          });
+
+          if (!res.ok) {
+            addMessage("Error from server: " + res.status, "meta");
+            setStatus("Error", false);
+            setTyping(false);
+            return;
+          }
+
+          const data = await res.json();
+          addMessage(data.agent_message, "agent");
+
+          // If Ava sent audio, decode & play it
+          playAgentAudioFromBase64(data.audio_b64);
+
+          if (data.end_call) {
+            // Backend signaled the call is done
+            callEnded = true;
+            sendBtn.disabled = true;
+            setStatus("Call ended", false);
+            addMessage("Session ended.", "meta");
+            setTyping(false);
+            if (cardEl) cardEl.classList.remove("session-active");
+            if (micBtn) micBtn.disabled = true;
+          } else {
+            setStatus("Session active", true);
+            setTyping(false);
+          }
+        } catch (err) {
+          console.error(err);
+          addMessage("Network error sending message.", "meta");
+          setStatus("Error", false);
+          setTyping(false);
+        }
+      }
+
+      // ---------------------------
+      // Event listeners
+      // ---------------------------
+      startBtn.addEventListener("click", startSession);
+      sendBtn.addEventListener("click", sendTurn);
+      userInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          sendTurn();
+        }
+      });
+
+      // Mic button triggers the voice pipeline
+      if (micBtn) {
+        micBtn.addEventListener("click", () => {
+          sendVoiceTurn();
+        });
+      }
+
+      // ===========================
+      // Voice turn handling
+      // ===========================
+      async function sendVoiceTurn() {
+        if (!sessionId || callEnded) return;
+
+        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+          alert("Your browser doesn't support microphone access.");
+          return;
+        }
+
+        // First click → start recording
+        if (!recording) {
+          try {
+            audioStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            audioChunks = [];
+
+            // Cross-browser MediaRecorder config
+            let mediaOptions = {};
+            if (window.MediaRecorder) {
+              if (MediaRecorder.isTypeSupported("audio/webm;codecs=opus")) {
+                mediaOptions.mimeType = "audio/webm;codecs=opus";
+              } else if (MediaRecorder.isTypeSupported("audio/webm")) {
+                mediaOptions.mimeType = "audio/webm";
+              } // else let browser pick (Safari often uses audio/mp4)
+            } else {
+              alert("MediaRecorder is not supported in this browser.");
+              setStatus("Browser does not support audio recording.", false);
+              return;
+            }
+
+            try {
+              mediaRecorder = new MediaRecorder(audioStream, mediaOptions);
+              console.log("MediaRecorder mimeType:", mediaRecorder.mimeType);
+            } catch (err) {
+              console.error("Error creating MediaRecorder:", err);
+              setStatus("Mic/recording not supported in this browser.", false);
+              return;
+            }
+
+            mediaRecorder.ondataavailable = (e) => {
+              if (e.data && e.data.size > 0) {
+                audioChunks.push(e.data);
+              }
+            };
+
+            mediaRecorder.onstop = async () => {
+              // Once recording stops, we evaluate and send the blob
+              cleanupAudioGraph();
+
+              const blob = new Blob(audioChunks, {
+                type:
+                  mediaRecorder && mediaRecorder.mimeType
+                    ? mediaRecorder.mimeType
+                    : "audio/webm",
+              });
+
+              if (blob.size === 0) {
+                setStatus("No audio captured.", false);
+                recording = false;
+                micActive = false;
+                if (micBtn) {
+                  micBtn.classList.remove("mic-active");
+                  micBtn.disabled = false;
+                }
+                return;
+              }
+
+              await sendRecordedBlobToServer(blob);
+            };
+
+            // Web Audio for silence detection
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const source = audioContext.createMediaStreamSource(audioStream);
+            analyserNode = audioContext.createAnalyser();
+            analyserNode.fftSize = 2048;
+            source.connect(analyserNode);
+
+            startSilenceDetection();
+
+            recording = true;
+            micActive = true;
+            if (micBtn) {
+              micBtn.disabled = false;
+              micBtn.classList.add("mic-active");
+            }
+            setStatus("Listening…", true);
+            setTyping(false);
+
+            mediaRecorder.start();
+          } catch (err) {
+            console.error("Error accessing microphone:", err);
+            setStatus("Mic access failed.", false);
+            recording = false;
+            micActive = false;
+            if (micBtn) {
+              micBtn.classList.remove("mic-active");
+              micBtn.disabled = false;
+            }
+          }
+          return;
+        }
+
+        // Second click → stop recording manually
+        stopRecordingFromSilenceOrClick();
+      }
+
+      // Simple RMS-based silence detection; auto-stops recording after
+      // SILENCE_TIMEOUT_MS of quiet audio
+      function startSilenceDetection() {
+        if (!analyserNode) return;
+
+        const buffer = new Float32Array(analyserNode.fftSize);
+        let silenceStart = null;
+
+        function check() {
+          if (!recording || !analyserNode) return;
+
+          analyserNode.getFloatTimeDomainData(buffer);
+          let sumSquares = 0;
+          for (let i = 0; i < buffer.length; i++) {
+            const v = buffer[i];
+            sumSquares += v * v;
+          }
+          const rms = Math.sqrt(sumSquares / buffer.length);
+
+          const now = performance.now();
+          if (rms < SILENCE_THRESHOLD) {
+            if (silenceStart === null) silenceStart = now;
+            const elapsed = now - silenceStart;
+            if (elapsed >= SILENCE_TIMEOUT_MS) {
+              // auto-stop on silence
+              stopRecordingFromSilenceOrClick();
+              return;
+            }
+          } else {
+            silenceStart = null;
+          }
+
+          requestAnimationFrame(check);
+        }
+
+        requestAnimationFrame(check);
+      }
+
+      // Used by both manual click stop + silence timeout
+      function stopRecordingFromSilenceOrClick() {
+        if (!recording || !mediaRecorder) return;
+        recording = false;
+        setStatus("Processing your voice…", true);
+        if (micBtn) {
+          micBtn.disabled = true;
+          micBtn.classList.remove("mic-active");
+        }
+        mediaRecorder.stop();
+      }
+
+      // Clean up mic/audio graph when done recording
+      function cleanupAudioGraph() {
+        if (audioStream) {
+          audioStream.getTracks().forEach((t) => t.stop());
+          audioStream = null;
+        }
+        if (audioContext) {
+          audioContext.close();
+          audioContext = null;
+        }
+        analyserNode = null;
+      }
+
+      // Sends the recorded audio blob to the backend /voice_turn endpoint
+      async function sendRecordedBlobToServer(blob) {
+        if (!sessionId || callEnded) return;
+
+        try {
+          const formData = new FormData();
+          formData.append("session_id", sessionId);
+          formData.append("audio", blob, "audio.webm");
+
+          const res = await fetch("/voice_turn", {
+            method: "POST",
+            body: formData,
+          });
+
+          if (!res.ok) {
+            console.error("voice_turn failed:", res.status);
+            addMessage("Voice turn failed.", "meta");
+            setStatus("Error", false);
+            return;
+          }
+
+          const data = await res.json();
+
+          // If Whisper came back with text, show it as a user bubble
+          if (data.user_transcript) {
+            addMessage(data.user_transcript, "user");
+          } else {
+            addMessage("[no speech detected]", "meta");
+          }
+
+          // Agent response bubble
+          addMessage(data.agent_message, "agent");
+          playAgentAudioFromBase64(data.audio_b64);
+
+          if (data.end_call) {
+            callEnded = true;
+            sendBtn.disabled = true;
+            if (micBtn) micBtn.disabled = true;
+            setStatus("Call ended", false);
+            addMessage("Session ended.", "meta");
+            setTyping(false);
+            if (cardEl) cardEl.classList.remove("session-active");
+          } else {
+            setStatus("Session active", true);
+          }
+        } catch (err) {
+          console.error(err);
+          addMessage("Network error sending voice turn.", "meta");
+          setStatus("Error", false);
+        } finally {
+          micActive = false;
+          recording = false;
+          if (micBtn && !callEnded) {
+            micBtn.disabled = false;
+            micBtn.classList.remove("mic-active");
+          }
+        }
+      }
+
+
+    </script>
+  </body>
+</html>

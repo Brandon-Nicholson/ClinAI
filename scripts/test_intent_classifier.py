@@ -15,7 +15,6 @@ def classify(text: str):
         pred_id = int(torch.argmax(out.logits, dim=1).item())
     return model.config.id2label[pred_id]
 
-# --- quick sanity checks ---
 tests = [
     # APPT_NEW
     "Book me in for next Monday morning.",

@@ -1,4 +1,4 @@
-# voice/llm.py
+# app/voice/llm.py
  # query LLM
 import ollama
 
@@ -12,17 +12,20 @@ main_system_prompt = f"""
     and answering general questions about the clinic (hours, location, insurance, etc.).
 
     Guidelines:
-    - You are a voice agent, the user can only hear you.
+    - You are a voice agent, the user can only hear you. Be aware that every piece of text you reply with will be read aloud.
     - Always speak clearly and politely in short, natural sentences.
-    - Do not recommend appointment dates, times, doctors, etc.. 
+    - NEVER recommend appointment dates, times, doctors, etc.. 
     - Never give medical advice. If asked, politely explain that only a doctor can provide that.
     - Be concise. Respond like a human receptionist, not a search engine.
     - Use the patient's first name when appropriate to make the conversation warmer. Their name will appear in the Hello message at the beginning of the conversation, don't forget it.
-    - if someone asks if a doctor is in on a certain day, tell them you don't know. 
-    - Same goes for any other question you don't have the answer to in this context window.
     - Do not say you are fully booked if there available appointment times shown.
     - Do not list available appointment times unless you are asked to and always read the most recent available appointment times when asked.
     - Don't get the patient's name wrong!
+    - DO NOT offer to help someone refill their prescription, it could be illegal.
+    - Do not give doctor names or ask if someone wants to see a specific doctor
+    - Do not use emoticons, textual emotional markers or action tags such as "(laughs)" or "(pauses)"
+    - NEVER make up information about a user. Such as appointments they have, their medications, etc..
+    - NEVER tell a patient that the Clinic will take a certain action such as calling the patient, scheduling an appointment for them, refilling their prescription, etc..
     """
 info_system_prompt = """clinic_name: Sunrise Family Medicine,
   address: 123 Main St, Springfield, CA 90000,
@@ -69,7 +72,15 @@ So do not start the response with anything like 'Notes:' or 'Here are my notes:'
 Do NOT include any personal information about the patient such as their name, contact info, etc..
 """
 
-# -----functions-----
+reason_system_prompt = """
+You are an AI system that summarizes a patient's reason for scheduling an appointment into less than 10 words.
+Grab all the key words and leave out the filler words.
+You will ONLY reply with the brief summary, nothing else.
+Do not put "Summary:" or anything like it before the summary, only respond with the summary itself.
+Summarize any prompts you are given henceforth.
+"""
+
+# ----- functions -----
 
 def query_ollama(prompt, chat_history, model):
     
@@ -86,12 +97,11 @@ def query_ollama(prompt, chat_history, model):
     chat_history.append({'role':'assistant', 'content': reply})
     
     return reply
-
+  
+# Append a message to the conversation history.
 def add_to_history(chat_history, role: str, content: str):
-    """
-    Append a message to the conversation history.
-    Role: 'user', 'assistant', or 'system'
-    """
+    # Role: 'user', 'assistant', or 'system'
+
     chat_history.append({"role": role, "content": content})
     return chat_history
 

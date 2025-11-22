@@ -1,9 +1,43 @@
-pygame
-gtts
-edge-tts
+# Web framework & API
+fastapi
+uvicorn[standard]
+python-multipart
+aiofiles
+
+# Config & environment
+python-dotenv
+
+# Database & ORM
+sqlalchemy>=2.0
+psycopg2-binary
+
+# Scheduling
+apscheduler
+
+# Fuzzy matching (Rx refills)
+rapidfuzz
+
+# Timezone data
+tzdata
+
+# Speech-to-text / audio
 faster-whisper
-ctranslate2
 sounddevice
 numpy
+
+# Text-to-speech & playback
+edge-tts
+pygame
+
+# LLM integration (Ollama)
 ollama
+
+# ML / NLP stacktorch
+transformers
+scikit-learn
+pandas
+datasets
+evaluate
+
+
 

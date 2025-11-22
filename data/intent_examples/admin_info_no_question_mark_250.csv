@@ -1,0 +1,251 @@
+text,label
+what are your hours of operation,ADMIN_INFO
+what are the clinic hours,ADMIN_INFO
+what time do you open,ADMIN_INFO
+what time do you close,ADMIN_INFO
+what time does the office open,ADMIN_INFO
+what time does the office close,ADMIN_INFO
+can i get your business hours,ADMIN_INFO
+tell me your working hours,ADMIN_INFO
+i need the hours for sunrise family medicine,ADMIN_INFO
+what are the hours today,ADMIN_INFO
+are you open on weekends,ADMIN_INFO
+are you open on saturday,ADMIN_INFO
+are you open on sunday,ADMIN_INFO
+give me your weekday hours,ADMIN_INFO
+what time do you close on friday,ADMIN_INFO
+what time do you open on monday,ADMIN_INFO
+clinic hours for this week please,ADMIN_INFO
+can you tell me when you open and close,ADMIN_INFO
+what are your morning hours,ADMIN_INFO
+what are your afternoon hours,ADMIN_INFO
+are you open right now,ADMIN_INFO
+i want to know if you are open today,ADMIN_INFO
+do you open early in the morning,ADMIN_INFO
+do you stay open late,ADMIN_INFO
+how late are you open on weekdays,ADMIN_INFO
+how late are you open on fridays,ADMIN_INFO
+when do you close on weekdays,ADMIN_INFO
+list your hours for each day,ADMIN_INFO
+i need your office hours,ADMIN_INFO
+need info on your opening hours,ADMIN_INFO
+need info on when you close,ADMIN_INFO
+hours for the sunrise family medicine office,ADMIN_INFO
+hours for your springfield location,ADMIN_INFO
+tell me the hours for today,ADMIN_INFO
+are you closed on holidays,ADMIN_INFO
+are you open on holidays,ADMIN_INFO
+what time do you usually open,ADMIN_INFO
+what time do you usually close,ADMIN_INFO
+give me your full hours schedule,ADMIN_INFO
+confirm your office hours for this week,ADMIN_INFO
+what is your address,ADMIN_INFO
+can i get the clinic address,ADMIN_INFO
+please send me the address for sunrise family medicine,ADMIN_INFO
+where is the clinic located,ADMIN_INFO
+what street are you on,ADMIN_INFO
+i need driving directions to your office,ADMIN_INFO
+what is the full address to your clinic,ADMIN_INFO
+give me the address in springfield,ADMIN_INFO
+can you share your location details,ADMIN_INFO
+what city is the clinic in,ADMIN_INFO
+what is the zip code for your office,ADMIN_INFO
+can i have the building address,ADMIN_INFO
+need the address for my gps,ADMIN_INFO
+drop me the clinic address,ADMIN_INFO
+what is the address on main street,ADMIN_INFO
+confirm the clinic address for me,ADMIN_INFO
+send me the office location info,ADMIN_INFO
+where exactly is sunrise family medicine,ADMIN_INFO
+location of the clinic in springfield,ADMIN_INFO
+share the street address for your office,ADMIN_INFO
+i want the address you are at,ADMIN_INFO
+need to know where the clinic is,ADMIN_INFO
+tell me the exact address you are located at,ADMIN_INFO
+give me the location details of your office,ADMIN_INFO
+share the address you are using,ADMIN_INFO
+what is your phone number,ADMIN_INFO
+can i get the phone number for the clinic,ADMIN_INFO
+give me the office phone number,ADMIN_INFO
+i need the number to call sunrise family medicine,ADMIN_INFO
+share the main phone line for the clinic,ADMIN_INFO
+tell me the contact phone number,ADMIN_INFO
+what is the best number to reach the office,ADMIN_INFO
+i need your phone number for scheduling,ADMIN_INFO
+please send me your clinic phone number,ADMIN_INFO
+what is your fax number,ADMIN_INFO
+can i get the fax number for the office,ADMIN_INFO
+give me the fax number you use,ADMIN_INFO
+need the fax line for sending documents,ADMIN_INFO
+tell me the fax number for sunrise family medicine,ADMIN_INFO
+what fax number should my doctor use,ADMIN_INFO
+send me your fax and phone numbers,ADMIN_INFO
+share both your phone and fax numbers,ADMIN_INFO
+need a contact number for your front desk,ADMIN_INFO
+what number do i call for general questions,ADMIN_INFO
+give me a good phone number to reach the clinic,ADMIN_INFO
+confirm the fax number for your office,ADMIN_INFO
+confirm the main phone number you use,ADMIN_INFO
+what is your contact info phone and fax,ADMIN_INFO
+i need your phone number to save in my contacts,ADMIN_INFO
+send your office phone and fax details,ADMIN_INFO
+what is your website,ADMIN_INFO
+can you give me the website url,ADMIN_INFO
+share the link to your website,ADMIN_INFO
+how do i find sunrise family medicine online,ADMIN_INFO
+what is the web address for the clinic,ADMIN_INFO
+i need the site where i can check info,ADMIN_INFO
+send me the website for sunrise family medicine,ADMIN_INFO
+give me your online portal link,ADMIN_INFO
+where can i find your clinic page on the web,ADMIN_INFO
+what is your support phone number from the website,ADMIN_INFO
+do you have an online support number,ADMIN_INFO
+give me the website support contact,ADMIN_INFO
+need the number listed on your website for help,ADMIN_INFO
+send me the url for your online portal,ADMIN_INFO
+how do i access your website for more info,ADMIN_INFO
+share your official website address,ADMIN_INFO
+what is your online contact page link,ADMIN_INFO
+give me the link to your patient info page,ADMIN_INFO
+need the sunrise medicine dot com link,ADMIN_INFO
+spell out your website address for me,ADMIN_INFO
+where do i park for the clinic,ADMIN_INFO
+what is the parking situation at your office,ADMIN_INFO
+do you have a parking lot,ADMIN_INFO
+is there free parking at the clinic,ADMIN_INFO
+how long is parking free behind the building,ADMIN_INFO
+is there a parking lot behind the building,ADMIN_INFO
+tell me about parking options at sunrise family medicine,ADMIN_INFO
+can i park behind the clinic,ADMIN_INFO
+do you validate parking,ADMIN_INFO
+is street parking available near the office,ADMIN_INFO
+is the parking lot free,ADMIN_INFO
+how many hours of free parking do you offer,ADMIN_INFO
+do you have accessible parking spots,ADMIN_INFO
+is there handicap parking near the entrance,ADMIN_INFO
+can i park in the lot behind your building,ADMIN_INFO
+do i have to pay for parking after two hours,ADMIN_INFO
+share details about your parking rules,ADMIN_INFO
+need info on where to park when i come in,ADMIN_INFO
+is there parking close to the front door,ADMIN_INFO
+tell me if the parking lot is behind the building,ADMIN_INFO
+do you take walk ins,ADMIN_INFO
+can i just walk in or do i need an appointment,ADMIN_INFO
+are walk ins allowed at your clinic,ADMIN_INFO
+how do walk ins work at sunrise family medicine,ADMIN_INFO
+can i come in same day without an appointment,ADMIN_INFO
+do you offer limited same day walk ins,ADMIN_INFO
+are same day walk ins available,ADMIN_INFO
+is there any walk in availability today,ADMIN_INFO
+do i need to call first for a walk in,ADMIN_INFO
+can i just show up as a walk in patient,ADMIN_INFO
+do you allow walk in visits in the morning,ADMIN_INFO
+are walk in spots limited,ADMIN_INFO
+do you have same day availability for walk ins,ADMIN_INFO
+can i come in as a walk in or should i call,ADMIN_INFO
+is your walk in schedule full today,ADMIN_INFO
+do walk ins need to call before coming,ADMIN_INFO
+info on your walk in policy please,ADMIN_INFO
+explain how your walk ins work,ADMIN_INFO
+do you have walk in hours,ADMIN_INFO
+are walk in times different from regular hours,ADMIN_INFO
+do you take anthem,ADMIN_INFO
+do you accept anthem insurance,ADMIN_INFO
+is anthem one of the insurances you take,ADMIN_INFO
+do you take aetna,ADMIN_INFO
+do you accept aetna insurance,ADMIN_INFO
+is aetna covered at your clinic,ADMIN_INFO
+do you take blue shield,ADMIN_INFO
+do you accept blue shield insurance,ADMIN_INFO
+is blue shield in network with you,ADMIN_INFO
+do you take unitedhealthcare,ADMIN_INFO
+do you accept united healthcare insurance,ADMIN_INFO
+is unitedhealthcare one of the plans you take,ADMIN_INFO
+do you take cigna,ADMIN_INFO
+do you accept cigna insurance,ADMIN_INFO
+is cigna in network for your office,ADMIN_INFO
+do you take kaiser,ADMIN_INFO
+do you accept kaiser insurance,ADMIN_INFO
+is kaiser covered at sunrise family medicine,ADMIN_INFO
+what insurances do you take,ADMIN_INFO
+list all the insurances you accept,ADMIN_INFO
+tell me what insurance plans you work with,ADMIN_INFO
+do you take all major insurances,ADMIN_INFO
+need to know if you accept my insurance,ADMIN_INFO
+do you take ppo plans like anthem and blue shield,ADMIN_INFO
+do you accept hmo plans like kaiser,ADMIN_INFO
+what insurance providers are in network with your clinic,ADMIN_INFO
+give me a list of accepted insurances,ADMIN_INFO
+are anthem and aetna covered at your office,ADMIN_INFO
+are blue shield and cigna accepted there,ADMIN_INFO
+is unitedhealthcare in your network,ADMIN_INFO
+info on which insurance companies you work with,ADMIN_INFO
+are you in network for major insurance carriers,ADMIN_INFO
+do you work with anthem blue cross,ADMIN_INFO
+do you accept insurance from united healthcare,ADMIN_INFO
+are aetna and cigna covered,ADMIN_INFO
+need info on insurance you accept,ADMIN_INFO
+do you take my kaiser plan,ADMIN_INFO
+insurance details for your clinic please,ADMIN_INFO
+are you contracted with blue shield,ADMIN_INFO
+what is the name of your clinic,ADMIN_INFO
+confirm the clinic name is sunrise family medicine,ADMIN_INFO
+what is the full name of the office,ADMIN_INFO
+tell me the name of the medical practice,ADMIN_INFO
+is the clinic called sunrise family medicine,ADMIN_INFO
+what is your official clinic name,ADMIN_INFO
+need to know the name of your office for my records,ADMIN_INFO
+how do i spell the clinic name,ADMIN_INFO
+what is the full legal name of the clinic,ADMIN_INFO
+confirm the practice name for me,ADMIN_INFO
+share the name of the family medicine clinic,ADMIN_INFO
+i want the exact name of your medical office,ADMIN_INFO
+tell me the clinic name you go by,ADMIN_INFO
+is your practice named sunrise family medicine,ADMIN_INFO
+give me your clinic name and address,ADMIN_INFO
+need the name of your clinic for my insurance,ADMIN_INFO
+what is the name of the practice at 123 main st,ADMIN_INFO
+how do you spell sunrise family medicine,ADMIN_INFO
+what is the name listed on your sign outside,ADMIN_INFO
+give me the office name you use on paperwork,ADMIN_INFO
+are you open right now or closed,ADMIN_INFO
+hours for monday through friday please,ADMIN_INFO
+tell me if you are open on saturday,ADMIN_INFO
+need your business hours for the week,ADMIN_INFO
+how early do you open in the morning,ADMIN_INFO
+how late do you stay open in the evening,ADMIN_INFO
+share your daily opening and closing times,ADMIN_INFO
+are you closed on saturday and sunday,ADMIN_INFO
+what time does the front desk open,ADMIN_INFO
+what time does the front desk close,ADMIN_INFO
+send me your full weekly hours,ADMIN_INFO
+give me today office hours,ADMIN_INFO
+need the current hours for the clinic,ADMIN_INFO
+where exactly on main street are you located,ADMIN_INFO
+how do i get to 123 main st springfield,ADMIN_INFO
+is the clinic near downtown springfield,ADMIN_INFO
+can you share landmarks near your location,ADMIN_INFO
+need a pin of your address for maps,ADMIN_INFO
+tell me if parking is behind the building,ADMIN_INFO
+do i enter the lot from main street or the side street,ADMIN_INFO
+is there a sign for patient parking,ADMIN_INFO
+can visitors park in the back lot,ADMIN_INFO
+do you limit parking to two hours only,ADMIN_INFO
+is the first two hours of parking free,ADMIN_INFO
+give me details on your parking time limits,ADMIN_INFO
+share the rules for parking at your clinic,ADMIN_INFO
+need to know if i should call first for walk ins,ADMIN_INFO
+are walk ins only in the morning,ADMIN_INFO
+do you allow walk ins for urgent visits,ADMIN_INFO
+are walk in slots first come first served,ADMIN_INFO
+walk in policy for your clinic please,ADMIN_INFO
+do walk ins have to arrive early,ADMIN_INFO
+do walk in patients need to check in at front desk,ADMIN_INFO
+how do i know if walk in spots are available,ADMIN_INFO
+what is your general information phone line,ADMIN_INFO
+do you have a separate line for questions,ADMIN_INFO
+share the main contact number for general info,ADMIN_INFO
+need the phone number listed on your website,ADMIN_INFO
+send contact details including phone and fax,ADMIN_INFO
+what is the number for your support line,ADMIN_INFO
+do you have a dedicated support number,ADMIN_INFO

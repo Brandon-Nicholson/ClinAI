@@ -15,11 +15,11 @@ import numpy as np
 import re
 import time
 
+# This implementation is for conversation_loop.py, not the web app
+
+# Open mic stream and push audio into a queue
 def start_microphone(sample_rate: int = 16000, blocksize: int = 4000):
-    """
-    Open mic stream and push audio into a queue.
-    Returns (queue, stream).
-    """
+
     q = queue.Queue()
 
     def callback(indata, frames, time, status):
@@ -35,7 +35,7 @@ def start_microphone(sample_rate: int = 16000, blocksize: int = 4000):
 
 # Helpers
 def rms_int16(buf_bytes: bytes) -> float:
-    # Quick RMS (volume) check to tell if someone’s talking.
+    # Quick RMS volume check to tell if someone’s talking
     
     a = np.frombuffer(buf_bytes, dtype=np.int16)
     if a.size == 0:
@@ -45,13 +45,14 @@ def rms_int16(buf_bytes: bytes) -> float:
 def _pcm_bytes_to_float32(buf_bytes: bytes) -> np.ndarray:
     # Whisper wants float32 [-1, 1], but the mic gives us int16.
     
-    a = np.frombuffer(buf_bytes, dtype=np.int16).astype(np.float32)
-    return a / 32768.0  # Whisper expects float32 in [-1.0, 1.0]
+    a = np.frombuffer(buf_bytes, dtype=np.int16).astype(np.float32) # int16 -> int32 conversion
+    return a / 32768.0
 
 def _seg_conf(seg):
     # handle both spellings just in case
     return getattr(seg, "avg_logprob", getattr(seg, "avg_log_prob", -10.0))
 
+# returns condfidence score for transcribed audio
 def _avg_conf_and_text(segments):
     segs = list(segments)  # generator -> list
     if not segs:
@@ -62,11 +63,11 @@ def _avg_conf_and_text(segments):
 
 # Listen once, then transcribe with Whisper
 def listen_and_transcribe_whisper(model, q, response, sample_rate=16000,
-                                  rms_threshold=1000,
+                                  rms_threshold=0,         # threshold for how loud input speech needs to be
                                   max_silence_frames=50,   # wait ~2 sec of silence
                                   hot_start_frames=2,      # ignore first few frames (avoid false triggers)
                                   max_buffer_seconds=10,   # hard max, ~10 sec of speech
-                                  max_wait_seconds=10,      # hard timeout
+                                  max_wait_seconds=10,     # hard timeout
                                   min_conf=-0.72):         # minimum confidence threshold
     print("🎧 Waiting for speech...")
     
@@ -139,4 +140,3 @@ def listen_and_transcribe_whisper(model, q, response, sample_rate=16000,
         # if speech too long, transcribe anyway (with the SAME gate)
         if len(buffer) >= sample_rate * max_buffer_seconds:
             return transcribe_and_gate()
-

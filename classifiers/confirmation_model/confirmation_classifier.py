@@ -1,13 +1,13 @@
 import torch
 from transformers import DistilBertTokenizerFast, DistilBertForSequenceClassification
 
-MODEL_DIR = "./classifiers/appt_confirmation_model/appt_confirmation_classifier"
+MODEL_DIR = "./classifiers/confirmation_model/confirmation_classifier"
 
 _tokenizer = DistilBertTokenizerFast.from_pretrained(MODEL_DIR)
 _model = DistilBertForSequenceClassification.from_pretrained(MODEL_DIR).eval()
 
 # use the fine-tuned distilBERT model to classify for appointment confirmation
-def classify_appt_confirmation(text: str) -> str:
+def classify_confirmation(text: str) -> str:
     enc = _tokenizer(text, return_tensors="pt", truncation=True, padding=True, max_length=128)
     with torch.no_grad():
         logits = _model(**enc).logits

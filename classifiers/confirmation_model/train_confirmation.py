@@ -13,7 +13,7 @@ LABELS = ["CONFIRM", "REJECT", "UNSURE"]
 label2id = {l:i for i,l in enumerate(LABELS)}
 id2label = {i:l for l,i in label2id.items()}
 
-directory_path = "./data/appt_confirmation_examples"
+directory_path = "./data/confirmation_examples"
 
 try:
     # Get the list of csv files in the directory
@@ -31,7 +31,7 @@ except Exception as e:
 # concat all csv files
 df = pd.DataFrame()
 for file in csv_files:
-    temp_df = pd.read_csv(f".//data//appt_confirmation_examples//{file}")
+    temp_df = pd.read_csv(f".//data//confirmation_examples//{file}")
     df = pd.concat([df, temp_df])
 # drop any duplicate rows    
 df = df.drop_duplicates()
@@ -58,7 +58,7 @@ model = DistilBertForSequenceClassification.from_pretrained(
 )
 
 args = TrainingArguments(
-    output_dir="./classifiers/appt_confirmation_model/appt_confirmation_classifier",
+    output_dir="./classifiers/confirmation_model/confirmation_classifier",
     save_strategy="epoch",
     learning_rate=2e-5,
     per_device_train_batch_size=16,
@@ -71,5 +71,5 @@ args = TrainingArguments(
 
 trainer = Trainer(model=model, args=args, train_dataset=train_ds, eval_dataset=val_ds)
 trainer.train()
-trainer.save_model("./classifiers/appt_confirmation_model/appt_confirmation_classifier")
-tok.save_pretrained("./classifiers/appt_confirmation_model/appt_confirmation_classifier")
+trainer.save_model("./classifiers/confirmation_model/confirmation_classifier")
+tok.save_pretrained("./classifiers/confirmation_model/confirmation_classifier")

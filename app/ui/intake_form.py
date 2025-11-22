@@ -4,8 +4,8 @@ from tkinter import messagebox
 from datetime import datetime
 from app.services.patient_service import intake_patient
 
+# Popup window for patient intake form before conversaion loop Returns the Patient object
 def run_intake_form():
-    """Popup window for patient intake. Returns the Patient object."""
     patient_result = {}
 
     def submit():

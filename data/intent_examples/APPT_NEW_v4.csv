@@ -1,0 +1,190 @@
+text,label
+"What about 330?",APPT_NEW
+"How bout 230?",APPT_NEW
+"what about 12",APPT_NEW
+"what about we do 230 then?",APPT_NEW
+"what about 3:30?",APPT_NEW
+"okay 2-30 then",APPT_NEW
+"how bout 8am",APPT_NEW
+"what about 2-30pm?",APPT_NEW
+"What about 4?",APPT_NEW
+"Does 10 work?",APPT_NEW
+"10am okay?",APPT_NEW
+"how about 11:30",APPT_NEW
+"what about 1pm",APPT_NEW
+"2 o'clock?",APPT_NEW
+"2pm then?",APPT_NEW
+"330 okay with you?",APPT_NEW
+"3:30pm good?",APPT_NEW
+"what about 9",APPT_NEW
+"9am fine?",APPT_NEW
+"how bout 5pm",APPT_NEW
+"5-6 window work?",APPT_NEW
+"what about 415",APPT_NEW
+"4:15?",APPT_NEW
+"lets do 7am",APPT_NEW
+"7 okay?",APPT_NEW
+"what about noon",APPT_NEW
+"12pm good?",APPT_NEW
+"how about 130",APPT_NEW
+"1:30 then",APPT_NEW
+"230 fine?",APPT_NEW
+"2:30pm?",APPT_NEW
+"what about 8",APPT_NEW
+"8am work?",APPT_NEW
+"how bout 345",APPT_NEW
+"3:45 okay?",APPT_NEW
+"lets try 10:30",APPT_NEW
+"10:30am?",APPT_NEW
+"what about 6pm",APPT_NEW
+"6 o'clock good?",APPT_NEW
+"how about 11",APPT_NEW
+"11am then?",APPT_NEW
+"what about 4-30",APPT_NEW
+"4:30pm?",APPT_NEW
+"5 okay?",APPT_NEW
+"5pm work?",APPT_NEW
+"how bout 915",APPT_NEW
+"9:15am?",APPT_NEW
+"what about 245",APPT_NEW
+"2:45 then",APPT_NEW
+"lets do 3pm",APPT_NEW
+"3 o'clock fine?",APPT_NEW
+"what about 7",APPT_NEW
+"7pm okay?",APPT_NEW
+"how about 1030",APPT_NEW
+"10:30 good?",APPT_NEW
+"what about 1-15",APPT_NEW
+"1:15pm?",APPT_NEW
+"230 sound good?",APPT_NEW
+"2:30 okay?",APPT_NEW
+"what about 830am",APPT_NEW
+"8:30am then?",APPT_NEW
+"how bout 430",APPT_NEW
+"4:30pm?",APPT_NEW
+"lets go with 11:45",APPT_NEW
+"11:45 work?",APPT_NEW
+"what about 530",APPT_NEW
+"5:30pm good?",APPT_NEW
+"how about 9-30",APPT_NEW
+"9:30am?",APPT_NEW
+"what about 215",APPT_NEW
+"2:15 then?",APPT_NEW
+"330 work for you?",APPT_NEW
+"3:30 fine?",APPT_NEW
+"how bout 12:45",APPT_NEW
+"12:45pm?",APPT_NEW
+"what about 6",APPT_NEW
+"6pm okay?",APPT_NEW
+"lets do 145",APPT_NEW
+"1:45?",APPT_NEW
+"what about 8pm",APPT_NEW
+"8 o'clock good?",APPT_NEW
+"how about 1045",APPT_NEW
+"10:45am?",APPT_NEW
+"what about 315",APPT_NEW
+"3:15pm then?",APPT_NEW
+"5-30 okay?",APPT_NEW
+"5:30pm?",APPT_NEW
+"how bout 1130am",APPT_NEW
+"11:30am good?",APPT_NEW
+"what about 4pm",APPT_NEW
+"4 o'clock fine?",APPT_NEW
+"lets try 730",APPT_NEW
+"7:30pm?",APPT_NEW
+"what about 130pm",APPT_NEW
+"1:30pm okay?",APPT_NEW
+"how about 9am",APPT_NEW
+"9 o'clock?",APPT_NEW
+"what about 345pm",APPT_NEW
+"3:45pm then?",APPT_NEW
+"230pm work?",APPT_NEW
+"2:30pm good?",APPT_NEW
+"how bout 615",APPT_NEW
+"6:15?",APPT_NEW
+"what about 11-15",APPT_NEW
+"11:15am?",APPT_NEW
+"lets do 415pm",APPT_NEW
+"4:15pm okay?",APPT_NEW
+"what about 8-45",APPT_NEW
+"8:45am?",APPT_NEW
+"how about 245pm",APPT_NEW
+"2:45pm then?",APPT_NEW
+"what about 7am",APPT_NEW
+"7am good?",APPT_NEW
+"330pm fine?",APPT_NEW
+"3:30pm okay?",APPT_NEW
+"how bout 1030am",APPT_NEW
+"10:30am?",APPT_NEW
+"what about 530pm",APPT_NEW
+"5:30pm then?",APPT_NEW
+"lets go with 1230",APPT_NEW
+"12:30 good?",APPT_NEW
+"what about 915am",APPT_NEW
+"9:15am okay?",APPT_NEW
+"how about 130",APPT_NEW
+"1:30 fine?",APPT_NEW
+"what about 8pm",APPT_NEW
+"8pm work?",APPT_NEW
+"lets do 345",APPT_NEW
+"3:45?",APPT_NEW
+"what about 1115",APPT_NEW
+"11:15 then?",APPT_NEW
+"how bout 430pm",APPT_NEW
+"4:30pm good?",APPT_NEW
+"what about 630",APPT_NEW
+"6:30pm?",APPT_NEW
+"730am okay?",APPT_NEW
+"7:30am fine?",APPT_NEW
+"what about 215pm",APPT_NEW
+"2:15pm then?",APPT_NEW
+"how about 945",APPT_NEW
+"9:45am?",APPT_NEW
+"lets try 315",APPT_NEW
+"3:15 good?",APPT_NEW
+"what about 545pm",APPT_NEW
+"5:45pm okay?",APPT_NEW
+"how bout 1215",APPT_NEW
+"12:15pm?",APPT_NEW
+"what about 815am",APPT_NEW
+"8:15am then?",APPT_NEW
+"lets do 445",APPT_NEW
+"4:45pm?",APPT_NEW
+"what about 1030pm",APPT_NEW
+"10:30pm good?",APPT_NEW
+"how about 130am wait no 130pm",APPT_NEW
+"1:30pm okay?",APPT_NEW
+"what about 4 o'clock",APPT_NEW
+"4pm fine?",APPT_NEW
+"lets go with 830",APPT_NEW
+"8:30 good?",APPT_NEW
+"what about 715",APPT_NEW
+"7:15pm?",APPT_NEW
+"how bout 1130",APPT_NEW
+"11:30 then?",APPT_NEW
+"what about 330am probably not lol 330pm",APPT_NEW
+"3:30pm okay?",APPT_NEW
+"lets do 9-45am",APPT_NEW
+"9:45am?",APPT_NEW
+"what about 230pm",APPT_NEW
+"2:30pm good?",APPT_NEW
+"how about 515",APPT_NEW
+"5:15pm?",APPT_NEW
+"what about 1045am",APPT_NEW
+"10:45am fine?",APPT_NEW
+"lets try 6pm",APPT_NEW
+"6pm okay?",APPT_NEW
+"what about 345",APPT_NEW
+"3:45 good?",APPT_NEW
+"how bout 130pm",APPT_NEW
+"1:30pm then?",APPT_NEW
+"what about 845am",APPT_NEW
+"8:45am?",APPT_NEW
+"lets do 415",APPT_NEW
+"4:15 okay?",APPT_NEW
+"what about 630pm",APPT_NEW
+"6:30pm fine?",APPT_NEW
+"how about 1115am",APPT_NEW
+"11:15am good?",APPT_NEW
+"what about 245",APPT_NEW
+"2:45pm?",APPT_NEW

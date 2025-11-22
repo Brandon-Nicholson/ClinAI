@@ -1,6 +1,6 @@
 # app/services/call_service.py
 from __future__ import annotations
-from typing import Optional, Dict, List
+from typing import Optional, List
 
 from sqlalchemy import select, func
 from app.db.session import get_session
@@ -9,14 +9,14 @@ from app.voice.llm import query_ollama, notes_system_prompt
 
 # Core lifecycle
 def start_call(patient_id: Optional[int] = None, from_number: Optional[str] = None) -> Call:
-    """Create a Call row when the conversation starts."""
+    # Create a Call row when the conversation starts
     with get_session() as s:
         c = Call(patient_id=patient_id, from_number=from_number)
         s.add(c); s.commit(); s.refresh(c)
         return c
 
 def log_turn(call_id: int, role: str, text: str) -> Transcript:
-    """Append one transcript turn ('user' or 'assistant')."""
+    # Append one transcript turn ('user' or 'assistant')
     if role not in ("user", "assistant"):
         raise ValueError("role must be 'user' or 'assistant'")
     with get_session() as s:
@@ -24,7 +24,7 @@ def log_turn(call_id: int, role: str, text: str) -> Transcript:
         s.add(t); s.commit(); s.refresh(t)
 
 def set_intent(call_id: int, intent: Optional[list]) -> None:
-    """Store the LLM/classifier result for this call."""
+    # Store the LLM/classifier result for this call
     with get_session() as s:
         c = s.get(Call, call_id)
         if not c:
@@ -44,7 +44,7 @@ def call_notes(chat_history: list, model: str):
     return notes
 
 def end_call(call_id: int, *, resolved: bool, escalated: bool, notes: Optional[str] = None) -> None:
-    """Close out a call when finished; set resolved/escalated + optional summary notes."""
+    # Close out a call when finished, set resolved/escalated + optional summary notes
     with get_session() as s:
         c = s.get(Call, call_id)
         if not c:
@@ -55,10 +55,11 @@ def end_call(call_id: int, *, resolved: bool, escalated: bool, notes: Optional[s
         if notes:
             c.notes = notes
         s.commit()
-        
+
+# checks if user's query was resolved or not with the agent        
 def was_resolved(reply: str) -> bool:
     if not reply:
-        return None  # or False, depending on how you want to handle silence
+        return None
     
     text = reply.lower()
     
@@ -70,10 +71,10 @@ def was_resolved(reply: str) -> bool:
     if any(pos in text for pos in positives):
         return True
     
-    # default (ambiguous replies like "maybe")
+    # default
     return None
 
-# Helpful getters for UI / debugging
+# Helpers for debugging
 def get_call(call_id: int) -> Optional[Call]:
     with get_session() as s:
         return s.get(Call, call_id)

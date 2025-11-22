@@ -18,4 +18,4 @@ def classify_intent(text: str, patient_intents: list) -> str:
         patient_intents.append(intent)
     return intent
 
-# print(classify_intent("What times are available on next tuesday?", ['ADMIN_INFO']))
+# print(classify_intent("What about 330?", ['ADMIN_INFO']))

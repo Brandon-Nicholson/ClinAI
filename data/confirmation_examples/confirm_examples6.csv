@@ -1,0 +1,301 @@
+text,label
+"Fuck it, go ahead and keep that time for Friday at 11 am, I'm confirming that. kitchen",CONFIRM
+"Yep, cancel the appointment we just talked about that one we were talking about, I'm confirming it.",CONFIRM
+"Fuck it, I'm fine with you can lock that in for next Tuesday at 9 am.",CONFIRM
+"Yes, just go ahead and cancel the appointment we just talked about for Wednesday at 1 pm, I'm confirming that. window",CONFIRM
+"Fuck it, fuck it, cancel the appointment we just talked about for Wednesday at 1 pm, that's fine with me. garage",CONFIRM
+"Absolutely, I definitely want to you can schedule that one for next Thursday at 3 pm.",CONFIRM
+"Honestly yeah, just go ahead and cancel that one for Monday at 3:30 pm, I'm confirming that.",CONFIRM
+"Absolutely, go ahead and go ahead and schedule that for Tuesday at 4 pm, I'm confirming that.",CONFIRM
+"For sure, schedule that slot that one we just went over, I'm confirming it.",CONFIRM
+"Fuck it, fuck it, cancel that time and date for next Tuesday at 9 am, that's fine with me. test",CONFIRM
+"For sure, yeah lock that in for Monday at 9 am, that time works for me.",CONFIRM
+"Alright, fuck yeah, confirm that appointment for next Thursday at 3 pm, I want that one.",CONFIRM
+"Honestly yeah, go ahead and schedule that time for Wednesday at 1 pm, I'm confirming that.",CONFIRM
+"Fuck it, yeah cancel that appointment for Tuesday at 10 am, that's the one I want.",CONFIRM
+"Fuck it, yeah cancel the appointment we just talked about for Friday at 4 pm, that's the one I want. phone",CONFIRM
+"Alright, fuck yeah, schedule that slot for Wednesday at 8 am, I want that one.",CONFIRM
+"Yep, yeah schedule that appointment for Tuesday at 10 am, that time works for me.",CONFIRM
+"Absolutely, yeah schedule that one for Thursday at 2 pm, that time works for me. background",CONFIRM
+"Yes, yeah lock that in for tomorrow at 10 am, that time works for me. table",CONFIRM
+"To be clear, yes, go ahead and schedule that one for Wednesday at 8 am, I'm confirming that.",CONFIRM
+"Absolutely, I'm fine with that you cancel that time for tomorrow morning at 9.",CONFIRM
+"Honestly yeah, fuck it, cancel that time and date for Thursday at 2 pm, that's fine with me.",CONFIRM
+"Yes, yeah go ahead and schedule that for tomorrow at 10 am, that time works for me.",CONFIRM
+"For sure, cancel that visit that one we were talking about, I'm confirming it. garage",CONFIRM
+"Screw it, just go ahead and cancel that time and date for Friday at 4 pm, I'm confirming that.",CONFIRM
+"Fuck it, cancel that appointment that one we were talking about, I'm confirming it.",CONFIRM
+"Yes, I'm okay with that you cancel that appointment for Monday at 3:30 pm.",CONFIRM
+"Yep, go ahead and schedule that appointment for tomorrow morning at 9, I'm confirming that.",CONFIRM
+"Fuck it, I'm agreeing to you can book that time in for Monday at 9 am. garage",CONFIRM
+"Yep, yeah confirm that appointment for Tuesday at 10 am, that time works for me.",CONFIRM
+"Fuck it, fuck it, cancel that slot for tomorrow at 10 am, that's fine with me. background",CONFIRM
+"To be clear, yes, yeah cancel that visit for Friday at 11 am, that's the one I want.",CONFIRM
+"For sure, I absolutely want to that you cancel that booking for Wednesday at 1 pm.",CONFIRM
+"Yep, yeah schedule that appointment for Thursday at 2 pm, that time works for me.",CONFIRM
+"Honestly yeah, fuck it, cancel that booking for next Thursday at 3 pm, that's fine with me. window",CONFIRM
+"Yeah, yeah schedule that slot for Friday at 11 am, that time works for me.",CONFIRM
+"To be clear, yes, I'm good with you can schedule that time for next Tuesday at 9 am.",CONFIRM
+"Honestly yeah, I'm agreeing to you can go ahead and schedule that for tomorrow at 10 am. window",CONFIRM
+"Fuck it, cancel that appointment that one we were talking about, I'm confirming it. test",CONFIRM
+"Screw it, cancel that visit that one we were talking about, I'm confirming it. garage",CONFIRM
+"To be clear, yes, I absolutely want to you can schedule that slot for Thursday at 2 pm.",CONFIRM
+"Yes, fuck it, cancel the appointment we just talked about for Friday at 4 pm, that's fine with me.",CONFIRM
+"Alright, confirm that appointment that one we just went over, I'm confirming it. kitchen",CONFIRM
+"Yes, fuck yeah, schedule that one for Thursday at 2 pm, I want that one.",CONFIRM
+"Alright, I absolutely want to you can book that time in for next Thursday at 3 pm.",CONFIRM
+"Screw it, yeah lock that in for Monday at 3:30 pm, that time works for me.",CONFIRM
+"Alright, fuck it, cancel that one for Wednesday at 1 pm, that's fine with me.",CONFIRM
+"Absolutely, schedule that time that one we just went over, I'm confirming it.",CONFIRM
+"Okay, just go ahead and cancel that visit for Tuesday at 10 am, I'm confirming that.",CONFIRM
+"Fuck it, I'm good with that you cancel the appointment we just talked about for next Tuesday at 9 am.",CONFIRM
+"Alright, just go ahead and cancel that slot for this afternoon at 3, I'm confirming that.",CONFIRM
+"Absolutely, cancel that visit that one we were talking about, I'm confirming it.",CONFIRM
+"For sure, confirm that appointment that one we just went over, I'm confirming it. whatever",CONFIRM
+"Yeah, go ahead and schedule that slot for next Thursday at 3 pm, I'm confirming that. phone",CONFIRM
+"Honestly yeah, just go ahead and cancel that one for Friday at 11 am, I'm confirming that.",CONFIRM
+"Screw it, fuck yeah, book that time in for tomorrow morning at 9, I want that one. window",CONFIRM
+okay do it that's fine. were in the,CONFIRM
+"Fuck it, yeah confirm that appointment for this afternoon at 3, that time works for me.",CONFIRM
+"Yep, yeah schedule that slot for Tuesday at 10 am, that time works for me.",CONFIRM
+"Okay, yeah cancel that booking for Monday at 3:30 pm, that's the one I want.",CONFIRM
+"Yeah, fuck it, cancel that time for tomorrow morning at 9, that's fine with me.",CONFIRM
+"Yep, yeah schedule that appointment for Friday at 4 pm, that time works for me.",CONFIRM
+"Honestly yeah, go ahead and schedule that appointment for Wednesday at 8 am, I'm confirming that.",CONFIRM
+"Yeah, yeah confirm that appointment for next Tuesday at 9 am, that time works for me. random",CONFIRM
+"Yes, fuck it, cancel the one you mentioned for Friday at 11 am, that's fine with me. test",CONFIRM
+"Fuck it, go ahead and schedule that slot for Friday at 11 am, I'm confirming that.",CONFIRM
+"Absolutely, cancel the appointment we just talked about that one we were talking about, I'm confirming it.",CONFIRM
+"To be clear, yes, go ahead and go ahead and schedule that for Tuesday at 10 am, I'm confirming that. kitchen",CONFIRM
+"Yep, go ahead and book that time in for Wednesday at 1 pm, I'm confirming that.",CONFIRM
+"Honestly yeah, yeah cancel that visit for tomorrow morning at 9, that's the one I want. outside",CONFIRM
+"Absolutely, I'm fine with you can book that time in for Monday at 9 am.",CONFIRM
+"Yep, yeah cancel that visit for next Thursday at 3 pm, that's the one I want. window",CONFIRM
+"Fuck it, just go ahead and cancel the one you mentioned for Tuesday at 10 am, I'm confirming that.",CONFIRM
+"To be clear, yes, schedule that time that one we just went over, I'm confirming it.",CONFIRM
+"Honestly yeah, keep that time that one we just went over, I'm confirming it.",CONFIRM
+"Fuck it, yeah cancel that time and date for Wednesday at 1 pm, that's the one I want.",CONFIRM
+"Yep, cancel that one that one we were talking about, I'm confirming it.",CONFIRM
+"Yep, do that now. Cancel it now. what then",CONFIRM
+"Honestly yeah, yeah schedule that one for Monday at 3:30 pm, that time works for me. kitchen",CONFIRM
+"For sure, yeah cancel that one for Wednesday at 8 am, that's the one I want.",CONFIRM
+"Honestly yeah, just go ahead and cancel that booking for Friday at 4 pm, I'm confirming that.",CONFIRM
+"To be clear, yes, schedule that time that one we just went over, I'm confirming it. table",CONFIRM
+"Alright, book that time in that one we just went over, I'm confirming it. outside",CONFIRM
+"Alright, book that time in that one we just went over, I'm confirming it.",CONFIRM
+"Screw it, yeah cancel that appointment for next Thursday at 3 pm, that's the one I want. kitchen",CONFIRM
+"Yeah, I absolutely want to that you cancel that time and date for Tuesday at 4 pm.",CONFIRM
+"Yeah, fuck yeah, schedule that time for Friday at 4 pm, I want that one.",CONFIRM
+"Honestly yeah, yeah cancel the one you mentioned for Tuesday at 4 pm, that's the one I want.",CONFIRM
+"Okay, fuck it, cancel that time for Tuesday at 10 am, that's fine with me. phone",CONFIRM
+"Absolutely, yeah cancel that visit for Tuesday at 4 pm, that's the one I want.",CONFIRM
+"Absolutely, fuck it, cancel that time for Wednesday at 8 am, that's fine with me. table",CONFIRM
+"Fuck it, I'm saying yes to that you cancel that time and date for Friday at 11 am. whatever",CONFIRM
+"Yeah, cancel that time that one we were talking about, I'm confirming it.",CONFIRM
+"Absolutely, go ahead and schedule that that one we just went over, I'm confirming it.",CONFIRM
+"Screw it, yeah cancel that time for Monday at 3:30 pm, that's the one I want.",CONFIRM
+"Yes, schedule that one that one we just went over, I'm confirming it.",CONFIRM
+"Yep, yeah cancel that time and date for next Thursday at 3 pm, that's the one I want.",CONFIRM
+"Yes, fuck it, cancel that visit for Wednesday at 8 am, that's fine with me. phone",CONFIRM
+"Screw it, I'm fine with you can go ahead and schedule that for Thursday at 2 pm. kitchen",CONFIRM
+"Fuck it, I'm saying yes to that you cancel the one you mentioned for tomorrow at 10 am. whatever",CONFIRM
+"For sure, I'm fine with you can schedule that slot for next Thursday at 3 pm. table",CONFIRM
+"Alright, I definitely want to that you cancel that booking for Friday at 11 am.",CONFIRM
+"Yep, yeah cancel that slot for Tuesday at 4 pm, that's the one I want.",CONFIRM
+"To be clear, yes, go ahead and lock that in for Thursday at 2 pm, I'm confirming that.",CONFIRM
+"To be clear, yes, fuck it, cancel that time for Monday at 9 am, that's fine with me.",CONFIRM
+"Absolutely, I'm good with you can book that time in for Monday at 9 am. kitchen",CONFIRM
+"Yes, yeah lock that in for Friday at 4 pm, that time works for me. whatever",CONFIRM
+"For sure, yeah book that time in for Wednesday at 8 am, that time works for me. phone",CONFIRM
+"Yes, go ahead and confirm that appointment for Friday at 4 pm, I'm confirming that. background",CONFIRM
+"Yeah, I'm good with that you cancel that appointment for Friday at 4 pm. window",CONFIRM
+"Fuck it, I absolutely want to you can schedule that one for next Thursday at 3 pm.",CONFIRM
+"Screw it, go ahead and schedule that that one we just went over, I'm confirming it.",CONFIRM
+"Yeah, fuck yeah, book that time in for Tuesday at 4 pm, I want that one.",CONFIRM
+"To be clear, yes, I'm good with that you cancel the appointment we just talked about for Monday at 3:30 pm.",CONFIRM
+"Yep, schedule that one that one we just went over, I'm confirming it.",CONFIRM
+"Screw it, yeah let's cancel that.",CONFIRM
+"Fuck it, just go ahead and cancel that time for Friday at 4 pm, I'm confirming that.",CONFIRM
+"Alright, cancel the appointment we just talked about that one we were talking about, I'm confirming it.",CONFIRM
+"Yes, fuck it, cancel that visit for next Tuesday at 9 am, that's fine with me. phone",CONFIRM
+"Honestly yeah, fuck yeah, lock that in for Tuesday at 4 pm, I want that one.",CONFIRM
+"For sure, I'm saying yes to that you cancel the one you mentioned for Tuesday at 4 pm.",CONFIRM
+"Okay, yeah schedule that appointment for Wednesday at 8 am, that time works for me.",CONFIRM
+"fuck yeah, cancel it.",CONFIRM
+"For sure, fuck it, cancel that visit for Wednesday at 1 pm, that's fine with me. background",CONFIRM
+"Fuck it, I'm good with that you cancel that booking for Tuesday at 10 am.",CONFIRM
+"Fuck it, I'm okay with you can go ahead and schedule that for Tuesday at 10 am. test",CONFIRM
+"Honestly yeah, yeah schedule that one for next Thursday at 3 pm, that time works for me.",CONFIRM
+"Fuck it, cancel that visit that one we were talking about, I'm confirming it.",CONFIRM
+"Yeah, just go ahead and cancel that visit for Monday at 9 am, I'm confirming that. random",CONFIRM
+"Honestly yeah, book that time in that one we just went over, I'm confirming it. garage",CONFIRM
+"Okay, yeah cancel that one for Tuesday at 10 am, that's the one I want. whatever",CONFIRM
+"To be clear, yes, go ahead and schedule that that one we just went over, I'm confirming it.",CONFIRM
+"Yep, cancel that time that one we were talking about, I'm confirming it.",CONFIRM
+"Absolutely, book that time in that one we just went over, I'm confirming it.",CONFIRM
+"Screw it, fuck it, cancel that one for Wednesday at 1 pm, that's fine with me. random",CONFIRM
+"Yep, fuck it, cancel that appointment for Tuesday at 10 am, that's fine with me.",CONFIRM
+"Screw it, fuck yeah, confirm that appointment for this afternoon at 3, I want that one.",CONFIRM
+"For sure, fuck yeah, keep that time for this afternoon at 3, I want that one. window",CONFIRM
+"Screw it, yeah book that time in for next Tuesday at 9 am, that time works for me.",CONFIRM
+"Alright, I do want to that you cancel that booking for Tuesday at 4 pm.",CONFIRM
+"Alright, I absolutely want to that you cancel that booking for next Thursday at 3 pm.",CONFIRM
+"Okay, yeah book that time in for next Thursday at 3 pm, that time works for me.",CONFIRM
+"Alright, just go ahead and cancel that one for next Tuesday at 9 am, I'm confirming that.",CONFIRM
+"Yep, schedule that time that one we just went over, I'm confirming it. random",CONFIRM
+"Honestly yeah, fuck it, cancel that visit for Thursday at 2 pm, that's fine with me.",CONFIRM
+"To be clear, yes, yeah confirm that appointment for Wednesday at 1 pm, that time works for me.",CONFIRM
+"For sure, yeah cancel that time for tomorrow morning at 9, that's the one I want.",CONFIRM
+"Screw it, I'm fine with you can schedule that appointment for Friday at 11 am. window",CONFIRM
+"Absolutely, yeah cancel that slot for Friday at 4 pm, that's the one I want.",CONFIRM
+"For sure, yeah schedule that one for next Tuesday at 9 am, that time works for me. window",CONFIRM
+"Honestly yeah, just go ahead and cancel the appointment we just talked about for this afternoon at 3, I'm confirming that.",CONFIRM
+"Screw it, fuck it, cancel that time for Monday at 9 am, that's fine with me.",CONFIRM
+"Screw it, yeah schedule that appointment for next Thursday at 3 pm, that time works for me.",CONFIRM
+"Yeah, I absolutely want to you can schedule that one for Monday at 3:30 pm.",CONFIRM
+"Screw it, cancel the one you mentioned that one we were talking about, I'm confirming it. phone",CONFIRM
+"Yep, I absolutely want to that you cancel that slot for Thursday at 2 pm.",CONFIRM
+"Yeah, I want to schedule that one",CONFIRM
+"Yeah fuck it, I want to cancel that one.",CONFIRM
+"Absolutely, just go ahead and cancel that visit for Friday at 11 am, I'm confirming that.",CONFIRM
+"Screw it, I absolutely want to that you cancel that slot for tomorrow morning at 9. whatever",CONFIRM
+"Okay, just go ahead and cancel that slot for Thursday at 2 pm, I'm confirming that. phone",CONFIRM
+"Fuck it, yeah schedule that appointment for Monday at 9 am, that time works for me.",CONFIRM
+"Yes, go ahead and go ahead and schedule that for tomorrow at 10 am, I'm confirming that. table",CONFIRM
+"For sure, just go ahead and cancel that appointment for next Thursday at 3 pm, I'm confirming that.",CONFIRM
+"Screw it, fuck yeah, schedule that one for next Tuesday at 9 am, I want that one.",CONFIRM
+"For sure, just go ahead and cancel that time for Wednesday at 1 pm, I'm confirming that. background",CONFIRM
+"Alright, fuck yeah, schedule that appointment for next Thursday at 3 pm, I want that one.",CONFIRM
+"Yep, fuck yeah, book that time in for tomorrow morning at 9, I want that one.",CONFIRM
+"Absolutely, I'm okay with you can lock that in for Tuesday at 4 pm. whatever",CONFIRM
+"Okay, yeah keep that time for Monday at 3:30 pm, that time works for me. kitchen",CONFIRM
+"To be clear, yes, I do want to you can schedule that time for this afternoon at 3.",CONFIRM
+"Absolutely, go ahead and schedule that one for this afternoon at 3, I'm confirming that.",CONFIRM
+"Alright, fuck yeah, book that time in for Friday at 4 pm, I want that one.",CONFIRM
+"Fuck it, fuck yeah, lock that in for Tuesday at 10 am, I want that one.",CONFIRM
+"Yes, cancel the one you mentioned that one we were talking about, I'm confirming it.",CONFIRM
+"Yes, I do want to that you cancel the one you mentioned for Wednesday at 8 am. test",CONFIRM
+"Yeah, I do want to you can lock that in for tomorrow at 10 am. garage",CONFIRM
+"Yes, cancel that booking that one we were talking about, I'm confirming it.",CONFIRM
+"Honestly yeah, just go ahead and cancel that time for this afternoon at 3, I'm confirming that. background",CONFIRM
+"Yes, book that time in that one we just went over, I'm confirming it.",CONFIRM
+"Fuck it, fuck yeah, schedule that slot for Tuesday at 10 am, I want that one.",CONFIRM
+"For sure, fuck yeah, schedule that slot for Monday at 3:30 pm, I want that one. whatever",CONFIRM
+"Yep, fuck it, cancel that slot for Friday at 4 pm, that's fine with me. window",CONFIRM
+"Alright, fuck yeah, schedule that appointment for tomorrow morning at 9, I want that one. random",CONFIRM
+"Yep, yeah keep that time for Monday at 9 am, that time works for me.",CONFIRM
+"Screw it, yeah schedule that slot for Thursday at 2 pm, that time works for me.",CONFIRM
+Yeah I don't want that one. Cancel it. heard the,CONFIRM
+"Fuck it, fuck it, cancel the one you mentioned for this afternoon at 3, that's fine with me.",CONFIRM
+"Screw it, fuck yeah, schedule that one for tomorrow at 10 am, I want that one.",CONFIRM
+"Yeah, go ahead and book that time in for Friday at 11 am, I'm confirming that.",CONFIRM
+"For sure, yeah cancel that visit for Monday at 3:30 pm, that's the one I want. phone",CONFIRM
+"For sure, go ahead and book that time in for Monday at 3:30 pm, I'm confirming that.",CONFIRM
+"Screw it, schedule that one that one we just went over, I'm confirming it.",CONFIRM
+"To be clear, yes, go ahead and go ahead and schedule that for Wednesday at 1 pm, I'm confirming that. table",CONFIRM
+"Yes, go ahead and lock that in for Tuesday at 4 pm, I'm confirming that. background",CONFIRM
+"Absolutely, lock that in that one we just went over, I'm confirming it. random",CONFIRM
+"Honestly yeah, I'm saying yes to that you cancel that booking for next Thursday at 3 pm.",CONFIRM
+"Honestly yeah, I do want to that you cancel the one you mentioned for tomorrow at 10 am.",CONFIRM
+"Yes, cancel the appointment we just talked about that one we were talking about, I'm confirming it.",CONFIRM
+"Yep, fuck yeah, book that time in for Friday at 11 am, I want that one.",CONFIRM
+"Yep, fuck yeah, schedule that one for Friday at 4 pm, I want that one.",CONFIRM
+"Yeah, yeah cancel the appointment we just talked about for this afternoon at 3, that's the one I want.",CONFIRM
+"Okay, yeah cancel that time and date for Monday at 9 am, that's the one I want.",CONFIRM
+"Absolutely, schedule that slot that one we just went over, I'm confirming it.",CONFIRM
+"Alright, cancel that time and date that one we were talking about, I'm confirming it. whatever",CONFIRM
+"Screw it, yeah book that time in for Friday at 11 am, that time works for me.",CONFIRM
+"Yep, go ahead and schedule that slot for next Tuesday at 9 am, I'm confirming that. random",CONFIRM
+"Screw it, yeah schedule that time for Tuesday at 4 pm, that time works for me.",CONFIRM
+"Alright, just go ahead and cancel that time for next Tuesday at 9 am, I'm confirming that. phone",CONFIRM
+"Okay, yeah cancel that one for tomorrow morning at 9, that's the one I want. random",CONFIRM
+"Yep, yeah cancel that time and date for Thursday at 2 pm, that's the one I want.",CONFIRM
+"Yep, I'm okay with that you cancel that time for next Tuesday at 9 am.",CONFIRM
+"Yep, I do want to you can lock that in for Thursday at 2 pm.",CONFIRM
+"For sure, yeah cancel that appointment for Tuesday at 10 am, that's the one I want. background",CONFIRM
+"Yep, fuck it, cancel that visit for Wednesday at 1 pm, that's fine with me.",CONFIRM
+"Alright, fuck it, cancel that visit for Monday at 9 am, that's fine with me.",CONFIRM
+"Alright, I'm fine with you can schedule that slot for Tuesday at 10 am.",CONFIRM
+"Fuck it, yeah cancel that booking for tomorrow at 10 am, that's the one I want. background",CONFIRM
+"Yes, yeah cancel the one you mentioned for Friday at 4 pm, that's the one I want. random",CONFIRM
+"Yep, yeah schedule that appointment for Tuesday at 4 pm, that time works for me.",CONFIRM
+"Yep, I definitely want to you can keep that time for tomorrow morning at 9.",CONFIRM
+"Screw it, cancel that one that one we were talking about, I'm confirming it. whatever",CONFIRM
+"Yep, go ahead and confirm that appointment for Wednesday at 1 pm, I'm confirming that.",CONFIRM
+"Alright, fuck yeah, schedule that appointment for Tuesday at 10 am, I want that one. garage",CONFIRM
+"Screw it, fuck it, cancel that appointment for tomorrow morning at 9, that's fine with me.",CONFIRM
+"For sure, I'm saying yes to that you cancel the one you mentioned for tomorrow morning at 9. garage",CONFIRM
+"Yep, yeah cancel the appointment we just talked about for Tuesday at 4 pm, that's the one I want.",CONFIRM
+"For sure, confirm that appointment that one we just went over, I'm confirming it.",CONFIRM
+"Alright, just go ahead and cancel that one for Friday at 4 pm, I'm confirming that. whatever",CONFIRM
+"Alright, yeah cancel that one for Tuesday at 4 pm, that's the one I want.",CONFIRM
+"Yes, just go ahead and cancel that time and date for this afternoon at 3, I'm confirming that. phone",CONFIRM
+"To be clear, yes, just go ahead and cancel that one for Tuesday at 4 pm, I'm confirming that.",CONFIRM
+"Yes, fuck yeah, book that time in for Wednesday at 1 pm, I want that one.",CONFIRM
+"Honestly yeah, I'm agreeing to that you cancel that slot for Tuesday at 10 am.",CONFIRM
+"Alright, I do want to that you cancel that booking for tomorrow at 10 am. kitchen",CONFIRM
+"For sure, I'm agreeing to that you cancel that appointment for Tuesday at 10 am. kitchen",CONFIRM
+"For sure, I'm agreeing to that you cancel that time and date for Monday at 9 am.",CONFIRM
+"Yep, fuck it, cancel that visit for next Thursday at 3 pm, that's fine with me. outside",CONFIRM
+Yeah cancel that shit.,CONFIRM
+"Yeah, fuck it, cancel that visit for tomorrow at 10 am, that's fine with me.",CONFIRM
+"Honestly yeah, yeah schedule that time for Monday at 3:30 pm, that time works for me.",CONFIRM
+"Okay, I'm confirming that you cancel the one you mentioned for Wednesday at 8 am.",CONFIRM
+"Yes, fuck it, cancel that one for next Tuesday at 9 am, that's fine with me.",CONFIRM
+"Yes, I'm fine with that you cancel that time for Friday at 4 pm. garage",CONFIRM
+"Fuck it, fuck yeah, book that time in for Wednesday at 1 pm, I want that one.",CONFIRM
+"To be clear, yes, I'm saying yes to you can keep that time for Wednesday at 8 am. table",CONFIRM
+"Honestly yeah, fuck it, cancel the one you mentioned for Friday at 4 pm, that's fine with me.",CONFIRM
+"Okay, fuck it, cancel that visit for Friday at 11 am, that's fine with me.",CONFIRM
+"Honestly yeah, I do want to you can schedule that one for Monday at 9 am. random",CONFIRM
+"Screw it, fuck yeah, schedule that slot for Thursday at 2 pm, I want that one.",CONFIRM
+"Fuck it, go ahead and keep that time for Wednesday at 1 pm, I'm confirming that.",CONFIRM
+"Alright, I definitely want to that you cancel that appointment for this afternoon at 3. window",CONFIRM
+"Alright, go ahead and schedule that that one we just went over, I'm confirming it.",CONFIRM
+"Yes, just go ahead and cancel that time and date for Thursday at 2 pm, I'm confirming that. outside",CONFIRM
+"Fuck it, I'm saying yes to that you cancel that time for Friday at 11 am.",CONFIRM
+"Yes, book that time in that one we just went over, I'm confirming it. whatever",CONFIRM
+"For sure, I absolutely want to that you cancel the one you mentioned for Monday at 3:30 pm.",CONFIRM
+"Yeah, cancel the one you mentioned that one we were talking about, I'm confirming it. kitchen",CONFIRM
+"Fuck it, yeah confirm that appointment for Wednesday at 8 am, that time works for me.",CONFIRM
+"Honestly yeah, yeah schedule that appointment for Monday at 9 am, that time works for me.",CONFIRM
+"To be clear, yes, fuck yeah, schedule that one for Thursday at 2 pm, I want that one. garage",CONFIRM
+"Alright, yeah cancel that appointment for Monday at 9 am, that's the one I want. kitchen",CONFIRM
+"Screw it, go ahead and lock that in for Thursday at 2 pm, I'm confirming that. kitchen",CONFIRM
+"Yep, cancel that visit that one we were talking about, I'm confirming it. window",CONFIRM
+"Absolutely, cancel that one that one we were talking about, I'm confirming it.",CONFIRM
+"For sure, cancel that booking that one we were talking about, I'm confirming it.",CONFIRM
+"Yep, just go ahead and cancel that appointment for next Thursday at 3 pm, I'm confirming that. kitchen",CONFIRM
+"Fuck it, go ahead and lock that in for Friday at 4 pm, I'm confirming that.",CONFIRM
+"For sure, cancel that time that one we were talking about, I'm confirming it.",CONFIRM
+"Okay, I'm okay with you can schedule that slot for tomorrow morning at 9. garage",CONFIRM
+"Fuck it, I'm fine with that you cancel that slot for this afternoon at 3.",CONFIRM
+"Yeah, I'm fine with that you cancel that booking for next Thursday at 3 pm.",CONFIRM
+"For sure, yeah cancel the appointment we just talked about for Friday at 4 pm, that's the one I want. random",CONFIRM
+"Fuck it, fuck it, cancel that booking for Wednesday at 1 pm, that's fine with me.",CONFIRM
+"For sure, keep that time that one we just went over, I'm confirming it.",CONFIRM
+"Fuck it, keep that time that one we just went over, I'm confirming it. table",CONFIRM
+"Okay, go ahead and go ahead and schedule that for Friday at 11 am, I'm confirming that.",CONFIRM
+"Yes, yeah cancel the appointment we just talked about for Wednesday at 1 pm, that's the one I want.",CONFIRM
+"Screw it, I'm agreeing to you can schedule that time for Tuesday at 10 am.",CONFIRM
+"Honestly yeah, just go ahead and cancel that slot for tomorrow morning at 9, I'm confirming that.",CONFIRM
+"Yes, go ahead and schedule that appointment for next Tuesday at 9 am, I'm confirming that.",CONFIRM
+"Okay, I'm saying yes to you can confirm that appointment for Wednesday at 8 am.",CONFIRM
+"Honestly yeah, fuck yeah, confirm that appointment for Thursday at 2 pm, I want that one.",CONFIRM
+"Screw it, just go ahead and cancel that one for next Tuesday at 9 am, I'm confirming that. garage",CONFIRM
+"Screw it, cancel that slot that one we were talking about, I'm confirming it.",CONFIRM
+"Yep, yeah schedule that time for Tuesday at 4 pm, that time works for me. window",CONFIRM
+"Absolutely, I'm saying yes to you can go ahead and schedule that for Wednesday at 8 am.",CONFIRM
+"Yes, I absolutely want to that you cancel that one for this afternoon at 3.",CONFIRM
+"Yep, fuck yeah, lock that in for tomorrow at 10 am, I want that one. table",CONFIRM
+"Yep, cancel the appointment we just talked about that one we were talking about, I'm confirming it. table",CONFIRM
+"For sure, cancel that appointment that one we were talking about, I'm confirming it.",CONFIRM
+"Fuck it, cancel that time that one we were talking about, I'm confirming it.",CONFIRM
+"Yeah, schedule that appointment that one we just went over, I'm confirming it.",CONFIRM
+"Yep, just go ahead and cancel that slot for Thursday at 2 pm, I'm confirming that. kitchen",CONFIRM
+"To be clear, yes, fuck yeah, book that time in for Tuesday at 10 am, I want that one.",CONFIRM
+"To be clear, yes, fuck yeah, book that time in for Friday at 11 am, I want that one. outside",CONFIRM
+"Screw it, fuck it, cancel that slot for Tuesday at 4 pm, that's fine with me.",CONFIRM
+"Yes, go ahead and go ahead and schedule that for Monday at 9 am, I'm confirming that.",CONFIRM
+"Okay, yeah schedule that slot for Wednesday at 8 am, that time works for me.",CONFIRM
+"Yeah, fuck yeah, book that time in for tomorrow morning at 9, I want that one.",CONFIRM
