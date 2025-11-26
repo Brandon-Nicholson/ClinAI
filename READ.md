@@ -1,6 +1,7 @@
 ## ClinAI - A fully autonomous healthcare receptionist (voice-enabled)
 
 **Preview:**
+
 ![ClinAI Screenshot](screenshots/readme.png)
 ![ClinAI Screenshot](screenshots/readme2.png)
 
