@@ -22,6 +22,7 @@ tzdata
 
 # Speech-to-text / audio
 faster-whisper
+ctranslate2
 sounddevice
 numpy
 
@@ -33,7 +34,8 @@ pygame
 ollama
 
 # ML / NLP stacktorch
-transformers
+torch
+transformers[torch]
 scikit-learn
 pandas
 datasets

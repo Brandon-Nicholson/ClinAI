@@ -1,0 +1,301 @@
+text,label
+"Wait, that's not gonna work. Can we try 930 instead?",REJECT
+"Wait never mind, let's move it to 3:30pm",REJECT
+I don't want that time. 11:30am works though.,REJECT
+"That time won’t work, but 5pm does.",REJECT
+Oops not that. 4pm.,REJECT
+Not that day. Let's do this coming Wednesday.,REJECT
+I don't want that time. 12:30pm works though.,REJECT
+wait I cant do that. I'm free next Tuesday at 5:00 PM,REJECT
+"no, make it 130",REJECT
+Is it okay if we do 430 instead?,REJECT
+That one doesn’t work for me anymore. 1pm please.,REJECT
+actually let’s do 830 instead,REJECT
+Actually can we change it to 10am?,REJECT
+Actually can we change it to 1230?,REJECT
+"That time won’t work, but 11am does.",REJECT
+I don't want that time. 8am works though.,REJECT
+Is it okay if we do 1:30pm instead?,REJECT
+"not that time, do 1230",REJECT
+"never mind, can't do that. Let's do 830 instead.",REJECT
+"Actually I meant 11am, not that one.",REJECT
+"Actually, let's push it to 430",REJECT
+wait I cant do that. I'm free this Thursday at 10am,REJECT
+"That time won’t work, but 3pm does.",REJECT
+Can we change that? 4:30pm is better.,REJECT
+Actually can we change it to 2pm?,REJECT
+"Nope, can't do that. Can we try 1130?",REJECT
+"Scratch that, 9am works better.",REJECT
+"actually, is it cool if we do next Wednesday instead of this one?",REJECT
+Wait a sec that doesn't work for me actually. 8am is better,REJECT
+Actually can we do 1pm instead?,REJECT
+"Never mind, I want this coming Wednesday",REJECT
+"actually, is it cool if we do next Friday instead of this one?",REJECT
+Hold up I can't actually do that. How about 11:30am?,REJECT
+"not that time, do 930",REJECT
+That one doesn’t work for me anymore. 230 please.,REJECT
+Actually can we change it to 4pm?,REJECT
+Wait a sec that doesn't work for me actually. 11:30am is better,REJECT
+I don't want that time. 1pm works though.,REJECT
+"no, make it 3:30pm",REJECT
+Wait a sec that doesn't work for me actually. 330 is better,REJECT
+Actually can we do 10am instead?,REJECT
+Actually can we change it to 1030?,REJECT
+Hold up I can't actually do that. How about 2:30pm?,REJECT
+Hold up I can't actually do that. How about 2:30pm?,REJECT
+"Wait, that's not gonna work. Can we try 11:30am instead?",REJECT
+"Wait never mind, let's move it to 5pm",REJECT
+"actually, is it cool if we do this Friday instead of this one?",REJECT
+"Wait, that's not gonna work. Can we try 5pm instead?",REJECT
+"Actually I meant 830, not that one.",REJECT
+"Wait, I actually want to do next Tuesday",REJECT
+Oops not that. 12pm.,REJECT
+Wait a sec that doesn't work for me actually. 1030 is better,REJECT
+Is it okay if we do 11:30am instead?,REJECT
+Actually can we do 1pm instead?,REJECT
+"Wait, that's not gonna work. Can we try 3pm instead?",REJECT
+Wait a sec that doesn't work for me actually. 2pm is better,REJECT
+"Scratch that, 4:30pm works better.",REJECT
+Is it okay if we do 1230 instead?,REJECT
+Not that day. Let's do this Friday.,REJECT
+"Nope, can't do that. Can we try 9:30?",REJECT
+wait I cant do that. I'm free this Thursday at 1pm,REJECT
+"Wait, actually I need 11am instead.",REJECT
+Is it okay if we do 8am instead?,REJECT
+Can we change that? 330 is better.,REJECT
+"Wait, actually I need 9am instead.",REJECT
+"Actually, let's push it to 12:30pm",REJECT
+actually let’s do 3:30pm instead,REJECT
+I don't want that time. 3:30pm works though.,REJECT
+Actually can we change it to 3pm?,REJECT
+Oops not that. 430.,REJECT
+I need a different time. How about 5pm?,REJECT
+uhh that's actually not gonna work for me. What's available on next Friday?,REJECT
+"not that time, do 12pm",REJECT
+Wait a sec that doesn't work for me actually. 1:30pm is better,REJECT
+Wait a sec that doesn't work for me actually. 9am is better,REJECT
+I don't want that time. 5:00 PM works though.,REJECT
+Is it okay if we do 5:00 PM instead?,REJECT
+Actually can we do 11:30am instead?,REJECT
+wait I cant do that. I'm free this Friday at 1030,REJECT
+"Wait, actually I need 2:30pm instead.",REJECT
+"Actually I meant 1230, not that one.",REJECT
+Actually can we change it to 11am?,REJECT
+"actually, is it cool if we do next week instead of this one?",REJECT
+"Actually, let's push it to 12pm",REJECT
+That one doesn’t work for me anymore. 3pm please.,REJECT
+"Actually, let's push it to 5:00 PM",REJECT
+"never mind, can't do that. Let's do 12pm instead.",REJECT
+wait I cant do that. I'm free next Thursday at 11am,REJECT
+Hold up I can't actually do that. How about 8am?,REJECT
+Oops not that. 8am.,REJECT
+Wait a sec that doesn't work for me actually. 3:30pm is better,REJECT
+uhh that's actually not gonna work for me. What's available on next Tuesday?,REJECT
+"Actually I meant 10am, not that one.",REJECT
+Hold up I can't actually do that. How about 9am?,REJECT
+actually let’s do 5pm instead,REJECT
+"Wait, that's not gonna work. Can we try 5pm instead?",REJECT
+"Actually I meant 9:30, not that one.",REJECT
+"Wait, I actually want to do next Thursday",REJECT
+"not that time, do 930",REJECT
+"not that time, do 2:30pm",REJECT
+actually let’s do 10am instead,REJECT
+Not that day. Let's do next Friday.,REJECT
+"not that time, do 10:30am",REJECT
+"Never mind, I want next Monday",REJECT
+Not that day. Let's do next Friday.,REJECT
+Is it okay if we do 1030 instead?,REJECT
+"That time won’t work, but 230 does.",REJECT
+"That time won’t work, but 2:30pm does.",REJECT
+I don't want that time. 11am works though.,REJECT
+actually let’s do 930 instead,REJECT
+I don't want that time. 930 works though.,REJECT
+"Nope, can't do that. Can we try 8:30am?",REJECT
+"Scratch that, 3pm works better.",REJECT
+I need a different time. How about 4pm?,REJECT
+uhh that's actually not gonna work for me. What's available on next Wednesday?,REJECT
+"Wait, actually I need 8:30am instead.",REJECT
+"Never mind, I want this coming Wednesday",REJECT
+"Actually I meant 2:30pm, not that one.",REJECT
+"Actually, let's push it to 8:30am",REJECT
+"Wait, that's not gonna work. Can we try 8:30am instead?",REJECT
+"Wait no, let's switch it to 11:30am",REJECT
+"Wait, I actually want to do this coming Wednesday",REJECT
+"Wait never mind, let's move it to 3:30pm",REJECT
+I need a different time. How about 9:30?,REJECT
+Actually can we change it to 930?,REJECT
+"That time won’t work, but 4pm does.",REJECT
+actually let’s do 1pm instead,REJECT
+I need a different time. How about 10:30am?,REJECT
+Hold up I can't actually do that. How about 230?,REJECT
+"Never mind, I want next Wednesday",REJECT
+Not that day. Let's do next Tuesday.,REJECT
+"never mind, can't do that. Let's do 130 instead.",REJECT
+Actually can we change it to 1230?,REJECT
+I don't want that time. 12pm works though.,REJECT
+"Actually, let's push it to 8am",REJECT
+"never mind, can't do that. Let's do 1130 instead.",REJECT
+"Wait, actually I need 1130 instead.",REJECT
+"That time won’t work, but 430 does.",REJECT
+"Actually I meant 9am, not that one.",REJECT
+Can we change that? 11:30am is better.,REJECT
+"Never mind, I want next Friday",REJECT
+uhh that's actually not gonna work for me. What's available on next Thursday?,REJECT
+"no, make it 430",REJECT
+Actually can we change it to 330?,REJECT
+"Nope, can't do that. Can we try 1:30pm?",REJECT
+I don't want that time. 1230 works though.,REJECT
+"actually, is it cool if we do this Thursday instead of this one?",REJECT
+"Wait, that's not gonna work. Can we try 930 instead?",REJECT
+Hold up I can't actually do that. How about 12pm?,REJECT
+Oops not that. 11am.,REJECT
+Actually can we do 9:30 instead?,REJECT
+"Wait never mind, let's move it to 3pm",REJECT
+Oops not that. 5pm.,REJECT
+"not that time, do 130",REJECT
+"no, make it 5pm",REJECT
+Hold up I can't actually do that. How about 930?,REJECT
+"not that time, do 430",REJECT
+"not that time, do 4:30pm",REJECT
+That one doesn’t work for me anymore. 4pm please.,REJECT
+Can we change that? 4pm is better.,REJECT
+uhh that's actually not gonna work for me. What's available on next Monday?,REJECT
+wait I cant do that. I'm free next Thursday at 4pm,REJECT
+"Nope, can't do that. Can we try 11:30am?",REJECT
+"Nope, can't do that. Can we try 930?",REJECT
+"Never mind, I want next week",REJECT
+"Actually, let's push it to 10am",REJECT
+Hold up I can't actually do that. How about 3:30pm?,REJECT
+"never mind, can't do that. Let's do 2pm instead.",REJECT
+Oops not that. 1230.,REJECT
+Oops not that. 10:30am.,REJECT
+wait I cant do that. I'm free next Thursday at 830,REJECT
+"Actually, let's push it to 130",REJECT
+uhh that's actually not gonna work for me. What's available on next Monday?,REJECT
+Can we change that? 9:30 is better.,REJECT
+I don't want that time. 9am works though.,REJECT
+"Wait, actually I need 2:30pm instead.",REJECT
+"That time won’t work, but 8:30am does.",REJECT
+Hold up I can't actually do that. How about 830?,REJECT
+Is it okay if we do 1130 instead?,REJECT
+I don't want that time. 130 works though.,REJECT
+"That time won’t work, but 5pm does.",REJECT
+"no, make it 2:30pm",REJECT
+"Wait, actually I need 5:00 PM instead.",REJECT
+I don't want that time. 10am works though.,REJECT
+Actually can we do 830 instead?,REJECT
+Oops not that. 2:30pm.,REJECT
+actually let’s do 4pm instead,REJECT
+wait I cant do that. I'm free next Tuesday at 4:30pm,REJECT
+Not that day. Let's do this coming Wednesday.,REJECT
+I don't want that time. 930 works though.,REJECT
+"no, make it 930",REJECT
+I need a different time. How about 130?,REJECT
+Actually can we do 9:30 instead?,REJECT
+I don't want that time. 1230 works though.,REJECT
+Oops not that. 9am.,REJECT
+actually let’s do 1030 instead,REJECT
+"Wait, actually I need 10am instead.",REJECT
+Not that day. Let's do next Monday.,REJECT
+"Wait no, let's switch it to 1230",REJECT
+Actually can we do 10:30am instead?,REJECT
+"Wait never mind, let's move it to 330",REJECT
+Actually can we do 1230 instead?,REJECT
+Actually can we change it to 1130?,REJECT
+"Actually I meant 8am, not that one.",REJECT
+"That time won’t work, but 10am does.",REJECT
+"Scratch that, 2pm works better.",REJECT
+wait I cant do that. I'm free next Tuesday at 830,REJECT
+I need a different time. How about 3pm?,REJECT
+"Wait, I actually want to do this Thursday",REJECT
+"no, make it 11:30am",REJECT
+"not that time, do 4:30pm",REJECT
+"Scratch that, 5:00 PM works better.",REJECT
+"Wait no, let's switch it to 11am",REJECT
+"That time won’t work, but 11am does.",REJECT
+That one doesn’t work for me anymore. 1:30pm please.,REJECT
+Wait a sec that doesn't work for me actually. 9:30 is better,REJECT
+Is it okay if we do 4:30pm instead?,REJECT
+"never mind, can't do that. Let's do 5:00 PM instead.",REJECT
+"Wait, actually I need 5pm instead.",REJECT
+"Wait, I actually want to do this coming Wednesday",REJECT
+I need a different time. How about 5pm?,REJECT
+Oops not that. 130.,REJECT
+"Wait, actually I need 5:00 PM instead.",REJECT
+"Wait, that's not gonna work. Can we try 10am instead?",REJECT
+"That time won’t work, but 5pm does.",REJECT
+"actually, is it cool if we do next Monday instead of this one?",REJECT
+actually let’s do 12:30pm instead,REJECT
+"actually, is it cool if we do next Friday instead of this one?",REJECT
+"Actually, let's push it to 130",REJECT
+actually let’s do 1230 instead,REJECT
+"Wait, I actually want to do next Monday",REJECT
+"not that time, do 10am",REJECT
+Actually can we change it to 11:30am?,REJECT
+Hold up I can't actually do that. How about 12:30pm?,REJECT
+"not that time, do 1:30pm",REJECT
+That one doesn’t work for me anymore. 12pm please.,REJECT
+uhh that's actually not gonna work for me. What's available on next Tuesday?,REJECT
+"Actually I meant 430, not that one.",REJECT
+Oops not that. 4:30pm.,REJECT
+"Wait, I actually want to do this Friday",REJECT
+I need a different time. How about 5:00 PM?,REJECT
+Oops not that. 1pm.,REJECT
+"Actually I meant 330, not that one.",REJECT
+"Wait never mind, let's move it to 10:30am",REJECT
+Wait a sec that doesn't work for me actually. 10am is better,REJECT
+"Actually, let's push it to 4:30pm",REJECT
+Can we change that? 9:30 is better.,REJECT
+Not that day. Let's do next Friday.,REJECT
+"actually, is it cool if we do this Friday instead of this one?",REJECT
+uhh that's actually not gonna work for me. What's available on this coming Wednesday?,REJECT
+"no, make it 12pm",REJECT
+wait I cant do that. I'm free this Thursday at 1030,REJECT
+That one doesn’t work for me anymore. 2:30pm please.,REJECT
+"Actually I meant 2pm, not that one.",REJECT
+"Wait no, let's switch it to 2:30pm",REJECT
+Can we change that? 330 is better.,REJECT
+Actually can we do 2pm instead?,REJECT
+Not that day. Let's do next week.,REJECT
+Actually can we do 11:30am instead?,REJECT
+"Wait no, let's switch it to 930",REJECT
+"Wait, actually I need 1230 instead.",REJECT
+"Never mind, I want next Monday",REJECT
+Actually can we change it to 12:30pm?,REJECT
+"Wait no, let's switch it to 12:30pm",REJECT
+"Nope, can't do that. Can we try 1130?",REJECT
+"Wait, actually I need 1130 instead.",REJECT
+uhh that's actually not gonna work for me. What's available on this Friday?,REJECT
+"no, make it 930",REJECT
+"Never mind, I want this coming Wednesday",REJECT
+uhh that's actually not gonna work for me. What's available on this Thursday?,REJECT
+"Never mind, I want this coming Wednesday",REJECT
+actually let’s do 4:30pm instead,REJECT
+Hold up I can't actually do that. How about 11am?,REJECT
+"That time won’t work, but 430 does.",REJECT
+"Wait never mind, let's move it to 130",REJECT
+Can we change that? 1130 is better.,REJECT
+"Actually, let's push it to 830",REJECT
+I need a different time. How about 8am?,REJECT
+"Never mind, I want next Monday",REJECT
+"actually, is it cool if we do next Tuesday instead of this one?",REJECT
+"actually, is it cool if we do next Thursday instead of this one?",REJECT
+Hold up I can't actually do that. How about 8:30am?,REJECT
+"Actually, let's push it to 10am",REJECT
+Hold up I can't actually do that. How about 830?,REJECT
+"not that time, do 830",REJECT
+I don't want that time. 1030 works though.,REJECT
+"never mind, can't do that. Let's do 3pm instead.",REJECT
+"Wait, I actually want to do next Friday",REJECT
+"Nope, can't do that. Can we try 2pm?",REJECT
+"Nope, can't do that. Can we try 5:00 PM?",REJECT
+"not that time, do 5pm",REJECT
+"Actually, let's push it to 1:30pm",REJECT
+"Wait, I actually want to do next Tuesday",REJECT
+"actually, is it cool if we do next Tuesday instead of this one?",REJECT
+"not that time, do 12:30pm",REJECT
+"never mind, can't do that. Let's do 11am instead.",REJECT
+"not that time, do 1:30pm",REJECT
+Can we change that? 4:30pm is better.,REJECT
+Wait a sec that doesn't work for me actually. 330 is better,REJECT
+Not that day. Let's do next Thursday.,REJECT

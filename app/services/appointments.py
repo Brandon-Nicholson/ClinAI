@@ -135,10 +135,10 @@ def _normalize_word_times_in_text(text: str) -> str:
     """
     Convert word-based times into numeric forms the existing extractor already supports.
     Examples:
-      "How about three?"            -> "How about 3?"
+      "How about three?"               -> "How about 3 pm"    (inferred)
       "at seven thirty in the evening" -> "at 7:30 pm"
-      "eleven o'clock"              -> "11"
-      "five pm"                     -> "5 pm"
+      "eleven o'clock"                 -> "11 am" / "11 pm" (inferred)
+      "five pm"                        -> "5 pm"
     """
     def _repl(m: re.Match) -> str:
         hour_word = m.group("hour").lower()
@@ -161,26 +161,39 @@ def _normalize_word_times_in_text(text: str) -> str:
         ampm = (m.group("ampm") or "").lower().replace(".", "")
         daypart = (m.group("daypart") or "").lower()
 
-        # compose numeric time
+        # compose numeric time (just the core, no am/pm yet)
         if minute:
             core = f"{hour}:{minute:02d}"
         else:
             core = f"{hour}"
 
-        # keep explicit am/pm if present
+        # 1) explicit am/pm wins
         if ampm in ("am", "pm"):
             return f"{core} {ampm}"
 
-        # otherwise keep daypart as am/pm if it implies PM
+        # 2) daypart hints (afternoon/evening/night/morning)
         if daypart in ("afternoon", "evening", "night"):
             return f"{core} pm"
         if daypart == "morning":
             return f"{core} am"
 
-        # leave as bare time
+        # 3) NO am/pm + NO daypart → infer using clinic hours (8–17)
+        #    - 8–11 -> am
+        #    - 12   -> pm
+        #    - 1–6  -> pm (13–18)
+        if not ampm and not daypart:
+            if 8 <= hour <= 11:
+                return f"{core} am"
+            if hour == 12:
+                return f"{core} pm"
+            if 1 <= hour <= 6:
+                return f"{core} pm"
+
+        # 4) Fallback: leave as bare time (rare edge cases)
         return core
 
     return _word_time_norm_pattern.sub(_repl, text)
+
 
 
 # Helpers
@@ -720,13 +733,25 @@ def prettify_date(date_str: str) -> str:
     pretty_date = f"{d.strftime('%B')} {ordinal(d.day)}"
     return pretty_date
 
-# quick format to make appt times more readable by voice
+# quick format to make appt times more displayable and readable by voice
 def format_appt_time(time: str):
+    # remove leading zero
     if time[0] == '0':
-        return time[1:]
+        formatted_time = time[1:]
     else:
-        return time
+        formatted_time = time
     
+    return formatted_time
+
+# adds correct am/pm label to time
+def add_ampm(time: str):
+    hour = int(time.split(":")[0])
+    if hour in [8,9,10,11]:
+        return time + 'am'
+    elif hour in [12,1,2,3,4]:
+        return time + 'pm'
+    else: # not wihtin hours of operation
+        return time
 # fix incorrect labeling of am/pm
 def ampm_mislabel_fix(temp_appt_date: dict) -> dict:
     time = temp_appt_date['time']
@@ -841,15 +866,17 @@ def nearest_available_slots(time_slots, available_slots, time_pick):
 
 # return all available times on a certain day
 def check_appt_availability(date_str: str, time_slots: list, tz_str: str = "America/Los_Angeles") -> list[str]:
-
+    # work on a copy so we don't mutate the global list
+    slots = list(time_slots)
+    
     # convert day to numerical representation of week day (Mon-Sun = 0-6)
     d = date.fromisoformat(date_str)
     weekday = d.weekday()
 
     # knock off time slots if friday (closes 1hr earlier)
     if weekday == 4:
-        while time_slots[-1] != "03:30":
-            time_slots.pop()
+        while slots[-1] != "03:30":
+            slots.pop()
             
     tz = ZoneInfo(tz_str)
     day = datetime.fromisoformat(date_str).date()
@@ -878,16 +905,16 @@ def check_appt_availability(date_str: str, time_slots: list, tz_str: str = "Amer
     # convert to local time strings
     scheduled_appts = [dt.astimezone(tz).strftime("%I:%M") for dt in results]
     # filter out unavailable slots
-    available_slots = [slot for slot in time_slots if slot not in scheduled_appts]
+    available_slots = [slot for slot in slots if slot not in scheduled_appts]
     
     # return None if no available slots
     if not available_slots:
         return None, None
     
     # return full_availability_weekday if all time slots are available for that weekday (non-friday) - prevents agent from reading every slot
-    if available_slots == time_slots and weekday != 4:
+    if available_slots == slots and weekday != 4:
         return "full_availability_weekday", available_slots
-    elif available_slots == time_slots and weekday == 4:
+    elif available_slots == slots and weekday == 4:
         return "full_availability_friday", available_slots # return full_evailability_friday for fridays (different closing times)
     
     # format to be interpreted by agent
@@ -981,7 +1008,7 @@ def patient_existing_appts(patient_id: int) -> list:
         for appt in scheduled_appts: 
             pretty_date = f"{prettify_date(appt['date'])} at {appt['time']}{appt['ampm']}"
             pretty_dates.append(pretty_date)
-        
+
         if not pretty_dates:
             return None, None
         elif len(pretty_dates) == 1:

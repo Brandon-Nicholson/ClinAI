@@ -1,0 +1,43 @@
+ID,Category,Scenario,Expected Result,PASS/FAIL
+1,Scheduling,User tells agent they want to be booked for next Tuesday at 3pm,2025-11-25 03:00 PM appt created in DB,PASS
+2,Scheduling,User requests an appointment tomorrow at 10 in the morning but tomorrow is a Saturday so user schedules for Monday at 11am instead,"Agent informs user tomorrow is a weekend, 2025-11-24 11:00 AM appt created in DB",PASS
+3,Scheduling,"User asks for an appointment Friday at 4:30pm, clinic is only open until 4pm on Fridays, user asks for 3:30pm instead","Agent informs user they're open until 4 on Fridays, 2025-11-28 03:30 PM appt created in DB",PASS
+4,Scheduling,User wants to be booked on June 18th at 2pm,2025-06-18 02:00 PM appt created in DB,PASS
+5,Scheduling,User asks if they can come in Monday around noon,2025-11-24 12:00 PM appt created in DB,PASS
+6,Scheduling,User asks for an appointment on Friday and chooses 10am when given available options,"Agent shows user all availabilities for Friday, 2025-11-28 10:00 AM appt created in DB",PASS
+7,Scheduling,"User asks for human rep, then asks to schedule for next Wednesday and picks 3:30pm after hearing available times","Agent transfers to human rep, 2025-11-26 03:30 PM appt created in DB",PASS
+8,Scheduling,User wants to schedule for December 5th at 8am but only mentions the time they want to schedule for,"Agent asks which date they would like to schedule that time slot on, 2025-12-05 08:00 AM appt created in DB",PASS
+9,Scheduling,"User tries to schedule next Tuesday at 8:30am but that time slot is already booked, then schedules for 8am instead","Agent informs user that time is already booked then recommends the nearest available times, 2025-11-25 08:00 AM appt created in DB",PASS
+10,Scheduling,User asks to be scheduled on the weekend then tries to schedule a 4pm appointment the following Monday,"Agent says they're closed on weekends, 2025-11-24 04:00 PM appt created in DB",PASS
+11,Scheduling,User asks to be scheduled on a day that is completely booked then says they don't want to schedule an appointment anymore,"Agent informs user that day is completely booked, exits the appointment scheduling pipeline",PASS
+12,Scheduling,"User asks to be schedule for next Wednesday but there is only one available slot for that day at 4:30pm, user accepts the last slot","Agent informs user there is one last slot for Wednesday at 4:30pm, 2025-11-26 04:30 PM appt created in DB",PASS
+13,Cancellation,User asks to cancel their Friday appointment at 2pm,Appointment cancelled in DB @ 2025-11-28 02:00 PM,PASS
+14,Cancellation,User requests cancellation of their Friday appointment at 9am but they don't have any appointments scheduled at all,Agent informs user they don't have any appointments currently scheduled,PASS
+15,Cancellation,User asks to cancel tomorrow's appointment,Appointment cancelled in DB @ 2025-11-24 10:00 AM,PASS
+16,Cancellation,User requests cancellation of their appointment on June 18th at 2pm,"Agent asks which appointment they'd like to cancel, appointment cancelled in DB @ 2025-06-18 02:00 PM",PASS
+17,Cancellation,User wants to cancel their Wednesday afternoon appointment,Appointment cancelled in DB @ 2025-11-26 03:00 PM,PASS
+18,Cancellation,"User asks to cancel their appointment on Friday but has multiple appointments on that day, cancels the 10am appointment",Appointment cancelled in DB @ 2025-11-28 10:00 AM,PASS
+19,Cancellation,"User angrily asks to speak to a representative, then demands the fake human rep to cancel their appointment",Cancel upcoming appointment cancelled in DB,PASS
+20,Cancellation,User says they can't make their 3:30pm Wednesday appointment anymore,Appointment cancelled in DB @ 2025-11-26 03:30 PM,PASS
+21,Cancellation,"User asks to cancel their 8am Thursday appointment but they don't have an appointment scheduled Thursday, then remembers it was actually on Tuesday","Agent informs user they don't have an appointment scheduled Thursday, Appointment cancelled in DB @ 2025-11-25 08:00 AM",PASS
+22,Cancellation,User says cancel my Monday at 1pm appointment then changes their mind and doesn't cancel their appointment,Agent tells user their appointment won't be cancelled and asks if they need help with anything else,PASS
+23,Admin Info,User asks What is your address?,"Correct address returned: 123 Main St, Springfield, CA 90000",PASS
+24,Admin Info,User asks for the clinic phone number,Correct phone returned: (555) 555-0123,PASS
+25,Admin Info,User asks what time the clinic closes on Fridays,The clinic closes at 4:00pm on Fridays,PASS
+26,Admin Info,User asks if they accept Kaiser insurance,Correct insurance response: Kaiser accepted,PASS
+27,Admin Info,User asks if they accept walk-ins,Correct walk-in info returned: Limited same-day availability; please call first.,PASS
+28,Admin Info,User asks for parking instructions,Correct parking info returned: Lot behind the building; first 2 hours free.,PASS
+29,Admin Info,User asks for the clinic website,Correct URL returned: https://sunrisemedicine.com,PASS
+30,Admin Info,User asks what days the clinic is closed,Accurate weekend closure returned: Sat + Sun closed,PASS
+31,Admin Info,User asks for the fax number,Correct fax number returned: (555) 555-0456,PASS
+32,Admin Info,User asks for support phone number for online portal,Correct support number returned: (555) 555-0199,PASS
+33,RX Refill,User asks to refill their omeprazole prescription,Refill workflow initiated for omeprazole,PASS
+34,RX Refill,User requests a refill for lisinopril,Refill workflow initiated for lisinopril,PASS
+35,RX Refill,User asks to refill atorvastatin,Refill workflow initiated for atorvastatin,PASS
+36,RX Refill,"User asks to refill metformin, then changes their mind and doesn't want the refill anymore",Agent exits the RX refill pipeline,PASS
+37,RX Refill,User requests a refill for amoxicillin,Refill workflow initiated for amoxicillin,PASS
+38,RX Refill,User asks for a refill but does not mention medication,Agent asks which medication they'd like to refill,PASS
+39,RX Refill,User tries to request refill for a non-supported medication,System responds with list of supported meds,PASS
+40,RX Refill,User asks to refill lisinopril twice in the same day,Duplicate refill attempt rejected or flagged,PASS
+41,RX Refill,"User asks to speak to a human rep, then asks for a refill on omeprazole",Fake human rep refills Omeprazole,PASS
+42,RX Refill,"User tries to refill amoxicillin twice in a month, system denies request, user asks to speak to a representative, user demands fake representative to refill their amoxicillin",Fake human rep denies user's demands to refill twice in a month,PASS

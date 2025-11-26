@@ -83,12 +83,3 @@ class RefillRequest(Base):
     drug_name: Mapped[Optional[str]] = mapped_column(Text)
     last_fill_date: Mapped[Optional[Date]] = mapped_column(Date)
 
-class Analytics(Base):
-    __tablename__ = "analytics"
-
-    id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    call_id: Mapped[int] = mapped_column(ForeignKey("calls.id", ondelete="CASCADE"))
-    metric: Mapped[str] = mapped_column(Text)  # 'latency_ms','turns','words','interrupts'
-    value: Mapped[float] = mapped_column(Numeric)
-    created_at: Mapped[datetime] = mapped_column(TIMESTAMP(timezone=True), server_default=func.now())
-

@@ -61,49 +61,91 @@ def _avg_conf_and_text(segments):
     conf = sum(_seg_conf(s) for s in segs) / max(len(segs), 1)
     return conf, text
 
-# Listen once, then transcribe with Whisper
-def listen_and_transcribe_whisper(model, q, response, sample_rate=16000,
-                                  rms_threshold=0,         # threshold for how loud input speech needs to be
-                                  max_silence_frames=50,   # wait ~2 sec of silence
-                                  hot_start_frames=2,      # ignore first few frames (avoid false triggers)
-                                  max_buffer_seconds=10,   # hard max, ~10 sec of speech
-                                  max_wait_seconds=10,     # hard timeout
-                                  min_conf=-0.72):         # minimum confidence threshold
+def listen_and_transcribe_whisper(
+    model,
+    q,
+    response,
+    sample_rate=16000,
+    rms_threshold=200,       # threshold for how loud input speech needs to be
+    max_silence_frames=50,   # wait ~2 sec of silence
+    hot_start_frames=2,      # ignore first few frames (avoid false triggers)
+    max_buffer_seconds=10,   # hard max, ~10 sec of speech
+    max_wait_seconds=10,     # hard timeout
+    min_conf=-0.60,          # minimum confidence threshold
+):
+    import time
+    import traceback
+    import numpy as np
+
     print("🎧 Waiting for speech...")
-    
+
     spoken_started = False
     warmups = 0
     buffer = bytearray()
     silence_streak = 0
-    # start wait counter before patient speaks
     start_time = time.time()
-    
+
     # add an additional 0.4s per word in the LLM's response (avg speech rate is 2.5 words/second)
-    additional_wait_seconds = len(response.split()) * (1/2.5)
+    additional_wait_seconds = len(response.split()) * (1 / 2.5)
     total_wait_seconds = additional_wait_seconds + max_wait_seconds
-    
+
     def transcribe_and_gate():
-        audio_f32 = _pcm_bytes_to_float32(bytes(buffer))
-        segments, _ = model.transcribe(audio_f32, language="en", beam_size=1, word_timestamps=False)
-        avg_conf, text = _avg_conf_and_text(segments)
+        # Convert PCM -> float32 numpy
+        try:
+            raw_bytes = bytes(buffer)
+            if not raw_bytes:
+                print("[STT DEBUG] Buffer empty, nothing to transcribe.")
+                return ""
+
+            audio_f32 = _pcm_bytes_to_float32(raw_bytes)
+            audio_f32 = np.asarray(audio_f32, dtype="float32").flatten()
+            print(f"[STT DEBUG] audio_f32 shape={audio_f32.shape}, dtype={audio_f32.dtype}")
+        except Exception:
+            print("Error converting PCM bytes to float32:")
+            traceback.print_exc()
+            return ""
+
+        # Call Whisper with protection so GPU errors can't kill the process
+        try:
+            segments_iter, info = model.transcribe(
+                audio_f32,
+                language="en",
+                beam_size=1,
+                word_timestamps=False,
+            )
+            # force materialization in case it's a generator
+            segments = list(segments_iter)
+        except Exception:
+            print("Whisper GPU transcribe error:")
+            traceback.print_exc()
+            return ""
+
+        # Now compute avg_conf + text safely
+        try:
+            avg_conf, text = _avg_conf_and_text(segments)
+        except Exception:
+            print("Error computing avg_conf/text from segments:")
+            traceback.print_exc()
+            return ""
+
         print(f"[DEBUG] Transcribed={text!r} | avg_conf={avg_conf:.2f}")
-        
-        # make confidence threshold more lenient (-1.2) for 1-2 word prompts
+
+        # make confidence threshold more lenient for short prompts
         word_count = len(text.split())
         if word_count < 3:
-            adj_conf = avg_conf + 0.48 # big bump for 1–2 words
+            adj_conf = avg_conf + 0.48  # big increase for 1–2 words
         elif word_count == 3:
-            adj_conf = avg_conf + 0.20 # smaller bump for 3 words
+            adj_conf = avg_conf + 0.20  # smaller increase for 3 words
         else:
-            adj_conf = avg_conf # no bump for 4+ words
+            adj_conf = avg_conf         # no increase for 4+ words
 
         if adj_conf < min_conf:
+            print(f"[DEBUG] adj_conf={adj_conf:.2f} below min_conf={min_conf:.2f}, treating as empty.")
             return ""
-        
+
         return text
 
     while True:
-        
         data = q.get()
 
         # ignore first couple frames while mic turns on
@@ -118,12 +160,13 @@ def listen_and_transcribe_whisper(model, q, response, sample_rate=16000,
             if energy < rms_threshold:
                 # if patient waits too long before speaking, return sentinel
                 if (time.time() - start_time) > total_wait_seconds:
+                    print("[STT DEBUG] Waited too long for speech, returning None.")
                     return None
                 else:
                     continue
             spoken_started = True   # first voice detected
             start_time = time.time()
-            
+
         # collect audio while talking
         buffer.extend(data)
 
@@ -140,3 +183,4 @@ def listen_and_transcribe_whisper(model, q, response, sample_rate=16000,
         # if speech too long, transcribe anyway (with the SAME gate)
         if len(buffer) >= sample_rate * max_buffer_seconds:
             return transcribe_and_gate()
+

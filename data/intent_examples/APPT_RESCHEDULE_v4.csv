@@ -1,0 +1,337 @@
+text,label
+"I can't make my 2pm appointment anymore, let's reschedule for 3pm.",APPT_RESCHEDULE
+"Let's reschedule my Friday appointment, I can no longer make that.",APPT_RESCHEDULE
+"I need to move my 3pm appointment on Tuesday, I can't make it anymore.",APPT_RESCHEDULE
+"I won't be able to show up for my Thursday appointment, can we move it to next Monday at 2?",APPT_RESCHEDULE
+"I need to reschedule, can't make my appointment anymore.",APPT_RESCHEDULE
+I need to move an appointment that I can no longer make.,APPT_RESCHEDULE
+"Can't do my 2.30 appointment anymore, let's move it if possible.",APPT_RESCHEDULE
+"Do you think we can move my 4.30 appointment on Tuesday, can't be there in time.",APPT_RESCHEDULE
+"Hey, I can't make my 130pm slot on Wednesday, can we push it later?",APPT_RESCHEDULE
+"I won't be able to make my 430pm appointment Friday, can we reschedule it?",APPT_RESCHEDULE
+"I won't be able to show up for my 300 appointment on Thursday, can we move it to 4pm?",APPT_RESCHEDULE
+"Please change my 10-00 appointment on Friday to tomorrow afternoon, I won't be able to make the original time.",APPT_RESCHEDULE
+"I won't be able to show up for my 9am appointment on thursday, can we move it to 10am?",APPT_RESCHEDULE
+"I won't be able to show up for my 10:30am appointment today, can we move it to 3:30pm?",APPT_RESCHEDULE
+"I need to reschedule my 4.00 pm appointment on thursday, can't make it. How about 4:30pm?",APPT_RESCHEDULE
+"Do you think we can move my 5.00pm appointment on Monday? I can't be there in time, maybe 1pm?",APPT_RESCHEDULE
+"Can't do my 11-30 appointment this Thursday anymore, let's move it to next Monday at 3 if possible.",APPT_RESCHEDULE
+"Can't do my 9:00am appointment on Wednesday anymore, let's move it to 9:30am if possible.",APPT_RESCHEDULE
+"I won't be able to come to my appointment, I'd like to reschedule it.",APPT_RESCHEDULE
+"Something came up and I can't make my appointment, can we reschedule?",APPT_RESCHEDULE
+I have a conflict and need to move my appointment to a new time.,APPT_RESCHEDULE
+"I won't be able to show up for my 12:00pm appointment this Tuesday, can we move it to 9am?",APPT_RESCHEDULE
+"I need to change the time of my appointment, I can't make the current slot.",APPT_RESCHEDULE
+"Can't do my 9 am appointment on wednesday anymore, let's move it to tomorrow morning if possible.",APPT_RESCHEDULE
+"I need to reschedule my 930 appointment on tuesday, can't make it. How about tomorrow afternoon?",APPT_RESCHEDULE
+"Please change my 4 pm appointment on Wednesday to 1pm, I won't be able to make the original time.",APPT_RESCHEDULE
+"I need to reschedule my 400pm appointment this Wednesday, can't make it. How about 10:30am?",APPT_RESCHEDULE
+"I can't make my 300 appointment this Wednesday anymore, let's reschedule for next Wednesday at 4pm.",APPT_RESCHEDULE
+"Something came up and I can't make my appointment, can we reschedule?",APPT_RESCHEDULE
+"Can't do my 11 am appointment on Wednesday anymore, let's move it to 4:30pm if possible.",APPT_RESCHEDULE
+"Something came up and I can't make my 1000am appointment tomorrow, can we reschedule for tomorrow morning?",APPT_RESCHEDULE
+"Please change my 9:30am appointment this Thursday to tomorrow at 4:30pm, I won't be able to make the original time.",APPT_RESCHEDULE
+"I need to shift my 2:00pm slot this Thursday to 11:30am, I can't make the current one.",APPT_RESCHEDULE
+"Please change my 12:30pm appointment on tuesday to 12pm, I won't be able to make the original time.",APPT_RESCHEDULE
+"Let's reschedule my 1.30 appointment on Wednesday, I can no longer make that time.",APPT_RESCHEDULE
+"I need to shift my 9.30 slot this Monday to 11:30am, I can't make the current one.",APPT_RESCHEDULE
+"Please change my 8.30 appointment on wednesday to 12:30pm, I won't be able to make the original time.",APPT_RESCHEDULE
+"Please change my 10-30 appointment on Monday to 11am, I won't be able to make the original time.",APPT_RESCHEDULE
+"Let's reschedule my 4.30 appointment this Thursday, I can no longer make that time.",APPT_RESCHEDULE
+"I need to reschedule my 1100 appointment on thursday, can't make it. How about 8am?",APPT_RESCHEDULE
+"I need to reschedule my 130pm appointment this Monday, can't make it. How about 11am?",APPT_RESCHEDULE
+"Can't do my 300 appointment today anymore, let's move it to 12pm if possible.",APPT_RESCHEDULE
+"Please change my 430pm appointment this Monday to next Monday at 3, I won't be able to make the original time.",APPT_RESCHEDULE
+"Can't do my 8am appointment on monday anymore, let's move it to 11am if possible.",APPT_RESCHEDULE
+"I need to shift my 5-00 slot this Friday to 3pm, I can't make the current one.",APPT_RESCHEDULE
+"Let's reschedule my 8-30 appointment on Wednesday, I can no longer make that time.",APPT_RESCHEDULE
+"Please change my 430pm appointment on Friday to 1:30pm, I won't be able to make the original time.",APPT_RESCHEDULE
+"Do you think we can move my 9-30 appointment this Thursday? I can't be there in time, maybe later today?",APPT_RESCHEDULE
+"Can't do my 1000am appointment this Tuesday anymore, let's move it to 10:30am if possible.",APPT_RESCHEDULE
+"I won't be able to show up for my 1 pm appointment today, can we move it to 3pm?",APPT_RESCHEDULE
+"I won't be able to show up for my 8.30 appointment on monday, can we move it to 3:30pm?",APPT_RESCHEDULE
+"I can't make my 230pm appointment this Wednesday anymore, let's reschedule for tomorrow at 2pm.",APPT_RESCHEDULE
+"I need to push my appointment back, I won't be able to come at that time.",APPT_RESCHEDULE
+"Something came up and I can't make my 830 appointment today, can we reschedule for tomorrow afternoon?",APPT_RESCHEDULE
+"I need to shift my 1000am slot on Friday to same time tomorrow, I can't make the current one.",APPT_RESCHEDULE
+"Do you think we can move my 2:30pm appointment tomorrow? I can't be there in time, maybe 1:30pm?",APPT_RESCHEDULE
+"Can't do my 10:00am appointment on Thursday anymore, let's move it to 11:30am if possible.",APPT_RESCHEDULE
+"I can't make my 12-30 appointment on thursday anymore, let's reschedule for tomorrow at 4:30pm.",APPT_RESCHEDULE
+"Can't do my 330pm appointment on Thursday anymore, let's move it to tomorrow at 4:30pm if possible.",APPT_RESCHEDULE
+"Please change my 5:00 PM appointment on Thursday to 2pm, I won't be able to make the original time.",APPT_RESCHEDULE
+"Something came up and I can't make my 1:00pm appointment on Friday, can we reschedule for 4pm?",APPT_RESCHEDULE
+"Please change my 1030 appointment on Wednesday to next Friday at 9am, I won't be able to make the original time.",APPT_RESCHEDULE
+"I can't make my 9 am appointment on Tuesday anymore, let's reschedule for 3:30pm.",APPT_RESCHEDULE
+"Something came up and I can't make my 9am appointment this Wednesday, can we reschedule for 1:30pm?",APPT_RESCHEDULE
+Can we reschedule my appointment? I won't be able to make it.,APPT_RESCHEDULE
+"I can't make my appointment as scheduled, can we move it to another time?",APPT_RESCHEDULE
+"Please change my 5pm appointment on friday to tomorrow at 2pm, I won't be able to make the original time.",APPT_RESCHEDULE
+"I won't be able to show up for my 3:30pm appointment tomorrow, can we move it to 5pm?",APPT_RESCHEDULE
+"I can't make my 8:30am appointment on Tuesday anymore, let's reschedule for 9am.",APPT_RESCHEDULE
+"Please change my 2.30 appointment tomorrow to next Friday at 9am, I won't be able to make the original time.",APPT_RESCHEDULE
+"I have to move my appointment to a different time, I can't make the one I have.",APPT_RESCHEDULE
+"I won't be able to show up for my 10 am appointment on Wednesday, can we move it to tomorrow afternoon?",APPT_RESCHEDULE
+I have a conflict and need to move my appointment to a new time.,APPT_RESCHEDULE
+"I need to shift my 1030 slot on Tuesday to 11:30am, I can't make the current one.",APPT_RESCHEDULE
+"I won't be able to show up for my 2-00 appointment today, can we move it to 4pm?",APPT_RESCHEDULE
+"I need to move my 3.30 appointment on monday, I can't make it anymore. Can we do 10:30am?",APPT_RESCHEDULE
+"Let's reschedule my 3.30 appointment this Friday, I can no longer make that time.",APPT_RESCHEDULE
+"Let's reschedule my 8 am appointment on friday, I can no longer make that time.",APPT_RESCHEDULE
+"Can't do my 830 appointment this Tuesday anymore, let's move it to 12pm if possible.",APPT_RESCHEDULE
+"Something came up and I can't make my 8.30 appointment this Wednesday, can we reschedule for 1pm?",APPT_RESCHEDULE
+"Please change my 5-00 appointment this Friday to next Tuesday at 10am, I won't be able to make the original time.",APPT_RESCHEDULE
+"I have to move my appointment to a different time, I can't make the one I have.",APPT_RESCHEDULE
+"Please change my 9-00 appointment this Thursday to 11am, I won't be able to make the original time.",APPT_RESCHEDULE
+"Can't do my 9.30 appointment this Thursday anymore, let's move it to 2pm if possible.",APPT_RESCHEDULE
+"I can't make my 1000 appointment this Thursday anymore, let's reschedule for 4pm.",APPT_RESCHEDULE
+"I need to reschedule, can't make my appointment anymore.",APPT_RESCHEDULE
+"I need to reschedule my 8am appointment on monday, can't make it. How about tomorrow morning?",APPT_RESCHEDULE
+"Please change my 930 appointment on friday to 11:30am, I won't be able to make the original time.",APPT_RESCHEDULE
+"I need to move my 8 am appointment on Thursday, I can't make it anymore. Can we do same time tomorrow?",APPT_RESCHEDULE
+I have a conflict and need to move my appointment to a new time.,APPT_RESCHEDULE
+"I need to reschedule my 200 appointment on Friday, can't make it. How about 9am?",APPT_RESCHEDULE
+"I need to change the time of my appointment, I can't make the current slot.",APPT_RESCHEDULE
+"Please change my 3-30 appointment this Wednesday to 9:30am, I won't be able to make the original time.",APPT_RESCHEDULE
+"I need to change the time of my appointment, I can't make the current slot.",APPT_RESCHEDULE
+"I need to reschedule, can't make my appointment anymore.",APPT_RESCHEDULE
+"I won't be able to show up for my 10am appointment on monday, can we move it to 11:30am?",APPT_RESCHEDULE
+"Do you think we can move my 11 am appointment this Monday? I can't be there in time, maybe 11am?",APPT_RESCHEDULE
+"Something came up and I can't make my 800 appointment tomorrow, can we reschedule for next Wednesday at 4pm?",APPT_RESCHEDULE
+"I need to change the time of my appointment, I can't make the current slot.",APPT_RESCHEDULE
+"Can't do my 10-00 appointment on Monday anymore, let's move it to 10:30am if possible.",APPT_RESCHEDULE
+"I can't make my appointment as scheduled, can we move it to another time?",APPT_RESCHEDULE
+"Please change my 12pm appointment today to next Wednesday at 4pm, I won't be able to make the original time.",APPT_RESCHEDULE
+"I need to move my 1130 appointment on Monday, I can't make it anymore. Can we do 4pm?",APPT_RESCHEDULE
+"Do you think we can move my 2.30 appointment this Thursday? I can't be there in time, maybe later today?",APPT_RESCHEDULE
+"Let's reschedule my 12pm appointment on monday, I can no longer make that time.",APPT_RESCHEDULE
+"Do you think we can move my 1200pm appointment this Tuesday? I can't be there in time, maybe tomorrow at 2pm?",APPT_RESCHEDULE
+Can you help me reschedule my appointment? I can't make that time anymore.,APPT_RESCHEDULE
+"Can't do my 3-30 appointment this Tuesday anymore, let's move it to 10am if possible.",APPT_RESCHEDULE
+"I need to reschedule my 3:00pm appointment on monday, can't make it. How about 11am?",APPT_RESCHEDULE
+"Do you think we can move my 130pm appointment this Friday? I can't be there in time, maybe 8:30am?",APPT_RESCHEDULE
+"Do you think we can move my 4 pm appointment this Friday? I can't be there in time, maybe 2pm?",APPT_RESCHEDULE
+"I need to move my 3.30 appointment on wednesday, I can't make it anymore. Can we do same time tomorrow?",APPT_RESCHEDULE
+"I can't make my 3 pm appointment this Friday anymore, let's reschedule for next Wednesday at 4pm.",APPT_RESCHEDULE
+"I need to shift my 1100am slot this Friday to next Tuesday at 10am, I can't make the current one.",APPT_RESCHEDULE
+"I won't be able to show up for my 3pm appointment on monday, can we move it to 12:30pm?",APPT_RESCHEDULE
+"I need to move my 1-30 appointment tomorrow, I can't make it anymore. Can we do next Tuesday at 10am?",APPT_RESCHEDULE
+"I need to shift my 3:30pm slot on Wednesday to tomorrow afternoon, I can't make the current one.",APPT_RESCHEDULE
+"I need to change the time of my appointment, I can't make the current slot.",APPT_RESCHEDULE
+"I need to move my 330pm appointment this Friday, I can't make it anymore. Can we do 2pm?",APPT_RESCHEDULE
+"I need to shift my 8.00 am slot on Tuesday to 1:30pm, I can't make the current one.",APPT_RESCHEDULE
+"I need to shift my 4-30 slot on Wednesday to same time tomorrow, I can't make the current one.",APPT_RESCHEDULE
+"I need to move my 10:00am appointment on wednesday, I can't make it anymore. Can we do 3pm?",APPT_RESCHEDULE
+"I have to move my appointment to a different time, I can't make the one I have.",APPT_RESCHEDULE
+"Please change my 430 appointment on thursday to next Tuesday at 10am, I won't be able to make the original time.",APPT_RESCHEDULE
+"Let's reschedule my 100 appointment on Tuesday, I can no longer make that time.",APPT_RESCHEDULE
+Can you help me reschedule my appointment? I can't make that time anymore.,APPT_RESCHEDULE
+"I won't be able to come to my appointment, I'd like to reschedule it.",APPT_RESCHEDULE
+"Something came up and I can't make my 3 pm appointment today, can we reschedule for 3:30pm?",APPT_RESCHEDULE
+"I won't be able to show up for my 930 appointment tomorrow, can we move it to next Monday at 3?",APPT_RESCHEDULE
+"Something came up and I can't make my 300 appointment this Thursday, can we reschedule for 2:30pm?",APPT_RESCHEDULE
+"I need to reschedule my 3.00 pm appointment this Wednesday, can't make it. How about 10am?",APPT_RESCHEDULE
+"Please change my 10.30 appointment this Thursday to same time tomorrow, I won't be able to make the original time.",APPT_RESCHEDULE
+"I need to move my 8-30 appointment on Friday, I can't make it anymore. Can we do 10:30am?",APPT_RESCHEDULE
+"Can't do my 4:00pm appointment this Tuesday anymore, let's move it to 11:30am if possible.",APPT_RESCHEDULE
+"Do you think we can move my 2.00 pm appointment on friday? I can't be there in time, maybe 2pm?",APPT_RESCHEDULE
+I have a conflict and need to move my appointment to a new time.,APPT_RESCHEDULE
+"I need to reschedule my 1200 appointment tomorrow, can't make it. How about 9:30am?",APPT_RESCHEDULE
+"Something came up and I can't make my appointment, can we reschedule?",APPT_RESCHEDULE
+"Do you think we can move my 2:00pm appointment this Wednesday? I can't be there in time, maybe 4pm?",APPT_RESCHEDULE
+"Do you think we can move my 1:30pm appointment on Monday? I can't be there in time, maybe tomorrow afternoon?",APPT_RESCHEDULE
+Can we reschedule my appointment? I won't be able to make it.,APPT_RESCHEDULE
+I have a conflict and need to move my appointment to a new time.,APPT_RESCHEDULE
+"I need to move my 2-00 appointment on Monday, I can't make it anymore. Can we do 11:30am?",APPT_RESCHEDULE
+"Can't do my 100 appointment this Monday anymore, let's move it to 10:30am if possible.",APPT_RESCHEDULE
+"Do you think we can move my 1000am appointment on friday? I can't be there in time, maybe next Monday at 3?",APPT_RESCHEDULE
+"Something came up and I can't make my 11:00am appointment on thursday, can we reschedule for 10am?",APPT_RESCHEDULE
+"I need to push my appointment back, I won't be able to come at that time.",APPT_RESCHEDULE
+"I can't make my 10-00 appointment on Wednesday anymore, let's reschedule for tomorrow morning.",APPT_RESCHEDULE
+"I need to change the time of my appointment, I can't make the current slot.",APPT_RESCHEDULE
+"Let's reschedule my 8:00am appointment on Friday, I can no longer make that time.",APPT_RESCHEDULE
+"Can't do my 2-00 appointment this Tuesday anymore, let's move it to 4pm if possible.",APPT_RESCHEDULE
+"I need to reschedule my 9-30 appointment on Thursday, can't make it. How about 1pm?",APPT_RESCHEDULE
+I have a conflict and need to move my appointment to a new time.,APPT_RESCHEDULE
+"I won't be able to show up for my 330pm appointment on wednesday, can we move it to tomorrow at 2pm?",APPT_RESCHEDULE
+"I need to reschedule my 830 appointment this Wednesday, can't make it. How about next Monday at 3?",APPT_RESCHEDULE
+"I can't make my 3-30 appointment on Thursday anymore, let's reschedule for 4:30pm.",APPT_RESCHEDULE
+"Please change my 12pm appointment on thursday to 10am, I won't be able to make the original time.",APPT_RESCHEDULE
+"Something came up and I can't make my 300pm appointment on monday, can we reschedule for 11:30am?",APPT_RESCHEDULE
+"I won't be able to come to my appointment, I'd like to reschedule it.",APPT_RESCHEDULE
+"Please change my 4:00pm appointment on Friday to tomorrow at 4:30pm, I won't be able to make the original time.",APPT_RESCHEDULE
+"Something came up and I can't make my 3-00 appointment this Thursday, can we reschedule for 3:30pm?",APPT_RESCHEDULE
+I have a conflict and need to move my appointment to a new time.,APPT_RESCHEDULE
+"I have to move my appointment to a different time, I can't make the one I have.",APPT_RESCHEDULE
+"I need to shift my 11:00am slot on friday to 12:30pm, I can't make the current one.",APPT_RESCHEDULE
+"Can't do my 3 pm appointment on wednesday anymore, let's move it to 1:30pm if possible.",APPT_RESCHEDULE
+"I need to reschedule my 10 am appointment tomorrow, can't make it. How about next Tuesday at 10am?",APPT_RESCHEDULE
+"I can't make my appointment as scheduled, can we move it to another time?",APPT_RESCHEDULE
+"Let's reschedule my 200pm appointment on Monday, I can no longer make that time.",APPT_RESCHEDULE
+"I won't be able to show up for my 10.30 appointment on thursday, can we move it to next Monday at 3?",APPT_RESCHEDULE
+"Something came up and I can't make my 4pm appointment tomorrow, can we reschedule for 1:30pm?",APPT_RESCHEDULE
+"Do you think we can move my 5 pm appointment on Monday? I can't be there in time, maybe 3pm?",APPT_RESCHEDULE
+"Can't do my 4pm appointment this Wednesday anymore, let's move it to 4:30pm if possible.",APPT_RESCHEDULE
+"Please change my 100pm appointment today to tomorrow at 4:30pm, I won't be able to make the original time.",APPT_RESCHEDULE
+"I need to reschedule my 1130 appointment on tuesday, can't make it. How about 4pm?",APPT_RESCHEDULE
+"Can't do my 10-30 appointment this Wednesday anymore, let's move it to 2pm if possible.",APPT_RESCHEDULE
+"Something came up and I can't make my 900 appointment this Monday, can we reschedule for tomorrow at 4:30pm?",APPT_RESCHEDULE
+"I won't be able to show up for my 11:00am appointment today, can we move it to 11am?",APPT_RESCHEDULE
+"I can't make my 1100 appointment this Wednesday anymore, let's reschedule for 5pm.",APPT_RESCHEDULE
+"Please change my 4:00pm appointment on Friday to 9am, I won't be able to make the original time.",APPT_RESCHEDULE
+"Something came up and I can't make my 1100 appointment on Friday, can we reschedule for next Monday at 3?",APPT_RESCHEDULE
+"Something came up and I can't make my 9:00am appointment on Monday, can we reschedule for 1:30pm?",APPT_RESCHEDULE
+"I need to reschedule my 1 pm appointment on monday, can't make it. How about 9am?",APPT_RESCHEDULE
+"Something came up and I can't make my appointment, can we reschedule?",APPT_RESCHEDULE
+"I can't make my 1:30pm appointment on Wednesday anymore, let's reschedule for tomorrow afternoon.",APPT_RESCHEDULE
+"I can't make my appointment as scheduled, can we move it to another time?",APPT_RESCHEDULE
+"Do you think we can move my 8-30 appointment this Wednesday? I can't be there in time, maybe next Monday at 3?",APPT_RESCHEDULE
+"Something came up and I can't make my 3pm appointment this Wednesday, can we reschedule for 10:30am?",APPT_RESCHEDULE
+"Something came up and I can't make my appointment, can we reschedule?",APPT_RESCHEDULE
+"Let's reschedule my 11-00 appointment on Tuesday, I can no longer make that time.",APPT_RESCHEDULE
+"Let's reschedule my 430pm appointment this Tuesday, I can no longer make that time.",APPT_RESCHEDULE
+"I need to move my 930 appointment this Wednesday, I can't make it anymore. Can we do 10am?",APPT_RESCHEDULE
+"Something came up and I can't make my 8am appointment on thursday, can we reschedule for later today?",APPT_RESCHEDULE
+"I need to reschedule my 1100 appointment on Tuesday, can't make it. How about tomorrow at 2pm?",APPT_RESCHEDULE
+"I need to reschedule my 4 pm appointment on friday, can't make it. How about 3pm?",APPT_RESCHEDULE
+"I won't be able to show up for my 5pm appointment this Tuesday, can we move it to 3:30pm?",APPT_RESCHEDULE
+Can we reschedule my appointment? I won't be able to make it.,APPT_RESCHEDULE
+"I need to shift my 830 slot on Tuesday to 5pm, I can't make the current one.",APPT_RESCHEDULE
+"I need to reschedule my 4:30pm appointment this Friday, can't make it. How about 12:30pm?",APPT_RESCHEDULE
+Can you help me reschedule my appointment? I can't make that time anymore.,APPT_RESCHEDULE
+"I can't make my 2.00 pm appointment tomorrow anymore, let's reschedule for later today.",APPT_RESCHEDULE
+"Let's reschedule my 1pm appointment on monday, I can no longer make that time.",APPT_RESCHEDULE
+"I can't make my appointment as scheduled, can we move it to another time?",APPT_RESCHEDULE
+"Something came up and I can't make my 2:30pm appointment on Tuesday, can we reschedule for 1pm?",APPT_RESCHEDULE
+Can we reschedule my appointment? I won't be able to make it.,APPT_RESCHEDULE
+"Let's reschedule my 2.30 appointment on thursday, I can no longer make that time.",APPT_RESCHEDULE
+"Let's reschedule my 100pm appointment on tuesday, I can no longer make that time.",APPT_RESCHEDULE
+"I need to reschedule my 930 appointment on monday, can't make it. How about 1:30pm?",APPT_RESCHEDULE
+Can you help me reschedule my appointment? I can't make that time anymore.,APPT_RESCHEDULE
+"Can't do my 800 appointment on friday anymore, let's move it to 4pm if possible.",APPT_RESCHEDULE
+"I need to reschedule, can't make my appointment anymore.",APPT_RESCHEDULE
+"Please change my 3:30pm appointment on friday to 2pm, I won't be able to make the original time.",APPT_RESCHEDULE
+"I can't make my 12:00pm appointment tomorrow anymore, let's reschedule for next Monday at 3.",APPT_RESCHEDULE
+"Something came up and I can't make my 1000 appointment this Thursday, can we reschedule for 5pm?",APPT_RESCHEDULE
+"I need to shift my 4 pm slot tomorrow to tomorrow morning, I can't make the current one.",APPT_RESCHEDULE
+"Please change my 5:00 PM appointment this Wednesday to 5pm, I won't be able to make the original time.",APPT_RESCHEDULE
+"Let's reschedule my 8 am appointment on thursday, I can no longer make that time.",APPT_RESCHEDULE
+"Something came up and I can't make my 100 appointment on Thursday, can we reschedule for 12pm?",APPT_RESCHEDULE
+"Do you think we can move my 4.00 pm appointment this Friday? I can't be there in time, maybe 4pm?",APPT_RESCHEDULE
+"I need to change the time of my appointment, I can't make the current slot.",APPT_RESCHEDULE
+"Please change my 1.00 pm appointment on Friday to later today, I won't be able to make the original time.",APPT_RESCHEDULE
+"I can't make my appointment as scheduled, can we move it to another time?",APPT_RESCHEDULE
+"Please change my 4-30 appointment on thursday to next Tuesday at 10am, I won't be able to make the original time.",APPT_RESCHEDULE
+"I need to shift my 11 am slot on Monday to 5pm, I can't make the current one.",APPT_RESCHEDULE
+"I won't be able to come to my appointment, I'd like to reschedule it.",APPT_RESCHEDULE
+"Please change my 2:00pm appointment tomorrow to 3:30pm, I won't be able to make the original time.",APPT_RESCHEDULE
+"I need to change the time of my appointment, I can't make the current slot.",APPT_RESCHEDULE
+"Do you think we can move my 4 pm appointment this Wednesday? I can't be there in time, maybe 3pm?",APPT_RESCHEDULE
+"Do you think we can move my 800am appointment on monday? I can't be there in time, maybe tomorrow at 2pm?",APPT_RESCHEDULE
+"I need to move my 1200pm appointment on Friday, I can't make it anymore. Can we do 9am?",APPT_RESCHEDULE
+"I won't be able to come to my appointment, I'd like to reschedule it.",APPT_RESCHEDULE
+"I need to reschedule, can't make my appointment anymore.",APPT_RESCHEDULE
+"I need to move my 400 appointment on Friday, I can't make it anymore. Can we do tomorrow morning?",APPT_RESCHEDULE
+"Can't do my 830 appointment tomorrow anymore, let's move it to 4pm if possible.",APPT_RESCHEDULE
+"Can't do my 3:00pm appointment on wednesday anymore, let's move it to next Friday at 9am if possible.",APPT_RESCHEDULE
+"I won't be able to come to my appointment, I'd like to reschedule it.",APPT_RESCHEDULE
+"I need to reschedule my 2.00 pm appointment on Tuesday, can't make it. How about 3pm?",APPT_RESCHEDULE
+"Let's reschedule my 10:30am appointment on Wednesday, I can no longer make that time.",APPT_RESCHEDULE
+"I can't make my 1 pm appointment this Monday anymore, let's reschedule for same time tomorrow.",APPT_RESCHEDULE
+"Can't do my 800am appointment on monday anymore, let's move it to 5pm if possible.",APPT_RESCHEDULE
+"Do you think we can move my 12.00 pm appointment on thursday? I can't be there in time, maybe 2:30pm?",APPT_RESCHEDULE
+"I need to shift my 2-00 slot this Monday to 10am, I can't make the current one.",APPT_RESCHEDULE
+"I need to move my 1200 appointment this Wednesday, I can't make it anymore. Can we do 4:30pm?",APPT_RESCHEDULE
+"I need to reschedule my 10:30am appointment on friday, can't make it. How about 12:30pm?",APPT_RESCHEDULE
+"I won't be able to come to my appointment, I'd like to reschedule it.",APPT_RESCHEDULE
+"I need to shift my 11.00 am slot this Monday to 9:30am, I can't make the current one.",APPT_RESCHEDULE
+"I need to reschedule my 1100am appointment on thursday, can't make it. How about 12:30pm?",APPT_RESCHEDULE
+"I have to move my appointment to a different time, I can't make the one I have.",APPT_RESCHEDULE
+"I need to reschedule my 10.30 appointment on wednesday, can't make it. How about 4:30pm?",APPT_RESCHEDULE
+"Do you think we can move my 4 pm appointment this Friday? I can't be there in time, maybe next Wednesday at 4pm?",APPT_RESCHEDULE
+"I can't make my 11:00am appointment on Monday anymore, let's reschedule for tomorrow afternoon.",APPT_RESCHEDULE
+"I can't make my appointment as scheduled, can we move it to another time?",APPT_RESCHEDULE
+"I won't be able to show up for my 430 appointment this Wednesday, can we move it to 9:30am?",APPT_RESCHEDULE
+"I need to move my 300 appointment this Tuesday, I can't make it anymore. Can we do tomorrow afternoon?",APPT_RESCHEDULE
+"I need to reschedule, can't make my appointment anymore.",APPT_RESCHEDULE
+"I need to move my 11-00 appointment on friday, I can't make it anymore. Can we do 9:30am?",APPT_RESCHEDULE
+"I need to move my 9am appointment this Friday, I can't make it anymore. Can we do 11:30am?",APPT_RESCHEDULE
+"Can't do my 10.00 am appointment on Friday anymore, let's move it to same time tomorrow if possible.",APPT_RESCHEDULE
+Can we reschedule my appointment? I won't be able to make it.,APPT_RESCHEDULE
+"I can't make my appointment as scheduled, can we move it to another time?",APPT_RESCHEDULE
+"I won't be able to come to my appointment, I'd like to reschedule it.",APPT_RESCHEDULE
+"Do you think we can move my 830 appointment on Friday? I can't be there in time, maybe 3pm?",APPT_RESCHEDULE
+"I can't make my 5:00 PM appointment on tuesday anymore, let's reschedule for 10:30am.",APPT_RESCHEDULE
+"I need to reschedule my 11am appointment on Thursday, can't make it. How about tomorrow afternoon?",APPT_RESCHEDULE
+"I need to push my appointment back, I won't be able to come at that time.",APPT_RESCHEDULE
+"Please change my 9:00am appointment this Wednesday to later today, I won't be able to make the original time.",APPT_RESCHEDULE
+"Something came up and I can't make my 11.30 appointment this Wednesday, can we reschedule for tomorrow morning?",APPT_RESCHEDULE
+"I need to move my 4 pm appointment this Friday, I can't make it anymore. Can we do 11am?",APPT_RESCHEDULE
+"Let's reschedule my 800am appointment on Tuesday, I can no longer make that time.",APPT_RESCHEDULE
+Can we reschedule my appointment? I won't be able to make it.,APPT_RESCHEDULE
+"Please change my 1200pm appointment on friday to tomorrow at 4:30pm, I won't be able to make the original time.",APPT_RESCHEDULE
+"I have to move my appointment to a different time, I can't make the one I have.",APPT_RESCHEDULE
+"I can't make my 5-00 appointment tomorrow anymore, let's reschedule for 4pm.",APPT_RESCHEDULE
+"I won't be able to show up for my 4pm appointment on tuesday, can we move it to 12:30pm?",APPT_RESCHEDULE
+"I need to push my appointment back, I won't be able to come at that time.",APPT_RESCHEDULE
+"I won't be able to show up for my 2.00 pm appointment on tuesday, can we move it to 4pm?",APPT_RESCHEDULE
+"I need to shift my 900 slot on friday to 2pm, I can't make the current one.",APPT_RESCHEDULE
+"I need to move my 8:00am appointment on Tuesday, I can't make it anymore. Can we do 3pm?",APPT_RESCHEDULE
+"Please change my 5pm appointment this Tuesday to next Monday at 3, I won't be able to make the original time.",APPT_RESCHEDULE
+"I need to change the time of my appointment, I can't make the current slot.",APPT_RESCHEDULE
+"I can't make my 1130 appointment on Friday anymore, let's reschedule for later today.",APPT_RESCHEDULE
+Can you help me reschedule my appointment? I can't make that time anymore.,APPT_RESCHEDULE
+"I can't make my 10-30 appointment this Monday anymore, let's reschedule for next Friday at 9am.",APPT_RESCHEDULE
+"I won't be able to show up for my 900am appointment on Monday, can we move it to next Tuesday at 10am?",APPT_RESCHEDULE
+"I can't make my 230pm appointment on monday anymore, let's reschedule for 4pm.",APPT_RESCHEDULE
+"Let's reschedule my 900am appointment on thursday, I can no longer make that time.",APPT_RESCHEDULE
+"I need to shift my 100pm slot on friday to 2:30pm, I can't make the current one.",APPT_RESCHEDULE
+"I can't make my 9:00am appointment on friday anymore, let's reschedule for later today.",APPT_RESCHEDULE
+"I can't make my 400pm appointment today anymore, let's reschedule for tomorrow morning.",APPT_RESCHEDULE
+"Something came up and I can't make my appointment, can we reschedule?",APPT_RESCHEDULE
+"Let's reschedule my 3-30 appointment on Thursday, I can no longer make that time.",APPT_RESCHEDULE
+"I need to move my 8-30 appointment on monday, I can't make it anymore. Can we do 10am?",APPT_RESCHEDULE
+"Please change my 11:00am appointment on monday to later today, I won't be able to make the original time.",APPT_RESCHEDULE
+"Let's reschedule my 1100 appointment on friday, I can no longer make that time.",APPT_RESCHEDULE
+Can you help me reschedule my appointment? I can't make that time anymore.,APPT_RESCHEDULE
+"I won't be able to show up for my 400 appointment this Tuesday, can we move it to same time tomorrow?",APPT_RESCHEDULE
+"Something came up and I can't make my appointment, can we reschedule?",APPT_RESCHEDULE
+"I need to reschedule my 1230 appointment on Thursday, can't make it. How about 8:30am?",APPT_RESCHEDULE
+"Let's reschedule my 12.00 pm appointment on Friday, I can no longer make that time.",APPT_RESCHEDULE
+"Can't do my 9am appointment on Wednesday anymore, let's move it to 11am if possible.",APPT_RESCHEDULE
+"Please change my 5.00pm appointment on Friday to 4:30pm, I won't be able to make the original time.",APPT_RESCHEDULE
+"I need to change my 1:15pm slot",APPT_RESCHEDULE
+"Won't work for my 9:30 Thursday anymore",APPT_RESCHEDULE
+"Can't make my 3.30 appointment, let's move it",APPT_RESCHEDULE
+"I have to reschedule my 11:30am",APPT_RESCHEDULE
+"Please move my 4pm Monday slot",APPT_RESCHEDULE
+"I can't keep my 8:15 appointment",APPT_RESCHEDULE
+"Need to shift my 12:30pm",APPT_RESCHEDULE
+"Can't do my 2-45 anymore",APPT_RESCHEDULE
+"I have to change my 10am Friday",APPT_RESCHEDULE
+"Please reschedule my 5:00 PM appointment",APPT_RESCHEDULE
+"I won't be able to make my 130 slot",APPT_RESCHEDULE
+"Need to move my 9:45am",APPT_RESCHEDULE
+"Can't make my 4:30 Thursday anymore",APPT_RESCHEDULE
+"I have to push my 11am appointment",APPT_RESCHEDULE
+"Please change my 330 time",APPT_RESCHEDULE
+"I can't do my 8:30am slot",APPT_RESCHEDULE
+"Won't make my 2pm Tuesday",APPT_RESCHEDULE
+"Need to reschedule my 10:30 Wednesday",APPT_RESCHEDULE
+"I have to move my 5pm Friday",APPT_RESCHEDULE
+"Can't keep my 1:45 appointment",APPT_RESCHEDULE
+"Please shift my 9am Monday",APPT_RESCHEDULE
+"I won't be there for my 3-15",APPT_RESCHEDULE
+"Need to change my 11:45am",APPT_RESCHEDULE
+"Can't do my 4.30pm anymore",APPT_RESCHEDULE
+"I have to reschedule my 8am Thursday",APPT_RESCHEDULE
+"Please move my 12:15 slot",APPT_RESCHEDULE
+"I have to cancel my time and pick a new one",APPT_RESCHEDULE
+"Won't work for my appointment time anymore",APPT_RESCHEDULE
+"Please change my scheduled appointment",APPT_RESCHEDULE
+"I need to shift my appointment",APPT_RESCHEDULE
+"Can't make it to my appointment, need to move",APPT_RESCHEDULE
+"Have to reschedule my visit",APPT_RESCHEDULE
+"I won't be available for my appointment",APPT_RESCHEDULE
+"Need to book a new time for my appointment",APPT_RESCHEDULE
+"Please move my appointment time",APPT_RESCHEDULE
+"I can't come in when I scheduled",APPT_RESCHEDULE

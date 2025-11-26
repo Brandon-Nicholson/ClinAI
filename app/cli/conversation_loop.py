@@ -33,8 +33,7 @@ def main_edge():
     
     # Load Whisper model for STT (speech-to-text)
     print("Loading Whisper model...")
-    whisper_model = WhisperModel("base", device="cpu", compute_type="int8")
-
+    whisper_model = WhisperModel("large-v3", device="cuda", compute_type="float16")
     # Store running conversation so the LLM has context
     chat_history = [{"role": "system", "content": main_system_prompt},
                     {"role": "system", "content": info_system_prompt}] # pre-load system prompts to context window
@@ -99,6 +98,8 @@ def main_edge():
                 user_input = listen_and_transcribe_whisper(whisper_model, q, response, min_conf=-2.0)
             else:
                 user_input = listen_and_transcribe_whisper(whisper_model, q, response)
+            
+            print(f"[DEBUG] user_input={user_input!r}")
             # Stop and close mic stream after transcribing
             stream.stop(); stream.close()
 

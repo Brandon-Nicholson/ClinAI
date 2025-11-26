@@ -1,0 +1,108 @@
+text,label
+"Actually never mind, I want to get a refill instead.",EXIT_APPT
+"Actually never mind, I want to get a prescription refill instead of scheduling.",EXIT_APPT
+"Actually never mind, I want to talk about a different issue.",EXIT_APPT
+"Actually never mind, I don't want to schedule right now.",EXIT_APPT
+"Actually never mind, I don't need an appointment anymore.",EXIT_APPT
+"Actually never mind, let's skip the appointment.",EXIT_APPT
+"Actually never mind, I changed my mind about scheduling.",EXIT_APPT
+"Actually never mind, I don't want to cancel after all.",EXIT_APPT
+"Actually never mind, I think I'll keep things as they are.",EXIT_APPT
+"Actually never mind, I don't need to change my appointment.",EXIT_APPT
+"Never mind, I want to do something else.",EXIT_APPT
+"Never mind, I decided not to schedule anything.",EXIT_APPT
+"Never mind, I don't want to move forward with that.",EXIT_APPT
+"Never mind, I don't need to make any changes.",EXIT_APPT
+"Never mind, I don't want to reschedule anymore.",EXIT_APPT
+"Never mind, I don't want to cancel anymore.",EXIT_APPT
+"Never mind, I don't want to book anything now.",EXIT_APPT
+"Never mind, I don't need any appointment after all.",EXIT_APPT
+"Never mind, I won't schedule today.",EXIT_APPT
+"Never mind, let's drop the appointment for now.",EXIT_APPT
+"On second thought, I don't want to.",EXIT_APPT
+"On second thought, I don't want to schedule.",EXIT_APPT
+"On second thought, I don't want to change my appointment.",EXIT_APPT
+"On second thought, I don't need any appointment.",EXIT_APPT
+"On second thought, I don't want to cancel.",EXIT_APPT
+"On second thought, I don't want to reschedule.",EXIT_APPT
+"On second thought, I'll leave my appointments as they are.",EXIT_APPT
+"On second thought, let's not do that.",EXIT_APPT
+"On second thought, forget the appointment.",EXIT_APPT
+"On second thought, I'd rather not make any changes.",EXIT_APPT
+Never mind then.,EXIT_APPT
+"Okay, never mind then.",EXIT_APPT
+"Alright, never mind then.",EXIT_APPT
+"No, never mind then, I'm fine.",EXIT_APPT
+"Actually, never mind then, I don't need anything.",EXIT_APPT
+"Yeah, never mind then, I'll just keep what I have.",EXIT_APPT
+"No worries, never mind then.",EXIT_APPT
+"It's okay, never mind then.",EXIT_APPT
+"Forget it, never mind then.",EXIT_APPT
+"Never mind then, I changed my mind.",EXIT_APPT
+"Okay never mind, I'm good then.",EXIT_APPT
+"Okay never mind, I don't need an appointment.",EXIT_APPT
+"Okay never mind, I don't need to change anything.",EXIT_APPT
+"Okay never mind, I won't cancel after all.",EXIT_APPT
+"Okay never mind, I don't need to reschedule.",EXIT_APPT
+"Okay never mind, I don't need a refill from you.",EXIT_APPT
+"Okay never mind, I don't need your help with that anymore.",EXIT_APPT
+"Okay never mind, I don't need to book anything.",EXIT_APPT
+"Okay never mind, I'll stick with what I have.",EXIT_APPT
+I don't need to schedule anything then.,EXIT_APPT
+I don't need to schedule anything after all.,EXIT_APPT
+I don't need to schedule an appointment anymore.,EXIT_APPT
+I don't need to cancel then.,EXIT_APPT
+I don't need to cancel my appointment anymore.,EXIT_APPT
+I don't need to reschedule then.,EXIT_APPT
+I don't need to change my appointment after all.,EXIT_APPT
+I don't need any appointments right now.,EXIT_APPT
+I don't need anything changed after all.,EXIT_APPT
+I don't need to book anything anymore.,EXIT_APPT
+I won't cancel then.,EXIT_APPT
+I won't cancel actually.,EXIT_APPT
+I won't cancel my visit anymore.,EXIT_APPT
+I won't cancel my appointment after all.,EXIT_APPT
+"I won't cancel, I'll just keep it.",EXIT_APPT
+I won't change the appointment anymore.,EXIT_APPT
+I won't reschedule after all.,EXIT_APPT
+"I won't move it then, it's fine.",EXIT_APPT
+I won't make any changes now.,EXIT_APPT
+Okay I won't schedule anymore.,EXIT_APPT
+Okay I won't schedule anything after all.,EXIT_APPT
+Okay I won't book an appointment now.,EXIT_APPT
+Okay I won't change my appointment anymore.,EXIT_APPT
+Okay I won't mess with the schedule.,EXIT_APPT
+Okay I won't move my appointment now.,EXIT_APPT
+Okay I won't request anything else.,EXIT_APPT
+Okay I won't do that anymore.,EXIT_APPT
+Let's not schedule anything anymore.,EXIT_APPT
+Let's not cancel anything after all.,EXIT_APPT
+Let's not reschedule anymore.,EXIT_APPT
+Let's just leave the appointments as is.,EXIT_APPT
+Let's just keep everything the same.,EXIT_APPT
+Let's just drop this whole scheduling thing.,EXIT_APPT
+Let's forget about the appointment.,EXIT_APPT
+Let's forget about canceling.,EXIT_APPT
+Let's forget about rescheduling.,EXIT_APPT
+"Let's forget all that, I'm fine now.",EXIT_APPT
+"Forget it, I don't want to schedule anymore.",EXIT_APPT
+"Forget it, I don't want to cancel anymore.",EXIT_APPT
+"Forget it, I don't want to change anything.",EXIT_APPT
+"Forget it, I don't need any appointment.",EXIT_APPT
+"Forget it, I don't want to continue this.",EXIT_APPT
+"Forget that, I changed my mind.",EXIT_APPT
+"Forget that, I'm okay now.",EXIT_APPT
+"Forget the whole thing, I'm good.",EXIT_APPT
+"Forget the appointment stuff, I'm fine.",EXIT_APPT
+"I changed my mind, I don't want to schedule.",EXIT_APPT
+"I changed my mind, I don't want to cancel.",EXIT_APPT
+"I changed my mind, I don't need to reschedule.",EXIT_APPT
+"I changed my mind, I don't want to change anything.",EXIT_APPT
+"I changed my mind, let's not do any of that.",EXIT_APPT
+"I changed my mind, I'm fine with my current appointment.",EXIT_APPT
+"I changed my mind, I don't want any appointments.",EXIT_APPT
+I'd rather not schedule after all.,EXIT_APPT
+I'd rather not cancel anything now.,EXIT_APPT
+I'd rather not make any changes.,EXIT_APPT
+"I’m good actually, I don’t need anything changed.",EXIT_APPT
+"I’m fine actually, let’s leave it how it is.",EXIT_APPT

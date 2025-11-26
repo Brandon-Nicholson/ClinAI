@@ -50,7 +50,7 @@ app = FastAPI(title="ClinAI Web Demo")
 
 BASE_DIR = pathlib.Path(__file__).resolve().parent
 
-# Serve static files (our simple frontend)
+# Serve static files
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
 
 @app.get("/")
@@ -86,15 +86,15 @@ async def tts_to_mp3_bytes(text: str, voice: str) -> bytes:
 
 # ----- Whisper STT for browser audio -----
 
-print("[ClinAI-Web] Loading Whisper model (base, int8, cpu)...")
-WHISPER_MODEL = WhisperModel("base", device="cpu", compute_type="int8")
+print("[ClinAI-Web] Loading Whisper model...")
+WHISPER_MODEL = WhisperModel("medium", device="cuda", compute_type="float16")
 
 
 def _seg_conf(seg):
-    # match transcriber.py: prefer avg_logprob / avg_log_prob
+    # prefer avg_logprob / avg_log_prob
     return getattr(seg, "avg_logprob", getattr(seg, "avg_log_prob", -10.0))
 
-
+# return avg confidence score for transcribed text
 def _avg_conf_and_text(segments):
     segs = list(segments)
     if not segs:
@@ -103,30 +103,36 @@ def _avg_conf_and_text(segments):
     conf = sum(_seg_conf(s) for s in segs) / max(len(segs), 1)
     return conf, text
 
+# Run Whisper on a WAV file and apply confidence gating logic
+def transcribe_file_with_gate(path: str, min_conf: float = -0.70) -> str:
+    try:
+        # transcribe speech
+        segments_iter, _ = WHISPER_MODEL.transcribe(
+            path,
+            language="en",
+            beam_size=1,
+            word_timestamps=False,
+        )
+        segments = list(segments_iter)
+    except Exception as e:
+        print("[STT] Whisper error in web app:", e)
+        return ""
 
-def transcribe_file_with_gate(path: str, min_conf: float = -0.74) -> str:
-    # Run Whisper on a WAV file and apply confidence gating logic
-    segments, _ = WHISPER_MODEL.transcribe(
-        path,
-        language="en",
-        beam_size=1,
-        word_timestamps=False,
-    )
     avg_conf, text = _avg_conf_and_text(segments)
     if not text:
         return ""
 
-    # +0.48 for 1–2 words, +0.20 for 3 words, else no bump.
+    # adjust confidence score for prompts with less words
     word_count = len(text.split())
     if word_count < 3:
-        adj_conf = avg_conf + 0.50
-    elif word_count == 3:
         adj_conf = avg_conf + 0.40
+    elif word_count == 3:
+        adj_conf = avg_conf + 0.35
     else:
         adj_conf = avg_conf
 
     print(f"[STT] text={text!r} avg_conf={avg_conf:.2f} adj_conf={adj_conf:.2f}")
-
+    # return inaudible note if conf threshold not met
     if adj_conf < min_conf:
         return "[Inaudible Message]"
     return text
@@ -139,7 +145,7 @@ class StartSessionRequest(BaseModel):
     first_name: Optional[str] = None
     last_name: Optional[str] = None
     phone: str
-    dob: Optional[str] = None  # ISO "YYYY-MM-DD" if you want
+    dob: Optional[str] = None
 
 
 class StartSessionResponse(BaseModel):
@@ -157,7 +163,7 @@ class TurnResponse(BaseModel):
     agent_message: str
     end_call: bool
     audio_b64: Optional[str] = None
-    # For voice mode: what the STT heard from the user
+    # For voice mode: what the STT heard from user
     user_transcript: Optional[str] = None
 
 # ---------------------------------------------------
@@ -201,9 +207,7 @@ class ClinAISession:
     # ---------- lifecycle helpers ----------
 
     def start(self) -> List[Dict[str, str]]:
-        """
-        Called once after session is created. Returns intro + welcome messages.
-        """
+        # Called once after session is created. Returns intro + welcome messages.
         intro_msg = (
             "Your conversation may be monitored or recorded. "
             "You can say 'stop' or 'quit' at any time to exit the conversation."
@@ -221,9 +225,7 @@ class ClinAISession:
         ]
 
     def end(self):
-        """
-        Wrap up call in DB, including summary notes + intents.
-        """
+        # Wrap up call in DB, including summary notes + intents
         intents_json = json.dumps(self.patient_intents)
         set_intent(self.call.id, intents_json)
 
@@ -239,7 +241,7 @@ class ClinAISession:
 
     def handle_turn(self, user_input: str) -> Dict[str, object]:
         """
-        Single conversational turn.
+        Single conversational turn
 
         Returns:
             {"agent_message": str, "end_call": bool}
@@ -255,7 +257,7 @@ class ClinAISession:
             log_turn(self.call.id, "assistant", goodbye_msg)
             return {"agent_message": goodbye_msg, "end_call": True}
 
-        # Handle empty input (browser sent empty message)
+        # Handle empty input if browser sent empty message
         if not user_input:
             repeat_msg = "Sorry, I didn’t catch that clearly. Could you repeat?"
             add_to_history(self.chat_history, "assistant", repeat_msg)
@@ -289,7 +291,7 @@ class ClinAISession:
             "good bye!",
             "up!",
             "top!",
-        }
+        } # ('up' and 'top' are commonly transcribed from 'stop')
 
         if user_input.lower() in exit_words:
             feedback_msg = (
@@ -312,9 +314,7 @@ class ClinAISession:
         if self.refill_state == "drug_name":
             intent = "RX_REFILL"
 
-        # ------------------------------------
-        # 1. HUMAN ESCALATION
-        # ------------------------------------
+        # 1. ---------- HUMAN ESCALATION ----------
         if intent == "HUMAN_AGENT" and not self.escalated:
             self.escalated = True
 
@@ -344,9 +344,7 @@ class ClinAISession:
             combined = escalation_msg + " " + fake_rep_msg
             return {"agent_message": combined, "end_call": False}
 
-        # ------------------------------------
-        # 2. ADMIN INFO
-        # ------------------------------------
+        # 2. ---------- ADMIN INFO ----------
         if intent == "ADMIN_INFO":
             response = query_ollama(user_input, self.chat_history, self.llm_model)
             add_to_history(self.chat_history, "assistant", response)
@@ -358,41 +356,55 @@ class ClinAISession:
                 self.temp_appt_date = ap.new_temp_appt_date()
 
             return {"agent_message": response, "end_call": False}
+        
+        # 3. ---------- DATE/TIME EXTRACTION ----------
+        run_dt_extraction = (
+            intent in ["APPT_NEW", "APPT_CANCEL", "APPT_RESCHEDULE"]
+            or self.appt_state in [
+                "scheduling_appt",
+                "pending_confirmation",
+                "appt_confirmed",
+                "appt_reason",
+                "cancelling_appt",
+                "confirm_cancellation",
+                "awaiting_cancellation_date",
+            ]
+        )
 
-        # ------------------------------------
-        # 3. RX REFILL CONFIRMATION BRANCHES
-        # ------------------------------------
-        if self.refill_state == "confirm_drug_name":
-            confirm_drug_name = classify_confirmation(user_input)
+        prev_temp_appt = self.temp_appt_date.copy()
 
-            if confirm_drug_name == "CONFIRM":
-                refill_confirmed_msg = handle_refill_request(
-                    self.patient.id, self.call.id, self.med
-                )
-                add_to_history(self.chat_history, "assistant", refill_confirmed_msg)
-                log_turn(self.call.id, "assistant", refill_confirmed_msg)
-                self.refill_state = None
-                return {"agent_message": refill_confirmed_msg, "end_call": False}
+        if run_dt_extraction:
+            formatted_input = ap.format_prompt_time(user_input)
+            results = ap.extract_schedule_json(formatted_input)
 
-            elif confirm_drug_name == "UNSURE":
-                msg = f"Sorry, I didn't catch your answer. Would you like a refill for {self.med}?"
-                add_to_history(self.chat_history, "assistant", msg)
-                log_turn(self.call.id, "assistant", msg)
-                return {"agent_message": msg, "end_call": False}
+            if results:
+                if (results[0]["date"] != self.temp_appt_date["date"] and 
+                    self.availability_state != "confirm_last_slot" and
+                    self.appt_state != "pending_confirmation"):
+                    self.availability_state = "check_availability"
 
-            elif confirm_drug_name == "REJECT":
-                msg = (
-                    "Sorry if I misheard you. Please try saying the name of the "
-                    "medication again, or if you'd like to exit the refill process, just say so!"
-                )
-                add_to_history(self.chat_history, "assistant", msg)
-                log_turn(self.call.id, "assistant", msg)
-                self.refill_state = "drug_name"
-                return {"agent_message": msg, "end_call": False}
+                self.temp_appt_date = ap.update_results(results[-1], self.temp_appt_date)
+                self.temp_appt_date = ap.ampm_mislabel_fix(self.temp_appt_date)
+                print(self.temp_appt_date)
 
-        # ------------------------------------
-        # 4. APPOINTMENT CANCELLATION CONFIRM
-        # ------------------------------------
+            # "one" -> 01:00 edge case without appt action
+            if (
+                self.temp_appt_date["time"] == "01:00"
+                and intent not in ["APPT_NEW", "APPT_CANCEL", "APPT_RESCHEDULE"]
+                and self.appt_state
+                not in [
+                    "scheduling_appt",
+                    "pending_confirmation",
+                    "appt_confirmed",
+                    "appt_reason",
+                    "cancelling_appt",
+                    "confirm_cancellation",
+                    "awaiting_cancellation_dates",
+                ]
+            ):
+                self.temp_appt_date = ap.new_temp_appt_date()
+
+        # 4. ---------- APPOINTMENT CANCELLATION CONFIRM ----------
         if self.appt_state == "confirm_cancellation":
             confirm_appt_cancellation = classify_confirmation(user_input)
 
@@ -414,7 +426,7 @@ class ClinAISession:
                 msg = (
                     "Your appointment has been cancelled. If you'd like to make another "
                     "appointment or request, just ask! If you'd like to end the call now, say stop."
-                )
+                    )
                 add_to_history(self.chat_history, "assistant", msg)
                 log_turn(self.call.id, "assistant", msg)
                 self.temp_appt_date = ap.new_temp_appt_date()
@@ -444,42 +456,78 @@ class ClinAISession:
                 self.reschedule_state = None
                 return {"agent_message": msg, "end_call": False}
 
-        # ------------------------------------
-        # 5. LAST AVAILABLE SLOT CONFIRM
-        # ------------------------------------
+        # 5. ---------- LAST AVAILABLE SLOT CONFIRM ----------
         if self.availability_state == "confirm_last_slot":
-            confirm_last_appt_time = classify_confirmation(user_input)
+            # check if user changed the date/time this turn
+            changed_dt = (
+                prev_temp_appt.get("date") != self.temp_appt_date.get("date")
+                or prev_temp_appt.get("time") != self.temp_appt_date.get("time")
+            )
+            print(f"changed_dt: {changed_dt}")
+            # if user changes date/time during this turn (assume reject, focus on new appt date)
+            if changed_dt: 
+                # user changed both date and time in this turn
+                if self.temp_appt_date["date"] and self.temp_appt_date["time"]:
+                    # User said something about scheduling a different date/time
+                    pretty_date = ap.prettify_date(self.temp_appt_date["date"])
+                    msg = (
+                        f"Okay, let's update that. To confirm, you'd like to schedule your "
+                        f"appointment for {pretty_date} at "
+                        f"{ap.format_appt_time(self.temp_appt_date['time'])}"
+                        f"{self.temp_appt_date['ampm']}, is that correct?"
+                    )
+                    add_to_history(self.chat_history, "assistant", msg)
+                    log_turn(self.call.id, "assistant", msg)
+                    # stay in pending_confirmation with the new date/time
+                    self.appt_state = "pending_confirmation"
+                    return {"agent_message": msg, "end_call": False}
 
-            if confirm_last_appt_time == "CONFIRM":
-                self.temp_appt_date["time"] = self.last_available_time
-                self.temp_appt_date = ap.ampm_mislabel_fix(self.temp_appt_date)
-                self.appt_state = "appt_confirmed"
-                self.availability_state = None
-                # fall through to "ask reason" below on next turn
-            elif confirm_last_appt_time == "UNSURE":
-                msg = (
-                    f"Sorry, I didn't catch your answer. Please confirm, does "
-                    f"{self.last_available_time} work for you?"
-                )
-                add_to_history(self.chat_history, "assistant", msg)
-                log_turn(self.call.id, "assistant", msg)
-                return {"agent_message": msg, "end_call": False}
-            elif confirm_last_appt_time == "REJECT":
-                msg = "Please state another day you would like to schedule your appointment for."
-                add_to_history(self.chat_history, "assistant", msg)
-                log_turn(self.call.id, "assistant", msg)
-                self.temp_appt_date = ap.new_temp_appt_date()
-                self.appt_state = "scheduling_appt"
-                self.availability_state = None
-                return {"agent_message": msg, "end_call": False}
-
-        # ------------------------------------
-        # 6. CONFIRM APPOINTMENT DATE/TIME
-        # ------------------------------------
+                elif self.temp_appt_date["date"] and not self.temp_appt_date["time"]:
+                    # Reset to scheduling flow and trigger availability check
+                    self.appt_state = "scheduling_appt"
+                    self.availability_state = "check_availability"
+                    # fall through to scheduling logic below
+                    
+            else:        
+            # classify user confirmation response
+                confirm_last_appt_time = classify_confirmation(user_input)
+                if confirm_last_appt_time == "CONFIRM":
+                    self.temp_appt_date["time"] = self.last_available_time
+                    self.temp_appt_date = ap.ampm_mislabel_fix(self.temp_appt_date)
+                    self.appt_state = "appt_confirmed"
+                    self.availability_state = None
+                    # fall through to "ask reason" below
+                    
+                elif confirm_last_appt_time == "UNSURE":
+                    msg = (
+                        f"Sorry, I didn't catch your answer. Please confirm, does "
+                        f"{self.last_available_time} work for you?"
+                    )
+                    add_to_history(self.chat_history, "assistant", msg)
+                    log_turn(self.call.id, "assistant", msg)
+                    return {"agent_message": msg, "end_call": False}
+                
+                elif confirm_last_appt_time == "REJECT":
+                    # no new date/time given
+                    msg = "Please state another day you would like to schedule your appointment for... Or if you'd like to stop scheduling, just say so!"
+                    add_to_history(self.chat_history, "assistant", msg)
+                    log_turn(self.call.id, "assistant", msg)
+                    self.temp_appt_date = ap.new_temp_appt_date()
+                    self.appt_state = "scheduling_appt"
+                    self.availability_state = None
+                    return {"agent_message": msg, "end_call": False}
+                
+        # 6. ---------- CONFIRM APPOINTMENT DATE/TIME ----------
         if (
             not ap.missing_info_check(self.temp_appt_date)
             and self.appt_state == "pending_confirmation"
         ):
+            # check if user changed the date/time this turn
+            changed_dt = (
+                prev_temp_appt.get("date") != self.temp_appt_date.get("date")
+                or prev_temp_appt.get("time") != self.temp_appt_date.get("time")
+            )
+            # classify user prompt to see if they confirmed or denied the appointment date/time
             confirmed_appt = classify_confirmation(user_input)
 
             if confirmed_appt == "CONFIRM":
@@ -496,19 +544,32 @@ class ClinAISession:
                 log_turn(self.call.id, "assistant", msg)
                 return {"agent_message": msg, "end_call": False}
             elif confirmed_appt == "REJECT":
-                msg = (
-                    "Sorry if I misheard you. Please try stating your date and time again in one "
-                    "sentence or you may exit the scheduling process by telling me so."
-                )
-                add_to_history(self.chat_history, "assistant", msg)
-                log_turn(self.call.id, "assistant", msg)
-                self.temp_appt_date = ap.new_temp_appt_date()
-                self.appt_state = "scheduling_appt"
-                return {"agent_message": msg, "end_call": False}
-
-        # ------------------------------------
-        # 7. CONTEXT EXIT (EXIT_APPT)
-        # ------------------------------------
+                if changed_dt:
+                    # User said something about scheduling a different date/time
+                    pretty_date = ap.prettify_date(self.temp_appt_date["date"])
+                    msg = (
+                        f"Okay, let's update that. To confirm, you'd like to schedule your "
+                        f"appointment for {pretty_date} at "
+                        f"{ap.format_appt_time(self.temp_appt_date['time'])}"
+                        f"{self.temp_appt_date['ampm']}, is that correct?"
+                    )
+                    add_to_history(self.chat_history, "assistant", msg)
+                    log_turn(self.call.id, "assistant", msg)
+                    # stay in pending_confirmation with the new date/time
+                    self.appt_state = "pending_confirmation"
+                    return {"agent_message": msg, "end_call": False}
+                else:
+                    msg = (
+                        "Sorry if I misheard you. Please try stating your date and time again in one "
+                        "sentence or you may exit the scheduling process by telling me so."
+                    )
+                    add_to_history(self.chat_history, "assistant", msg)
+                    log_turn(self.call.id, "assistant", msg)
+                    self.temp_appt_date = ap.new_temp_appt_date()
+                    self.appt_state = "scheduling_appt"
+                    return {"agent_message": msg, "end_call": False}
+            
+        # 7. ---------- EXIT CURRENT PIPELINE ----------
         if self.appt_state in [
             "pending_confirmation",
             "scheduling_appt",
@@ -516,15 +577,35 @@ class ClinAISession:
             "awaiting_cancellation_date",
         ] or self.refill_state in ["drug_name", "confirm_drug_name"]:
             exit_appt_scheduling = classify_appt_context(user_input)
-
-            if intent == "APPT_CANCEL":
-                self.appt_state = "cancelling_appt"
-
+            
             if exit_appt_scheduling == "EXIT_APPT":
-                msg = (
-                    "Got it, we will stop this process. If you'd like help with anything else, "
-                    "just ask! If you'd like to exit the call, say stop."
-                )
+                
+                # If user is currently scheduling an appointment and says they want to cancel instead
+                if intent == "APPT_CANCEL" and self.appt_state not in ["appt_reason", "appt_confirmed"]:
+                    self.appt_state = "cancelling_appt"
+
+                # custom exit message for each pipeline
+                if self.refill_state in ["drug_name", "confirm_drug_name"]:
+                    msg = (
+                        "Got it, we will stop the refill process. If you'd like help with anything else, "
+                        "just ask! If you'd like to exit the call, say stop."
+                    )
+                elif self.appt_state in ["pending_confirmation", "scheduling_appt", "appt_reason"]:
+                    msg = (
+                        "Got it, we will stop the scheduling process. If you'd like help with anything else, "
+                        "just ask! If you'd like to exit the call, say stop."
+                    )
+                elif self.appt_state in ["awaiting_cancellation_date", "cancelling_appt"]:
+                    msg = (
+                        "Got it, we will stop the cancellation process. If you'd like help with anything else, "
+                        "just ask! If you'd like to exit the call, say stop."
+                    )
+                else:    
+                    msg = (
+                        "Got it, we will stop this process. If you'd like help with anything else, "
+                        "just ask! If you'd like to exit the call, say stop."
+                    )
+                           
                 add_to_history(self.chat_history, "assistant", msg)
                 log_turn(self.call.id, "assistant", msg)
                 self.temp_appt_date = ap.new_temp_appt_date()
@@ -533,10 +614,37 @@ class ClinAISession:
                 self.reschedule_state = None
                 self.refill_state = None
                 return {"agent_message": msg, "end_call": False}
+        
+        # 8. ---------- RX REFILL CONFIRMATION BRANCHES ----------
+        if self.refill_state == "confirm_drug_name":
+            confirm_drug_name = classify_confirmation(user_input)
 
-        # ------------------------------------
-        # 8. ASK REASON ONCE APPT CONFIRMED
-        # ------------------------------------
+            if confirm_drug_name == "CONFIRM":
+                refill_confirmed_msg = handle_refill_request(
+                    self.patient.id, self.call.id, self.med
+                )
+                add_to_history(self.chat_history, "assistant", refill_confirmed_msg)
+                log_turn(self.call.id, "assistant", refill_confirmed_msg)
+                self.refill_state = None
+                return {"agent_message": refill_confirmed_msg, "end_call": False}
+
+            elif confirm_drug_name == "UNSURE":
+                msg = f"Sorry, I didn't catch your answer. Would you like a refill for {self.med}?"
+                add_to_history(self.chat_history, "assistant", msg)
+                log_turn(self.call.id, "assistant", msg)
+                return {"agent_message": msg, "end_call": False}
+
+            elif confirm_drug_name == "REJECT":
+                msg = (
+                    "Sorry if I misheard you. Please try saying the name of the "
+                    "medication again, or if you'd like to exit the refill process, just say so!"
+                )
+                add_to_history(self.chat_history, "assistant", msg)
+                log_turn(self.call.id, "assistant", msg)
+                self.refill_state = "drug_name"
+                return {"agent_message": msg, "end_call": False}
+
+        # 9. ---------- ASK REASON ONCE APPT CONFIRMED ----------
         if not ap.missing_info_check(self.temp_appt_date) and self.appt_state == "appt_confirmed":
             msg = "Perfect! And what is the reason for your appointment?"
             add_to_history(self.chat_history, "assistant", msg)
@@ -554,7 +662,7 @@ class ClinAISession:
             add_to_history(self.chat_history, "assistant", msg)
             log_turn(self.call.id, "assistant", msg)
 
-            # AI summary of reasoning
+            # AI summary of reasoning for appointment
             appt_reason_summary = query_ollama(appt_reason, [{"role": "system", "content": reason_system_prompt}],
                                                model="llama3.1:8b")
             
@@ -567,51 +675,16 @@ class ClinAISession:
             self.reschedule_state = None
             return {"agent_message": msg, "end_call": False}
 
-        # ------------------------------------
-        # 9. DATE/TIME EXTRACTION
-        # ------------------------------------
-        formatted_input = ap.format_prompt_time(user_input)
-        results = ap.extract_schedule_json(formatted_input)
-
-        if results:
-            if results[0]["date"] != self.temp_appt_date["date"]:
-                self.availability_state = "check_availability"
-
-            self.temp_appt_date = ap.update_results(results[-1], self.temp_appt_date)
-            self.temp_appt_date = ap.ampm_mislabel_fix(self.temp_appt_date)
-            print(self.temp_appt_date)
-
-        # fix edge case "one" -> 01:00 without appt action
-        if (
-            self.temp_appt_date["time"] == "01:00"
-            and intent not in ["APPT_NEW", "APPT_CANCEL", "APPT_RESCHEDULE"]
-            and self.appt_state
-            not in [
-                "scheduling_appt",
-                "pending_confirmation",
-                "appt_confirmed",
-                "appt_reason",
-                "cancelling_appt",
-                "confirm_cancellation",
-                "awaiting_cancellation_dates",
-            ]
-        ):
-            self.temp_appt_date = ap.new_temp_appt_date()
-
-        # ------------------------------------
-        # 10. RESCHEDULE
-        # ------------------------------------
+        # 10. ---------- RESCHEDULE ----------
         reschedule_prefix = None  # local flag for this turn only
         
         if intent == "APPT_RESCHEDULE":
             # create prefix for next message from agent in cancellation pipeline
             reschedule_prefix = "Okay, let's reschedule for you!"
             self.reschedule_state = "cancel_for_rescheduling"
-            self.appt_state = "cancelling_appt" # sends user to cancellation pipeline
+            self.appt_state = "cancelling_appt" # sends user down to cancellation pipeline
         
-        # ------------------------------------
-        # 11. NEW APPOINTMENT
-        # ------------------------------------
+        # 11. ---------- NEW APPOINTMENT ----------
         multidate_msg_prepend = None
         if intent == "APPT_NEW" or self.appt_state == "scheduling_appt":
             self.appt_state = "scheduling_appt"
@@ -624,16 +697,16 @@ class ClinAISession:
                     multidate_msg_prepend = None  # make sure we don't reuse it later in this turn
                     return combined
                 return text
-            
-            check_appt_timestamp = ap.check_time(self.temp_appt_date)
+            # make sure time is within hours of operation
+            check_appt_timestamp = ap.check_time(self.temp_appt_date) # None if no conflicts
             if check_appt_timestamp:
                 msg = check_appt_timestamp
                 add_to_history(self.chat_history, "assistant", msg)
                 log_turn(self.call.id, "assistant", msg)
-                return {"agent_message": msg, "end_call": False}
+                return {"agent_message": msg, "end_call": False} 
 
-            blanks = ap.missing_info_check(self.temp_appt_date)
-
+            blanks = ap.missing_info_check(self.temp_appt_date) # contains all keys with missing appt info
+            # prettify date e.g. 2025-11-11 -> November 11th
             pretty_date = (
                 ap.prettify_date(self.temp_appt_date["date"])
                 if self.temp_appt_date["date"]
@@ -685,6 +758,7 @@ class ClinAISession:
                         log_turn(self.call.id, "assistant", msg2)
                         return {"agent_message": msg + " " + msg2, "end_call": False}
 
+                    # avoids agent reading every available slot on fully open day
                     if day_appts_sys_prompt == "full_availability_weekday":
                         msg2 = (
                             f"We have full availability on {pretty_date}. Please choose any "
@@ -716,7 +790,7 @@ class ClinAISession:
                     add_to_history(self.chat_history, "assistant", availabilities_response)
                     log_turn(self.call.id, "assistant", availabilities_response)
 
-                    if len(available_appt_times) == 1:
+                    if len(available_appt_times) == 1: # if there's only one appt slot left
                         self.availability_state = "confirm_last_slot"
                         self.last_available_time = available_appt_times[0]
                         return {
@@ -743,14 +817,14 @@ class ClinAISession:
                     self.temp_appt_date["date"], ap.TIME_SLOTS
                 )
 
-                if not available_appt_times:
+                if not available_appt_times: # if day is completely booked
                     msg = f"Sorry, we are fully booked for {pretty_date}. Please try a different day."
                     add_to_history(self.chat_history, "assistant", msg)
                     log_turn(self.call.id, "assistant", msg)
                     self.temp_appt_date = ap.new_temp_appt_date()
                     return {"agent_message": msg, "end_call": False}
 
-                if self.temp_appt_date["time"] not in available_appt_times:
+                if self.temp_appt_date["time"] not in available_appt_times: # if that time is booked
                     booked_time_msg = (
                         f"Sorry, {self.temp_appt_date['time']} is already booked for {pretty_date}."
                     )
@@ -766,7 +840,7 @@ class ClinAISession:
                         self.availability_state = "confirm_last_slot"
                         msg = nearest_slots[0]
                     else:
-                        self.appt_state = None # in case user says 'yes' or 'no' -> LLM replies instead of keeping user stuck in loop
+                        self.appt_state = None # in case user says 'yes' or 'no' 
                         msg = f"{nearest_slots}"
 
                     return {"agent_message": booked_time_msg + " " + msg, "end_call": False}
@@ -782,15 +856,13 @@ class ClinAISession:
                 log_turn(self.call.id, "assistant", confirm_appt_msg)
                 return {"agent_message": confirm_appt_msg, "end_call": False}
 
-        # ------------------------------------
-        # 12. CANCEL APPOINTMENT FLOW
-        # ------------------------------------
+        # 12. ---------- CANCEL APPOINTMENT ----------
         if intent == "APPT_CANCEL" or self.appt_state == "cancelling_appt":
             self.appt_state = "cancelling_appt"
             patient_appts, patient_appt_dicts = ap.patient_existing_appts(self.patient.id)
             self.cancel_appt_id = None
             
-            # Helper to prepend "Okay, let's reschedule for you!" once if we're in that flow
+            # Helper to prepend "Okay, let's reschedule..." once if we're in that pipeline
             def prepend_prefix(text: str) -> str:
                 nonlocal reschedule_prefix
                 if reschedule_prefix:
@@ -834,7 +906,7 @@ class ClinAISession:
                         return {"agent_message": ask_msg, "end_call": False}
 
                 msg = (
-                    f"{self.pretty_cancel_date} does not match up with any existing appointments "
+                    f"{self.pretty_cancel_date} does not match up with any existing appointments for you "
                     "in our system. Please try repeating the date and time of the appointment "
                     "you would like to cancel."
                 )
@@ -845,8 +917,9 @@ class ClinAISession:
 
             # user gave date only
             if self.temp_appt_date["date"] and not self.temp_appt_date["time"]:
+                # checks for appts scheduled on that date with formatted time
                 appts_for_day = [
-                    appt["time"]
+                    ap.add_ampm(ap.format_appt_time(appt["time"]))
                     for appt in patient_appt_dicts
                     if self.temp_appt_date["date"] == appt["date"]
                 ]
@@ -897,13 +970,13 @@ class ClinAISession:
                     self.appt_state = "awaiting_cancellation_date"
                     return {"agent_message": msg, "end_call": False}
 
-            # if patient has exactly 1 appt (and user didn't specify date yet)
+            # if patient has exactly 1 appt and user didn't specify date yet
             if len(patient_appt_dicts) == 1:
                 appt = patient_appt_dicts[0]
                 self.pretty_cancel_date = (
                     f"{ap.prettify_date(appt['date'])} at {appt['time']}"
                 )
-                msg = patient_appts  # this is the string list from patient_existing_appts
+                msg = patient_appts  # string list from patient_existing_appts
                 msg = prepend_prefix(msg)
                 add_to_history(self.chat_history, "assistant", msg)
                 log_turn(self.call.id, "assistant", msg)
@@ -919,9 +992,7 @@ class ClinAISession:
             self.appt_state = "awaiting_cancellation_date"
             return {"agent_message": msg, "end_call": False}
 
-        # ------------------------------------
-        # 13. RX REFILL (ASK FOR DRUG NAME)
-        # ------------------------------------
+        # 13. ---------- RX REFILL ----------
         if intent == "RX_REFILL" and self.refill_state != "drug_name":
             # attempt to extract meidcation name
             med_candidate = match_medication(user_input) # uses regex and fuzzy matching
@@ -945,12 +1016,11 @@ class ClinAISession:
 
         if self.refill_state == "drug_name":
             med = match_medication(user_input)
-            if not med:
-                msg = f'''
-                I'm sorry, I didn't catch the name of the medication. 
-                Please note that we currently only support {', '.join(MEDS[0:-1])} and {MEDS[-1]}.
-                Try exclusively naming the medication again if it's supported.
-                '''
+            if not med: # inform user list of supported meds
+                msg = (f"I'm sorry, I didn't catch the name of the medication." 
+                    f" Please note that we currently only support {', '.join(MEDS[0:-1])} and {MEDS[-1]}."
+                    f" Try exclusively naming the medication again if it's supported.")
+                
                 add_to_history(self.chat_history, "assistant", msg)
                 log_turn(self.call.id, "assistant", msg)
                 return {"agent_message": msg, "end_call": False}
@@ -962,24 +1032,21 @@ class ClinAISession:
             self.refill_state = "confirm_drug_name"
             return {"agent_message": msg, "end_call": False}
 
-        # ------------------------------------
-        # 14. FALLBACK: LLM ANSWER
-        # ------------------------------------
+        # 14. ---------- FALLBACK: LLM ANSWER ----------
+        # Typically if intent == ADMIN_INFO or intent == OTHER and state machines are None
         response = query_ollama(user_input, self.chat_history, self.llm_model)
         add_to_history(self.chat_history, "assistant", response)
         log_turn(self.call.id, "assistant", response)
         return {"agent_message": response, "end_call": False}
 
 
-# ---------------------------------------------------
-# In-memory session store
-# ---------------------------------------------------
+# ---------- In-memory session store ----------
 
 sessions: Dict[str, ClinAISession] = {}
 
-# ---------------------------------------------------
+# -------------------------------------------------------------------------
 # API endpoints
-# ---------------------------------------------------
+# -------------------------------------------------------------------------
 
 @app.post("/start_session", response_model=StartSessionResponse)
 async def start_session(req: StartSessionRequest):
@@ -1003,7 +1070,7 @@ async def start_session(req: StartSessionRequest):
                     "Please register by providing your name and date of birth."
                 ),
             )
-    # ---------- 1B) Registration flow ----------
+    # ---------- Registration flow ----------
     else:
         dob_val = None
         if req.dob:
@@ -1016,7 +1083,7 @@ async def start_session(req: StartSessionRequest):
             dob=dob_val,
         )
 
-    # ---------- 2) Start call + agent session ----------
+    # ---------- Start call + agent session ----------
     call = start_call(patient_id=patient.id, from_number=patient.phone)
     session = ClinAISession(patient, call)
 
@@ -1025,12 +1092,14 @@ async def start_session(req: StartSessionRequest):
 
     messages = session.start()  # returns intro + welcome messages
 
-    # ---------- 3) Build intro+welcome audio ----------
-    # Messages from ClinAISession.start() look like:
-    # [
-    #   {"role": "assistant", "content": intro_msg},
-    #   {"role": "assistant", "content": welcome_msg},
-    # ]
+    # ---------- Build intro+welcome audio ----------
+    '''
+    Messages from ClinAISession.start() look like:
+    [
+    {"role": "assistant", "content": intro_msg},
+    {"role": "assistant", "content": welcome_msg},
+    ]
+    '''
     audio_buf = io.BytesIO()
 
     for idx, m in enumerate(messages):
@@ -1066,15 +1135,15 @@ async def turn(req: TurnRequest):
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
 
-    # ---- Core ClinAI logic ----
+    # Core ClinAI logic
     result = session.handle_turn(req.user_input)
     agent_message = result["agent_message"]
     end_call_flag = bool(result.get("end_call", False))
 
-    # ---- Are we escalated to human rep? ----
+    # To check if escalated to human rep
     rep_mode = getattr(session, "escalated", False)
 
-    # ---- TTS: Ava vs William, with special split for first rep message ----
+    # Split message read between Ava and William on escalation to representative
     audio_b64: Optional[str] = None
     try:
         if rep_mode and FAKE_REP_TRIGGER in agent_message:
@@ -1110,7 +1179,7 @@ async def turn(req: TurnRequest):
         print(f"[WARN] TTS failed: {e}")
         audio_b64 = None
 
-    # ---- End the call if needed ----
+    # End the call if needed
     if end_call_flag:
         session.end()
         sessions.pop(req.session_id, None)
@@ -1139,7 +1208,7 @@ async def voice_turn(
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
 
-    # ------------------ Convert WebM/Opus -> 16k mono WAV ------------------
+    # Convert WebM/Opus -> 16k mono WAV (Faster-Whisper not compatible with WebM/Opus)
     with tempfile.TemporaryDirectory() as tmpdir:
         in_path = os.path.join(tmpdir, "input.webm")
         out_path = os.path.join(tmpdir, "input_16k.wav")
@@ -1173,15 +1242,15 @@ async def voice_turn(
             ) 
 
         # looser threshold for drug names
-        min_conf = -2.0 if getattr(session, "refill_state", None) == "drug_name" else -0.74
+        min_conf = -2.0 if getattr(session, "refill_state", None) == "drug_name" else -0.70
         text = transcribe_file_with_gate(out_path, min_conf=min_conf)
 
-    # ------------------ Handle silence / low-confidence ------------------
+    # -------- Handle silence / low-confidence --------
     
     # if confidence threshold not met
     if text == "[Inaudible Message]":
         pass # let the LLM handle it
-        # agent_message = "Sorry, I didn’t catch that clearly. Could you repeat?"
+    
     # if no speech is detected
     elif not text:
         patient = getattr(session, "patient", None)
@@ -1211,7 +1280,7 @@ async def voice_turn(
             user_transcript=None,
         )
 
-    # ------------------ Normal voice → text turn ------------------
+    # Normal voice → text turn
     result = session.handle_turn(text)
     agent_message = result["agent_message"]
     end_call_flag = bool(result.get("end_call", False))
@@ -1219,7 +1288,7 @@ async def voice_turn(
     # Escalation state (fake human rep)
     rep_mode = getattr(session, "escalated", False)
 
-    # ---- TTS (same logic as /turn) ----
+    # TTS (same logic as /turn)
     audio_b64: Optional[str] = None
     try:
         '''If we are in rep mode and the message contains William's intro,

@@ -1,0 +1,151 @@
+text,label
+I can't make my Wednesday 3am appointment anymore,APPT_CANCEL
+"I actually can't make my scheduled appointment anymore, let's remove it",APPT_CANCEL
+"cant make my appointment anymore, need you to get rid of it",APPT_CANCEL
+can you remove one of my appointments for me?,APPT_CANCEL
+cant make that wednesday appointment anymore.,APPT_CANCEL
+I need to cancel my upcoming appointment completely.,APPT_CANCEL
+"Please cancel my existing appointment, I won't be able to come.",APPT_CANCEL
+Go ahead and cancel the appointment I already have booked.,APPT_CANCEL
+"I won't be able to make my appointment, please cancel it.",APPT_CANCEL
+"Cancel my appointment for me, I can't make it anymore.",APPT_CANCEL
+"Something came up, so I need to cancel my current appointment.",APPT_CANCEL
+"I no longer need the appointment I scheduled, please cancel it.",APPT_CANCEL
+Please completely cancel the appointment I already have.,APPT_CANCEL
+I have to cancel the appointment I booked earlier.,APPT_CANCEL
+"I can't attend my appointment anymore, please cancel it.",APPT_CANCEL
+Please remove my scheduled appointment from your system.,APPT_CANCEL
+I need you to cancel the appointment that's already set.,APPT_CANCEL
+"Please delete my appointment, I won't be coming.",APPT_CANCEL
+Can you cancel my appointment? I can't make it.,APPT_CANCEL
+"I need to fully cancel my appointment, not move it.",APPT_CANCEL
+"Don't reschedule, just cancel my current appointment.",APPT_CANCEL
+Please wipe out the appointment I have on file.,APPT_CANCEL
+"I changed my mind, cancel the appointment I booked.",APPT_CANCEL
+"Cancel the appointment I have tomorrow, I won't be there.",APPT_CANCEL
+"I can't show up to my appointment anymore, please cancel.",APPT_CANCEL
+Please take my appointment off the calendar.,APPT_CANCEL
+"Remove my appointment entirely, I can't make it.",APPT_CANCEL
+"I'm not going to make my appointment, please cancel it.",APPT_CANCEL
+I want to cancel the appointment I already scheduled.,APPT_CANCEL
+Please cancel all of my upcoming appointments.,APPT_CANCEL
+I need to cancel my follow-up appointment.,APPT_CANCEL
+"Cancel my visit, I won't be coming anymore.",APPT_CANCEL
+Please cancel the appointment under my name.,APPT_CANCEL
+Can you cancel the appointment I booked for next week?,APPT_CANCEL
+"I need my appointment completely canceled, not changed.",APPT_CANCEL
+"I won't be needing my appointment anymore, please cancel.",APPT_CANCEL
+Please drop my appointment from the schedule.,APPT_CANCEL
+"I have to back out of my appointment, cancel it please.",APPT_CANCEL
+Cancel the appointment I set up earlier today.,APPT_CANCEL
+"Please cancel the appointment for me, I can't attend.",APPT_CANCEL
+I want to cancel my appointment slot.,APPT_CANCEL
+"Please stop the appointment I have booked, I can't go.",APPT_CANCEL
+Kindly cancel my upcoming appointment.,APPT_CANCEL
+"I no longer can keep my appointment, cancel it please.",APPT_CANCEL
+Please remove my next appointment from your schedule.,APPT_CANCEL
+I need to cancel my appointment for personal reasons.,APPT_CANCEL
+Just cancel the appointment I already have.,APPT_CANCEL
+Please cancel my checkup appointment.,APPT_CANCEL
+"Cancel my visit altogether, I won't make it.",APPT_CANCEL
+"I'm not available anymore, cancel my appointment.",APPT_CANCEL
+Please cancel my appointment so someone else can have the slot,APPT_CANCEL
+Cancel everything I have scheduled with you.,APPT_CANCEL
+"I want to completely cancel my visit, not reschedule it.",APPT_CANCEL
+Please erase my appointment from your system.,APPT_CANCEL
+"I don't need that appointment anymore, cancel it please.",APPT_CANCEL
+Please cancel the appointment I have in the morning.,APPT_CANCEL
+"Cancel my afternoon appointment, I can't be there.",APPT_CANCEL
+I need to cancel the appointment I booked online.,APPT_CANCEL
+Please cancel my appointment for today.,APPT_CANCEL
+"Cancel today's appointment for me, I'm not coming.",APPT_CANCEL
+"I have to miss my appointment, so please cancel it.",APPT_CANCEL
+Can you please cancel my appointment instead of changing it?,APPT_CANCEL
+"I want no appointment on file anymore, cancel the one I have.",APPT_CANCEL
+Please cancel my scheduled time completely.,APPT_CANCEL
+"I won't make my appointment tomorrow, cancel it please.",APPT_CANCEL
+Please cancel the follow-up I have scheduled.,APPT_CANCEL
+"Get rid of my appointment booking, I can't attend.",APPT_CANCEL
+"I need to back out of my visit, cancel my appointment.",APPT_CANCEL
+Please cancel that appointment slot under my name.,APPT_CANCEL
+I'd like to cancel my upcoming visit.,APPT_CANCEL
+"I'm calling to cancel my appointment, not change it.",APPT_CANCEL
+Please mark my appointment as canceled.,APPT_CANCEL
+I need my check-in appointment canceled.,APPT_CANCEL
+Cancel the appointment I scheduled for this week.,APPT_CANCEL
+"I can't come in anymore, cancel my appointment.",APPT_CANCEL
+Please remove the appointment you have scheduled for me.,APPT_CANCEL
+"I won't be at my appointment, please cancel it.",APPT_CANCEL
+"I don't want the appointment anymore, cancel it.",APPT_CANCEL
+Please cancel the appointment you see on my account.,APPT_CANCEL
+I need to cancel my current appointment and not book another.,APPT_CANCEL
+Can you completely cancel my existing appointment?,APPT_CANCEL
+Please cancel the appointment I arranged yesterday.,APPT_CANCEL
+"Cancel my booking altogether, I won't show up.",APPT_CANCEL
+Go ahead and cancel my appointment for good.,APPT_CANCEL
+Please fully cancel the visit I have scheduled.,APPT_CANCEL
+I need to cancel my appointment because my plans changed.,APPT_CANCEL
+Cancel my appointment and free up that time slot.,APPT_CANCEL
+Please cancel the time you have reserved for me.,APPT_CANCEL
+"I no longer wish to keep that appointment, cancel it.",APPT_CANCEL
+"I decided not to come, please cancel my appointment.",APPT_CANCEL
+Please take my name off the appointment list.,APPT_CANCEL
+I need that appointment canceled right away.,APPT_CANCEL
+"I won't be able to attend, cancel my appointment.",APPT_CANCEL
+"Please cancel the appointment, I double booked myself.",APPT_CANCEL
+"I have another commitment, cancel my appointment please.",APPT_CANCEL
+"Cancel the appointment, I won't be there at all.",APPT_CANCEL
+Please cancel the appointment that was scheduled last month.,APPT_CANCEL
+"I don't need to see the doctor anymore, cancel my visit.",APPT_CANCEL
+"Cancel the session I booked, I can't go.",APPT_CANCEL
+Please cancel my time with the doctor.,APPT_CANCEL
+Can you cancel the appointment on my profile?,APPT_CANCEL
+Please cancel my next scheduled visit.,APPT_CANCEL
+Remove my name from the appointment schedule.,APPT_CANCEL
+"I need no appointment on that day, cancel the one I made.",APPT_CANCEL
+"Please cancel my existing booking, not modify it.",APPT_CANCEL
+"I want out of that appointment, cancel it.",APPT_CANCEL
+Please cancel my visit and close it out.,APPT_CANCEL
+"I need to cancel the appointment, long story.",APPT_CANCEL
+Cancel my appointment since I can't take time off work.,APPT_CANCEL
+"Please cancel my appointment, I'm not feeling well.",APPT_CANCEL
+"I won't be traveling there anymore, cancel my appointment.",APPT_CANCEL
+"Please cancel my appointment for good, I won't reschedule.",APPT_CANCEL
+I want to cancel the appointment and leave it open.,APPT_CANCEL
+"Cancel my appointment, it's no longer needed.",APPT_CANCEL
+Please cancel my appointment instead of moving it.,APPT_CANCEL
+"I have to cancel, I can't be there at that time.",APPT_CANCEL
+"Cancel the appointment completely, I'm not coming.",APPT_CANCEL
+Please cancel my appointment slot and confirm.,APPT_CANCEL
+I'd like that appointment removed from the calendar.,APPT_CANCEL
+Please cancel my appointment due to a conflict.,APPT_CANCEL
+I need that booked time canceled.,APPT_CANCEL
+"Cancel my appointment entirely, not just change it.",APPT_CANCEL
+Please cancel all my booked times with you.,APPT_CANCEL
+Cancel the appointment you see for me on Wednesday.,APPT_CANCEL
+"Please cancel my appointment, I made it by mistake.",APPT_CANCEL
+"I clicked the wrong time, cancel that appointment.",APPT_CANCEL
+"Please cancel my appointment, I chose the wrong day.",APPT_CANCEL
+I need to cancel the appointment for now.,APPT_CANCEL
+"I am no longer available that day, cancel my appointment.",APPT_CANCEL
+"Cancel my booking for that day, I can't attend.",APPT_CANCEL
+Please cancel my appointment before it's too late.,APPT_CANCEL
+"I can't keep that appointment date, cancel it.",APPT_CANCEL
+"Please cancel my appointment, there's been a change of plans.",APPT_CANCEL
+"Cancel the appointment I set, I won't be there.",APPT_CANCEL
+"I don't want that appointment anymore, cancel it now.",APPT_CANCEL
+Please cancel my appointment immediately.,APPT_CANCEL
+Cancel my appointment and remove it from your records.,APPT_CANCEL
+"I want that appointment canceled, not moved.",APPT_CANCEL
+Please cancel my appointment since I can't confirm it.,APPT_CANCEL
+"Cancel my visit, I'm not able to come in.",APPT_CANCEL
+Please cancel the appointment; I won't follow through.,APPT_CANCEL
+I need to cancel the time I've reserved.,APPT_CANCEL
+Please cancel my appointment because I found another provider.,APPT_CANCEL
+Cancel my current appointment; I won't use it.,APPT_CANCEL
+I have to cancel my appointment due to an emergency.,APPT_CANCEL
+Please cancel the appointment as soon as possible.,APPT_CANCEL
+Cancel my scheduled appointment; I can't make that time.,APPT_CANCEL
+Please cancel the appointment I booked over the phone.,APPT_CANCEL
+I want to cancel instead of changing anything.,APPT_CANCEL
+Cancel my appointment; it's no longer necessary.,APPT_CANCEL
