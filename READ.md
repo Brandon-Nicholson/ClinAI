@@ -115,7 +115,7 @@
 # Quickstart (OPTIONAL)
 
 ```bash
-git clone …
+git clone https://github.com/Brandon-Nicholson/ClinAI.git
 cd ClinAI
 python -m venv .venv
 .\.venv\Scripts\activate
@@ -149,7 +149,7 @@ source .venv/bin/activate
 Windows:
 
 ```bash
-.venv\Scripts\activate # Windows
+.venv\Scripts\activate
 ```
 
 3. Install dependencies:
@@ -202,8 +202,7 @@ Now from the project root, run:
 py -m app.db.create_tables
 ```
 
-This will instantly create all the tables
-Refresh your database in PostgreSQL and verify the tables are there
+This will instantly create all the tables. Refresh your database in PostgreSQL and verify the tables are there
 
 6. Ollama Setup (REQUIRED)
 
@@ -263,4 +262,5 @@ It should take you to the UI where you can test the ClinAI agent locally!
 ## Contact
 
 Built by Brandon N.
+
 Email: brandonickk@gmail.com
