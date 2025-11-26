@@ -2,8 +2,7 @@
 
 **Preview:**
 
-![ClinAI Screenshot](screenshots/readme.png)
-![ClinAI Screenshot](screenshots/readme2.png)
+![ClinAI Screenshot](screenshots/readmd.png)
 
 ## Features Overview
 
