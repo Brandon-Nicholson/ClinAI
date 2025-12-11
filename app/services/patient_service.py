@@ -37,7 +37,7 @@ def intake_patient(first_name: str, last_name: str, phone: str, dob: date | None
 
 
 # helper functions
-def get_by_phone(phone: str):
+def get_by_phone(phone: str): # can be used to look up a patient by phone
     with get_session() as s:
         return s.execute(select(Patient).where(Patient.phone == phone)).scalar_one_or_none()
 

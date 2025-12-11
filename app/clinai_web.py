@@ -802,7 +802,7 @@ class ClinAISession:
                     return {
                         "agent_message": msg + " " + availabilities_response,
                         "end_call": False,
-                    }
+                    }                   
 
             # date+time present -> confirm + check availability
             if not blanks:

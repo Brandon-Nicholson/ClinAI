@@ -27,7 +27,7 @@ sounddevice
 numpy
 
 # Text-to-speech & playback
-edge-tts
+edge-tts==7.0.0
 pygame
 
 # LLM integration (Ollama)
