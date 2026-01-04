@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# Virtual env
+.venv/
+venv/
+
+# Git + secrets
+.git/
+.env
+.env.*
+notes
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Jupyter / local tooling
+*.ipynb
+
+# Training data
+data/
+
+# Classifiers
+classifiers/intent_model/intent_classifier/
+classifiers/appt_context_model/appt_context_classifier/
+classifiers/confirmation_model/confirmation_classifier/
