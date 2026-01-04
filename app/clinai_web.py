@@ -87,7 +87,7 @@ async def tts_to_mp3_bytes(text: str, voice: str) -> bytes:
 # ----- Whisper STT for browser audio -----
 
 print("[ClinAI-Web] Loading Whisper model...")
-WHISPER_MODEL = WhisperModel("medium", device="cuda", compute_type="float16")
+WHISPER_MODEL = WhisperModel("base", device="cpu", compute_type="int8")
 
 
 def _seg_conf(seg):
