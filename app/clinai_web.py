@@ -21,21 +21,28 @@ from pydantic import BaseModel
 
 import base64
 import io
-import asyncio
 import edge_tts
 import tempfile
 import os
+import shutil
 from faster_whisper import WhisperModel
 
 import subprocess
-FFMPEG_BIN = r"C:\ffmpeg\ffmpeg-7.1.1-essentials_build\bin\ffmpeg.exe" # path to ffmpeg
+# Server-only: expect ffmpeg to be installed on the container and available on PATH.
+FFMPEG_BIN = os.getenv("FFMPEG_BIN") or shutil.which("ffmpeg") # for converting web audio -> WAV format
+
+if not FFMPEG_BIN: # raise error if ffmpeg not found
+    raise RuntimeError(
+        "ffmpeg not found. Install it on the server (e.g., Nixpacks aptPkgs=['ffmpeg']) "
+        "or set the FFMPEG_BIN environment variable to the ffmpeg path."
+    )
 
 # ---- Imports from your existing app ----
 from app.services.call_service import (start_call,end_call,set_intent,log_turn,
     was_resolved,call_notes,)
 from app.services.patient_service import intake_patient, get_by_phone
 from app.services.rx_refills import match_medication, handle_refill_request, MEDS
-from app.voice.llm import (query_ollama, add_to_history, main_system_prompt, info_system_prompt,
+from app.voice.llm import (query_llm, add_to_history, main_system_prompt, info_system_prompt,
     human_system_prompt, reason_system_prompt)
 from classifiers.intent_model.intent_classifier import classify_intent
 from classifiers.appt_context_model.appt_context_classifier import classify_appt_context
@@ -346,7 +353,7 @@ class ClinAISession:
 
         # 2. ---------- ADMIN INFO ----------
         if intent == "ADMIN_INFO":
-            response = query_ollama(user_input, self.chat_history, self.llm_model)
+            response = query_llm(user_input, self.chat_history, self.llm_model)
             add_to_history(self.chat_history, "assistant", response)
             log_turn(self.call.id, "assistant", response)
 
@@ -663,7 +670,7 @@ class ClinAISession:
             log_turn(self.call.id, "assistant", msg)
 
             # AI summary of reasoning for appointment
-            appt_reason_summary = query_ollama(appt_reason, [{"role": "system", "content": reason_system_prompt}],
+            appt_reason_summary = query_llm(appt_reason, [{"role": "system", "content": reason_system_prompt}],
                                                model="llama3.1:8b")
             
             db_timestamp_format = ap.parts_to_local_dt(self.temp_appt_date)
@@ -784,7 +791,7 @@ class ClinAISession:
                     prompt_for_availability = (
                         f"Please give me the available times for {self.temp_appt_date['date']}"
                     )
-                    availabilities_response = query_ollama(
+                    availabilities_response = query_llm(
                         prompt_for_availability, self.chat_history, self.llm_model
                     )
                     add_to_history(self.chat_history, "assistant", availabilities_response)
@@ -1034,7 +1041,7 @@ class ClinAISession:
 
         # 14. ---------- FALLBACK: LLM ANSWER ----------
         # Typically if intent == ADMIN_INFO or intent == OTHER and state machines are None
-        response = query_ollama(user_input, self.chat_history, self.llm_model)
+        response = query_llm(user_input, self.chat_history, self.llm_model)
         add_to_history(self.chat_history, "assistant", response)
         log_turn(self.call.id, "assistant", response)
         return {"agent_message": response, "end_call": False}
@@ -1230,7 +1237,8 @@ async def voice_turn(
     ]
 
         proc = subprocess.run(
-            ffmpeg_cmd,
+            [FFMPEG_BIN, "-y", "-i", in_path, out_path],
+            check=True,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
         )

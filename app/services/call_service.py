@@ -5,7 +5,7 @@ from typing import Optional, List
 from sqlalchemy import select, func
 from app.db.session import get_session
 from app.db.models import Call, Transcript
-from app.voice.llm import query_ollama, notes_system_prompt
+from app.voice.llm import query_llm, notes_system_prompt
 
 # Core lifecycle
 def start_call(patient_id: Optional[int] = None, from_number: Optional[str] = None) -> Call:
@@ -39,7 +39,7 @@ def call_notes(chat_history: list, model: str):
         chat_history.pop(0)
     chat_history.insert(0, {'role':'system', 'content': notes_system_prompt})
     prompt = "That was the end of the coversation, now please summarize the entire conversation into 2-3 brief sentences."
-    notes = query_ollama(prompt, chat_history, model)
+    notes = query_llm(prompt, chat_history, model)
     
     return notes
 

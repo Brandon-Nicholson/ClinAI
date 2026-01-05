@@ -2,6 +2,17 @@
  # query LLM
 import ollama
 
+from __future__ import annotations
+
+import os
+from typing import Any, Dict, List
+
+from dotenv import load_dotenv
+
+from openai import OpenAI
+
+load_dotenv()
+
 # -----System Prompts-----
 
 main_system_prompt = f"""
@@ -81,28 +92,94 @@ Do not put "Summary:" or anything like it before the summary, only respond with 
 Summarize any prompts you are given henceforth.
 """
 
-# ----- functions -----
+# ----- helpers -----
 
-def query_ollama(prompt, chat_history, model):
-    
-    # add prompt to context window
-    chat_history.append({'role':'user', 'content': prompt})
-    
-    # get response from LLM
-    response = ollama.chat(model=model,
-                       messages=chat_history)
-    
-    reply = response['message']['content']
-    
-    # add response to context window
-    chat_history.append({'role':'assistant', 'content': reply})
-    
-    return reply
+# check if OpenAI API account has suffucient credits
+def _is_openai_insufficient_quota(err: Exception) -> bool:
   
+    s = (str(err) or "").lower()
+    return (
+        "insufficient_quota" in s
+        or "insufficient quota" in s
+        or "exceeded your current quota" in s
+        or "billing" in s and "quota" in s
+        or "no credit" in s
+        or "credits" in s and "insufficient" in s
+    )
+
+# check if system has Ollama installed
+def _ollama_reachable() -> bool:
+    try:
+        # lightweight call; avoids running a full chat
+        ollama.list()
+        return True
+    except Exception:
+        return False
+
+# get response from OpenAI model
+def _openai_chat(messages: List[Dict[str, str]], model: str) -> str:
+    api_key = os.getenv("OPENAI_API_KEY")
+    if not api_key:
+        return "OpenAI API key not set."
+
+    client = OpenAI(api_key=api_key)
+
+    resp = client.chat.completions.create(
+        model=model,
+        messages=messages,
+    )
+    content = resp.choices[0].message.content
+    return content or ""
+
+# main query function
+# Tries Ollama first if reachable. If Ollama is not reachable, uses OpenAI (gpt-4o-mini by default)
+def query_llm(prompt: str, chat_history: List[Dict[str, str]], model: str) -> str:
+    # Add prompt to context window
+    chat_history.append({"role": "user", "content": prompt})
+
+    # Decide provider
+    prefer_ollama = os.getenv("PREFER_OLLAMA", "true").lower() in ("1", "true", "yes", "y")
+    openai_model = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+
+    reply: str = ""
+
+    if prefer_ollama and _ollama_reachable():
+        # Ollama path
+        try:
+            response = ollama.chat(model=model, messages=chat_history)
+            reply = response["message"]["content"]
+        except Exception:
+            # If Ollama fails mid-call, fall back to OpenAI
+            try:
+                reply = _openai_chat(chat_history, openai_model)
+            except Exception as e:
+                if _is_openai_insufficient_quota(e):
+                    reply = "Insufficient OpenAI Credits"
+                else:
+                    reply = "LLM backend error."
+    else:
+        # OpenAI path
+        try:
+            reply = _openai_chat(chat_history, openai_model)
+        except Exception as e:
+            if _is_openai_insufficient_quota(e):
+                reply = "Insufficient OpenAI Credits"
+            else:
+                reply = "LLM backend error."
+
+    # Add response to context window
+    chat_history.append({"role": "assistant", "content": reply})
+    return reply
+
+
+# Backwards-compatible alias so I don't have to refactor everywhere
+def query_ollama(prompt: str, chat_history: List[Dict[str, str]], model: str) -> str:
+    return query_llm(prompt, chat_history, model)
+
+
 # Append a message to the conversation history.
 def add_to_history(chat_history, role: str, content: str):
     # Role: 'user', 'assistant', or 'system'
-
     chat_history.append({"role": role, "content": content})
     return chat_history
 

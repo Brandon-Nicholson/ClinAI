@@ -1,0 +1,13 @@
+[phases.setup]
+aptPkgs = ["ffmpeg"]
+
+[phases.install]
+cmds = [
+    "pip install --upgrade pip",
+    "pip install poetry",
+    "poetry config virtualenvs.create false",
+    "poetry install --no-interaction --no-ansi",
+]
+
+[start]
+cmd = "poetry run uvicorn app.clinai_web:app --host 0.0.0.0 --port $PORT"
