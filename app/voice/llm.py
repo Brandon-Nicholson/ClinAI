@@ -1,11 +1,9 @@
 # app/voice/llm.py
- # query LLM
+
 import ollama
 
-from __future__ import annotations
-
 import os
-from typing import Any, Dict, List
+from typing import Dict, List
 
 from dotenv import load_dotenv
 
