@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 from openai import OpenAI
 
-load_dotenv()
+load_dotenv(override=False)
 
 # -----System Prompts-----
 
@@ -118,7 +118,7 @@ def _ollama_reachable() -> bool:
 def _openai_chat(messages: List[Dict[str, str]], model: str) -> str:
     api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
-        return "OpenAI API key not set."
+        raise RuntimeError("OPENAI_API_KEY not set")
 
     client = OpenAI(api_key=api_key)
 
