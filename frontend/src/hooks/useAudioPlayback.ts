@@ -1,25 +1,44 @@
 import { useCallback, useRef, useEffect } from 'react';
-import { createAudioUrl } from '../utils/audio';
+import { base64ToArrayBuffer } from '../utils/audio';
 
 interface UseAudioPlaybackOptions {
   enabled: boolean;
 }
 
 export function useAudioPlayback({ enabled }: UseAudioPlaybackOptions) {
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-  const urlRef = useRef<string | null>(null);
+  const audioContextRef = useRef<AudioContext | null>(null);
+  const sourceRef = useRef<AudioBufferSourceNode | null>(null);
+
+  const getAudioContext = useCallback(() => {
+    if (!audioContextRef.current) {
+      const AudioContextClass =
+        window.AudioContext ||
+        (window as unknown as { webkitAudioContext: typeof AudioContext })
+          .webkitAudioContext;
+      audioContextRef.current = new AudioContextClass();
+    }
+    return audioContextRef.current;
+  }, []);
 
   const cleanup = useCallback(() => {
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.src = '';
-      audioRef.current = null;
-    }
-    if (urlRef.current) {
-      URL.revokeObjectURL(urlRef.current);
-      urlRef.current = null;
+    if (sourceRef.current) {
+      sourceRef.current.onended = null;
+      sourceRef.current.disconnect();
+      try {
+        sourceRef.current.stop();
+      } catch {
+        // Ignore stop errors when already finished.
+      }
+      sourceRef.current = null;
     }
   }, []);
+
+  const unlockAudio = useCallback(async () => {
+    const context = getAudioContext();
+    if (context.state === 'suspended') {
+      await context.resume();
+    }
+  }, [getAudioContext]);
 
   const playAudio = useCallback(
     async (base64: string): Promise<void> => {
@@ -28,35 +47,28 @@ export function useAudioPlayback({ enabled }: UseAudioPlaybackOptions) {
       // Cleanup previous audio
       cleanup();
 
-      return new Promise((resolve, reject) => {
-        try {
-          const url = createAudioUrl(base64);
-          urlRef.current = url;
+      const context = getAudioContext();
+      if (context.state === 'suspended') {
+        await context.resume();
+      }
 
-          const audio = new Audio(url);
-          audioRef.current = audio;
+      const audioBuffer = await context.decodeAudioData(
+        base64ToArrayBuffer(base64)
+      );
 
-          audio.onended = () => {
-            cleanup();
-            resolve();
-          };
-
-          audio.onerror = () => {
-            cleanup();
-            reject(new Error('Failed to play audio'));
-          };
-
-          audio.play().catch((error) => {
-            cleanup();
-            reject(error);
-          });
-        } catch (error) {
+      return new Promise((resolve) => {
+        const source = context.createBufferSource();
+        sourceRef.current = source;
+        source.buffer = audioBuffer;
+        source.connect(context.destination);
+        source.onended = () => {
           cleanup();
-          reject(error);
-        }
+          resolve();
+        };
+        source.start(0);
       });
     },
-    [enabled, cleanup]
+    [enabled, cleanup, getAudioContext]
   );
 
   const stopAudio = useCallback(() => {
@@ -65,11 +77,18 @@ export function useAudioPlayback({ enabled }: UseAudioPlaybackOptions) {
 
   // Cleanup on unmount
   useEffect(() => {
-    return cleanup;
+    return () => {
+      cleanup();
+      if (audioContextRef.current) {
+        audioContextRef.current.close();
+        audioContextRef.current = null;
+      }
+    };
   }, [cleanup]);
 
   return {
     playAudio,
     stopAudio,
+    unlockAudio,
   };
 }

@@ -27,7 +27,7 @@ function AppContent() {
     pendingAudioRef,
   } = useSession();
 
-  const { playAudio } = useAudioPlayback({ enabled: agentVoiceEnabled });
+  const { playAudio, unlockAudio } = useAudioPlayback({ enabled: agentVoiceEnabled });
 
   const handleRecordingComplete = useCallback(
     async (blob: Blob) => {
@@ -57,13 +57,32 @@ function AppContent() {
       const audio = pendingAudioRef.current;
       pendingAudioRef.current = null;
       playAudio(audio).catch(() => {
-        // Audio playback failed, ignore
+        // Ignore playback failures (autoplay restrictions handled by unlock).
       });
     }
   }, [isAgentResponding, pendingAudioRef, playAudio]);
 
   const isChatDisabled = !sessionId || callEnded || status === 'thinking';
   const isThinking = status === 'thinking';
+
+  const handleSendText = useCallback(
+    (text: string) => {
+      unlockAudio().catch(() => {
+        // Ignore unlock errors; playback will try again on next gesture.
+      });
+      sendMessage(text);
+    },
+    [sendMessage, unlockAudio]
+  );
+
+  const handleMicClick = useCallback(async () => {
+    try {
+      await unlockAudio();
+    } catch {
+      // Ignore unlock errors; playback will try again on next gesture.
+    }
+    await toggleRecording();
+  }, [toggleRecording, unlockAudio]);
 
   return (
     <div className="min-h-screen gradient-bg flex flex-col">
@@ -109,11 +128,11 @@ function AppContent() {
             {/* Chat Window - Show when session active */}
             {sessionId && (
               <div className="animate-fade-in">
-                <ChatWindow
-                  messages={messages}
-                  isTyping={isThinking}
-                  onSendText={sendMessage}
-                  onMicClick={toggleRecording}
+                  <ChatWindow
+                    messages={messages}
+                    isTyping={isThinking}
+                  onSendText={handleSendText}
+                  onMicClick={handleMicClick}
                   disabled={isChatDisabled}
                   isRecording={isRecording}
                 />

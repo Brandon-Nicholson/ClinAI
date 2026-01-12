@@ -7,6 +7,15 @@ export function base64ToBlob(base64: string, mimeType: string = 'audio/mpeg'): B
   return new Blob([bytes], { type: mimeType });
 }
 
+export function base64ToArrayBuffer(base64: string): ArrayBuffer {
+  const binaryString = atob(base64);
+  const bytes = new Uint8Array(binaryString.length);
+  for (let i = 0; i < binaryString.length; i++) {
+    bytes[i] = binaryString.charCodeAt(i);
+  }
+  return bytes.buffer;
+}
+
 export function createAudioUrl(base64: string): string {
   const blob = base64ToBlob(base64);
   return URL.createObjectURL(blob);
