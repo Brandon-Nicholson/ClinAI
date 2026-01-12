@@ -31,10 +31,10 @@ import subprocess
 # Server-only: expect ffmpeg to be installed on the container and available on PATH.
 FFMPEG_BIN = os.getenv("FFMPEG_BIN") or shutil.which("ffmpeg") # for converting web audio -> WAV format
 
-if not FFMPEG_BIN: # raise error if ffmpeg not found
-    raise RuntimeError(
-        "ffmpeg not found. Install it on the server (e.g., Nixpacks aptPkgs=['ffmpeg']) "
-        "or set the FFMPEG_BIN environment variable to the ffmpeg path."
+if not FFMPEG_BIN:
+    print(
+        "[WARN] ffmpeg not found. Voice input features will not work. "
+        "Install ffmpeg or set the FFMPEG_BIN environment variable to enable voice."
     )
 
 # ---- Imports from your existing app ----
@@ -57,13 +57,24 @@ app = FastAPI(title="ClinAI Web Demo")
 
 BASE_DIR = pathlib.Path(__file__).resolve().parent
 
-# Serve static files
-app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
+# Check for React build first, fall back to legacy static
+REACT_DIST = BASE_DIR / "static" / "dist"
 
-@app.get("/")
-async def root():
-    # Serve the main HTML page
-    return FileResponse(BASE_DIR / "static" / "index.html")
+if REACT_DIST.exists() and (REACT_DIST / "index.html").exists():
+    # Serve React build assets
+    if (REACT_DIST / "assets").exists():
+        app.mount("/assets", StaticFiles(directory=REACT_DIST / "assets"), name="assets")
+
+    @app.get("/")
+    async def root():
+        return FileResponse(REACT_DIST / "index.html")
+else:
+    # Fallback to legacy static files
+    app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
+
+    @app.get("/")
+    async def root():
+        return FileResponse(BASE_DIR / "static" / "index.html")
 
 # ----- TTS config -----
 EDGE_TTS_VOICE = "en-US-AvaNeural"
@@ -1214,6 +1225,13 @@ async def voice_turn(
     session = sessions.get(session_id)
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
+
+    # Check if ffmpeg is available
+    if not FFMPEG_BIN:
+        raise HTTPException(
+            status_code=503,
+            detail="Voice input is not available. ffmpeg is not installed on this server."
+        )
 
     # Convert WebM/Opus -> 16k mono WAV (Faster-Whisper not compatible with WebM/Opus)
     with tempfile.TemporaryDirectory() as tmpdir:

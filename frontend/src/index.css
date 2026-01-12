@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+      'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #050505;
+    color: #e5e7eb;
+  }
+
+  /* Prevent iOS zoom on input focus */
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #3b3b44;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #4b4b54;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-clinai-card backdrop-blur-xl border border-clinai-border rounded-2xl;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 bg-clinai-bg-secondary border border-clinai-border rounded-lg
+           text-clinai-text placeholder-clinai-text-dim
+           focus:outline-none focus:border-clinai-accent focus:ring-1 focus:ring-clinai-accent
+           transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-clinai-accent hover:bg-clinai-accent-hover
+           text-white font-medium rounded-lg
+           transition-all duration-200
+           disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-clinai-accent;
+  }
+
+  .btn-icon {
+    @apply w-11 h-11 flex items-center justify-center rounded-full
+           bg-clinai-bg-secondary border border-clinai-border
+           text-clinai-text-muted hover:text-clinai-text hover:border-clinai-border-light
+           transition-all duration-200
+           disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+}
+
+@layer utilities {
+  .gradient-bg {
+    background: radial-gradient(
+      ellipse at 50% 0%,
+      #111111 0%,
+      #050305 50%,
+      #020308 100%
+    );
+  }
+}
