@@ -27,6 +27,6 @@ RUN pip install --no-cache-dir poetry \
 COPY . .
 
 # Copy React build from frontend stage
-COPY --from=frontend-builder /frontend/dist /app/app/static/dist
+COPY --from=frontend-builder /app/static/dist /app/app/static/dist
 
 CMD ["bash", "-lc", "exec poetry run uvicorn app.clinai_web:app --host 0.0.0.0 --port ${PORT:-8000}"]
